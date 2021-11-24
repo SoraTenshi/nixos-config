@@ -15,7 +15,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "neoncity"; # Define your hostname.
+  # Enable the wlan interface '$ ip link show'
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # networking.wireless.interfaces = [ "wlp3s0" ];
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -47,10 +49,14 @@
   # Configure keymap in X11
   services.xserver = { 
     layout = "us";
-    # for now i cannot use colemak because spacevim kinda uses a new system i am not used to,
-    # so i have to do some reading in this regard
     # xkbVariant = "colemak";
     xkbOptions = "eurosign:e";
+  };
+
+  # Enable japanese input method
+  i18n.inputMethod = {
+    enabled = "ibus";
+    ibus.engines = with pkgs.ibus-engines; [ mozc ];
   };
 
   # Enable CUPS to print documents.
@@ -85,20 +91,32 @@
     vivaldi
 
     # WM Fuckery
-    leftwm dmenu polybar
+    leftwm dmenu haskellPackages.xmobar nitrogen pywal networkmanager_dmenu
 
     # Code specific stuff
-    cargo rustup rustc gcc git clang go
+    cargo rustup rustc gcc git clang go pythonFull 
 
     # because i want to flex that i use nixos :P
     neofetch
 
-    # hipster rust console :D
-    alacritty
+    # Shell, because i want everything to look nice :)
+    alacritty 
+
+    # util
+    bat ibus-engines.mozc pmount feh
+
+    # ahh yes, something that will never properly work on linux
+    steam 
+
+    # font
+    jetbrains-mono
   ];
 
   programs.bash.shellAliases = {
+    sudo = "sudo ";
+    cat = "bat";
     vim = "spacevim";
+    locate = "mlocate";
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -112,7 +130,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
