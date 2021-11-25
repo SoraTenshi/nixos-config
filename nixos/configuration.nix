@@ -100,10 +100,10 @@
     neofetch
 
     # Shell, because i want everything to look nice :)
-    alacritty 
+    alacritty fish
 
     # util
-    bat ibus-engines.mozc pmount feh
+    bat ibus-engines.mozc pmount feh 
 
     # ahh yes, something that will never properly work on linux
     steam 
