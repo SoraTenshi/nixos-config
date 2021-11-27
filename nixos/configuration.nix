@@ -19,6 +19,10 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.wireless.interfaces = [ "wlp3s0" ];
 
+  # Enable auto update
+  system.autoUpgrade.enable = true;
+
+
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
@@ -49,7 +53,7 @@
   # Configure keymap in X11
   services.xserver = { 
     layout = "us";
-    # xkbVariant = "colemak";
+  #  xkbVariant = "colemak";
     xkbOptions = "eurosign:e";
   };
 
@@ -77,6 +81,7 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowBroken = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -100,16 +105,17 @@
     neofetch
 
     # Shell, because i want everything to look nice :)
-    alacritty fish
+    # Make sure that zsh and oh-my-zsh will be moved to home-manager once config complete
+    alacritty zsh oh-my-zsh zsh-powerlevel10k zsh-autosuggestions zsh-syntax-highlighting
 
     # util
     bat ibus-engines.mozc pmount feh 
 
-    # ahh yes, something that will never properly work on linux
-    steam 
-
     # font
     jetbrains-mono
+
+    # kbd system
+    # haskellPackages.kmonad
   ];
 
   programs.bash.shellAliases = {
