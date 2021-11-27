@@ -13,22 +13,29 @@
     alacritty
     
     # Actual Shell, with some skins
-    zsh oh-my-zsh zsh-powerlevel10k zsh-autosuggestions
+    zsh
   ];
 
+  # Let's start and use Cyberpunk-neon
+
+  # Terminal Emulator
+  programs.alacritty = {
+    enable = true;
+    # When alacritty config done, get from github repo and integrate~
+  };
+
+  # Shell
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    plugins = [{
-      name = "oh-my-zsh";
-      src = oh-my-zsh;
-    }{
-      name = "powerlevel10k";
-      src = zsh-powerlevel10k;
-    }{
-      name = "autosuggestions";
-      src = zsh-autosuggestions;
-    }];
+    enableAutosuggestions = true;
+    syntaxHighlighting.enable = true;
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "git" "powerlevel10k"
+      ];
+    };
   };
 
 
