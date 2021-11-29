@@ -2,6 +2,15 @@
 
 { config, pkgs, ... }:
 
+let 
+  powerlevel10k = pkgs.fetchFromGitHub {
+    owner = "romkatv";
+    repo = "powerlevel10k";
+    rev = "a9f208c8fc509b9c591169dd9758c48ad4325f76";
+    sha256 = "1jkddpmdmp274wkx407dwyi78dhraqq6vdxh15m13yraq1cy17jw";
+  };
+in
+
 {
   # Enable the usage of home-manager
   # The point of home-manager is to create
@@ -24,6 +33,8 @@
     # When alacritty config done, get from github repo and integrate~
   };
 
+  
+
   # Shell
   programs.zsh = {
     enable = true;
@@ -32,9 +43,10 @@
     syntaxHighlighting.enable = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [
-        "git" "powerlevel10k"
-      ];
+      plugins = [{ 
+          name = "powerlevel10k";
+          src = powerlevel10k;
+        }];
     };
   };
 

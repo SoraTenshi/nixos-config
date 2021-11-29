@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      <home-manager/nixos>
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -16,11 +17,15 @@
 
   networking.hostName = "neoncity"; # Define your hostname.
   # Enable the wlan interface '$ ip link show'
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  # networking.wireless.interfaces = [ "wlp3s0" ];
+  #  networking.wireless = {
+  #    enable = true;
+  #    userControlled.enable = true;
+  #    interfaces = [ "wlp3s0" ];
+  #  };
+  networking.networkmanager.enable = true;
 
   # Enable auto update
-  system.autoUpgrade.enable = true;
+  # systems.autoUpgrade.enable = true;
 
 
   # Set your time zone.
@@ -77,7 +82,7 @@
   users.users.dreamer = {
     isNormalUser = true;
     initialPassword = "P4$$w0rd";
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -96,7 +101,7 @@
     vivaldi
 
     # WM Fuckery
-    leftwm dmenu haskellPackages.xmobar nitrogen pywal networkmanager_dmenu
+    leftwm rofi polybar nitrogen pywal rofi-power-menu
 
     # Code specific stuff
     cargo rustup rustc gcc git clang go pythonFull 
@@ -109,13 +114,16 @@
     alacritty zsh oh-my-zsh zsh-powerlevel10k zsh-autosuggestions zsh-syntax-highlighting
 
     # util
-    bat ibus-engines.mozc pmount feh 
+    bat ibus-engines.mozc pmount feh networkmanager_dmenu dmenu
 
     # font
     jetbrains-mono
 
     # kbd system
     # haskellPackages.kmonad
+
+    # nix utils
+    nix-prefetch-github
   ];
 
   programs.bash.shellAliases = {
