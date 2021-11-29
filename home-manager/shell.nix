@@ -37,7 +37,7 @@ in
       colors = {
         primary = {
           background = "0x000b1e";
-          foreground = "0x0abcdc6";
+          foreground = "0x0abdc6";
         };
         normal = {
           black = "0x123e7c";
