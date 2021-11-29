@@ -3,11 +3,11 @@
 { config, pkgs, ... }:
 
 let 
-  powerlevel10k = pkgs.fetchFromGitHub {
-    owner = "romkatv";
-    repo = "powerlevel10k";
-    rev = "a9f208c8fc509b9c591169dd9758c48ad4325f76";
-    sha256 = "1jkddpmdmp274wkx407dwyi78dhraqq6vdxh15m13yraq1cy17jw";
+  cyberpunk-neon = pkgs.fetchFromGitHub {
+    owner = "roboron3042";
+    repo = "cyberpunk-neon";
+    rev = "4dbd5b382e9af6b501843df25577babe071fad87";
+    sha256 = "0yrv37ssqrwmls5r2icf1c2j4j9z2m79c7k2xag0k4c93cl7z4ly";
   };
 in
 {
@@ -84,26 +84,28 @@ in
       sudo = "sudo ";
       cat = "bat ";
     };
-    initExtra = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+    shellAliases = {
+      vim = "spacevim ";
+      sudo = "sudo ";
+      cat = "bat ";
+    };
+    # initExtra = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+    plugins = [{
+      name = "powerlevel10k";
+      src = pkgs.zsh-powerlevel10k;
+      file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+    }{
+      name = "cyberpunk-neon";
+      src = cyberpunk-neon;
+      file = "p10k.zsh";
+    }
+    ];
 
     oh-my-zsh = {
       enable = true;
       plugins = [
         "git" "sudo" "man" "rust"
       ];
-    };
-  };
-
-  home.file = {
-    ".zshrc" = {
-      source = let 
-        repo = pkgs.fetchFromGitHub {
-          owner = "roboron3042";
-          repo = "cyberpunk-neon";
-          rev = "4dbd5b382e9af6b501843df25577babe071fad87";
-          sha256 = "0yrv37ssqrwmls5r2icf1c2j4j9z2m79c7k2xag0k4c93cl7z4ly";
-        };
-      in "${repo}/terminal/zsh/powerlevel9k";
     };
   };
 }
