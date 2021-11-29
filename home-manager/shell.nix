@@ -84,13 +84,7 @@ in
       sudo = "sudo ";
       cat = "bat ";
     };
-    promptInit = ''
-      unsetopt share_history
-
-      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-
-      [[ ! -f ~/.p10k.zsh]] || source ~/.p10k.zsh
-    '';
+    initExtra = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
 
     oh-my-zsh = {
       enable = true;
