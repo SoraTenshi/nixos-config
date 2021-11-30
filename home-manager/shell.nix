@@ -9,7 +9,7 @@ let
     rev = "4dbd5b382e9af6b501843df25577babe071fad87";
     sha256 = "0yrv37ssqrwmls5r2icf1c2j4j9z2m79c7k2xag0k4c93cl7z4ly";
   };
-in
+in 
 {
   # Enable the usage of home-manager
   # The point of home-manager is to create
@@ -24,8 +24,6 @@ in
     zsh
   ];
 
-  # Let's start and use Cyberpunk-neon
-
   # Terminal Emulator
   programs.alacritty = {
     enable = true;
@@ -37,15 +35,15 @@ in
       font = {
         size = 11;
         normal = {
-          family = "JetBrains Mono Nerd Font";
+          family = "MesloLGS NF";
           style = "Regular";
         };
         bold = {
-          family = "JetBrains Mono Nerd Font";
+          family = "MesloLGS NF";
           style = "Bold";
         };
         italic = {
-          family = "JetBrains Mono Nerd Font";
+          family = "MesloLGS NF";
           style = "Italic";
         };
       };
@@ -98,6 +96,8 @@ in
     enableCompletion = true;
     enableAutosuggestions = true;
     enableSyntaxHighlighting = true;
+    initExtra = (builtins.readFile "${cyberpunk-neon}/terminal/zsh/powerlevel9k");
+
     shellGlobalAliases = {
       vim = "spacevim ";
       sudo = "sudo ";
@@ -114,13 +114,7 @@ in
       name = "powerlevel10k";
       src = pkgs.zsh-powerlevel10k;
       file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-    }
-    # {
-    #   name = "cyberpunk-neon";
-    #   src = "${cyberpunk-neon}/terminal/zsh/powerlevel9k/";
-    #   file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-    # }
-  ];
+    }];
 
     oh-my-zsh = {
       enable = true;
