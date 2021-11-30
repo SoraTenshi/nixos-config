@@ -8,8 +8,11 @@
   # symlinks from /nix/store
   programs.home-manager.enable = true;
 
-  home.packages = with pkgs; [
+  nixpkgs.config.allowUnfree = true;
 
+  home.packages = with pkgs; [
+    # Well... of course!
+    discord steam vivaldi
   ];
 
 }

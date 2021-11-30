@@ -34,6 +34,25 @@ in
       shell.program = "${pkgs.zsh}/bin/zsh";
       background_opacity = 0.9;
       draw_bold_text_with_bright_colors = true;
+      font = {
+        size = 11;
+        normal = {
+          family = "JetBrains Mono Nerd Font";
+          style = "Regular";
+        };
+        bold = {
+          family = "JetBrains Mono Nerd Font";
+          style = "Bold";
+        };
+        italic = {
+          family = "JetBrains Mono Nerd Font";
+          style = "Italic";
+        };
+      };
+      env = {
+        LANG = "en_US.UTF-8";
+        LC_CTYPE = "en_US.UTF-8";
+      };
       colors = {
         primary = {
           background = "0x000b1e";
@@ -84,22 +103,24 @@ in
       sudo = "sudo ";
       cat = "bat ";
     };
+
     shellAliases = {
       vim = "spacevim ";
       sudo = "sudo ";
       cat = "bat ";
     };
-    # initExtra = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+
     plugins = [{
       name = "powerlevel10k";
       src = pkgs.zsh-powerlevel10k;
       file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-    }{
-      name = "cyberpunk-neon";
-      src = cyberpunk-neon;
-      file = "p10k.zsh";
     }
-    ];
+    # {
+    #   name = "cyberpunk-neon";
+    #   src = "${cyberpunk-neon}/terminal/zsh/powerlevel9k/";
+    #   file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+    # }
+  ];
 
     oh-my-zsh = {
       enable = true;
