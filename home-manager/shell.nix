@@ -96,7 +96,12 @@ in
     enableCompletion = true;
     enableAutosuggestions = true;
     enableSyntaxHighlighting = true;
-    initExtra = (builtins.readFile "${cyberpunk-neon}/terminal/zsh/powerlevel9k");
+
+    # this needs some work, the colourscheme fits, but i dislike the design
+    # initExtra = (builtins.readFile "${cyberpunk-neon}/terminal/zsh/powerlevel9k");
+    initExtra = ''
+        [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+    '';
 
     shellGlobalAliases = {
       vim = "spacevim ";
