@@ -43,11 +43,11 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  # };
+  i18n.defaultLocale = "en_US.UTF-8";
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "us";
+  };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -86,7 +86,6 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowBroken = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -101,7 +100,7 @@
     vivaldi
 
     # WM Fuckery
-    leftwm rofi polybar nitrogen pywal rofi-power-menu
+    leftwm rofi polybar nitrogen pywal rofi-power-menu picom
 
     # Code specific stuff
     cargo rustup rustc gcc git clang go pythonFull 
@@ -109,15 +108,8 @@
     # because i want to flex that i use nixos :P
     neofetch
 
-    # Shell, because i want everything to look nice :)
-    # Make sure that zsh and oh-my-zsh will be moved to home-manager once config complete
-    alacritty zsh oh-my-zsh zsh-powerlevel10k zsh-autosuggestions zsh-syntax-highlighting
-
     # util
     bat ibus-engines.mozc pmount feh networkmanager_dmenu dmenu
-
-    # font
-    jetbrains-mono
 
     # kbd system
     # haskellPackages.kmonad
@@ -126,11 +118,25 @@
     nix-prefetch-github
   ];
 
+  fonts.fonts = with pkgs; [
+    jetbrains-mono
+    meslo-lgs-nf
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+  ];
+
   programs.bash.shellAliases = {
     sudo = "sudo ";
     cat = "bat";
     vim = "spacevim";
     locate = "mlocate";
+  };
+
+  services.picom = {
+    enable = true;
+    fade = true;
+    fadeDelta = 5;
+    shadow = true;
+    shadowOpacity = 0.5;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
