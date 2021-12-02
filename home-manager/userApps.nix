@@ -13,6 +13,9 @@
   home.packages = with pkgs; [
     # Well... of course!
     discord steam vivaldi
+
+    # Screenshots!
+    flameshot
   ];
 
 }
