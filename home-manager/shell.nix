@@ -30,7 +30,7 @@ in
     # When alacritty config done, get from github repo and integrate~
     settings = {
       shell.program = "${pkgs.zsh}/bin/zsh";
-      background_opacity = 0.9;
+      background_opacity = 0.6;
       draw_bold_text_with_bright_colors = true;
       font = {
         size = 11;
