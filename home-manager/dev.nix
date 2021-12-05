@@ -12,7 +12,7 @@
     enable = true;
     coc.enable = true;
     extraConfig = ''
-      set clipboard = unnamedplus
+      set clipboard += unnamedplus
       syntax on
       set backspace = 2
 
@@ -26,6 +26,14 @@
 
       set tabstop=2 smarttab
       set cursorline
+      set encoding=UTF-8
+      set smartcase
+      set smartindent
+      set ignorecase
+      set cursorline
+
+      nnoremap x "_d
+      nnoremap xx "_dd"
     '';
     plugins = with pkgs.vimPlugins; [
       telescope-nvim
