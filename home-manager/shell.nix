@@ -95,7 +95,7 @@ in
     enable = true;
     enableCompletion = true;
     enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
+    # enableSyntaxHighlighting = true;
 
     # this needs some work, the colourscheme fits, but i dislike the design
     # initExtra = (builtins.readFile "${cyberpunk-neon}/terminal/zsh/powerlevel9k");
@@ -126,6 +126,19 @@ in
       plugins = [
         "git" "sudo" "man" "rust"
       ];
+    };
+  };
+
+  home.file = {
+    ".p10k.zsh" = {
+      source = let
+        repo = pkgs.fetchFromGitHub {
+          owner  =  "s0la1337";
+          repo   =  "dotfiles";
+          rev    =  "bf13c8f078a5931bd9bf09be84f45cac10121ad1";
+          sha256 =  "0ggh8ndzpl5510pnk0xp19dyv582jnqa9nvxvhka07pj69kdqm6b";
+        };
+      in "${repo}/powerlevel10k/.p10k.zsh";
     };
   };
 }
