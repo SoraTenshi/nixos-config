@@ -2,14 +2,6 @@
 
 { config, pkgs, ... }:
 
-let 
-  cyberpunk-neon = pkgs.fetchFromGitHub {
-    owner = "roboron3042";
-    repo = "cyberpunk-neon";
-    rev = "4dbd5b382e9af6b501843df25577babe071fad87";
-    sha256 = "0yrv37ssqrwmls5r2icf1c2j4j9z2m79c7k2xag0k4c93cl7z4ly";
-  };
-in 
 {
   # Enable the usage of home-manager
   # The point of home-manager is to create
@@ -98,7 +90,6 @@ in
     # enableSyntaxHighlighting = true;
 
     # this needs some work, the colourscheme fits, but i dislike the design
-    # initExtra = (builtins.readFile "${cyberpunk-neon}/terminal/zsh/powerlevel9k");
     initExtra = ''
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
     '';
@@ -135,8 +126,7 @@ in
         repo = pkgs.fetchFromGitHub {
           owner  =  "s0la1337";
           repo   =  "dotfiles";
-          rev    =  "bf13c8f078a5931bd9bf09be84f45cac10121ad1";
-          sha256 =  "0ggh8ndzpl5510pnk0xp19dyv582jnqa9nvxvhka07pj69kdqm6b";
+          sha256 =  "145538jm473ygm5paxmikzs1z98qj4lswm6iild8cpv0w31lk55h";
         };
       in "${repo}/powerlevel10k/.p10k.zsh";
     };
