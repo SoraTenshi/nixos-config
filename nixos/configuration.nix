@@ -22,9 +22,7 @@
   #    userControlled.enable = true;
   #    interfaces = [ "wlp3s0" ];
   #  };
-
-  # Only needed if used together with WLAN
-  # networking.networkmanager.enable = true;
+  networking.networkmanager.enable = true;
 
   # Enable auto update
   # systems.autoUpgrade.enable = true;
@@ -37,10 +35,7 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-
-  # Activate for each Network Interface.
-  # Hint: ip link show
-  # networking.interfaces.eth0.useDHCP = true;
+  networking.interfaces.eth0.useDHCP = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -113,10 +108,7 @@
     neofetch
 
     # util
-    bat ibus-engines.mozc pmount feh dmenu
-
-    # only activate if used together with wlan
-    # networkmanager_dmenu
+    bat ibus-engines.mozc pmount feh networkmanager_dmenu dmenu
 
     # kbd system
     # haskellPackages.kmonad
@@ -140,10 +132,25 @@
 
   services.picom = {
     enable = true;
+    menuOpacity = 0.95;
     fade = true;
     fadeDelta = 5;
     shadow = true;
     shadowOpacity = 0.5;
+    settings = {
+      blur-background = true;
+      blur-background-fixed = true;
+      blue-strength = 10;
+
+      # Corners
+      corner-radius = 12.0;
+      rounded-corners-exclude = [
+        "class_g = 'Polybar'"
+      ];
+      round-borders = 1;
+
+      active-opacity = 0.6;
+    };
   };
 
   # Some programs need SUID wrappers, can be configured further or are

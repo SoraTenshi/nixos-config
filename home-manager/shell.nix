@@ -126,6 +126,7 @@
         repo = pkgs.fetchFromGitHub {
           owner  =  "s0la1337";
           repo   =  "dotfiles";
+          rev    =  "81dfe16c977ed296b8466e7e528281ff33aaa464";
           sha256 =  "145538jm473ygm5paxmikzs1z98qj4lswm6iild8cpv0w31lk55h";
         };
       in "${repo}/powerlevel10k/.p10k.zsh";
