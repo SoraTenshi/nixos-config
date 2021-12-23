@@ -5,7 +5,7 @@
 
   home.packages = with pkgs; [
     neovim
-    vscode
+#    vscode
   ];
 
   programs.neovim = {
