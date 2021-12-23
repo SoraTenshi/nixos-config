@@ -26,6 +26,17 @@
     fadeDelta = 5;
     shadow = true;
     shadowOpacity = "0.5";
+    blur = true;
+    extraOptions = ''
+      # Corners
+      corner-radius = 12.0;
+      rounded-corners-exclude = [
+        "class_g = 'Polybar'"
+      ];
+      round-borders = 1;
+
+      active-opacity = 0.6;
+    '';
   };
 
   # leftwm kinda takes cares of the polybar :)
