@@ -95,13 +95,13 @@
     '';
 
     shellGlobalAliases = {
-      vim = "spacevim ";
+      vim = "nvim ";
       sudo = "sudo ";
       cat = "bat ";
     };
 
     shellAliases = {
-      vim = "spacevim ";
+      vim = "nvim ";
       sudo = "sudo ";
       cat = "bat ";
     };
