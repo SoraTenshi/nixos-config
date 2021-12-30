@@ -7,6 +7,9 @@
   home.packages = with pkgs; [
     vscode
     gdb
+
+    # Runtimes
+    cargo rustup rustc gcc git clang go pythonFull zig
   ];
 
 #  home.file = {

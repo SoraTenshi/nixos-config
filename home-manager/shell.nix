@@ -14,6 +14,9 @@
     
     # Actual Shell, with some skins
     zsh
+
+    # Shell utils
+    bat
   ];
 
   # Terminal Emulator

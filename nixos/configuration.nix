@@ -8,7 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      <home-manager/nixos>
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -35,7 +34,8 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.eth0.useDHCP = true;
+  networking.interfaces.enp0s25.useDHCP = true;
+  networking.interfaces.wlp3s0.useDHCP = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -89,29 +89,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # Hipster using lightweight text editors... well not anymore :-)
-    spacevim 
-    
     # Universal tools
     wget
 
     # Has to have nixpkgs.config.allowUnfree set to true
     vivaldi
 
-    # WM Fuckery
-    leftwm rofi polybar nitrogen pywal rofi-power-menu picom
-
-    # Code specific stuff
-    cargo rustup rustc gcc git clang go pythonFull 
-
-    # because i want to flex that i use nixos :P
-    neofetch
-
-    # util
-    bat ibus-engines.mozc pmount feh networkmanager_dmenu dmenu
-
-    # kbd system
-    # haskellPackages.kmonad
 
     # nix utils
     nix-prefetch-github
@@ -122,36 +105,6 @@
     meslo-lgs-nf
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
-
-  programs.bash.shellAliases = {
-    sudo = "sudo ";
-    cat = "bat";
-    vim = "spacevim";
-    locate = "mlocate";
-  };
-
-  services.picom = {
-    enable = true;
-    menuOpacity = 0.95;
-    fade = true;
-    fadeDelta = 5;
-    shadow = true;
-    shadowOpacity = 0.5;
-    settings = {
-      blur-background = true;
-      blur-background-fixed = true;
-      blue-strength = 10;
-
-      # Corners
-      corner-radius = 12.0;
-      rounded-corners-exclude = [
-        "class_g = 'Polybar'"
-      ];
-      round-borders = 1;
-
-      active-opacity = 0.6;
-    };
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -178,7 +131,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "21.05"; # Did you read the comment?
+  system.stateVersion = "21.11"; # Did you read the comment?
 
 }
 
