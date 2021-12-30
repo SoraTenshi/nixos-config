@@ -18,6 +18,9 @@
 
     # Panel
     polybar
+
+    # Images
+    feh
   ];
 
   services.picom = {
