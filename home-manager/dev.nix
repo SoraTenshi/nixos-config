@@ -22,11 +22,11 @@
 
     plugins = with pkgs.vimPlugins; [
       telescope-nvim
-      lsp_signature-nvim
       nvim-compe
       vim-easy-align
       vim-multiple-cursors
       nvim-treesitter
+      nvim-tree-lua
 
       # language specific 
       nvim-cmp
