@@ -16,7 +16,7 @@
     zsh
 
     # Shell utils
-    bat
+    bat htop
   ];
 
   # Terminal Emulator
