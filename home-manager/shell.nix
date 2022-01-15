@@ -101,12 +101,14 @@
       vim = "nvim ";
       sudo = "sudo ";
       cat = "bat ";
+      mv = "mv -i ";
     };
 
     shellAliases = {
       vim = "nvim ";
       sudo = "sudo ";
       cat = "bat ";
+      mv = "mv -i ";
     };
 
     plugins = [{
