@@ -26,10 +26,13 @@
       nvim-compe
       vim-easy-align
       vim-multiple-cursors
-      zig-vim
-			rust-vim
-			vim-nix
       nvim-treesitter
+
+      # language specific 
+      nvim-cmp
+      zig-vim rust-vim vim-nix
+
+      # design stuff
       tokyonight-nvim
       indent-blankline-nvim
     ];
