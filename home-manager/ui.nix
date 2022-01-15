@@ -49,8 +49,8 @@
         repo = pkgs.fetchFromGitHub {
           owner  =  "s0la1337";
           repo   =  "dotfiles";
-          rev    =  "a2f400f0756048c6c1e19e24bdb763986b4537a3";
-          sha256 =  "02xaj99sx2skp1j7aqb7ls28alqg2y4vj3kgb8ddbjdy3hm670ql";
+          rev    =  "7c77f8b461cabc6a16a902571de14cde08dc9497";
+          sha256 =  "07a4bzddjlc5snjv00k1avkk7imz3faxq2fcq7f8bgl3i30f29n7";
         };
       in "${repo}/leftwm/";
     };
