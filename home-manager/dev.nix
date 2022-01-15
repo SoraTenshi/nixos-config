@@ -9,28 +9,38 @@
     gdb
 
     # Runtimes
-    cargo rustup rustc gcc git clang go pythonFull zig
+    # fix this 
+    # cargo gcc clang go pythonFull 
+    git
+    zig zls
   ];
-
-#  home.file = {
-#    ".vim/colors/cyberpunk-neon.vim" = {
-#      source = let 
-#        repo = pkgs.fetchFromGitHub {
-#          owner = "roboron3042";
-#          repo = "cyberpunk-neon";
-#          rev = "fec606df17a5b25634689ded560543246586bac1";
-#          sha256 = "08lsccqz8iwslk46cha5cgsvdfc20jkqmmz0rdmnakiyiibk03sa";
-#        };
-#      in "${repo}/terminal/vim/cyberpunk-neon.vim";
-#    };
-# };
 
   programs.neovim = {
     enable = true;
     coc.enable = true;
     vimAlias = true;
+
+    plugins = with pkgs.vimPlugins; [
+      telescope-nvim
+      lsp_signature-nvim
+      nvim-compe
+      vim-easy-align
+      vim-multiple-cursors
+      zig-vim
+			rust-vim
+			vim-nix
+      nvim-treesitter
+      tokyonight-nvim
+      indent-blankline-nvim
+    ];
+
     extraConfig = ''
-      set clipboard=unnamed
+      lua require('indent')
+
+      vnoremap x "_x
+      nnoremap x "_x
+
+      set clipboard+=unnamedplus
       syntax on
       set backspace=2
 
@@ -39,6 +49,7 @@
 
       set relativenumber
       set number
+      set ignorecase
 
       set ruler
 
@@ -53,18 +64,18 @@
       colorscheme tokyonight
       set termguicolors
     '';
-
-    plugins = with pkgs.vimPlugins; [
-      telescope-nvim
-      lsp_signature-nvim
-      nvim-compe
-      vim-easy-align
-      vim-multiple-cursors
-      zig-vim
-			rust-vim
-			vim-nix
-      nvim-treesitter
-      tokyonight-nvim
-    ];
+  };
+  home.file = {
+    ".config/nvim/lua" = {
+      source = let
+        repo = pkgs.fetchFromGitHub {
+          owner  =  "s0la1337";
+          repo   =  "dotfiles";
+          rev    =  "d56b2c0ff783e6fefc738553202580ade6869cb8";
+          sha256 =  "0ag35vmwnfi71fzdw2kp1h2hikpdgdr1picb1g2z7l8qah6ivjzd";
+        };
+      in "${repo}/nvim/lua";
+    };
   };
 }
+
