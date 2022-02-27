@@ -13,6 +13,7 @@
     # cargo gcc clang go pythonFull 
     git
     zig zls
+    lazygit
   ];
 
   programs.neovim = {
@@ -39,6 +40,9 @@
 
     extraConfig = ''
       lua require('indent')
+
+      nnoremap <leader>ff <cmd>Telescope find_files<cr>
+      nnoremap <leader>fb <cmd>Telescope buffers<cr>
 
       vnoremap x "_x
       nnoremap x "_x
