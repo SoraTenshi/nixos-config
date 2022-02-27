@@ -14,6 +14,9 @@
     git
     zig zls
     lazygit
+
+    # nix utils
+    nix-prefetch
   ];
 
   programs.neovim = {
@@ -31,6 +34,8 @@
 
       # language specific 
       nvim-cmp
+      cmp-nvim-lsp
+      cmp_luasnip lspkind-nvim
       zig-vim rust-vim vim-nix
 
       # design stuff
