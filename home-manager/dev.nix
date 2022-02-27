@@ -77,14 +77,15 @@
       set termguicolors
     '';
   };
+
   home.file = {
     ".config/nvim/lua" = {
       source = let
         repo = pkgs.fetchFromGitHub {
           owner  =  "s0la1337";
           repo   =  "dotfiles";
-          rev    =  "d56b2c0ff783e6fefc738553202580ade6869cb8";
-          sha256 =  "0ag35vmwnfi71fzdw2kp1h2hikpdgdr1picb1g2z7l8qah6ivjzd";
+          rev    =  "84aefbfed95787877ac590d0fbfaab4ffca752b6";
+          sha256 =  "00wkw96ppmx087hd6nh34xsgnskwxiqfsxfcyackdfvwf2kjb8x4";
         };
       in "${repo}/nvim/lua";
     };
