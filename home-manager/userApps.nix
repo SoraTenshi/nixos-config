@@ -14,10 +14,11 @@
     # Well... of course!
     discord steam vivaldi
 
-    lazygit
-
     # Screenshots!
     flameshot
+
+    # Pic editing
+    gimp
   ];
 
 }
