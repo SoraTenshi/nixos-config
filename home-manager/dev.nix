@@ -5,7 +5,6 @@
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
-    vscode
     gdb
 
     # Runtimes
@@ -26,16 +25,15 @@
 
     plugins = with pkgs.vimPlugins; [
       telescope-nvim
-      nvim-compe
       vim-easy-align
       vim-multiple-cursors
       nvim-treesitter
       nvim-tree-lua
 
-      # language specific 
-      nvim-cmp
-      cmp-nvim-lsp
-      cmp_luasnip lspkind-nvim
+      # auto complete
+      nvim-cmp cmp-buffer cmp-path cmp-nvim-lsp cmp_luasnip
+
+      # syntax highlighting
       zig-vim rust-vim vim-nix
 
       # design stuff
@@ -84,11 +82,10 @@
         repo = pkgs.fetchFromGitHub {
           owner  =  "s0la1337";
           repo   =  "dotfiles";
-          rev    =  "84aefbfed95787877ac590d0fbfaab4ffca752b6";
-          sha256 =  "00wkw96ppmx087hd6nh34xsgnskwxiqfsxfcyackdfvwf2kjb8x4";
+          rev    =  "b3ee58b1654676ffc2bb9c4ac202e28b62e33dea";
+          sha256 =  "1bzvwivrkbc4abmg98xxcxp6gwb250b57l4vvryj2f4gq482671p";
         };
       in "${repo}/nvim/lua";
     };
   };
 }
-
