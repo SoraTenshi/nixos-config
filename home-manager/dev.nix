@@ -16,7 +16,7 @@
     lazygit
 
     # nix utils
-    nix-prefetch
+    nix-prefetch-github
   ];
 
   programs.neovim = {
