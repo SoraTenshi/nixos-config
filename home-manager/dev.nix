@@ -82,8 +82,8 @@
         repo = pkgs.fetchFromGitHub {
           owner  =  "s0la1337";
           repo   =  "dotfiles";
-          rev    =  "b3ee58b1654676ffc2bb9c4ac202e28b62e33dea";
-          sha256 =  "1bzvwivrkbc4abmg98xxcxp6gwb250b57l4vvryj2f4gq482671p";
+          rev    =  "b56c3f6fda07b9528825d6066484bee2df2d270c";
+          sha256 =  "1yz1qrracx5j4w6sl2a0vwhk4li5nqa3fa2qp50970an6xqqqnw1";
         };
       in "${repo}/nvim/lua";
     };
