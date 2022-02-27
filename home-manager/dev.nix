@@ -31,7 +31,7 @@
       nvim-tree-lua
 
       # auto complete
-      nvim-cmp cmp-buffer cmp-path cmp-nvim-lsp cmp_luasnip
+      nvim-cmp cmp-buffer cmp-path cmp-nvim-lsp cmp_luasnip lspkind-nvim
 
       # syntax highlighting
       zig-vim rust-vim vim-nix
@@ -83,8 +83,8 @@
         repo = pkgs.fetchFromGitHub {
           owner  =  "s0la1337";
           repo   =  "dotfiles";
-          rev    =  "b56c3f6fda07b9528825d6066484bee2df2d270c";
-          sha256 =  "1yz1qrracx5j4w6sl2a0vwhk4li5nqa3fa2qp50970an6xqqqnw1";
+          rev    =  "f0e80575d0d17e427fca4d54521b38a13a052bb4";
+          sha256 =  "05s47267kiwvf85a3c9wpr2phbsacmsg8fy27f6hr58qs5iczlhp";
         };
       in "${repo}/nvim/lua";
     };
