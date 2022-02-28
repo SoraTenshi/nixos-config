@@ -10,7 +10,10 @@
     # Runtimes
     # fix this 
     cargo clang go pythonFull rustc
-    zig zls
+    zig swift 
+
+    # lsp
+    zls clang-analyzer rust-analyzer 
 
     # source version control
     git
@@ -36,7 +39,7 @@
       vim-lightline-coc telescope-coc-nvim 
 
       # syntax highlighting
-      zig-vim rust-vim vim-nix
+      zig-vim rust-vim vim-nix swift-vim
 
       # design stuff
       tokyonight-nvim
@@ -46,6 +49,7 @@
     extraConfig = ''
       lua require('indent')
       lua require('completion')
+      lua require('zls')
 
       xmap ga <Plug>(EasyAlign)
       nmap ga <Plug>(EasyAlign)
@@ -87,8 +91,8 @@
         repo = pkgs.fetchFromGitHub {
           owner  =  "s0la1337";
           repo   =  "dotfiles";
-          rev    =  "a3fccfaecf3bdafc70777e3f671a75e1899e1c04";
-          sha256 =  "0man9pyalmjvix1xng5dyn2iwm69qz7cbx6zwfvpg66b5bzfsw0q";
+          rev    =  "a10da19584a867b8fb8e64f772302c8910fe33a7";
+          sha256 =  "11pf2dz5a2p4rc8sacbgvmmakghjh35lbkzj42g703fjryg96hwv";
         };
       in "${repo}/nvim/lua";
     };
