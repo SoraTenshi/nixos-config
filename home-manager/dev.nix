@@ -9,9 +9,11 @@
 
     # Runtimes
     # fix this 
-    # cargo gcc clang go pythonFull 
-    git
+    cargo clang go pythonFull rustc
     zig zls
+
+    # source version control
+    git
     lazygit
 
     # nix utils
@@ -20,18 +22,18 @@
 
   programs.neovim = {
     enable = true;
-    coc.enable = true;
     vimAlias = true;
 
     plugins = with pkgs.vimPlugins; [
-      telescope-nvim
-      vim-easy-align
-      vim-multiple-cursors
-      nvim-treesitter
-      nvim-tree-lua
+      # utilities
+      telescope-nvim vim-easy-align vim-multiple-cursors vim-commentary vim-css-color vim-devicons
+
+      # status bar
+      vim-airline vim-airline-clock 
 
       # auto complete
-      nvim-cmp cmp-buffer cmp-path cmp-nvim-lsp cmp_luasnip lspkind-nvim
+      nvim-cmp cmp-buffer cmp-path cmp-nvim-lsp cmp_luasnip lspkind-nvim nvim-lspconfig
+      vim-lightline-coc telescope-coc-nvim 
 
       # syntax highlighting
       zig-vim rust-vim vim-nix
@@ -45,25 +47,27 @@
       lua require('indent')
       lua require('completion')
 
+      xmap ga <Plug>(EasyAlign)
+      nmap ga <Plug>(EasyAlign)
       nnoremap <leader>ff <cmd>Telescope find_files<cr>
       nnoremap <leader>fb <cmd>Telescope buffers<cr>
-
       vnoremap x "_x
       nnoremap x "_x
-
       set clipboard+=unnamedplus
       syntax on
+      set hidden
+      set nobackup
+      set nowritebackup
+      set cmdheight=2
+      set updatetime=300
+      set shortmess+=c
       set backspace=2
-
       set visualbell
       set t_vb=
-
       set relativenumber
       set number
       set ignorecase
-
       set ruler
-
       set tabstop=2 smarttab
       set cursorline
       set encoding=UTF-8
@@ -83,8 +87,8 @@
         repo = pkgs.fetchFromGitHub {
           owner  =  "s0la1337";
           repo   =  "dotfiles";
-          rev    =  "f0e80575d0d17e427fca4d54521b38a13a052bb4";
-          sha256 =  "05s47267kiwvf85a3c9wpr2phbsacmsg8fy27f6hr58qs5iczlhp";
+          rev    =  "a3fccfaecf3bdafc70777e3f671a75e1899e1c04";
+          sha256 =  "0man9pyalmjvix1xng5dyn2iwm69qz7cbx6zwfvpg66b5bzfsw0q";
         };
       in "${repo}/nvim/lua";
     };
