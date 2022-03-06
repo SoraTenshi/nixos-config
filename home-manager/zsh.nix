@@ -9,9 +9,6 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    # Terminal Emulator
-    alacritty
-    
     # Actual Shell, with some skins
     zsh
 
