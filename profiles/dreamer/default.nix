@@ -1,17 +1,43 @@
 { config, pkgs, ... }:
 
 {
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  networking.hostName = "neoncity";
+  networking.networkmanager.enable = true;
+  networking.useDHCP = true;
+
+
+  services.xserver = {
+    layout = "us";
+    # xkbdVariant = "colemak";
+    xkbdOptions = "eurosign:e";
+  };
+
+  sound.enable = true;
+  sound.pulseaudio.enable = true;
+
+  time.timeZone = "Europe/Berlin";
+
+  fonts.fonts = with pkgs; [
+    jetbrains-mono
+    meslo-lgs-nf
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+  ];
+
   users.users."dreamer" = {
     isNormalUser = true;
     initialPassword = "12345";
     group = "users";
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel", "networkmanager" ];
 
     shell = pkgs.zsh;
   };
 
   home-manager.users."dreamer" = { pkgs, nixpkgs, ...}: {
     imports = [
+      # User applications
       ./alacritty.nix
       ./userApps.nix
       ./x11.nix
