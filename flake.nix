@@ -2,7 +2,9 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager";
- #   dotfiles.url = "github:s0la1337/dotfiles";
+
+    dotfiles.url = "github:s0la1337/dotfiles";
+    dotfiles.flake = false;
   };
 
   outputs = { self, nixpkgs, home-manager }@inputs: {
