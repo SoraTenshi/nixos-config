@@ -62,6 +62,7 @@ in
       ../../development/zig.nix
       ../../development/rust.nix
       ../../development/misc.nix
+      ../../development/tools.nix
     ];
   };
 }
