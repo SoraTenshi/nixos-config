@@ -7,7 +7,7 @@
     dotfiles.flake = false;
   };
 
-  outputs = { self, nixpkgs, home-manager }@inputs: {
+  outputs = { self, nixpkgs, home-manager, dotfiles }@inputs: {
     nixosConfigurations = {
       wsl = nixpkgs.lib.nixosSystem { 
         system = "x86_64-linux";
