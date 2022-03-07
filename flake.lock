@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "dotfiles": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1646084964,
+        "narHash": "sha256-Jo2kCtpiVld0X2GoOu93kf2zQwrHvVL1PWrR6RxQuLo=",
+        "owner": "s0la1337",
+        "repo": "dotfiles",
+        "rev": "b5686b18f2c42e2590bbbe33c59a0e9831ba4c2c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "s0la1337",
+        "repo": "dotfiles",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": "nixpkgs"
@@ -50,6 +66,7 @@
     },
     "root": {
       "inputs": {
+        "dotfiles": "dotfiles",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_2"
       }

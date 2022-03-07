@@ -57,6 +57,8 @@
   };
 
   home.file = {
-    ".p10k.zsh" = "${dotfiles}/powerlevel10k/.p10k.zsh";
+    ".p10k.zsh" = {
+			source = "${dotfiles}/powerlevel10k/.p10k.zsh";
+		};
   };
 }

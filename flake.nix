@@ -11,8 +11,6 @@
 
   outputs = { self, nixpkgs, home-manager, dotfiles }@inputs: {
     nixosConfigurations = {
-      let
-        specialArgs = inputs;
       wsl = nixpkgs.lib.nixosSystem { 
         system = "x86_64-linux";
         modules = [ 
@@ -20,7 +18,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = specialArgs;
+            home-manager.extraSpecialArgs = { inherit dotfiles; };
           }
         ];
       };
@@ -31,7 +29,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = specialArgs;
+            home-manager.extraSpecialArgs = { inherit dotfiles; };
           }
         ];
       };

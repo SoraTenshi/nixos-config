@@ -1,8 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, dotfiles, ... }:
 
 {
-  programs.home-manager.enable = true;
-
   programs.neovim = {
     enable = true;
     vimAlias = true;
@@ -67,14 +65,7 @@
 
   home.file = {
     ".config/nvim/lua" = {
-      source = let
-        repo = pkgs.fetchFromGitHub {
-          owner  =  "s0la1337";
-          repo   =  "dotfiles";
-          rev    =  "a10da19584a867b8fb8e64f772302c8910fe33a7";
-          sha256 =  "11pf2dz5a2p4rc8sacbgvmmakghjh35lbkzj42g703fjryg96hwv";
-        };
-      in "${repo}/nvim/lua";
+      source = "${dotfiles}/nvim/lua";
     };
   };
 }
