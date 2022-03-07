@@ -6,17 +6,8 @@
 
   networking.hostName = "neoncity";
   networking.networkmanager.enable = true;
-  networking.useDHCP = true;
-
-
-  services.xserver = {
-    layout = "us";
-    # xkbdVariant = "colemak";
-    xkbdOptions = "eurosign:e";
-  };
 
   sound.enable = true;
-  sound.pulseaudio.enable = true;
 
   time.timeZone = "Europe/Berlin";
 
@@ -30,7 +21,7 @@
     isNormalUser = true;
     initialPassword = "12345";
     group = "users";
-    extraGroups = [ "wheel", "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" ];
 
     shell = pkgs.zsh;
   };
