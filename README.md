@@ -101,3 +101,27 @@ $ sudo nix-channel --update
 ```
 
 For more information regarding the Home-Manager, [use this Link](https://nix-community.github.io/home-manager/index.html)
+
+### Step 7: Flakes
+
+With the recent changes i adopted my configuration to make use of Nix flakes.
+
+Keep in mind that flakes can only be used with the `nix flake` feature enabled.
+e.g.: 
+```nix
+{
+	nix = {
+		package = pkgs.nixUnstable;
+		extraOptions = ''
+			experimental-features = nix-command flakes
+		'';
+	};
+}
+```
+
+For now the usage of the flakes is (to install a flake profile):
+```sh
+$ sudo nixos-rebuild switch --flake '.#[profile]'
+```
+
+This is however most likely not the final version of it, as hardware information configuration are completely absent for now.
