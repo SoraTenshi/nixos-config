@@ -17,7 +17,8 @@
       vim-lightline-coc telescope-coc-nvim 
 
       # syntax highlighting
-      zig-vim rust-vim vim-nix swift-vim
+      zig-vim vim-nix
+      vim-polyglot
 
       # design stuff
       tokyonight-nvim
@@ -35,6 +36,7 @@
       nnoremap <leader>fb <cmd>Telescope buffers<cr>
       vnoremap x "_x
       nnoremap x "_x
+
       set clipboard+=unnamedplus
       syntax on
       set hidden
@@ -50,7 +52,8 @@
       set number
       set ignorecase
       set ruler
-      set tabstop=2 smarttab
+      set tabstop=2 shiftwidth=2 smarttab
+      set noexpandtab
       set cursorline
       set encoding=UTF-8
       set smartcase
