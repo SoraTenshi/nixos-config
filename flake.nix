@@ -14,33 +14,42 @@
       wsl = nixpkgs.lib.nixosSystem { 
         system = "x86_64-linux";
         modules = [ 
-          ./profiles/wsl/default.nix 
+          ./machines/wsl/wsl.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit dotfiles; };
+            home-manager.users.nixos = { ... }: {
+              imports = [ ./profiles/wsl/default.nix ];
+            };
           }
         ];
       };
       wsl_colemak = nixpkgs.lib.nixosSystem { 
         system = "x86_64-linux";
         modules = [ 
-          ./profiles/wsl-colemak/default.nix 
+          ./machines/wsl/wsl_colemak.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit dotfiles; };
+            home-manager.users.nixos = { ... }: {
+              imports = [ ./profiles/wsl-colemak/default.nix ];
+            };
           }
         ];
       };
       neoncity = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ 
-          ./profiles/dreamer/default.nix 
+          ./machines/thinkpad-t420/t420.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit dotfiles; };
+            home-manager.users.dreamer = { ... }: {
+              imports = [ ./profiles/dreamer/default.nix ];
+            };
           }
         ];
       };
