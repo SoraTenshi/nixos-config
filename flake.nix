@@ -1,7 +1,10 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+ #   nur.url = "github:nix-community/NUR"; # not used yet, but make it accessible when i need to use it.
     home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+  #  nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland"; 
 
     dotfiles = {
       url = "github:s0la1337/dotfiles";
@@ -28,7 +31,7 @@
       wsl_colemak = nixpkgs.lib.nixosSystem { 
         system = "x86_64-linux";
         modules = [ 
-          ./machines/wsl/wsl_colemak.nix
+          ./machines/wsl/wsl.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
