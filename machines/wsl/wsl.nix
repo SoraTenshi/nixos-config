@@ -3,7 +3,7 @@
 with lib;
 let
   defaultUser = "nixos";
-  syschdemd = import ./wsl/syschdemd.nix { inherit lib pkgs config defaultUser; };
+  syschdemd = import ./syschdemd.nix { inherit lib pkgs config defaultUser; };
 in
 {
   imports = [
