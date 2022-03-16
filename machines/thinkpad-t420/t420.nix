@@ -1,4 +1,4 @@
-{ pkgs, config, lib, nixos-hardware, ... }:
+{ pkgs, config, lib, nixos-hardware, modulesPath, ... }:
 {
   imports =
   [ (modulesPath + "/installer/scan/not-detected.nix")
@@ -12,7 +12,7 @@
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot.enable = true;
-    };.
+    };
     kernelModules = [ ];
     extraModulePackages = [ ];
   };
