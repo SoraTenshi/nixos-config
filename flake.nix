@@ -48,6 +48,8 @@
         system = "x86_64-linux";
         modules = [ 
           ./machines/thinkpad-t420/t420.nix
+          nixos-hardware.nixosModules.lenovo-thinkpad-t420
+          nixos-hardware.nixosModules.common-pc-ssd
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
