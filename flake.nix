@@ -1,10 +1,12 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
- #   nur.url = "github:nix-community/NUR"; # not used yet, but make it accessible when i need to use it.
+    # nur.url = "github:nix-community/NUR"; # not used yet, but make it accessible when i need to use it.
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-  #  nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland"; 
+    # nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland"; 
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     dotfiles = {
       url = "github:s0la1337/dotfiles";
@@ -12,7 +14,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, dotfiles }@inputs: {
+  outputs = { self, nixpkgs, home-manager, dotfiles, nixos-hardware }@inputs: {
     nixosConfigurations = {
       wsl = nixpkgs.lib.nixosSystem { 
         system = "x86_64-linux";

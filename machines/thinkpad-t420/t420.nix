@@ -1,14 +1,13 @@
 { pkgs, config, lib, nixos-hardware, modulesPath, ... }:
 {
-  imports =
-  [ (modulesPath + "/installer/scan/not-detected.nix")
+  imports = [ 
+    ../../configuration.nix
+    (modulesPath + "/installer/scan/not-detected.nix")
+    nixos-hardware.nixosModules.lenovo-thinkpad-t420
+    nixos-hardware.nixosModules.common-pc-ssd
   ];
 
   boot = {
-    initrd = {
-      availableKernelModules = [ "ehci_pci" "ahci" "firewire_ohci" "usb_storage" "sd_mod" "sr_mod" "sdhci_pci" ];
-      kernelModules = [ ];
-    };
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot.enable = true;
