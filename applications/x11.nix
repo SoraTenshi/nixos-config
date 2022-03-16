@@ -12,6 +12,7 @@
     # Window Manager
     # in the future probably penrose
     leftwm
+    dmenu networkmanager_dmenu
 
     # Compositor
     picom
