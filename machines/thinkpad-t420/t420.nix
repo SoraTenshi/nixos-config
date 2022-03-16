@@ -2,9 +2,6 @@
 {
   imports = [ 
     ../../configuration.nix
-    (modulesPath + "/installer/scan/not-detected.nix")
-    nixos-hardware.nixosModules.lenovo-thinkpad-t420
-    nixos-hardware.nixosModules.common-pc-ssd
   ];
 
   boot = {
