@@ -1,10 +1,12 @@
 { pkgs, config, lib, nixos-hardware, modulesPath, ... }:
 {
   imports = [ 
+    (modulesPath + "/installer/scan/not-detected.nix")
     ../../configuration.nix
   ];
 
   boot = {
+    initrd.availableKernelModules = [ "sdhci_pci" "usb_storage" "ehci_pci" ];
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot.enable = true;
@@ -29,8 +31,15 @@
     }
   ];
 
-  networking.hostName = "neoncity";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "neoncity";
+    networkmanager.enable = true;
+    useDHCP = false;
+    interfaces = {
+      enp0s25.useDHCP = true;
+      wlp3s0.useDHCP = true;
+    };
+  };
 
   sound.enable = true;
   hardware.pulseaudio.enable = true;
