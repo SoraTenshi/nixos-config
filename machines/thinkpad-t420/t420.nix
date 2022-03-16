@@ -37,7 +37,17 @@
   networking.networkmanager.enable = true;
 
   sound.enable = true;
+  hardware.pulseaudio.enable = true;
 
+  services.xserver = {
+    enable = true;
+    displayManager.defaultSession = "none+leftwm";
+    windowManager.leftwm.enable = true;
+    # touchpad support!
+    libinput.enable = true;
+  };
+
+  nixpkgs.config.allowUnfree = true;
 
   time.timeZone = "Europe/Berlin";
   fonts.fonts = with pkgs; [
