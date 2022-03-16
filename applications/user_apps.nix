@@ -1,13 +1,14 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixpkgs, lib, ... }:
 {
   programs.home-manager.enable = true;
 
-  config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "discord"
+    "vivaldi"
+    "steam"
+  ];
 
   home.packages = with pkgs; [
-    # Well... of course!
-    discord steam vivaldi
-
     # Screenshots!
     flameshot
 
