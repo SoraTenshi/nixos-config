@@ -5,7 +5,7 @@
     # User applications
     ../../applications/alacritty.nix
     ../../applications/user_apps.nix
-    ../../applications/x11/x11.nix
+    ../../applications/wayland/river.nix
 
     # General purpose
     ../../general_purpose/nvim.nix
