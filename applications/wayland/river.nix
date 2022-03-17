@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ...}:
+{ config, lib, pkgs, dotfiles, ...}:
 {
 
   home.packages = with pkgs; [
@@ -27,5 +27,11 @@
   hardware.opengl.enable = true;
 
   programs.xwayland.enable = true;
+
+  home.file = {
+    ".config/river/init" = {
+      source = "${dotfiles}/river/init";
+    };
+  };
 
 }
