@@ -41,6 +41,7 @@ in
   systemd.services.firewall.enable = false;
   systemd.services.systemd-resolved.enable = false;
   systemd.services.systemd-udevd.enable = false;
+  programs.ssh.startAgent = true;
 
   # Don't allow emergency mode, because we don't have a console.
   systemd.enableEmergencyMode = false;

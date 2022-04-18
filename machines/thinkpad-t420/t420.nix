@@ -61,6 +61,8 @@
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
+  programs.ssh.startAgent = true;
+
   users.users."dreamer" = {
     isNormalUser = true;
     initialPassword = "12345";
