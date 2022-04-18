@@ -110,12 +110,12 @@ Keep in mind that flakes can only be used with the `nix flake` feature enabled.
 e.g.: 
 ```nix
 {
-	nix = {
-		package = pkgs.nixUnstable;
-		extraOptions = ''
-			experimental-features = nix-command flakes
-		'';
-	};
+  nix = {
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
 }
 ```
 
