@@ -8,6 +8,9 @@
     # compiler
     clang
 
+    # cmake
+    cmake
+
     # lsp
     clang-analyzer
   ];
