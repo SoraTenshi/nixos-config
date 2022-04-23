@@ -1,9 +1,12 @@
-{ config, pkgs, nixpkgs, lib, ... }:
+{ config, pkgs, nixpkgs, lib, dotfiles, ... }:
 {
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    discord vivaldi steam
+    discord steam
+
+    # browser
+    vivaldi qutebrowser
 
     # Screenshots!
     flameshot
@@ -12,4 +15,9 @@
     gimp
   ];
 
+  home.file = {
+    ".config/qutebrowser.configdata.yml" = {
+      source = "${dotfiles}/qutebrowser/configdata.yml";
+    };
+  };
 }
