@@ -30,8 +30,6 @@
       lua require('completion')
       lua require('zls')
 
-      xmap ga <Plug>(EasyAlign)
-      nmap ga <Plug>(EasyAlign)
       nnoremap <leader>ff <cmd>Telescope find_files<cr>
       nnoremap <leader>fb <cmd>Telescope buffers<cr>
       vnoremap x "_x
