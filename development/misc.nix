@@ -1,8 +1,11 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    go
+    go 
 
     pythonFull
+
+    # Language servers (for non-main languages)
+    gopls
   ];
 }

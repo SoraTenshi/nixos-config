@@ -8,17 +8,19 @@
     plugins = with pkgs.vimPlugins; [
       # utilities
       telescope-nvim vim-easy-align vim-multiple-cursors vim-commentary vim-css-color vim-devicons
+      nvim-treesitter
 
       # status bar
       vim-airline vim-airline-clock 
 
       # auto complete
       nvim-cmp cmp-buffer cmp-path cmp-nvim-lsp cmp_luasnip lspkind-nvim nvim-lspconfig
-      vim-lightline-coc telescope-coc-nvim 
+      vim-lightline-coc telescope-coc-nvim
 
       # syntax highlighting
       zig-vim vim-nix
       vim-polyglot
+      vim-csharp
 
       # design stuff
       tokyonight-nvim
@@ -28,7 +30,8 @@
     extraConfig = ''
       lua require('indent')
       lua require('completion')
-      lua require('zls')
+
+      lua require('init_lsp')
 
       nnoremap <leader>ff <cmd>Telescope find_files<cr>
       nnoremap <leader>fb <cmd>Telescope buffers<cr>
