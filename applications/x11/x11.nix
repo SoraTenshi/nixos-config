@@ -1,6 +1,6 @@
 # Used for the configuration of specific configurations
 
-{ config, pkgs, ... }:
+{ config, pkgs, dotfiles, ... }:
 
 {
   programs.home-manager.enable = true;
@@ -43,14 +43,6 @@
   # leftwm kinda takes cares of the polybar :)
   home.file = {
     ".config/leftwm" = {
-      source = let
-        repo = pkgs.fetchFromGitHub {
-          owner  =  "s0la1337";
-          repo   =  "dotfiles";
-          rev    =  "7c77f8b461cabc6a16a902571de14cde08dc9497";
-          sha256 =  "07a4bzddjlc5snjv00k1avkk7imz3faxq2fcq7f8bgl3i30f29n7";
-        };
-      in "${repo}/leftwm/";
-    };
+      source = "{dotfiles}/leftwm";
   };
 }
