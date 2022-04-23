@@ -28,10 +28,9 @@
     extraConfig = ''
       lua require('indent')
       lua require('completion')
-      lua require('zls')
 
-      xmap ga <Plug>(EasyAlign)
-      nmap ga <Plug>(EasyAlign)
+      lua require('init_lsp')
+
       nnoremap <leader>ff <cmd>Telescope find_files<cr>
       nnoremap <leader>fb <cmd>Telescope buffers<cr>
 

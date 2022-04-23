@@ -12,6 +12,6 @@
     cmake
 
     # lsp
-    clang-analyzer
+    ccls
   ];
 }
