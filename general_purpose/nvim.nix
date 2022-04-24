@@ -18,7 +18,7 @@
       vim-lightline-coc telescope-coc-nvim
 
       # syntax highlighting
-      zig-vim vim-nix
+      zig-vim vim-nix nim-vim
       vim-polyglot
       vim-csharp
 
