@@ -14,7 +14,7 @@
       bufferline-nvim
 
       # status bar
-      lualine-nvim 
+      lualine-nvim lualine-lsp-progress
 
       # auto complete
       nvim-cmp cmp-buffer cmp-path cmp-nvim-lsp cmp_luasnip lspkind-nvim nvim-lspconfig
@@ -33,6 +33,7 @@
       lua require('indent')
       lua require('completion')
 
+      lua require('init_ll')
       lua require('init_lsp')
 
       nnoremap <leader>ff <cmd>Telescope find_files<cr>
