@@ -8,7 +8,9 @@
     plugins = with pkgs.vimPlugins; [
       # utilities
       telescope-nvim vim-easy-align vim-multiple-cursors vim-commentary vim-css-color vim-devicons
-      nvim-treesitter
+
+      # visual 
+      nvim-ts-rainbow nvim-treesitter
 
       # status bar
       lualine-nvim lualine-lsp-progress
@@ -32,6 +34,7 @@
 
       lua require('init_ll')
       lua require('init_lsp')
+      lua require('init_ts')
 
       nnoremap <leader>ff <cmd>Telescope find_files<cr>
       nnoremap <leader>fb <cmd>Telescope buffers<cr>
