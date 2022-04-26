@@ -10,12 +10,14 @@
       telescope-nvim vim-easy-align vim-multiple-cursors vim-commentary vim-css-color vim-devicons
       nvim-treesitter
 
+      # visual plugins
+      bufferline-nvim
+
       # status bar
-      vim-airline vim-airline-clock 
+      lualine-nvim 
 
       # auto complete
       nvim-cmp cmp-buffer cmp-path cmp-nvim-lsp cmp_luasnip lspkind-nvim nvim-lspconfig
-      vim-lightline-coc telescope-coc-nvim
 
       # syntax highlighting
       zig-vim vim-nix nim-vim
