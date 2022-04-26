@@ -4,6 +4,6 @@
     go pythonFull nim
 
     # Language servers (for non-main languages)
-    gopls
+    gopls rnix-lsp
   ];
 }
