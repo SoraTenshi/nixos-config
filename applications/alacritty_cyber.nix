@@ -30,41 +30,41 @@
         LANG = "en_US.UTF-8";
         LC_CTYPE = "en_US.UTF-8";
       };
-      # Tokyo Night colours
+      # Cyberpunk Neon
       colors = {
         primary = {
-          background = "0x1a1b26";
-          foreground = "0xa9b1d6";
+          background = "0x000b1e";
+          foreground = "0x0abdc6";
         };
         normal = {
-          black = "0x32344a";
-          red = "0xf7768e";
-          green = "0x9ece6a";
-          yellow = "0xe0af68";
-          blue = "0x7aa2f7";
-          magenta = "0xad8ee6";
-          cyan = "0x440dab";
-          white = "0x787c99";
+          black = "0x123e7c";
+          red = "0xff0000";
+          green = "0xd300c4";
+          yellow = "0xf57800";
+          blue = "0x123e7c";
+          magenta = "0x711c91";
+          cyan = "0x0abdc6";
+          white = "0xd7d7d5";
         };
         bright = {
-          black = "0x444b6a";
-          red = "0xff7a93";
-          green = "0xb9f27c";
-          yellow = "0xff9e64";
-          blue = "0x7da6ff";
-          magenta = "0xbb9af7";
-          cyan = "0xdb9d7";
-          white = "0xacb0d0";
+          black = "0x1c61c2";
+          red = "0xff0000";
+          green = "0xd300c4";
+          yellow = "0xf57800";
+          blue = "0x00ff00";
+          magenta = "0x711c91";
+          cyan = "0x0abdc6";
+          white = "0xd7d7d5";
         };
         dim = {
-          black = "0x444b6a";
-          red = "0xff7a93";
-          green = "0xb9f27c";
-          yellow = "0xff9e64";
-          blue = "0x7da6ff";
-          magenta = "0xbb9af7";
-          cyan = "0xdb9d7";
-          white = "0xacb0d0";
+          black = "0x1c61c2";
+          red = "0xff0000";
+          green = "0xd300c4";
+          yellow = "0xf57800";
+          blue = "0x123e7c";
+          magenta = "0x711c91";
+          cyan = "0x0abdc6";
+          white = "0xd7d7d5";
         };
       };
     };
