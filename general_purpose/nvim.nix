@@ -10,9 +10,6 @@
       telescope-nvim vim-easy-align vim-multiple-cursors vim-commentary vim-css-color vim-devicons
       nvim-treesitter
 
-      # visual plugins
-      bufferline-nvim
-
       # status bar
       lualine-nvim lualine-lsp-progress
 
