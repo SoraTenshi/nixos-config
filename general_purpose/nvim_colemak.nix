@@ -9,16 +9,19 @@
       # utilities
       telescope-nvim vim-easy-align vim-multiple-cursors vim-commentary vim-css-color vim-devicons
 
+      # visual 
+      nvim-ts-rainbow nvim-treesitter
+
       # status bar
-      vim-airline vim-airline-clock 
+      lualine-nvim lualine-lsp-progress
 
       # auto complete
       nvim-cmp cmp-buffer cmp-path cmp-nvim-lsp cmp_luasnip lspkind-nvim nvim-lspconfig
-      vim-lightline-coc telescope-coc-nvim 
 
       # syntax highlighting
-      zig-vim vim-nix
-      vim-polyglot 
+      zig-vim vim-nix nim-vim
+      vim-polyglot
+      vim-csharp
 
       # design stuff
       tokyonight-nvim
@@ -29,7 +32,9 @@
       lua require('indent')
       lua require('completion')
 
+      lua require('init_ll')
       lua require('init_lsp')
+      lua require('init_ts')
 
       nnoremap <leader>ff <cmd>Telescope find_files<cr>
       nnoremap <leader>fb <cmd>Telescope buffers<cr>
