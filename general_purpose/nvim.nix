@@ -16,6 +16,9 @@
       # status bar
       lualine-nvim lualine-lsp-progress
 
+      # buffer stuff
+      bufferline-nvim
+
       # auto complete
       nvim-cmp cmp-buffer cmp-path cmp_luasnip lspkind-nvim nvim-lspconfig lsp_signature-nvim
 
@@ -38,11 +41,29 @@
       lua require('init_ll')
       lua require('init_lsp')
       lua require('init_ts')
+      lua require('init_bl')
+
+      let mapleader = "\<SPACE>"
+
+      vnoremap < <gv
+      vnoremap > >gv
+      vnoremap y myy`y
+      vnoremap Y myY`y
 
       nnoremap <C-k> <cmd>lua vim.lsp.buf.signature_help()<cr>
 
+      nnoremap <leader>k :nohlsearch<cr>
       nnoremap <leader>ff <cmd>Telescope find_files<cr>
-      nnoremap <leader>fb <cmd>Telescope buffers<cr>
+
+      nnoremap <silent>[b :BufferLineCycleNext<CR>
+      nnoremap <silent>b] :BufferLineCyclePrev<CR>
+
+      nnoremap <silent><leader>bh :BufferLineMoveNext<CR>
+      nnoremap <silent><leader>bl :BufferLineMovePrev<CR>
+
+      nnoremap <silent>be :BufferLineSortByExtension<CR>
+      nnoremap <silent>bd :BufferLineSortByDirectory<CR>
+
       vnoremap x "_x
       nnoremap x "_x
 
@@ -50,6 +71,7 @@
       syntax on
       set hidden
       set nobackup
+      set signcolumn=yes:2
       set nowritebackup
       set cmdheight=2
       set updatetime=300
@@ -57,11 +79,11 @@
       set backspace=2
       set visualbell
       set t_vb=
+      set title
       set relativenumber
       set number
-      set ignorecase
       set ruler
-      set tabstop=2 shiftwidth=2 smarttab
+      set tabstop=2 shiftwidth=2 smarttab expandtab
       set noexpandtab
       set cursorline
       set encoding=UTF-8
@@ -69,6 +91,8 @@
       set smartindent
       set ignorecase
       set cursorline
+      set updatetime=300
+      set redrawtime=10000
 
       colorscheme tokyonight
       set termguicolors
