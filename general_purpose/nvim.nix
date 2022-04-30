@@ -10,13 +10,14 @@
       telescope-nvim vim-easy-align vim-multiple-cursors vim-commentary vim-css-color vim-devicons
 
       # visual 
-      nvim-ts-rainbow nvim-treesitter
+      (nvim-treesitter.withPlugins (_: with plugins; pkgs.tree-sitter.allGrammars))
+      nvim-ts-rainbow # nvim-treesitter
 
       # status bar
       lualine-nvim lualine-lsp-progress
 
       # auto complete
-      nvim-cmp cmp-buffer cmp-path cmp-nvim-lsp cmp_luasnip lspkind-nvim nvim-lspconfig
+      nvim-cmp cmp-buffer cmp-path cmp_luasnip lspkind-nvim nvim-lspconfig lsp_signature-nvim
 
       # syntax highlighting
       zig-vim vim-nix nim-vim
@@ -35,6 +36,7 @@
       lua require('init_ll')
       lua require('init_lsp')
       lua require('init_ts')
+      lua require('init_sh')
 
       nnoremap <leader>ff <cmd>Telescope find_files<cr>
       nnoremap <leader>fb <cmd>Telescope buffers<cr>
