@@ -7,29 +7,22 @@
 
     plugins = with pkgs.vimPlugins; [
       # utilities
-      telescope-nvim vim-easy-align vim-multiple-cursors vim-commentary vim-css-color vim-devicons
-
+      telescope-nvim vim-easy-align vim-multiple-cursors vim-commentary vim-css-color vim-devicons which-key-nvim vim-eunuch
       # visual 
       (nvim-treesitter.withPlugins (_: with plugins; pkgs.tree-sitter.allGrammars))
       nvim-ts-rainbow # nvim-treesitter
-
       # status bar
       lualine-nvim lualine-lsp-progress
-
       # huh
       ale popup-nvim
-
       # buffer stuff
       bufferline-nvim
-
       # auto complete
       nvim-cmp cmp-buffer cmp-path cmp_luasnip lspkind-nvim nvim-lspconfig lsp_signature-nvim
-
       # syntax highlighting
       zig-vim vim-nix nim-vim
       vim-polyglot
       vim-csharp
-
       # design stuff
       tokyonight-nvim
       indent-blankline-nvim
@@ -51,6 +44,8 @@
       let g:ale_floating_preview = 1
       let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰']
 
+      let g:multi_cursor_use_default_mapping = 1
+
       vnoremap < <gv
       vnoremap > >gv
       vnoremap y myy`y
@@ -64,6 +59,8 @@
 
       nnoremap <leader>k :nohlsearch<cr>
       nnoremap <leader>ff <cmd>Telescope find_files<cr>
+      nnoremap <leader>w! :SudoWrite<cr>
+      nnoremap <leader>e! :SudoEdit<cr>
 
       nnoremap <silent>[b :BufferLineCycleNext<CR>
       nnoremap <silent>b] :BufferLineCyclePrev<CR>
@@ -73,6 +70,8 @@
 
       nnoremap <silent>be :BufferLineSortByExtension<CR>
       nnoremap <silent>bd :BufferLineSortByDirectory<CR>
+
+      vnoremap ga :EasyAlign<cr>
 
       vnoremap x "_x
       nnoremap x "_x
