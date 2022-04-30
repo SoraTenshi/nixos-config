@@ -31,12 +31,13 @@
 
     extraConfig = ''
       lua require('indent')
+      lua require('init_sh')
+
       lua require('completion')
 
       lua require('init_ll')
       lua require('init_lsp')
       lua require('init_ts')
-      lua require('init_sh')
 
       nnoremap <leader>ff <cmd>Telescope find_files<cr>
       nnoremap <leader>fb <cmd>Telescope buffers<cr>
