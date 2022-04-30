@@ -39,6 +39,8 @@
       lua require('init_lsp')
       lua require('init_ts')
 
+      nnoremap <C-k> <cmd>lua vim.lsp.buf.signature_help()<cr>
+
       nnoremap <leader>ff <cmd>Telescope find_files<cr>
       nnoremap <leader>fb <cmd>Telescope buffers<cr>
       vnoremap x "_x
