@@ -16,6 +16,9 @@
       # status bar
       lualine-nvim lualine-lsp-progress
 
+      # huh
+      ale popup-nvim
+
       # buffer stuff
       bufferline-nvim
 
@@ -45,12 +48,19 @@
 
       let mapleader = "\<SPACE>"
 
+      let g:ale_floating_preview = 1
+      let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰']
+
       vnoremap < <gv
       vnoremap > >gv
       vnoremap y myy`y
       vnoremap Y myY`y
 
       nnoremap <C-k> <cmd>lua vim.lsp.buf.signature_help()<cr>
+      nnoremap <leader>g :ALEGoToDefinition<cr>
+      nnoremap <leader>fr :ALEFindReferences<cr>
+      nnoremap <leader>ss :ALESymbolSearch
+      nnoremap <leader>r :ALERename
 
       nnoremap <leader>k :nohlsearch<cr>
       nnoremap <leader>ff <cmd>Telescope find_files<cr>
