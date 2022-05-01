@@ -7,13 +7,13 @@
 
     plugins = with pkgs.vimPlugins; [
       # utilities
-      telescope-nvim vim-easy-align vim-multiple-cursors vim-commentary vim-css-color vim-devicons which-key-nvim vim-eunuch
+      telescope-nvim vim-easy-align vim-multiple-cursors vim-commentary vim-css-color vim-devicons which-key-nvim vim-eunuch vim-cursorword
       # visual 
-      (nvim-treesitter.withPlugins (_: with plugins; pkgs.tree-sitter.allGrammars))
+      (nvim-treesitter.withPlugins (_: with plugins; pkgs.tree-sitter.allGrammars)) Shade-nvim
       nvim-ts-rainbow # nvim-treesitter
       # status bar
       lualine-nvim lualine-lsp-progress
-      # huh
+      # better diagnostics
       ale popup-nvim
       # buffer stuff
       bufferline-nvim
@@ -38,11 +38,18 @@
       lua require('init_lsp')
       lua require('init_ts')
       lua require('init_bl')
+      lua require('init_sde')
 
       let mapleader = "\<SPACE>"
 
       let g:ale_floating_preview = 1
       let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰']
+
+      " min width of word
+      let g:cursorword_min_width = 3
+
+      " max width of word
+      let g:cursorword_max_width = 50
 
       let g:multi_cursor_use_default_mapping = 1
 
