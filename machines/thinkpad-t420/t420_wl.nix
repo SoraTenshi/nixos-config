@@ -47,7 +47,7 @@
   services.xserver = {
     enable = true;
     displayManager.gdm.wayland = true;
-    displayManager.defaultSession = "none+leftwm";
+    # displayManager.defaultSession = "none+riverwm";
     # windowManager.leftwm.enable = true;
     # touchpad support!
     libinput.enable = true;
