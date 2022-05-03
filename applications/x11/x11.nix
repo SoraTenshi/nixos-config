@@ -33,8 +33,6 @@
       # Corners
       corner-radius = 12.0;
       round-borders = 1;
-
-      active-opacity = 0.6;
     '';
   };
 
