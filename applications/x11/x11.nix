@@ -3,8 +3,6 @@
 { config, pkgs, dotfiles, ... }:
 
 {
-  programs.home-manager.enable = true;
-
   home.packages = with pkgs; [
     # App starter
     rofi 
@@ -43,6 +41,7 @@
   # leftwm kinda takes cares of the polybar :)
   home.file = {
     ".config/leftwm" = {
-      source = "{dotfiles}/leftwm";
+      source = "${dotfiles}/leftwm";
+    };
   };
 }
