@@ -12,6 +12,11 @@
       url = "github:s0la1337/dotfiles";
       flake = false;
     };
+
+    sddm-theme = {
+      url = "github:rototrash/tokyo-night-sddm";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, dotfiles, nixos-hardware }@inputs: {
