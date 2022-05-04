@@ -3,6 +3,7 @@
   imports = [ 
     (modulesPath + "/installer/scan/not-detected.nix")
     ../../configuration.nix
+    ../../applications/sddm.nix
   ];
 
   boot = {
@@ -15,18 +16,17 @@
     extraModulePackages = [ ];
   };
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-label/NIXMAIN";
+  fileSystems."/" = {
+      device = "/dev/disk/by-label/NIXMAIN";
       fsType = "ext4";
     };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-label/NIXBOOT";
+    fileSystems."/boot" = {
+      device = "/dev/disk/by-label/NIXBOOT";
       fsType = "vfat";
     };
 
-  swapDevices = [ 
-    {
+  swapDevices = [{
       device = "/.swapfile";
     }
   ];
