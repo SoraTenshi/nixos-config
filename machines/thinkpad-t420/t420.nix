@@ -3,7 +3,6 @@
   imports = [ 
     (modulesPath + "/installer/scan/not-detected.nix")
     ../../configuration.nix
-    ../../applications/sddm.nix
   ];
 
   boot = {
