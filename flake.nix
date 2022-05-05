@@ -19,7 +19,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, dotfiles, nixos-hardware }@inputs: {
+  outputs = { self, nixpkgs, home-manager, dotfiles, nixos-hardware, sddm-theme }@inputs: {
     nixosConfigurations = {
       wsl = nixpkgs.lib.nixosSystem { 
         system = "x86_64-linux";
@@ -53,11 +53,12 @@
         system = "x86_64-linux";
         modules = [ 
           ./machines/thinkpad-t420/t420.nix
+          ./applications/sddm.nix
           nixos-hardware.nixosModules.lenovo-thinkpad-t420
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit dotfiles; };
+            home-manager.extraSpecialArgs = { inherit dotfiles sddm-theme; };
             home-manager.users.dreamer = { ... }: {
               imports = [ ./profiles/dreamer/default.nix ];
             };
@@ -72,7 +73,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit dotfiles; };
+            home-manager.extraSpecialArgs = { inherit dotfiles sddm-theme; };
             home-manager.users.dreamer = { ... }: {
               imports = [ ./profiles/dreamer_wl/default.nix ];
             };

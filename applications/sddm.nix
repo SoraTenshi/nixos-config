@@ -1,7 +1,6 @@
-{ config, pkgs, sddm-theme, ... }:
+{ config, pkgs, lib, nixos-hardware, sddm-theme, ... }:
 {
   services.xserver.displayManager = {
-    defaultSession = "none+leftwm";
     sddm = {
       enable = true;
       theme = "tokyo-night-sddm";
@@ -9,7 +8,7 @@
   };
 
   home.file = {
-    "/usr/share/sddm/themes" = {
+    "/usr/share/sddm/themes/tokyo-night-sddm" = {
       source = "${sddm-theme}";
     };
   };
