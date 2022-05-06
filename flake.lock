@@ -80,11 +80,11 @@
     "sddm-theme": {
       "flake": false,
       "locked": {
-        "lastModified": 1651879590,
-        "narHash": "sha256-EfzP8ZkM4BAruaYI3n43CGD+gbr3yAEVYgdJpIytKyc=",
+        "lastModified": 1651880034,
+        "narHash": "sha256-bqnqEiazqdZq5+oRJUr5SuDXBImdqa/quW6vQwD5AOk=",
         "owner": "s0la1337",
         "repo": "tokyo-night-sddm",
-        "rev": "09addb7cb711d90e6c689b7043db415620c43ae8",
+        "rev": "19a3b3cf5b8ef815d5553c4ce2c449efeef09c16",
         "type": "github"
       },
       "original": {
