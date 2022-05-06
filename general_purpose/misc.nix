@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  programs.xclip.enable = true;
+  home.packages = with pkgs; [
+    xclip
+  ];
 }
