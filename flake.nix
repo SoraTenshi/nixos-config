@@ -14,7 +14,7 @@
     };
 
     sddm-theme = {
-      url = "github:rototrash/tokyo-night-sddm";
+      url = "github:s0la1337/tokyo-night-sddm";
       flake = false;
     };
   };
