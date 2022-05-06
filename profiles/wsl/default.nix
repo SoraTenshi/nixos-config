@@ -5,6 +5,7 @@
     # General purpose
     ../../general_purpose/nvim.nix
     ../../general_purpose/zsh.nix
+    ../../general_purpose/misc.nix
 
     # development
     ../../development/c.nix
