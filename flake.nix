@@ -68,8 +68,10 @@
       };
       nc_wl = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit sddm-theme; };
         modules = [ 
           ./machines/thinkpad-t420/t420_wl.nix
+          ./applications/sddm.nix
           nixos-hardware.nixosModules.lenovo-thinkpad-t420
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
