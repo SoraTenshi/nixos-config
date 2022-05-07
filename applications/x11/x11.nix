@@ -5,10 +5,10 @@
 {
   home.packages = with pkgs; [
     # App starter
-    rofi 
+    rofi rofi-power-menu rofi-pulse-select rofi-file-browser
 
     # Window Manager
-    # in the future probably penrose
+    # Highly volatile
     leftwm
     dmenu networkmanager_dmenu
 
@@ -16,6 +16,7 @@
     picom
 
     # Panel
+    # Maybe also volatile?
     polybar
 
     # Images
