@@ -42,11 +42,5 @@
     ".config/leftwm" = {
       source = "${dotfiles}/leftwm";
     };
-    ".config/polybar" = {
-      source = "${dotfiles}/polybar";
-    };
-    ".config/leftwm/themes/current" = {
-      source = config.lib.file.mkOutOfStoreSymlink ".config/polybar/tokyo-night/night";
-    };
   };
 }
