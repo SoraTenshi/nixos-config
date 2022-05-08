@@ -52,8 +52,6 @@
 
       let g:tokyonight_style = 'storm'
       let g:tokyonight_transparent_background = 1
-      let g:tokyonight_cursor = blue
-
 
       nnoremap <leader>n :NERDTreeFocus<cr>
       nnoremap <C-t> :NERDTreeToggle<cr>
