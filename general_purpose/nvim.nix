@@ -9,8 +9,7 @@
       # utilities
       telescope-nvim vim-easy-align vim-multiple-cursors vim-commentary vim-css-color vim-devicons which-key-nvim vim-eunuch vim-cursorword
       # visual 
-      (nvim-treesitter.withPlugins (_: with plugins; pkgs.tree-sitter.allGrammars)) Shade-nvim nerdtree
-      nvim-ts-rainbow # nvim-treesitter
+      Shade-nvim nerdtree nvim-ts-rainbow
       # status bar
       lualine-nvim lualine-lsp-progress
       # better diagnostics
@@ -20,12 +19,11 @@
       # auto complete
       nvim-cmp cmp-buffer cmp-path cmp_luasnip lspkind-nvim nvim-lspconfig lsp_signature-nvim
       # syntax highlighting
-      zig-vim vim-nix nim-vim
-      vim-polyglot
-      vim-csharp
+      zig-vim vim-nix nim-vim vim-polyglot vim-csharp
       # design stuff
-      tokyonight-nvim
-      indent-blankline-nvim
+      tokyonight-nvim indent-blankline-nvim
+      # tree sitter
+      (nvim-treesitter.withPlugins (_: with plugins; pkgs.tree-sitter.allGrammars)) 
     ];
 
     extraConfig = ''
@@ -50,8 +48,12 @@
 
       " max width of word
       let g:cursorword_max_width = 50
-
       let g:multi_cursor_use_default_mapping = 1
+
+      let g:tokyonight_style = 'storm'
+      let g:tokyonight_transparent_background = 1
+      let g:tokyonight_cursor = blue
+
 
       nnoremap <leader>n :NERDTreeFocus<cr>
       nnoremap <C-t> :NERDTreeToggle<cr>
@@ -76,11 +78,8 @@
 
       nnoremap <silent>[b :BufferLineCycleNext<CR>
       nnoremap <silent>b] :BufferLineCyclePrev<CR>
-
       nnoremap <silent><leader>bh :BufferLineMoveNext<CR>
       nnoremap <silent><leader>bl :BufferLineMovePrev<CR>
-
-      nnoremap <silent>be :BufferLineSortByExtension<CR>
       nnoremap <silent>bd :BufferLineSortByDirectory<CR>
 
       vnoremap ga :EasyAlign<cr>
