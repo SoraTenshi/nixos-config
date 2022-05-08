@@ -9,7 +9,7 @@
       # utilities
       telescope-nvim vim-easy-align vim-multiple-cursors vim-commentary vim-css-color vim-devicons which-key-nvim vim-eunuch vim-cursorword
       # visual 
-      (nvim-treesitter.withPlugins (_: with plugins; pkgs.tree-sitter.allGrammars)) Shade-nvim
+      (nvim-treesitter.withPlugins (_: with plugins; pkgs.tree-sitter.allGrammars)) Shade-nvim nerdtree
       nvim-ts-rainbow # nvim-treesitter
       # status bar
       lualine-nvim lualine-lsp-progress
@@ -53,6 +53,10 @@
 
       let g:multi_cursor_use_default_mapping = 1
 
+      nnoremap <leader>n :NERDTreeFocus<cr>
+      nnoremap <C-t> :NERDTreeToggle<cr>
+      nnoremap <C-f> :NERDTreeFind<cr>
+
       vnoremap < <gv
       vnoremap > >gv
       vnoremap y myy`y
@@ -66,6 +70,7 @@
 
       nnoremap <leader>k :nohlsearch<cr>
       nnoremap <leader>ff <cmd>Telescope find_files<cr>
+      nnoremap <leader>tt <cmd>Telescope<cr>
       nnoremap <leader>w! :SudoWrite<cr>
       nnoremap <leader>e! :SudoEdit<cr>
 
