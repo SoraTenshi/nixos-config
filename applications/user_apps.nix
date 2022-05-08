@@ -12,7 +12,7 @@
     flameshot
 
     # Pic editing
-    gimp
+    # gimp
   ];
 
   home.file = {
