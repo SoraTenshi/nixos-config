@@ -6,6 +6,7 @@
     ../../general_purpose/nvim_colemak.nix
     ../../general_purpose/zsh.nix
     ../../general_purpose/misc.nix
+    ../../general_purpose/system_packages.nix
 
     # development
     ../../development/c.nix

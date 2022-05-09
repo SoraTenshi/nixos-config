@@ -6,12 +6,6 @@
     platformTheme = "gtk2";
   };
 
-  environment.systemPackages = with pkgs; [
-    # GTK 
-    gtk3.dev gtk4.dev
-
-    libsForQt5.full
-  ];
 
   services.xserver.displayManager = {
     sddm = {
