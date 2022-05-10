@@ -56,9 +56,11 @@
   nixpkgs.config.allowUnfree = true;
 
   time.timeZone = "Europe/Berlin";
+  fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [
     jetbrains-mono
     meslo-lgs-nf
+    rictydiminished-with-firacode
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 

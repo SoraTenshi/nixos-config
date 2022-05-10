@@ -5,8 +5,11 @@
   home.packages = with pkgs; [
     discord steam
 
+    qmk
+
     # browser
-    vivaldi qutebrowser
+    # vivaldi 
+    qutebrowser
 
     # Screenshots!
     flameshot
