@@ -23,14 +23,14 @@
     feh
   ];
 
-  services.picom = {
-    enable = true;
-    fade = true;
-    fadeDelta = 5;
-    shadow = true;
+  services.picom  = {
+    enable        = true;
+    fade          = true;
+    fadeDelta     = 5;
+    shadow        = true;
     shadowOpacity = "0.5";
-    blur = true;
-    extraOptions = ''
+    blur          = true;
+    extraOptions  = ''
       # Corners
       corner-radius = 12.0;
       round-borders = 1;

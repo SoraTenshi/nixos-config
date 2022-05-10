@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    go pythonFull nim
+    go nim
 
     # Language servers (for non-main languages)
     gopls rnix-lsp

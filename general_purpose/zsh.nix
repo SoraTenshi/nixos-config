@@ -18,8 +18,8 @@
 
   # Shell
   programs.zsh = {
-    enable = true;
-    enableCompletion = true;
+    enable                = true;
+    enableCompletion      = true;
     enableAutosuggestions = true;
     # enableSyntaxHighlighting = true;
 
@@ -29,22 +29,22 @@
     '';
 
     shellGlobalAliases = {
-      vim = "nvim ";
+      vim  = "nvim ";
       sudo = "sudo ";
-      cat = "bat ";
-      mv = "mv -i ";
+      cat  = "bat ";
+      mv   = "mv -i ";
     };
 
     shellAliases = {
-      vim = "nvim ";
+      vim  = "nvim ";
       sudo = "sudo ";
-      cat = "bat ";
-      mv = "mv -i ";
+      cat  = "bat ";
+      mv   = "mv -i ";
     };
 
     plugins = [{
       name = "powerlevel10k";
-      src = pkgs.zsh-powerlevel10k;
+      src  = pkgs.zsh-powerlevel10k;
       file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
     }];
 
