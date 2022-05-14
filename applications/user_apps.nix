@@ -5,6 +5,8 @@
   home.packages = with pkgs; [
     discord steam
 
+    neofetch
+
     qmk
 
     # browser
