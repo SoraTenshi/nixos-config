@@ -42,5 +42,9 @@
     ".config/leftwm" = {
       source = "${dotfiles}/leftwm";
     };
+
+    ".config/rofi" = {
+      source = "${dotfiles}/rofi";
+    };
   };
 }
