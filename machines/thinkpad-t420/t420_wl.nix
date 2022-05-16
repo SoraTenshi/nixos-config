@@ -70,4 +70,6 @@
     group = "users";
     extraGroups = [ "wheel" "networkmanager" ];
   };
+
+  system.stateVersion = "22.05";
 }
