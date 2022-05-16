@@ -29,7 +29,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit dotfiles; };
-            home-manager.users.nixos = { ... }: {
+            home-manager.users.neoncity = { ... }: {
               imports = [ ./profiles/wsl/default.nix ];
             };
           }
@@ -43,7 +43,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit dotfiles; };
-            home-manager.users.nixos = { ... }: {
+            home-manager.users.neoncity = { ... }: {
               imports = [ ./profiles/wsl-colemak/default.nix ];
             };
           }
