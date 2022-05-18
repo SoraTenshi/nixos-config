@@ -46,9 +46,21 @@
   services.xserver = {
     enable = true;
     displayManager.defaultSession = "none+leftwm";
+    desktopManager.runXdgAutostartIfNone = true;
     windowManager.leftwm.enable = true;
     # touchpad support!
     libinput.enable = true;
+  };
+
+  console.keyMap = "us";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    inputMethod = {
+      enabled = "fcitx5";
+      fcitx.engines = with pkgs.fcitx-engines; [
+        mozc 
+      ];
+    };
   };
 
   nixpkgs.config.allowUnfree = true;
