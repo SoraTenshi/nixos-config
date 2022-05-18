@@ -56,9 +56,9 @@
   i18n = {
     defaultLocale = "en_US.UTF-8";
     inputMethod = {
-      enabled = "fcitx5";
-      fcitx.engines = with pkgs.fcitx-engines; [
-        mozc 
+      enabled = "ibus";
+      ibus.engines = with pkgs.ibus-engines; [
+        mozc
       ];
     };
   };
