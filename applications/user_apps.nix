@@ -22,7 +22,7 @@
 
   xsession.initExtra = ''
     ${lib.concatMapStrings (s: s + " & \n") (
-      "${pkgs.flameshot}/bin/flameshot"
+      "flameshot"
       "fcitx5"
       )}
   '';
