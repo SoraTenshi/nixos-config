@@ -36,7 +36,7 @@
 
       blur: {
         method = "dual_kawase";
-        strength = 6;
+        strength = 2;
         background = true;
         background-frame = false;
         background-fixed = false;
