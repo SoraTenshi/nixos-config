@@ -1,6 +1,11 @@
 { config, pkgs, dotfiles, ... }:
 
 {
+  home.packages = with pkgs; [
+    # additional dependency
+    ripgrep 
+  ];
+
   programs.neovim = {
     enable   = true;
     vimAlias = true;
@@ -50,7 +55,6 @@
       let g:multi_cursor_use_default_mapping = 1
 
       let g:tokyonight_style = 'storm'
-      let g:tokyonight_transparent_background = 1
 
       nnoremap <leader>n :NERDTreeFocus<cr>
       nnoremap <C-t> :NERDTreeToggle<cr>
@@ -112,7 +116,6 @@
       set redrawtime=10000
 
       colorscheme tokyonight
-      set termguicolors
     '';
   };
 
