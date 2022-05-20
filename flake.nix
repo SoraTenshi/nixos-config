@@ -27,6 +27,7 @@
         system = "x86_64-linux";
         modules = [ 
           ./machines/wsl/wsl.nix
+          ./development/global.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -41,6 +42,7 @@
         system = "x86_64-linux";
         modules = [ 
           ./machines/wsl/wsl.nix
+          ./development/global.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -56,6 +58,7 @@
         specialArgs = { inherit sddm-theme; };
         modules = [ 
           ./machines/thinkpad-t420/t420.nix
+          ./development/global.nix
           ./ui/sddm.nix
           nixos-hardware.nixosModules.lenovo-thinkpad-t420
           home-manager.nixosModules.home-manager {
@@ -73,6 +76,7 @@
         specialArgs = { inherit sddm-theme; };
         modules = [ 
           ./machines/thinkpad-t420/t420_wl.nix
+          ./development/global.nix
           ./ui/sddm.nix
           nixos-hardware.nixosModules.lenovo-thinkpad-t420
           home-manager.nixosModules.home-manager {
