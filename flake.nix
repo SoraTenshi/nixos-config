@@ -8,6 +8,8 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
+
     dotfiles = {
       url = "github:s0la1337/dotfiles";
       flake = false;
@@ -19,7 +21,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, dotfiles, nixos-hardware, sddm-theme }@inputs: {
+  outputs = { self, nixpkgs, home-manager, dotfiles, nixos-hardware, sddm-theme, nix-doom-emacs }@inputs: {
     nixosConfigurations = {
       wsl = nixpkgs.lib.nixosSystem { 
         system = "x86_64-linux";
@@ -28,7 +30,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit dotfiles; };
+            home-manager.extraSpecialArgs = { inherit dotfiles nix-doom-emacs; };
             home-manager.users.neoncity = { ... }: {
               imports = [ ./profiles/wsl/default.nix ];
             };
@@ -42,7 +44,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit dotfiles; };
+            home-manager.extraSpecialArgs = { inherit dotfiles nix-doom-emacs; };
             home-manager.users.neoncity = { ... }: {
               imports = [ ./profiles/wsl-colemak/default.nix ];
             };
@@ -59,7 +61,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit dotfiles; };
+            home-manager.extraSpecialArgs = { inherit dotfiles nix-doom-emacs; };
             home-manager.users.dreamer = { ... }: {
               imports = [ ./profiles/dreamer/default.nix ];
             };
@@ -76,7 +78,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit dotfiles; };
+            home-manager.extraSpecialArgs = { inherit dotfiles nix-doom-emacs; };
             home-manager.users.dreamer = { ... }: {
               imports = [ ./profiles/dreamer_wl/default.nix ];
             };
