@@ -8,10 +8,6 @@
     ../../general_purpose/misc.nix
 
     # development
-    ../../development/c.nix
-    ../../development/zig.nix
-    ../../development/rust.nix
-    ../../development/misc.nix
-    ../../development/tools.nix
+    ../../development/developing.nix
   ];
 }

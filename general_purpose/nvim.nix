@@ -9,7 +9,7 @@
       # utilities
       telescope-nvim vim-easy-align vim-multiple-cursors vim-commentary vim-css-color vim-devicons which-key-nvim vim-eunuch vim-cursorword
       # visual 
-      Shade-nvim nerdtree       # status bar
+      nerdtree
       lualine-nvim lualine-lsp-progress
       # better diagnostics
       ale popup-nvim
@@ -24,7 +24,6 @@
       # tree sitter
       # for now (sadge)
       # (nvim-treesitter.withPlugins (_: with plugins; pkgs.tree-sitter.allGrammars)) nvim-ts-rainbow
-
     ];
 
     extraConfig = ''
@@ -37,7 +36,6 @@
       lua require('init_lsp')
       " lua require('init_ts')
       lua require('init_bl')
-      lua require('init_sde')
 
       let mapleader = "\<SPACE>"
 
