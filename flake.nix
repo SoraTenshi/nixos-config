@@ -54,7 +54,7 @@
         specialArgs = { inherit sddm-theme; };
         modules = [ 
           ./machines/thinkpad-t420/t420.nix
-          ./applications/sddm.nix
+          ./ui/sddm.nix
           nixos-hardware.nixosModules.lenovo-thinkpad-t420
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
@@ -71,7 +71,7 @@
         specialArgs = { inherit sddm-theme; };
         modules = [ 
           ./machines/thinkpad-t420/t420_wl.nix
-          ./applications/sddm.nix
+          ./ui/sddm.nix
           nixos-hardware.nixosModules.lenovo-thinkpad-t420
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
