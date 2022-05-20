@@ -18,7 +18,7 @@
       # auto complete
       nvim-cmp cmp-buffer cmp-path cmp_luasnip lspkind-nvim nvim-lspconfig lsp_signature-nvim
       # syntax highlighting
-      zig-vim vim-nix nim-vim vim-polyglot vim-csharp
+      vim-polyglot
       # design stuff
       tokyonight-nvim indent-blankline-nvim
       # tree sitter
