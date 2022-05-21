@@ -1,13 +1,9 @@
-{ config, pkgs, dotfiles, ... }:
+{ config, pkgs, dotfiles, neovim-nightly, ... }:
 
 {
-  home.packages = with pkgs; [
-    # additional dependency
-    ripgrep 
-  ];
-
   programs.neovim = {
     enable        = true;
+    package       = neovim-nightly.default.Package."${pkgs.system}";
     vimAlias      = true;
     viAlias       = true;
     vimdiffAlias  = true;
@@ -31,6 +27,9 @@
       # tree sitter
       # for now (sadge) 
       (nvim-treesitter.withPlugins (_: with plugins; pkgs.tree-sitter.allGrammars)) nvim-ts-rainbow
+    ];
+    extraPackages = with pkgs; [
+      rnix-lsp ripgrep fd
     ];
 
     extraConfig = ''
