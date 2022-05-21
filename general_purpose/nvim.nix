@@ -28,7 +28,7 @@
       tokyonight-nvim indent-blankline-nvim
       # tree sitter
       # for now (sadge)
-      # (nvim-treesitter.withPlugins (_: with plugins; pkgs.tree-sitter.allGrammars)) nvim-ts-rainbow
+      (nvim-treesitter.withPlugins (_: with plugins; pkgs.tree-sitter.allGrammars)) nvim-ts-rainbow
     ];
 
     extraConfig = ''
@@ -39,7 +39,7 @@
 
       lua require('init_ll')
       lua require('init_lsp')
-      " lua require('init_ts')
+      lua require('init_ts')
       lua require('init_bl')
 
       let mapleader = "\<SPACE>"
