@@ -7,8 +7,10 @@
   ];
 
   programs.neovim = {
-    enable   = true;
-    vimAlias = true;
+    enable        = true;
+    vimAlias      = true;
+    viAlias       = true;
+    vimdiffAlias  = true;
 
     plugins = with pkgs.vimPlugins; [
       # utilities
@@ -27,7 +29,7 @@
       # design stuff
       tokyonight-nvim indent-blankline-nvim
       # tree sitter
-      # for now (sadge)
+      # for now (sadge) 
       (nvim-treesitter.withPlugins (_: with plugins; pkgs.tree-sitter.allGrammars)) nvim-ts-rainbow
     ];
 
