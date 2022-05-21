@@ -27,7 +27,6 @@
         system = "x86_64-linux";
         modules = [ 
           ./machines/wsl/wsl.nix
-          ./development/global.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -42,7 +41,6 @@
         system = "x86_64-linux";
         modules = [ 
           ./machines/wsl/wsl.nix
-          ./development/global.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
