@@ -3,7 +3,6 @@
 {
   programs.neovim = {
     enable        = true;
-    package       = neovim-nightly.default.Package."${pkgs.system}";
     vimAlias      = true;
     viAlias       = true;
     vimdiffAlias  = true;
