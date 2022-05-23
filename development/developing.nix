@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
     # tooling
-    lazygit
+    lazygit llvm libllvm
 
     # debugger
     gdb
