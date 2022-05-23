@@ -1,4 +1,4 @@
-{ config, pkgs, dotfiles, neovim-nightly, ... }:
+{ config, pkgs, dotfiles, ... }:
 
 {
   programs.neovim = {
