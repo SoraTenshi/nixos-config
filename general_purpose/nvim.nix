@@ -61,6 +61,7 @@
       nnoremap <C-t> :NERDTreeToggle<cr>
       nnoremap <C-f> :NERDTreeFind<cr>
 
+      vnoremap p "_dP
       vnoremap < <gv
       vnoremap > >gv
       vnoremap y myy`y
