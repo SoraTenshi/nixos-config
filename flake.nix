@@ -1,22 +1,21 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    # nur.url = "github:nix-community/NUR"; # not used yet, but make it accessible when i need to use it.
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    # nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland"; 
-
+    nixpkgs.url        = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    # nur.url          = "github:nix-community/NUR"; # not used yet, but make it accessible when i need to use it.
 
-    # nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     dotfiles = {
-      url = "github:s0la1337/dotfiles";
+      url   = "github:s0la1337/dotfiles";
       flake = false;
     };
 
     sddm-theme = {
-      url = "github:s0la1337/tokyo-night-sddm";
+      url   = "github:s0la1337/tokyo-night-sddm";
       flake = false;
     };
   };
@@ -24,64 +23,64 @@
   outputs = { self, nixpkgs, home-manager, dotfiles, nixos-hardware, sddm-theme }@inputs: {
     nixosConfigurations = {
       wsl = nixpkgs.lib.nixosSystem { 
-        system = "x86_64-linux";
-        modules = [ 
+        system  = "x86_64-linux";
+        modules = [
           ./machines/wsl/wsl.nix
           home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
+            home-manager.useGlobalPkgs    = true;
+            home-manager.useUserPackages  = true;
             home-manager.extraSpecialArgs = { inherit dotfiles; };
-            home-manager.users.neoncity = { ... }: {
+            home-manager.users.neoncity   = { ... }: {
               imports = [ ./profiles/wsl/default.nix ];
             };
           }
         ];
       };
       wsl_colemak = nixpkgs.lib.nixosSystem { 
-        system = "x86_64-linux";
-        modules = [ 
+        system  = "x86_64-linux";
+        modules = [
           ./machines/wsl/wsl.nix
           home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
+            home-manager.useGlobalPkgs    = true;
+            home-manager.useUserPackages  = true;
             home-manager.extraSpecialArgs = { inherit dotfiles; };
-            home-manager.users.neoncity = { ... }: {
+            home-manager.users.neoncity   = { ... }: {
               imports = [ ./profiles/wsl-colemak/default.nix ];
             };
           }
         ];
       };
       neoncity = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        system      = "x86_64-linux";
         specialArgs = { inherit sddm-theme; };
-        modules = [ 
+        modules     = [
           ./machines/thinkpad-t420/t420.nix
           ./development/global.nix
           ./ui/sddm.nix
           nixos-hardware.nixosModules.lenovo-thinkpad-t420
           home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
+            home-manager.useGlobalPkgs    = true;
+            home-manager.useUserPackages  = true;
             home-manager.extraSpecialArgs = { inherit dotfiles; };
-            home-manager.users.dreamer = { ... }: {
+            home-manager.users.dreamer    = { ... }: {
               imports = [ ./profiles/dreamer/default.nix ];
             };
           }
         ];
       };
       nc_wl = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        system      = "x86_64-linux";
         specialArgs = { inherit sddm-theme; };
-        modules = [ 
+        modules     = [
           ./machines/thinkpad-t420/t420_wl.nix
           ./development/global.nix
           ./ui/sddm.nix
           nixos-hardware.nixosModules.lenovo-thinkpad-t420
           home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
+            home-manager.useGlobalPkgs    = true;
+            home-manager.useUserPackages  = true;
             home-manager.extraSpecialArgs = { inherit dotfiles; };
-            home-manager.users.dreamer = { ... }: {
+            home-manager.users.dreamer    = { ... }: {
               imports = [ ./profiles/dreamer_wl/default.nix ];
             };
           }

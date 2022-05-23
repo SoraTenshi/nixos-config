@@ -34,11 +34,11 @@
     extraConfig = ''
       lua require('indent')
       lua require('init_sh')
+      lua require('init_lsp')
 
       lua require('completion')
 
       lua require('init_ll')
-      lua require('init_lsp')
       lua require('init_ts')
       lua require('init_bl')
 
