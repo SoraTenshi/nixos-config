@@ -2,6 +2,7 @@
   inputs = {
     nixpkgs.url        = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     # nur.url          = "github:nix-community/NUR"; # not used yet, but make it accessible when i need to use it.
 
     home-manager = {
@@ -20,16 +21,17 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, dotfiles, nixos-hardware, sddm-theme }@inputs: {
+  outputs = { self, nixpkgs, home-manager, dotfiles, nixos-hardware, sddm-theme, neovim-nightly }@inputs: {
     nixosConfigurations = {
       wsl = nixpkgs.lib.nixosSystem { 
         system  = "x86_64-linux";
         modules = [
           ./machines/wsl/wsl.nix
+          ./development/global.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs    = true;
             home-manager.useUserPackages  = true;
-            home-manager.extraSpecialArgs = { inherit dotfiles; };
+            home-manager.extraSpecialArgs = { inherit dotfiles neovim-nightly; };
             home-manager.users.neoncity   = { ... }: {
               imports = [ ./profiles/wsl/default.nix ];
             };
@@ -40,6 +42,7 @@
         system  = "x86_64-linux";
         modules = [
           ./machines/wsl/wsl.nix
+          ./development/global.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs    = true;
             home-manager.useUserPackages  = true;
