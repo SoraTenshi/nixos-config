@@ -1,6 +1,8 @@
-{ config, pkgs, dotfiles, ... }:
+{ config, pkgs, dotfiles, neovim-nightly, ... }:
 
 {
+  nixpkgs.overlays = neovim-nightly;
+
   programs.neovim = {
     enable        = true;
     vimAlias      = true;
@@ -28,19 +30,18 @@
       (nvim-treesitter.withPlugins (_: with plugins; pkgs.tree-sitter.allGrammars)) nvim-ts-rainbow
     ];
     extraPackages = with pkgs; [
-      rnix-lsp ripgrep fd
+      rnix-lsp ripgrep fd tree-sitter
     ];
 
     extraConfig = ''
-      lua require('indent')
-      lua require('init_sh')
-      lua require('init_lsp')
-
-      lua require('completion')
-
       lua require('init_ll')
       lua require('init_ts')
       lua require('init_bl')
+      lua require('init_sh')
+      lua require('init_lsp')
+
+      lua require('indent')
+      lua require('completion')
 
       let mapleader = "\<SPACE>"
 
