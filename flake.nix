@@ -46,7 +46,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs    = true;
             home-manager.useUserPackages  = true;
-            home-manager.extraSpecialArgs = { inherit dotfiles; };
+            home-manager.extraSpecialArgs = { inherit dotfiles neovim-nightly; };
             home-manager.users.neoncity   = { ... }: {
               imports = [ ./profiles/wsl-colemak/default.nix ];
             };
@@ -64,7 +64,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs    = true;
             home-manager.useUserPackages  = true;
-            home-manager.extraSpecialArgs = { inherit dotfiles; };
+            home-manager.extraSpecialArgs = { inherit dotfiles neovim-nightly; };
             home-manager.users.dreamer    = { ... }: {
               imports = [ ./profiles/dreamer/default.nix ];
             };
@@ -82,7 +82,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs    = true;
             home-manager.useUserPackages  = true;
-            home-manager.extraSpecialArgs = { inherit dotfiles; };
+            home-manager.extraSpecialArgs = { inherit dotfiles neovim-nightly; };
             home-manager.users.dreamer    = { ... }: {
               imports = [ ./profiles/dreamer_wl/default.nix ];
             };
