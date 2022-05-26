@@ -2,8 +2,8 @@
 {
   qt5 = {
     enable        = true;
-    platformTheme = "gtk3";
-    style         = "gtk3";
+    platformTheme = "gtk2";
+    style         = "gtk2";
   };
 
   environment.systemPackages = with pkgs; [
