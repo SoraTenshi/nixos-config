@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, zig-master, ... }:
 
 {
+  nixpkgs.overlays = zig-master;
+
   home.packages = with pkgs; [
     # tooling
     lazygit llvm libllvm

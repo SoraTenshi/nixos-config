@@ -3,6 +3,7 @@
     nixpkgs.url        = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
+    zig-master.url     = "github:arqv/zig-overlay";
     # nur.url          = "github:nix-community/NUR"; # not used yet, but make it accessible when i need to use it.
 
     home-manager = {
@@ -21,7 +22,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, dotfiles, nixos-hardware, sddm-theme, neovim-nightly }@inputs: {
+  outputs = { self, nixpkgs, home-manager, dotfiles, nixos-hardware, sddm-theme, neovim-nightly, zig-master }@inputs: {
     nixosConfigurations = {
       wsl = nixpkgs.lib.nixosSystem { 
         system  = "x86_64-linux";
@@ -31,7 +32,8 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs    = true;
             home-manager.useUserPackages  = true;
-            home-manager.extraSpecialArgs = { inherit dotfiles neovim-nightly; };
+            home-manager.extraSpecialArgs = { inherit 
+            dotfiles neovim-nightly zig-master; };
             home-manager.users.neoncity   = { ... }: {
               imports = [ ./profiles/wsl/default.nix ];
             };
@@ -47,7 +49,8 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs    = true;
             home-manager.useUserPackages  = true;
-            home-manager.extraSpecialArgs = { inherit dotfiles neovim-nightly; };
+            home-manager.extraSpecialArgs = { inherit 
+            dotfiles neovim-nightly zig-master; };
             home-manager.users.neoncity   = { ... }: {
               imports = [ ./profiles/wsl-colemak/default.nix ];
             };
@@ -66,7 +69,8 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs    = true;
             home-manager.useUserPackages  = true;
-            home-manager.extraSpecialArgs = { inherit dotfiles neovim-nightly; };
+            home-manager.extraSpecialArgs = { inherit 
+            dotfiles neovim-nightly zig-master; };
             home-manager.users.dreamer    = { ... }: {
               imports = [ ./profiles/dreamer/default.nix ];
             };
@@ -85,7 +89,8 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs    = true;
             home-manager.useUserPackages  = true;
-            home-manager.extraSpecialArgs = { inherit dotfiles neovim-nightly; };
+            home-manager.extraSpecialArgs = { inherit 
+            dotfiles neovim-nightly zig-master; };
             home-manager.users.dreamer    = { ... }: {
               imports = [ ./profiles/dreamer_wl/default.nix ];
             };
