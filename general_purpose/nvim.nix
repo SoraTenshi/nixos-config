@@ -16,7 +16,7 @@
       nerdtree
       lualine-nvim lualine-lsp-progress
       # better diagnostics
-      ale popup-nvim
+      #ale popup-nvim
       # buffer stuff
       bufferline-nvim
       # auto complete
@@ -45,8 +45,7 @@
 
       let mapleader = "\<SPACE>"
 
-      let g:ale_floating_preview = 1
-      let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰']
+      " let g:ale_floating_preview = 1
 
       " min width of word
       let g:cursorword_min_width = 3
@@ -68,10 +67,6 @@
       vnoremap Y myY`y
 
       nnoremap <C-k> <cmd>lua vim.lsp.buf.signature_help()<cr>
-      nnoremap <leader>g :ALEGoToDefinition<cr>
-      nnoremap <leader>fr :ALEFindReferences<cr>
-      nnoremap <leader>ss :ALESymbolSearch
-      nnoremap <leader>r :ALERename
 
       nnoremap <leader>k :nohlsearch<cr>
       nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -79,8 +74,8 @@
       nnoremap <leader>w! :SudoWrite<cr>
       nnoremap <leader>e! :SudoEdit<cr>
 
-      nnoremap <silent>[b :BufferLineCycleNext<CR>
-      nnoremap <silent>b] :BufferLineCyclePrev<CR>
+      nnoremap <silent>b] :BufferLineCycleNext<CR>
+      nnoremap <silent>[b :BufferLineCyclePrev<CR>
       nnoremap <silent><leader>bh :BufferLineMoveNext<CR>
       nnoremap <silent><leader>bl :BufferLineMovePrev<CR>
       nnoremap <silent>bd :BufferLineSortByDirectory<CR>
