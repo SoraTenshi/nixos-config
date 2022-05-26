@@ -55,10 +55,11 @@
       lua require('init_ts')
       lua require('init_bl')
       lua require('init_sh')
-      lua require('init_lsp')
 
       lua require('indent')
       lua require('completion')
+
+      lua require('init_lsp')
 
       " min width of word
       let g:cursorword_min_width = 3
