@@ -16,6 +16,5 @@
 
     # development
     ../../development/developing.nix
-    ../../development/global.nix
   ];
 }
