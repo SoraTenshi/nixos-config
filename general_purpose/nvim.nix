@@ -18,17 +18,16 @@
       # buffer stuff
       bufferline-nvim
       # auto complete
-      nvim-cmp cmp-buffer cmp-path cmp_luasnip lspkind-nvim nvim-lspconfig lsp_signature-nvim
+      nvim-cmp cmp-buffer cmp-path lspkind-nvim nvim-lspconfig lsp_signature-nvim luasnip
       # syntax highlighting
       vim-polyglot
       # design stuff
       tokyonight-nvim indent-blankline-nvim
       # tree sitter
-      # for now (sadge) 
       (nvim-treesitter.withPlugins (_: with plugins; pkgs.tree-sitter.allGrammars)) nvim-ts-rainbow
     ];
     extraPackages = with pkgs; [
-      rnix-lsp ripgrep fd tree-sitter
+      rnix-lsp ripgrep fd tree-sitter sumneko-lua-language-server nodePackages.vim-language-server
     ];
 
     extraConfig = ''
