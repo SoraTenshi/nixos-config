@@ -15,8 +15,6 @@
       # visual 
       nerdtree
       lualine-nvim lualine-lsp-progress
-      # better diagnostics
-      #ale popup-nvim
       # buffer stuff
       bufferline-nvim
       # auto complete
@@ -34,6 +32,25 @@
     ];
 
     extraConfig = ''
+      let mapleader = "\<SPACE>"
+
+      lua << EOF
+      local lspconfig = require('lspconfig')
+      local on_attach = function(_, bufnr)
+        local opts = { buffer = bufnr }
+        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+        vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
+        vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+        vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+        vim.api.nvim_create_user_command("Format", vim.lsp.buf.formatting, {})
+      end
+      EOF
+
       lua require('init_ll')
       lua require('init_ts')
       lua require('init_bl')
@@ -42,10 +59,6 @@
 
       lua require('indent')
       lua require('completion')
-
-      let mapleader = "\<SPACE>"
-
-      " let g:ale_floating_preview = 1
 
       " min width of word
       let g:cursorword_min_width = 3
@@ -66,7 +79,7 @@
       vnoremap y myy`y
       vnoremap Y myY`y
 
-      nnoremap <C-k> <cmd>lua vim.lsp.buf.signature_help()<cr>
+      noremap <C-k> <cmd>lua vim.lsp.buf.signature_help()<cr>
 
       nnoremap <leader>k :nohlsearch<cr>
       nnoremap <leader>ff <cmd>Telescope find_files<cr>
