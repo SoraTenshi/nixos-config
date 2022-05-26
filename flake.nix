@@ -38,6 +38,7 @@
           }
         ];
       };
+
       wsl_colemak = nixpkgs.lib.nixosSystem { 
         system  = "x86_64-linux";
         modules = [
@@ -53,6 +54,7 @@
           }
         ];
       };
+
       neoncity = nixpkgs.lib.nixosSystem {
         system      = "x86_64-linux";
         specialArgs = { inherit sddm-theme; };
@@ -71,6 +73,7 @@
           }
         ];
       };
+
       nc_wl = nixpkgs.lib.nixosSystem {
         system      = "x86_64-linux";
         specialArgs = { inherit sddm-theme; };
