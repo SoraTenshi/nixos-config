@@ -18,7 +18,7 @@
       # buffer stuff
       bufferline-nvim
       # auto complete
-      nvim-cmp cmp-buffer cmp-path lspkind-nvim nvim-lspconfig lsp_signature-nvim cmp_luasnip luasnip
+      nvim-cmp cmp-buffer cmp-path lspkind-nvim nvim-lspconfig lsp_signature-nvim cmp_luasnip luasnip cmp-nvim-lsp
       # syntax highlighting
       vim-polyglot
       # design stuff
