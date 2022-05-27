@@ -87,11 +87,10 @@
       nnoremap <leader>w! :SudoWrite<cr>
       nnoremap <leader>e! :SudoEdit<cr>
 
-      nnoremap <silent>b] :BufferLineCycleNext<CR>
+      nnoremap <silent>]b :BufferLineCycleNext<CR>
       nnoremap <silent>[b :BufferLineCyclePrev<CR>
       nnoremap <silent><leader>bh :BufferLineMoveNext<CR>
       nnoremap <silent><leader>bl :BufferLineMovePrev<CR>
-      nnoremap <silent>bd :BufferLineSortByDirectory<CR>
 
       vnoremap ga :EasyAlign<cr>
 
