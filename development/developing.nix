@@ -5,7 +5,11 @@
 
   home.packages = with pkgs; [
     # tooling
-    lazygit llvm libllvm
+    lazygit
+
+    # build zig
+    lld_13
+    llvmPackages_13.llvm llvmPackages_13.libllvm
 
     # debugger
     gdb
