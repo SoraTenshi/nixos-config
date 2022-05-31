@@ -27,8 +27,14 @@
   '';
 
   home.file = {
-    ".config/qutebrowser.configdata.yml" = {
-      source = "${dotfiles}/qutebrowser/configdata.yml";
+    ".config/qutebrowser/config.py" = {
+      source = "${dotfiles}/qutebrowser/config.py";
+    };
+  };
+
+  home.file = {
+    ".Xresources" = {
+      source = "${dotfiles}/xresource/tokyo-night-storm.Xresources";
     };
   };
 }
