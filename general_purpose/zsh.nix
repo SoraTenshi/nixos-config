@@ -37,6 +37,7 @@
       sudo = "sudo ";
       cat  = "bat ";
       mv   = "mv -i ";
+      cd   = "z ";
     };
 
     shellAliases = {
@@ -44,6 +45,7 @@
       sudo = "sudo ";
       cat  = "bat ";
       mv   = "mv -i ";
+      cd   = "z ";
     };
 
     plugins = [{
