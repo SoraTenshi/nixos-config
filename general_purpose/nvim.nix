@@ -66,6 +66,7 @@
       " max width of word
       let g:cursorword_max_width = 50
       let g:multi_cursor_use_default_mapping = 1
+      let g:scrolloff = 7
 
       let g:tokyonight_style = 'storm'
 
