@@ -12,6 +12,9 @@
     # Actual Shell, with some skins
     zsh
 
+    # Plugin i guess?
+    zoxide
+
     # Shell utils
     bat htop
   ];
@@ -25,7 +28,8 @@
 
     # this needs some work, the colourscheme fits, but i dislike the design
     initExtra = ''
-        [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+    eval "$(zoxide init zsh)"
+    [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
     '';
 
     shellGlobalAliases = {
@@ -58,7 +62,7 @@
 
   home.file = {
     ".p10k.zsh" = {
-			source = "${dotfiles}/powerlevel10k/.p10k.zsh";
-		};
+      source = "${dotfiles}/powerlevel10k/.p10k.zsh";
+    };
   };
 }
