@@ -16,6 +16,7 @@
 
     # compiler
     clang go nim cargo rustc zig
+    idris2 
 
     # cmake
     cmake 
