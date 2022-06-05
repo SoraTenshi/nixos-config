@@ -7,12 +7,31 @@
 
   boot = {
     initrd.availableKernelModules = [ "sdhci_pci" "usb_storage" "ehci_pci" ];
-    loader = {
-      efi.canTouchEfiVariables = true;
-      systemd-boot.enable = true;
-    };
     kernelModules = [ ];
     extraModulePackages = [ ];
+  };
+
+  boot.loader = {
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot/efi";
+    };
+    grub = {
+      enable = true;
+      efiSupport = true;
+      copyKernels = true;
+      # splashImage = ./path/to/grub.png;
+      splashMode = "stretch";
+      device = "nodev";
+      extraEntries = ''
+      menuentry "Reboot" {
+        reboot
+      }
+      menuentry "Poweroff" {
+        halt
+      }
+      '';
+    };
   };
 
   fileSystems."/" =
