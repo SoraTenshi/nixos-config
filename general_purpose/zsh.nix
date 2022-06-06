@@ -36,19 +36,19 @@
     '';
 
     shellGlobalAliases = {
-      cat    = "bat ";
-      mv     = "mv -i ";
-      cd     = "z ";
-      fuck   = "thefuck ";
-      update = "sudo nixos-rebuild switch --flake .#neoncity";
+      cat   = "bat ";
+      mv    = "mv -i ";
+      cd    = "z ";
+      fuck  = "thefuck ";
+      nixfu = "sudo nixos-rebuild switch --flake .#neoncity";
     };
 
     shellAliases = {
-      cat    = "bat ";
-      mv     = "mv -i ";
-      cd     = "z ";
-      fuck   = "thefuck ";
-      update = "sudo nixos-rebuild switch --flake .#neoncity";
+      cat   = "bat ";
+      mv    = "mv -i ";
+      cd    = "z ";
+      fuck  = "thefuck ";
+      nixfu = "sudo nixos-rebuild switch --flake .#neoncity";
     };
 
     plugins = [{

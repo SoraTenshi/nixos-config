@@ -6,6 +6,11 @@
     zig-master.url     = "github:arqv/zig-overlay";
     # nur.url          = "github:nix-community/NUR"; # not used yet, but make it accessible when i need to use it.
 
+    grub2-theme = {
+      url                    = "github:vinceliuice/grub2-themes";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,7 +27,8 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, dotfiles, nixos-hardware, sddm-theme, neovim-nightly, zig-master }@inputs: {
+  outputs = { self, nixpkgs, home-manager, dotfiles, nixos-hardware,
+    sddm-theme, neovim-nightly, zig-master, grub2-theme }@inputs: {
     nixosConfigurations = {
       wsl = nixpkgs.lib.nixosSystem { 
         system  = "x86_64-linux";
@@ -60,7 +66,7 @@
 
       neoncity = nixpkgs.lib.nixosSystem {
         system      = "x86_64-linux";
-        specialArgs = { inherit sddm-theme; };
+        specialArgs = { inherit sddm-theme grub2-theme; };
         modules     = [
           ./machines/thinkpad-t420/t420.nix
           ./development/global.nix
@@ -80,7 +86,7 @@
 
       nc_wl = nixpkgs.lib.nixosSystem {
         system      = "x86_64-linux";
-        specialArgs = { inherit sddm-theme; };
+        specialArgs = { inherit sddm-theme grub2-theme; };
         modules     = [
           ./machines/thinkpad-t420/t420_wl.nix
           ./development/global.nix
