@@ -12,6 +12,9 @@
     # Actual Shell, with some skins
     zsh
 
+    # correct :D
+    thefuck
+
     # Plugin i guess?
     zoxide
 
@@ -33,19 +36,21 @@
     '';
 
     shellGlobalAliases = {
-      vim  = "nvim ";
-      sudo = "sudo ";
-      cat  = "bat ";
-      mv   = "mv -i ";
-      cd   = "z ";
+      vim     = "nvim ";
+      sudo    = "sudo ";
+      cat     = "bat ";
+      mv      = "mv -i ";
+      cd      = "z ";
+      thefuck = "fuck ";
     };
 
     shellAliases = {
-      vim  = "nvim ";
-      sudo = "sudo ";
-      cat  = "bat ";
-      mv   = "mv -i ";
-      cd   = "z ";
+      vim     = "nvim ";
+      sudo    = "sudo ";
+      cat     = "bat ";
+      mv      = "mv -i ";
+      cd      = "z ";
+      thefuck = "fuck ";
     };
 
     plugins = [{
