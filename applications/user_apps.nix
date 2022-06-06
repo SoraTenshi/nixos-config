@@ -7,6 +7,8 @@
 
     qmk
 
+    freshfetch
+
     # browser
     # vivaldi 
     qutebrowser
