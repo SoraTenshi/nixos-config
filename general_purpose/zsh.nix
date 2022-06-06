@@ -36,21 +36,19 @@
     '';
 
     shellGlobalAliases = {
-      vim     = "nvim ";
-      sudo    = "sudo ";
-      cat     = "bat ";
-      mv      = "mv -i ";
-      cd      = "z ";
-      thefuck = "fuck ";
+      cat    = "bat ";
+      mv     = "mv -i ";
+      cd     = "z ";
+      fuck   = "thefuck ";
+      update = "sudo nixos-rebuild switch --flake .#neoncity";
     };
 
     shellAliases = {
-      vim     = "nvim ";
-      sudo    = "sudo ";
-      cat     = "bat ";
-      mv      = "mv -i ";
-      cd      = "z ";
-      thefuck = "fuck ";
+      cat    = "bat ";
+      mv     = "mv -i ";
+      cd     = "z ";
+      fuck   = "thefuck ";
+      update = "sudo nixos-rebuild switch --flake .#neoncity";
     };
 
     plugins = [{
