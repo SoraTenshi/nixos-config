@@ -1,4 +1,4 @@
-{ pkgs, config, lib, nixos-hardware, modulesPath, ... }:
+{ pkgs, config, lib, nixos-hardware, modulesPath, sddm-theme, ... }:
 {
   imports = [ 
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -20,7 +20,7 @@
       enable = true;
       efiSupport = true;
       copyKernels = true;
-      # splashImage = ./path/to/grub.png;
+      splashImage = "${sddm-theme}/Backgrounds/nixos.png";
       splashMode = "stretch";
       device = "nodev";
       extraEntries = ''
@@ -39,13 +39,13 @@
       fsType = "ext4";
     };
 
-    fileSystems."/boot" = {
+    fileSystems."/boot/efi" = {
       device = "/dev/disk/by-label/NIXBOOT";
       fsType = "vfat";
     };
 
   swapDevices = [{
-      device = "/.swapfile";
+      device = "/dev/disk/by-label/swap";
     }
   ];
 
