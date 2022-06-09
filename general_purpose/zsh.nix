@@ -12,9 +12,6 @@
     # Actual Shell, with some skins
     zsh
 
-    # correct :D
-    thefuck
-
     # Plugin i guess?
     zoxide
 
@@ -39,7 +36,6 @@
       cat   = "bat ";
       mv    = "mv -i ";
       cd    = "z ";
-      fuck  = "thefuck ";
       nixfu = "sudo nixos-rebuild switch --flake .#neoncity";
     };
 
@@ -47,7 +43,6 @@
       cat   = "bat ";
       mv    = "mv -i ";
       cd    = "z ";
-      fuck  = "thefuck ";
       nixfu = "sudo nixos-rebuild switch --flake .#neoncity";
     };
 
