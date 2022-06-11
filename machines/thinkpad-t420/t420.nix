@@ -1,4 +1,4 @@
-{ pkgs, config, lib, nixos-hardware, modulesPath, sddm-theme, grub2-theme, ... }:
+{ pkgs, config, lib, nixos-hardware, modulesPath, sddm-theme, ... }:
 {
   imports = [ 
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -20,8 +20,6 @@
       enable = true;
       efiSupport = true;
       copyKernels = true;
-      theme = "vimix";
-      icon = "whitesur";
       splashImage = "${sddm-theme}/Backgrounds/nixos.png";
       splashMode = "stretch";
       device = "nodev";
