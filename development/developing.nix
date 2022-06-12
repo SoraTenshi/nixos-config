@@ -1,8 +1,8 @@
-{ pkgs, zig-master, ... }:
+{ pkgs, zig-master, config, ... }:
 
 {
   home.packages = with pkgs; [
-    zig-master.apps.zig
+    zig-master.packages.x86_64-linux.master.latest
 
     # tooling
     lazygit
@@ -15,7 +15,7 @@
     gdb
 
     # compiler
-    clang go nim cargo rustc zig
+    clang go nim cargo rustc
     idris2 
 
     # cmake
