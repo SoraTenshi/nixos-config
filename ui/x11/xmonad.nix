@@ -3,19 +3,6 @@
 { config, pkgs, dotfiles, ... }:
 
 {
-  services.xserver = {
-    displayManager.defaultSession = "none+xmonad";
-    desktopManager.runXdgAutostartIfNone = true;
-    windowManager.xmonad = {
-      enable = true;
-      enableContribAndExtras = true;
-      extraPackages = haskellPackages: [
-        pkgs.xmonad-log
-      ];
-      config = ./xmonad.hs;
-    };
-  };
-
   home.packages = with pkgs; [
     # App starter
     rofi rofi-power-menu rofi-pulse-select rofi-file-browser
