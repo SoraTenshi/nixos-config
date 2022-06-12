@@ -64,9 +64,6 @@
 
   services.xserver = {
     enable = true;
-    displayManager.defaultSession = "none+leftwm";
-    desktopManager.runXdgAutostartIfNone = true;
-    windowManager.leftwm.enable = true;
     # touchpad support!
     libinput.enable = true;
   };

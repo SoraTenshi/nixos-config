@@ -4,9 +4,16 @@
 
 {
   services.xserver = {
-    displayManager.defaultSession = "none+leftwm";
+    displayManager.defaultSession = "none+xmonad";
     desktopManager.runXdgAutostartIfNone = true;
-    windowManager.leftwm.enable = true;
+    windowManager.xmonad = {
+      enable = true;
+      enableContribAndExtras = true;
+      extraPackages = haskellPackages: [
+        pkgs.xmonad-log
+      ];
+      config = ./xmonad.hs;
+    };
   };
 
   home.packages = with pkgs; [
@@ -15,7 +22,6 @@
 
     # Window Manager
     # Highly volatile
-    leftwm
     dmenu networkmanager_dmenu
 
     # Compositor
@@ -57,10 +63,6 @@
 
   # leftwm kinda takes cares of the polybar :)
   home.file = {
-    ".config/leftwm" = {
-      source = "${dotfiles}/leftwm";
-    };
-
     ".config/rofi" = {
       source = "${dotfiles}/rofi";
     };
