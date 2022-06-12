@@ -3,6 +3,7 @@ import Data.Monoid
 import XMonad
 import XMonad.Util.SpawnOnce
 import XMonad.Layout.Gaps
+import XMonad.Layout.Fullscreen
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map 			 as M
@@ -24,12 +25,8 @@ ovrModMask = mod4Mask
 
 ovrKeys conf@(XConfig {Xmonad.modMask = modm}) = M.fromList $
 	  [ 
-		((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
-
-    -- launch rofi
+      ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
     , ((modm,               xK_p     ), spawn "rofi --show run")
-
-    -- launch rofi menu
     , ((modm .|. shiftMask, xK_p     ), spawn "rofi -show menu -modi 'menu:rofi-power-menu --choices=lock/shutdown/hibernate/reboot'")
 
     -- close focused window
@@ -38,8 +35,12 @@ ovrKeys conf@(XConfig {Xmonad.modMask = modm}) = M.fromList $
      -- Rotate through the available layout algorithms
     , ((modm,               xK_space ), sendMessage NextLayout)
 
-    --  Reset the layouts on the current workspace to default
-    , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
+    -- Set focused window to floating mode and full screen it
+    , ((modm .|. shiftMask, xK_f     ), withFocused $ \win -> do 
+        isFullscreen <- (M.member win . W.floating) `fmap` gets windowset
+        if isFullscreen 
+        then sendMessage RemoveFullscreen
+        else sendMessage AddFullscreen)
 
     -- Resize viewed windows to the correct size
     , ((modm,               xK_n     ), refresh)
@@ -136,7 +137,7 @@ ovrMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-ovrLayout = layoutHook = gaps [(U,18), (R,23)] $ Tall 1 (3/100) (1/2) ||| Full
+ovrLayout = gaps [(U,4), (R,6)] $ FixedColumn ||| Full ||| ovrLayout
 
 -- Essentially just managing
 -- e.g. "start MPlayer" -> "as floating"
