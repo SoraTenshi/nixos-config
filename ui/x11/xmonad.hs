@@ -27,6 +27,7 @@ ovrKeys conf@(XConfig {Xmonad.modMask = modm}) = M.fromList $
 	  [ 
       ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
     , ((modm,               xK_p     ), spawn "rofi --show run")
+    , ((modm,               xK_n     ), spawn "dmenu_networkmanager")
     , ((modm .|. shiftMask, xK_p     ), spawn "rofi -show menu -modi 'menu:rofi-power-menu --choices=lock/shutdown/hibernate/reboot'")
 
     -- close focused window
@@ -43,7 +44,7 @@ ovrKeys conf@(XConfig {Xmonad.modMask = modm}) = M.fromList $
         else sendMessage AddFullscreen)
 
     -- Resize viewed windows to the correct size
-    , ((modm,               xK_n     ), refresh)
+    , ((modm .|. shiftMask, xK_n     ), refresh)
 
     -- Move focus to the next window
     , ((modm,               xK_j     ), windows W.focusDown)
