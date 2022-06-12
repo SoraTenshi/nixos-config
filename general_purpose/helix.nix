@@ -7,7 +7,7 @@
     omnisharp-roslyn sumneko-lua-language-server 
 
     nodePackages.vim-language-server
-    haskellPackages.ghcide
+    haskell-language-server
   ];
 
   home.file = {
