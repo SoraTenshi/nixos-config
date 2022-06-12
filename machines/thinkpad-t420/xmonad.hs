@@ -1,12 +1,14 @@
 import Data.Monoid
+import System.Exit
 
 import XMonad
 import XMonad.Util.SpawnOnce
 import XMonad.Layout.Gaps
 import XMonad.Layout.Fullscreen
+import XMonad.Layout.BinarySpacePartition
 
 import qualified XMonad.StackSet as W
-import qualified Data.Map 			 as M
+import qualified Data.Map        as M
 
 ovrDefaultTerm = "alacritty"
 
@@ -23,8 +25,8 @@ ovrNormalColor  = "#7dcfff"
 
 ovrModMask = mod4Mask
 
-ovrKeys conf@(XConfig {Xmonad.modMask = modm}) = M.fromList $
-	  [ 
+ovrKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
+    [ 
       ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
     , ((modm,               xK_p     ), spawn "rofi --show run")
     , ((modm,               xK_n     ), spawn "dmenu_networkmanager")
@@ -56,7 +58,7 @@ ovrKeys conf@(XConfig {Xmonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_m     ), windows W.focusMaster)
 
     -- Swap the focused window and the master window
-    , ((modm,               xK_v  	 ), windows W.swapMaster)
+    , ((modm,               xK_v     ), windows W.swapMaster)
 
     -- Swap the focused window with the next window
     , ((modm .|. shiftMask, xK_j     ), windows W.swapDown)
@@ -138,12 +140,12 @@ ovrMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-ovrLayout = gaps [(U,4), (R,6)] $ FixedColumn ||| Full ||| ovrLayout
+ovrLayout = gaps [(U,4), (R,6)] $ Tall 1 (3/100) (1/2) ||| emptyBSP ||| Full ||| ovrLayout
 
 -- Essentially just managing
 -- e.g. "start MPlayer" -> "as floating"
 ovrManageHook = mempty
---	composeAll
+--  composeAll
 --    [ className =? "MPlayer"        --> doFloat
 --    , className =? "Gimp"           --> doFloat
 --    , resource  =? "desktop_window" --> doIgnore
@@ -152,18 +154,18 @@ ovrManageHook = mempty
 ovrEventHook = mempty
 
 ovrLogHook = do 
-	spawnOnce "feh --bgscale ~/.config/feh/background.png"
-	spawnOnce "picom --experimental-backends &> /dev/null &"
+  spawnOnce "feh --bgscale ~/.config/feh/background.png"
+  spawnOnce "picom --experimental-backends &> /dev/null &"
 
 defaults = def {
-				terminal           = ovrTerminal,
-        focusFollowsMouse  = ovrFocusFollowsMouse,
+        terminal           = ovrDefaultTerm,
+        focusFollowsMouse  = ovrFollowMouseFocus,
         clickJustFocuses   = ovrClickJustFocuses,
         borderWidth        = ovrBorderWidth,
         modMask            = ovrModMask,
         workspaces         = ovrWorkspaces,
-        normalBorderColor  = ovrNormalBorderColor,
-        focusedBorderColor = ovrFocusedBorderColor,
+        normalBorderColor  = ovrNormalColor,
+        focusedBorderColor = ovrFocusedColor,
 
         keys               = ovrKeys,
         mouseBindings      = ovrMouseBindings,
@@ -171,12 +173,9 @@ defaults = def {
         layoutHook         = ovrLayout,
 --      manageHook         = ovrManageHook,
         handleEventHook    = ovrEventHook,
-        logHook            = ovrLogHook,
-        startupHook        = ovrStartupHook
+        logHook            = ovrLogHook
+--        startupHook        = ovrStartupHook
 }
 
 help :: String
-help = unlines ["Current keybinding:",
-	"",
-	"",
-	]
+help = unlines ["Help:"]
