@@ -3,12 +3,6 @@
 { config, pkgs, dotfiles, ... }:
 
 {
-  services.xserver = {
-    displayManager.defaultSession = "none+leftwm";
-    desktopManager.runXdgAutostartIfNone = true;
-    windowManager.leftwm.enable = true;
-  };
-
   home.packages = with pkgs; [
     # App starter
     rofi rofi-power-menu rofi-pulse-select rofi-file-browser
