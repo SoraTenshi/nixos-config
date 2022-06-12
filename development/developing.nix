@@ -1,9 +1,9 @@
 { pkgs, zig-master, ... }:
 
 {
-  nixpkgs.overlays = zig-master;
-
   home.packages = with pkgs; [
+    zig-master.apps.zig
+
     # tooling
     lazygit
 
