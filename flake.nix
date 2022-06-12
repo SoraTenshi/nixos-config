@@ -84,6 +84,26 @@
         ];
       };
 
+      xneoncity = nixpkgs.lib.nixosSystem {
+        system      = "x86_64-linux";
+        specialArgs = { inherit sddm-theme grub2-theme; };
+        modules     = [
+          ./machines/thinkpad-t420/t420.nix
+          ./development/global.nix
+          ./ui/sddm.nix
+          nixos-hardware.nixosModules.lenovo-thinkpad-t420
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs    = true;
+            home-manager.useUserPackages  = true;
+            home-manager.extraSpecialArgs = { inherit 
+            dotfiles neovim-nightly zig-master; };
+            home-manager.users.dreamer    = { ... }: {
+              imports = [ ./profiles/xdreamer/default.nix ];
+            };
+          }
+        ];
+      };
+
       nc_wl = nixpkgs.lib.nixosSystem {
         system      = "x86_64-linux";
         specialArgs = { inherit sddm-theme grub2-theme; };
