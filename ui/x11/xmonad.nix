@@ -1,5 +1,3 @@
-# Used for the configuration of specific configurations
-
 { config, pkgs, dotfiles, ... }:
 
 {
@@ -17,10 +15,13 @@
     # Panel
     # Maybe also volatile?
     polybar
-
-    # Images
-    feh
   ];
+  
+  services.random-background = {
+    enable = true;
+    imageDirectory = "${dotfiles}/feh";
+    interval = "1h";
+  };
 
   services.picom  = {
     enable        = true;
@@ -48,7 +49,6 @@
     '';
   };
 
-  # leftwm kinda takes cares of the polybar :)
   home.file = {
     ".config/rofi" = {
       source = "${dotfiles}/rofi";
