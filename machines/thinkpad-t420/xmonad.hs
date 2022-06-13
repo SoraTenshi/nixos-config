@@ -20,8 +20,8 @@ ovrBorderWidth      = 1
 
 ovrWorkspaces = ["一", "二", "三", "四", "五", "六", "七", "八", "九"]
 
-ovrFocusedColor = "#2ac3de"
-ovrNormalColor  = "#7dcfff"
+ovrFocusedColor = "#8031A7"
+ovrNormalColor  = "#4A25AA"
 
 ovrModMask = mod4Mask
 
