@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, dotfiles, ... }:
 
 {
   imports = [
@@ -18,4 +18,10 @@
     # development
     ../../development/developing.nix
   ];
+  
+  home.file = {
+    ".config/feh" = {
+      source = "${dotfiles}/feh";
+    };
+  };
 }
