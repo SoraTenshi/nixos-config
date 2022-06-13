@@ -156,6 +156,18 @@ ovrEventHook = mempty
 ovrLogHook = do 
   spawnOnce "feh --bgscale ~/.config/feh/background.png"
   spawnOnce "picom --experimental-backends &> /dev/null &"
+    
+data polybarFormat = FGColor String | BGColor String | Offset Int
+                    | UnderlineC String | OverlineC String
+
+pbFormat :: [PolybarFormat] -> String -> String
+pbFormat = flip (foldr pbF)
+  where
+    pbF (FGColor c) s = "%{F" ++ c ++ "}" ++ s ++ "%{F-}"
+    pbF (BGColor c) s = "%{B" ++ c ++ "}" ++ s ++ "%{B-}"
+    pbF (UnderlineC c) s = "%{u" ++ c ++ "}%{+u}" ++ s ++ "%{u-}"
+    pbF (OverlineC c) s = "%{o" ++ c ++ "}%{+o}" ++ s ++ "%{o-}"
+    pbF (Offset o) s = "%{O" ++ show o ++ "}" ++ s}"}"}"}"}"
 
 defaults = def {
         terminal           = ovrDefaultTerm,

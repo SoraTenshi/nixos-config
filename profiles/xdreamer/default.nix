@@ -20,8 +20,8 @@
   ];
   
   home.file = {
-    ".config/feh" = {
-      source = "${dotfiles}/feh";
+    ".config/feh/background.png" = {
+      source = "${dotfiles}/feh/background.png";
     };
   };
 }
