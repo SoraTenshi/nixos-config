@@ -18,10 +18,4 @@
     # development
     ../../development/developing.nix
   ];
-  
-  home.file = {
-    ".config/feh/background.png" = {
-      source = "${dotfiles}/feh/background.png";
-    };
-  };
 }
