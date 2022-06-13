@@ -42,8 +42,8 @@ ovrKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_f     ), withFocused $ \win -> do 
         isFullscreen <- (M.member win . W.floating) `fmap` gets windowset
         if isFullscreen 
-        then sendMessage RemoveFullscreen
-        else sendMessage AddFullscreen)
+        then sendMessage $ RemoveFullscreen win
+        else sendMessage $ AddFullscreen win)
 
     -- Resize viewed windows to the correct size
     , ((modm .|. shiftMask, xK_n     ), refresh)
@@ -140,11 +140,11 @@ ovrMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-ovrLayout = gaps [(U,4), (R,6)] $ Tall 1 (3/100) (1/2) ||| emptyBSP ||| Full ||| ovrLayout
+ovrLayout = gaps [(U,4), (R,6)] $ Tall 1 (3/100) (1/2) ||| emptyBSP ||| Full
 
 -- Essentially just managing
 -- e.g. "start MPlayer" -> "as floating"
-ovrManageHook = mempty
+-- ovrManageHook = mempty
 --  composeAll
 --    [ className =? "MPlayer"        --> doFloat
 --    , className =? "Gimp"           --> doFloat
@@ -179,3 +179,8 @@ defaults = def {
 
 help :: String
 help = unlines ["Help:"]
+
+main :: IO ()
+main = do
+    xmonad $ defaults
+
