@@ -8,7 +8,8 @@
     lldb
 
     # Language servers
-    clangd # C-Style
+    clang-tools # C-Style
+    cmake-language-server # Cmake
     texlab # LaTeX
     gopls # Go 
     rnix-lsp # Nix
@@ -22,8 +23,7 @@
   ];
 
   home.file = {
-    ".config/helix/config.toml" = {
-      source = ''
+    ".config/helix/config.toml".text = ''
 theme = "tokyonight_storm"
 
 [editor]
@@ -52,11 +52,9 @@ nbsp = "⍽"
 tab = "→"
 newline = "⏎"
       '';
-    };
-    ".config/helix/language.toml" = {
-      source = ''
+
+    ".config/helix/language.toml".text = ''
 use-grammars = { }
       '';
-    };
-   };
+  };
 }
