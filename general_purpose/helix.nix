@@ -3,16 +3,21 @@
   home.packages = with pkgs; [
     # Helix as main package
     helix
+    
+    # Debugging stuff
+    lldb
 
     # Language servers
-    ccls 
-    gopls 
-    rnix-lsp 
+    clangd # C-Style
+    texlab # LaTeX
+    gopls # Go 
+    rnix-lsp # Nix
     rust-analyzer 
-    zls 
-    omnisharp-roslyn 
-    sumneko-lua-language-server 
+    zls # Zig
+    omnisharp-roslyn # .NET 
+    sumneko-lua-language-server # Lua
     nodePackages.vim-language-server
+    nodePackages.typescript-language-server
     haskell-language-server
   ];
 
