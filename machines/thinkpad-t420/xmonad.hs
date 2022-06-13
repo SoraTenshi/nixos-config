@@ -154,7 +154,6 @@ ovrLayout = gaps [(U,4), (R,6)] $ Tall 1 (3/100) (1/2) ||| emptyBSP ||| Full
 ovrEventHook = mempty
 
 ovrLogHook = do 
-  spawnOnce "feh --bgscale ~/.config/feh/background.png"
   spawnOnce "picom --experimental-backends &> /dev/null &"
     
 data polybarFormat = FGColor String | BGColor String | Offset Int
