@@ -6,13 +6,13 @@
     ../../ui/wayland/river.nix
 
     # General purpose
-    ../../general_purpose/nvim.nix
-    ../../general_purpose/zsh.nix
-    ../../general_purpose/misc.nix
+    ../../general-purpose/nvim.nix
+    ../../general-purpose/zsh.nix
+    ../../general-purpose/misc.nix
 
     # User applications
     ../../applications/alacritty.nix
-    ../../applications/user_apps.nix
+    ../../applications/user-apps.nix
 
     # development
     ../../development/developing.nix
