@@ -1,9 +1,27 @@
-{ pkgs, dotfiles, ... }: 
+{ pkgs, lib, dotfiles, ... }: 
 {
+  programs.helix = {
+    enable = true;
+    settings = {
+      theme = "tokyonight_storm";
+      editor = {
+        line-number = "relative";
+        scrolloff = 10;
+        idle-timeout = 200;
+        true-color = true;
+        cursor-shape.insert = "bar";
+        whitespace.render = "all";
+        whitespace.characters = {
+          space = "·";
+          nbsp = "⍽";
+          tab = "→";
+          newline = "⤶";
+        };
+      };
+    };
+  };
+  
   home.packages = with pkgs; [
-    # Helix as main package
-    helix
-    
     # Debugging stuff
     lldb
 
@@ -21,40 +39,4 @@
     nodePackages.typescript-language-server
     haskell-language-server
   ];
-
-  home.file = {
-    ".config/helix/config.toml".text = ''
-theme = "tokyonight_storm"
-
-[editor]
-line-number = "relative"
-scrolloff = 10
-idle-timeout = 200
-true-color = true
-
-[editor.cursor-shape]
-insert = "bar"
-
-[editor.auto-pairs]
-'(' = ')'
-'{' = '}'
-'[' = ']'
-'"' = '"'
-'`' = '`'
-'<' = '>'
-
-[editor.whitespace]
-render = "all"
-
-[editor.whitespace.characters]
-space = "·"
-nbsp = "⍽"
-tab = "→"
-newline = "⏎"
-      '';
-
-    ".config/helix/language.toml".text = ''
-use-grammars = { }
-      '';
-  };
 }
