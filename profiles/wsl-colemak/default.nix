@@ -3,9 +3,7 @@
 {
   imports = [
     # General purpose
-    ../../general-purpose/nvim-colemak.nix
-    ../../general-purpose/zsh.nix
-    ../../general-purpose/misc.nix
+    ../../general-purpose/cli-tools-colemak.nix
 
     # development
     ../../development/developing.nix
