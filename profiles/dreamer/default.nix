@@ -6,11 +6,8 @@
     ../../ui/x11/x11.nix
 
     # General purpose
-    ../../general-purpose/nvim.nix
-    ../../general-purpose/zsh.nix
-    ../../general-purpose/misc.nix
-    ../../general-purpose/helix.nix
-
+    ../../general-purpose/cli-tools.nix
+    
     # User applications
     ../../applications/alacritty.nix
     ../../applications/user-apps.nix
