@@ -3,10 +3,10 @@
 {
   imports = [
     # General purpose
-    ../../general_purpose/nvim.nix
-    ../../general_purpose/zsh.nix
-    ../../general_purpose/misc.nix
-    ../../general_purpose/helix.nix
+    ../../general-purpose/nvim.nix
+    ../../general-purpose/zsh.nix
+    ../../general-purpose/misc.nix
+    ../../general-purpose/helix.nix
 
     ../../applications/alacritty.nix
 
