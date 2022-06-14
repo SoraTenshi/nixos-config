@@ -9,8 +9,7 @@
     ../../general-purpose/cli-tools.nix
 
     # User applications
-    ../../applications/alacritty.nix
-    ../../applications/user-apps.nix
+    ../../applications/apps.nix
 
     # development
     ../../development/developing.nix
