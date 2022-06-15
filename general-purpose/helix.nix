@@ -20,6 +20,11 @@
           newline = "⤶";
         };
       };
+      keys.normal = {
+        "{" = "goto_prev_paragraph";
+        "}" = "goto_next_paragraph";
+        "y" = "yank_joined_to_clipboard";
+      };
     };
   };
 
