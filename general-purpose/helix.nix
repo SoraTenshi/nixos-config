@@ -7,7 +7,7 @@
       editor = {
         line-number = "relative";
         scrolloff = 10;
-        idle-timeout = 200;
+        idle-timeout = 1;
         true-color = true;
         shell = [ "zsh" ];
         lsp.display-messages = true;
