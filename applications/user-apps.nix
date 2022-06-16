@@ -28,16 +28,4 @@
       "flameshot"
       )}
   '';
-
-  home.file = {
-    ".config/qutebrowser/config.py" = {
-      source = "${dotfiles}/qutebrowser/config.py";
-    };
-  };
-
-  home.file = {
-    ".Xresources" = {
-      source = "${dotfiles}/xresource/tokyo-night-storm.Xresources";
-    };
-  };
 }
