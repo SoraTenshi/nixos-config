@@ -125,6 +125,7 @@
       set cursorline
       set updatetime=300
       set redrawtime=10000
+      set ve=all
 
       colorscheme tokyonight
     '';

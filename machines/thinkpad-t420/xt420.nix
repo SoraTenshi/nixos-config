@@ -103,11 +103,12 @@
   programs.ssh.startAgent = true;
 
   users.users."dreamer" = {
+    shell = pkgs.zsh;
     isNormalUser = true;
     initialPassword = "12345";
     group = "users";
     extraGroups = [ "wheel" "networkmanager" ];
   };
 
-  system.stateVersion = "22.05";
+  system.stateVersion = "22.11";
 }

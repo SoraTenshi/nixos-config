@@ -3,11 +3,6 @@
 { config, pkgs, dotfiles, ... }:
 
 {
-  # Enable the usage of home-manager
-  # The point of home-manager is to create
-  # symlinks from /nix/store
-  programs.home-manager.enable = true;
-
   home.packages = with pkgs; [
     # Actual Shell, with some skins
     zsh
@@ -24,9 +19,8 @@
     enable                = true;
     enableCompletion      = true;
     enableAutosuggestions = true;
-    # enableSyntaxHighlighting = true;
+    enableSyntaxHighlighting = true;
 
-    # this needs some work, the colourscheme fits, but i dislike the design
     initExtra = ''
     eval "$(zoxide init zsh)"
     [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -36,14 +30,12 @@
       cat   = "bat ";
       mv    = "mv -i ";
       cd    = "z ";
-      nixfu = "sudo nixos-rebuild switch --flake .#neoncity";
     };
 
     shellAliases = {
       cat   = "bat ";
       mv    = "mv -i ";
       cd    = "z ";
-      nixfu = "sudo nixos-rebuild switch --flake .#neoncity";
     };
 
     plugins = [{
