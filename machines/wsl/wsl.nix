@@ -20,6 +20,7 @@ in
   networking.dhcpcd.enable = false;
 
   users.users.${defaultUser} = {
+    shell = pkgs.zsh;
     isNormalUser = true;
     extraGroups = [ "wheel" ];
   };
