@@ -4,6 +4,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     zig-master.url     = "github:arqv/zig-overlay";
+    font-patcher.url   = "github:s0la1337/nerd-font-patcher-overlay";
     # nur.url          = "github:nix-community/NUR"; # not used yet, but make it accessible when i need to use it.
 
     grub2-theme = {
@@ -28,7 +29,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, dotfiles, nixos-hardware,
-    sddm-theme, neovim-nightly, zig-master, grub2-theme }@inputs: {
+    sddm-theme, neovim-nightly, zig-master, grub2-theme, font-patcher }@inputs: {
     nixosConfigurations = {
       wsl = nixpkgs.lib.nixosSystem { 
         system  = "x86_64-linux";
