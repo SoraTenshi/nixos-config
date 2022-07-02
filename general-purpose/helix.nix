@@ -6,6 +6,7 @@
       theme = "tokyonight_storm";
       editor = {
         line-number = "relative";
+        # cursorline = true;
         scrolloff = 10;
         idle-timeout = 1;
         true-color = true;

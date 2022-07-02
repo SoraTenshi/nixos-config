@@ -1,4 +1,4 @@
-{ pkgs, config, lib, nixos-hardware, modulesPath, sddm-theme, ... }:
+{ pkgs, config, lib, nixos-hardware, modulesPath, sddm-theme, font-patcher, ... }:
 {
   imports = [ 
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -96,7 +96,7 @@
   fonts.fonts = with pkgs; [
     jetbrains-mono
     meslo-lgs-nf
-    rictydiminished-with-firacode
+    (font-patcher.mkNerdFont rictydiminished-with-firacode)
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
