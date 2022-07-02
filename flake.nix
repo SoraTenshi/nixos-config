@@ -67,7 +67,7 @@
 
       neoncity = nixpkgs.lib.nixosSystem {
         system      = "x86_64-linux";
-        specialArgs = { inherit sddm-theme grub2-theme; };
+        specialArgs = { inherit sddm-theme grub2-theme font-patcher; };
         modules     = [
           ./machines/thinkpad-t420/t420.nix
           ./development/global.nix
@@ -87,7 +87,7 @@
 
       xneoncity = nixpkgs.lib.nixosSystem {
         system      = "x86_64-linux";
-        specialArgs = { inherit sddm-theme grub2-theme; };
+        specialArgs = { inherit sddm-theme grub2-theme font-patcher; };
         modules     = [
           ./machines/thinkpad-t420/xt420.nix
           ./development/global.nix
@@ -107,7 +107,7 @@
 
       nc-wl = nixpkgs.lib.nixosSystem {
         system      = "x86_64-linux";
-        specialArgs = { inherit sddm-theme grub2-theme; };
+        specialArgs = { inherit sddm-theme grub2-theme font-patcher; };
         modules     = [
           ./machines/thinkpad-t420/t420-wl.nix
           ./development/global.nix
