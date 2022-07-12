@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  programs.home-manager.enable = true;
-
   # Terminal Emulator
   programs.alacritty = {
     enable = true;
