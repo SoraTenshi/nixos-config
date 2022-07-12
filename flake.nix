@@ -4,7 +4,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     zig-master.url     = "github:arqv/zig-overlay";
-    font-patcher.url   = "github:s0la1337/nerd-font-patcher-overlay";
+    # font-patcher.url   = "github:s0la1337/nerd-font-patcher-overlay"; # makes some trouble :(
     # nur.url          = "github:nix-community/NUR"; # not used yet, but make it accessible when i need to use it.
 
     grub2-theme = {
@@ -29,7 +29,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, dotfiles, nixos-hardware,
-    sddm-theme, neovim-nightly, zig-master, grub2-theme, font-patcher }@inputs: {
+    sddm-theme, neovim-nightly, zig-master, grub2-theme }@inputs: {
     nixosConfigurations = {
       wsl = nixpkgs.lib.nixosSystem { 
         system  = "x86_64-linux";
@@ -67,7 +67,7 @@
 
       neoncity = nixpkgs.lib.nixosSystem {
         system      = "x86_64-linux";
-        specialArgs = { inherit sddm-theme grub2-theme font-patcher; };
+        specialArgs = { inherit sddm-theme grub2-theme ; };
         modules     = [
           ./machines/thinkpad-t420/t420.nix
           ./development/global.nix
@@ -87,7 +87,7 @@
 
       xneoncity = nixpkgs.lib.nixosSystem {
         system      = "x86_64-linux";
-        specialArgs = { inherit sddm-theme grub2-theme font-patcher; };
+        specialArgs = { inherit sddm-theme grub2-theme ; };
         modules     = [
           ./machines/thinkpad-t420/xt420.nix
           ./development/global.nix
@@ -107,7 +107,7 @@
 
       nc-wl = nixpkgs.lib.nixosSystem {
         system      = "x86_64-linux";
-        specialArgs = { inherit sddm-theme grub2-theme font-patcher; };
+        specialArgs = { inherit sddm-theme grub2-theme ; };
         modules     = [
           ./machines/thinkpad-t420/t420-wl.nix
           ./development/global.nix
