@@ -32,7 +32,7 @@
     enable        = true;
     fade          = true;
     fadeDelta     = 5;
-    shadow        = true;
+    shadow        = false;
     blur          = true;
     extraOptions  = ''
       # Corners

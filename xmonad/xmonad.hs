@@ -30,7 +30,7 @@ ovrKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
       ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
     , ((modm,               xK_p     ), spawn "rofi -show run")
     , ((modm,               xK_n     ), spawn "dmenu_networkmanager")
-    , ((modm .|. shiftMask, xK_p     ), spawn "rofi -show menu -modi 'menu:rofi-power-menu -choices=lock/shutdown/hibernate/reboot'")
+    , ((modm .|. shiftMask, xK_p     ), spawn "rofi -show menu -modi 'menu:rofi-power-menu --choices=shutdown/hibernate/reboot'")
     , ((modm .|. shiftMask, xK_q     ), kill)
     , ((modm,               xK_space ), sendMessage NextLayout)
     , ((modm .|. shiftMask, xK_f     ), withFocused $ \win -> do 
@@ -95,7 +95,7 @@ ovrMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-ovrLayout = gaps [(U,6), (R,10)] $ Tall 1 (3/100) (1/2) ||| emptyBSP ||| Full
+ovrLayout = gaps [(U,6), (R,10), (D,6), (L,10)] $ Tall 1 (12/100) (1/2) ||| emptyBSP ||| Full
 
 -- Essentially just managing
 -- e.g. "start MPlayer" -> "as floating"
