@@ -16,7 +16,7 @@ ovrClickJustFocuses :: Bool
 ovrClickJustFocuses = True
 ovrFollowMouseFocus :: Bool
 ovrFollowMouseFocus = True
-ovrBorderWidth      = 2
+ovrBorderWidth      = 3
 
 ovrWorkspaces = ["一", "二", "三", "四", "五", "六", "七", "八", "九"]
 
@@ -70,7 +70,7 @@ ovrKeys conf@(XConfig {XMonad.modMask = ovrModMask}) = M.fromList $
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
-ovrMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
+ovrMouseBindings (XConfig {XMonad.modMask = ovrModMask}) = M.fromList $
 
     -- mod-button1, Set the window to floating mode and move by dragging
     [ ((modm, button1), (\w -> focus w >> mouseMoveWindow w
@@ -95,7 +95,7 @@ ovrMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-ovrLayout = gaps [(U,4), (R,6)] $ Tall 1 (3/100) (1/2) ||| emptyBSP ||| Full
+ovrLayout = gaps [(U,6), (R,10)] $ Tall 1 (3/100) (1/2) ||| emptyBSP ||| Full
 
 -- Essentially just managing
 -- e.g. "start MPlayer" -> "as floating"
@@ -109,7 +109,8 @@ ovrLayout = gaps [(U,4), (R,6)] $ Tall 1 (3/100) (1/2) ||| emptyBSP ||| Full
 ovrEventHook = mempty
 
 ovrLogHook = return ()
-    
+
+ovrStartupHook :: X ()
 ovrStartupHook = do
     -- spawnOnce "[start the ewwbar]"
     spawnOnce "picom --experimental-backends &> /dev/null &"
