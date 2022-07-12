@@ -25,7 +25,7 @@ ovrNormalColor  = "#4A25AA"
 
 ovrModMask = mod4Mask
 
-ovrKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
+ovrKeys conf@(XConfig {XMonad.modMask = ovrModMask}) = M.fromList $
     [ 
       ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
     , ((modm,               xK_p     ), spawn "rofi --show run")
@@ -108,8 +108,13 @@ ovrLayout = gaps [(U,4), (R,6)] $ Tall 1 (3/100) (1/2) ||| emptyBSP ||| Full
 
 ovrEventHook = mempty
 
-ovrLogHook = do 
-  spawnOnce "picom --experimental-backends &> /dev/null &"
+ovrLogHook = return ()
+    
+ovrStartupHook = do
+    -- spawnOnce "[start the ewwbar]"
+    spawnOnce "picom --experimental-backends &> /dev/null &"
+    spawnOnce "feh --bg-scale "
+    spawnOnce "dunst"
     
 defaults = def {
         terminal           = ovrDefaultTerm,
@@ -128,7 +133,7 @@ defaults = def {
 --      manageHook         = ovrManageHook,
         handleEventHook    = ovrEventHook,
         logHook            = ovrLogHook
---        startupHook        = ovrStartupHook
+        startupHook        = ovrStartupHook
 }
 
 help :: String

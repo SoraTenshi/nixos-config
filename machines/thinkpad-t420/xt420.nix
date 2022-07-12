@@ -72,7 +72,7 @@
       extraPackages = haskellPackages: [
         pkgs.xmonad-log
       ];
-      config = ./xmonad.hs;
+      config = ../../../xmonad/xmonad.hs;
     };
     # touchpad support!
     libinput.enable = true;
