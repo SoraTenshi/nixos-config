@@ -28,9 +28,9 @@ ovrModMask = mod4Mask
 ovrKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ 
       ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
-    , ((modm,               xK_p     ), spawn "rofi --show run")
+    , ((modm,               xK_p     ), spawn "rofi -show run")
     , ((modm,               xK_n     ), spawn "dmenu_networkmanager")
-    , ((modm .|. shiftMask, xK_p     ), spawn "rofi -show menu -modi 'menu:rofi-power-menu --choices=lock/shutdown/hibernate/reboot'")
+    , ((modm .|. shiftMask, xK_p     ), spawn "rofi -show menu -modi 'menu:rofi-power-menu -choices=lock/shutdown/hibernate/reboot'")
     , ((modm .|. shiftMask, xK_q     ), kill)
     , ((modm,               xK_space ), sendMessage NextLayout)
     , ((modm .|. shiftMask, xK_f     ), withFocused $ \win -> do 
