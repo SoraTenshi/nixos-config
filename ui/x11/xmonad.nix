@@ -24,7 +24,7 @@
   services.random-background = {
     enable = true;
     imageDirectory = "${dotfiles}/images";
-    display = "center";
+    display = "fill";
     interval = "1h";
   };
 
