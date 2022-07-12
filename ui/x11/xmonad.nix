@@ -19,10 +19,6 @@
 
     # Compositor
     picom
-
-    # Panel
-    # Maybe also volatile?
-    polybar
   ];
   
   services.random-background = {
@@ -39,7 +35,7 @@
     blur          = true;
     extraOptions  = ''
       # Corners
-      corner-radius = 12.0;
+      corner-radius = 10.0;
       round-borders = 1;
 
       blur: {
