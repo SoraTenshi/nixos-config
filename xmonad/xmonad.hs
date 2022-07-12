@@ -25,7 +25,7 @@ ovrNormalColor  = "#4A25AA"
 
 ovrModMask = mod4Mask
 
-ovrKeys conf@(XConfig {XMonad.modMask = ovrModMask}) = M.fromList $
+ovrKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ 
       ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
     , ((modm,               xK_p     ), spawn "rofi --show run")
@@ -70,7 +70,7 @@ ovrKeys conf@(XConfig {XMonad.modMask = ovrModMask}) = M.fromList $
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
-ovrMouseBindings (XConfig {XMonad.modMask = ovrModMask}) = M.fromList $
+ovrMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- mod-button1, Set the window to floating mode and move by dragging
     [ ((modm, button1), (\w -> focus w >> mouseMoveWindow w
