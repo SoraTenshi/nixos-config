@@ -20,7 +20,7 @@
     polybar
 
     # Images
-    feh
+    nitrogen
   ];
 
   services.picom  = {

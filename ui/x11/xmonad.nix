@@ -23,7 +23,8 @@
   
   services.random-background = {
     enable = true;
-    imageDirectory = "${dotfiles}/feh";
+    imageDirectory = "${dotfiles}/images";
+    display = "scale";
     interval = "1h";
   };
 

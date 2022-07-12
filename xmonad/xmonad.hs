@@ -114,7 +114,6 @@ ovrStartupHook :: X ()
 ovrStartupHook = do
     -- spawnOnce "[start the ewwbar]"
     spawnOnce "picom --experimental-backends &> /dev/null &"
-    spawnOnce "feh --bg-scale "
     spawnOnce "dunst"
     
 defaults = def {
