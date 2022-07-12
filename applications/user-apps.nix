@@ -1,7 +1,5 @@
 { config, pkgs, nixpkgs, lib, dotfiles, ... }:
 {
-  programs.home-manager.enable = true;
-
   home.packages = with pkgs; [
     discord steam
 
