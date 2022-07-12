@@ -24,7 +24,7 @@
   services.random-background = {
     enable = true;
     imageDirectory = "${dotfiles}/images";
-    display = "fill";
+    display = "center";
     interval = "1h";
   };
 
@@ -32,12 +32,11 @@
     enable        = true;
     fade          = true;
     fadeDelta     = 5;
-    shadow        = false;
+    shadow        = true;
     blur          = true;
     extraOptions  = ''
       # Corners
       corner-radius = 10.0;
-      round-borders = 1;
 
       blur: {
         method = "dual_kawase";
