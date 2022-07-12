@@ -1,4 +1,4 @@
-{ pkgs, config, lib, nixos-hardware, modulesPath, sddm-theme, font-patcher, ... }:
+{ pkgs, config, lib, nixos-hardware, modulesPath, sddm-theme, ... }:
 {
   imports = [ 
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -72,7 +72,7 @@
       extraPackages = haskellPackages: [
         pkgs.xmonad-log
       ];
-      config = ../../../xmonad/xmonad.hs;
+      config = ../../xmonad/xmonad.hs;
     };
     # touchpad support!
     libinput.enable = true;
@@ -96,7 +96,6 @@
   fonts.fonts = with pkgs; [
     jetbrains-mono
     meslo-lgs-nf
-    (font-patcher.mkNerdFont rictydiminished-with-firacode)
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
