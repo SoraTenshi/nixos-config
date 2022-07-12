@@ -17,11 +17,14 @@
     # compiler
     clang go nim cargo rustc
     idris2 
+    
+    # interpreter
+    nodejs
 
     # cmake
     cmake 
 
     # lsp
-    ccls gopls rnix-lsp rust-analyzer zls 
+    ccls gopls rnix-lsp rust-analyzer zls nodePackages.typescript-language-server
   ];
 }

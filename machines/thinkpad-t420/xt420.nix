@@ -96,6 +96,7 @@
   fonts.fonts = with pkgs; [
     jetbrains-mono
     meslo-lgs-nf
+    rictydiminished-with-firacode
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
