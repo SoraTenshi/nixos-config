@@ -133,7 +133,7 @@ defaults = def {
         layoutHook         = ovrLayout,
 --      manageHook         = ovrManageHook,
         handleEventHook    = ovrEventHook,
-        logHook            = ovrLogHook
+        logHook            = ovrLogHook,
         startupHook        = ovrStartupHook
 }
 
