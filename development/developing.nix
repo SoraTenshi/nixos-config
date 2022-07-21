@@ -25,6 +25,9 @@
     cmake 
 
     # lsp
-    ccls gopls rnix-lsp rust-analyzer zls nodePackages.typescript-language-server
+    ccls gopls rnix-lsp rust-analyzer zls 
+    
+    # nodepackages lsp
+    nodePackages.typescript-language-server
   ];
 }

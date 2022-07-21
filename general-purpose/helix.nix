@@ -47,6 +47,7 @@
     sumneko-lua-language-server # Lua
     nodePackages.vim-language-server
     nodePackages.typescript-language-server
+    nodePackages.vscode-json-languageserver
     haskell-language-server
   ];
 }
