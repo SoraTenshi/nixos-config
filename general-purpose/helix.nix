@@ -1,12 +1,13 @@
-{ pkgs, lib, dotfiles, ... }:
+{ pkgs, lib, dotfiles, helix-master, ... }:
 {
   programs.helix = {
     enable = true;
+    package = helix-master.packages."x86_64-linux".default;
     settings = {
       theme = "tokyonight_storm";
       editor = {
         line-number = "relative";
-        # cursorline = true;
+        cursorline = true;
         scrolloff = 10;
         idle-timeout = 1;
         true-color = true;
