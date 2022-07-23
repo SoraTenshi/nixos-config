@@ -9,6 +9,7 @@
         line-number = "relative";
         cursorline = true;
         scrolloff = 10;
+        color-modes = true;
         idle-timeout = 1;
         true-color = true;
         shell = [ "zsh" ];
@@ -24,7 +25,7 @@
         statusline = {
           left = [ "mode" "spinner" "file-name" ];
           center = [ ];
-          right = [ "diagnostics" "file-encoding" "file-line-ending" "selections" "file-type" "position" "selections" ];
+          right = [ "diagnostics" "file-encoding" "file-line-ending" "file-type" "position" "selections" ];
         };
         indent-guides = {
           render = true;
