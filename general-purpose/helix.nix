@@ -21,6 +21,14 @@
           tab = "→";
           newline = "⤶";
         };
+        statusline = {
+          left = [ "mode" "spinner" "file-name" ];
+          center = [ ];
+          right = [ "diagnostics" "file-encoding" "file-line-ending" "selections" "file-type" "position" "selections" ];
+        };
+        indent-guides = {
+          render = true;
+        };
       };
       keys.normal = {
         "X" = "extend_line_above";
