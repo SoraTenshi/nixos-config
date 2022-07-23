@@ -11,7 +11,7 @@
     zoxide
 
     # Shell utils
-    bat htop
+    bat htop exa
   ];
 
   # Shell
@@ -27,15 +27,17 @@
     '';
 
     shellGlobalAliases = {
-      cat   = "bat ";
-      mv    = "mv -i ";
-      cd    = "z ";
+      cat      = "bat ";
+      mv       = "mv -i ";
+      cd       = "z ";
+      ls       = "exa --icons ";
     };
 
     shellAliases = {
-      cat   = "bat ";
-      mv    = "mv -i ";
-      cd    = "z ";
+      cat      = "bat ";
+      mv       = "mv -i ";
+      cd       = "z ";
+      ls       = "exa --icons ";
     };
 
     plugins = [{
@@ -43,13 +45,6 @@
       src  = pkgs.zsh-powerlevel10k;
       file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
     }];
-
-    oh-my-zsh = {
-      enable = true;
-      plugins = [
-        "git" "sudo" "man" "rust"
-      ];
-    };
   };
 
   home.file = {
