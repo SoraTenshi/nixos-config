@@ -11,6 +11,7 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
 ovrDefaultTerm = "alacritty"
+-- ovrDefaultTerm = "kitty" -- soon! :D
 
 ovrClickJustFocuses :: Bool
 ovrClickJustFocuses = True
@@ -25,12 +26,25 @@ ovrNormalColor  = "#4A25AA"
 
 ovrModMask = mod4Mask
 
+-- ewwClose :: String
+-- ewwClose = spawn "exec eww close-all"
+
+rofiShowRun :: String
+rofiShowRun = spawn "rofi -show run"
+
+rofiShowShutdown :: String
+rofiShowShutdown = spawn "rofi -show menu -modi 'menu:rofi-power-menu --choices=shutdown/hibernate/reboot'"
+
+networkManager :: String
+networkManager = spawn "dmenu_networkmanager"
+
+
 ovrKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ 
       ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
-    , ((modm,               xK_p     ), spawn "rofi -show run")
-    , ((modm,               xK_n     ), spawn "dmenu_networkmanager")
-    , ((modm .|. shiftMask, xK_p     ), spawn "rofi -show menu -modi 'menu:rofi-power-menu --choices=shutdown/hibernate/reboot'")
+    , ((modm,               xK_p     ), rofiShowRun)
+    , ((modm,               xK_n     ), networkManager)
+    , ((modm .|. shiftMask, xK_p     ), rofiShowShutdown)
     , ((modm .|. shiftMask, xK_q     ), kill)
     , ((modm,               xK_space ), sendMessage NextLayout)
     , ((modm .|. shiftMask, xK_f     ), withFocused $ \win -> do 
@@ -52,7 +66,7 @@ ovrKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
     , ((modm .|. shiftMask .|. controlMask, xK_q     ), io (exitWith ExitSuccess))
-    , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
+    , ((modm .|. shiftMask, xK_r     ), spawn "xmonad --restart")
     , ((modm .|. shiftMask, xK_slash ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
     ]
     ++
@@ -112,7 +126,7 @@ ovrLogHook = return ()
 
 ovrStartupHook :: X ()
 ovrStartupHook = do
-    -- spawnOnce "[start the ewwbar]"
+    -- spawnOnce "exec eww daemon"
     spawnOnce "picom --experimental-backends &> /dev/null &"
     spawnOnce "dunst"
     
