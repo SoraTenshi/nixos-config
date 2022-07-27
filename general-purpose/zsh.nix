@@ -11,8 +11,20 @@
     zoxide
 
     # Shell utils
-    bat htop exa
+    htop exa
   ];
+  
+  programs.bat = {
+    enable = true;
+    # config = {
+    #   theme = "Tokyo Night Storm";
+    # };
+    # themes = {
+    #   tokyonight_storm = {
+        
+    #   };
+    # };
+  };
 
   # Shell
   programs.zsh = {
@@ -27,14 +39,14 @@
     '';
 
     shellGlobalAliases = {
-      cat      = "bat ";
+      cat      = "bat --style=plain ";
       mv       = "mv -i ";
       cd       = "z ";
       ls       = "exa --icons ";
     };
 
     shellAliases = {
-      cat      = "bat ";
+      cat      = "bat --style=plain ";
       mv       = "mv -i ";
       cd       = "z ";
       ls       = "exa --icons ";
