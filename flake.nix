@@ -20,7 +20,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/70824bb5c790b820b189f62f643f795b1d2ade2e";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -47,7 +47,6 @@
     , zig-master
     , grub2-theme
     , helix-master
-    # , flake-compat
     }@inputs:
     let
       system = "x86_64-linux";
