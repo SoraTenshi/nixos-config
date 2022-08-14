@@ -7,6 +7,8 @@ import XMonad.Layout.Gaps
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.BinarySpacePartition
 
+import XMonad.Hooks.EwmhDesktops ( ewmh )
+
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
@@ -155,5 +157,5 @@ help = unlines ["Help:"]
 
 main :: IO ()
 main = do
-    xmonad $ defaults
+    xmonad $ ewmh defaults
 
