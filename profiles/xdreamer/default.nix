@@ -1,6 +1,8 @@
-{ config, ... }:
+{ config, home, ... }:
 
 {
+  home.stateVersion = "22.11";
+
   imports = [
     # ui
     ../../ui/x11/xmonad.nix
