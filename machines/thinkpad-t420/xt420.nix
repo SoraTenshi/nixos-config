@@ -1,8 +1,13 @@
-{ pkgs, config, lib, nixos-hardware, modulesPath, sddm-theme, ... }:
+{ pkgs, config, lib, nixos-hardware, modulesPath, ... }:
+
+let
+  defaultUser = "neoncity";
+in
 {
   imports = [ 
     (modulesPath + "/installer/scan/not-detected.nix")
     ../../configuration.nix
+    ../../env/bootable.nix
   ];
 
   boot = {
@@ -10,44 +15,6 @@
     kernelModules = [ ];
     extraModulePackages = [ ];
   };
-
-  boot.loader = {
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi";
-    };
-    grub = {
-      enable = true;
-      efiSupport = true;
-      copyKernels = true;
-      splashImage = "${sddm-theme}/Backgrounds/nixos.png";
-      splashMode = "stretch";
-      device = "nodev";
-      extraEntries = ''
-      menuentry "Reboot" {
-        reboot
-      }
-      menuentry "Poweroff" {
-        halt
-      }
-      '';
-    };
-  };
-
-  fileSystems."/" = {
-      device = "/dev/disk/by-label/NIXMAIN";
-      fsType = "ext4";
-    };
-
-    fileSystems."/boot/efi" = {
-      device = "/dev/disk/by-label/NIXBOOT";
-      fsType = "vfat";
-    };
-
-  swapDevices = [{
-      device = "/dev/disk/by-label/swap";
-    }
-  ];
 
   networking = {
     hostName = "neoncity";
@@ -58,25 +25,9 @@
       wlp3s0.useDHCP = true;
     };
   };
-
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
-
-  services.xserver = {
-    enable = true;
-    displayManager.defaultSession = "none+xmonad";
-    desktopManager.runXdgAutostartIfNone = true;
-    windowManager.xmonad = {
-      enable = true;
-      enableContribAndExtras = true;
-      extraPackages = haskellPackages: [
-        pkgs.xmonad-log
-      ];
-      config = ../../xmonad/xmonad.hs;
-    };
+  
     # touchpad support!
-    libinput.enable = true;
-  };
+  services.xserver.libinput.enable = true;
 
   console.keyMap = "us";
   i18n = {
@@ -89,8 +40,6 @@
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
-
   time.timeZone = "Europe/Berlin";
   fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [
@@ -99,16 +48,4 @@
     rictydiminished-with-firacode
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
-
-  programs.ssh.startAgent = true;
-
-  users.users."dreamer" = {
-    shell = pkgs.zsh;
-    isNormalUser = true;
-    initialPassword = "12345";
-    group = "users";
-    extraGroups = [ "wheel" "networkmanager" ];
-  };
-
-  system.stateVersion = "22.11";
 }

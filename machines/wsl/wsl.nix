@@ -2,13 +2,13 @@
 
 with lib;
 let
-  defaultUser = "neoncity";
   syschdemd = import ./syschdemd.nix { inherit lib pkgs config defaultUser; };
 in
 {
   imports = [
     "${modulesPath}/profiles/minimal.nix"
     ../../configuration.nix
+    ../../env/basic.nix
   ];
 
   # WSL is closer to a container than anything else
@@ -18,12 +18,6 @@ in
   environment.etc."resolv.conf".enable = false;
 
   networking.dhcpcd.enable = false;
-
-  users.users.${defaultUser} = {
-    shell = pkgs.zsh;
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-  };
 
   users.users.root = {
     shell = "${syschdemd}/bin/syschdemd";
@@ -43,11 +37,6 @@ in
   systemd.services.systemd-resolved.enable = false;
   systemd.services.systemd-udevd.enable = false;
 
-  services.openssh.enable = true;
-  programs.ssh.startAgent = true;
-
   # Don't allow emergency mode, because we don't have a console.
   systemd.enableEmergencyMode = false;
-
-  system.stateVersion = "22.11";
 }
