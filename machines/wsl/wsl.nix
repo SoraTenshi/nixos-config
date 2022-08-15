@@ -2,6 +2,7 @@
 
 with lib;
 let
+  defaultUser = "neoncity";
   syschdemd = import ./syschdemd.nix { inherit lib pkgs config defaultUser; };
 in
 {

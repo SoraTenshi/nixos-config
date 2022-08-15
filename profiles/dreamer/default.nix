@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, home, ... }:
 
 {
+  home.stateVersion = "22.11";
+
   imports = [
     # ui
     ../../ui/x11/x11.nix
