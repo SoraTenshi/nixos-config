@@ -15,7 +15,7 @@
     gdb
 
     # compiler
-    clang go nim cargo rustc
+    clang go nim cargo rustc julia_17-bin
     idris2 
     
     # interpreter
