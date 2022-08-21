@@ -26,10 +26,6 @@
       # tree sitter
       (nvim-treesitter.withPlugins (_: with plugins; pkgs.tree-sitter.allGrammars)) nvim-ts-rainbow
     ];
-    extraPackages = with pkgs; [
-      rnix-lsp ripgrep fd tree-sitter sumneko-lua-language-server nodePackages.vim-language-server
-      omnisharp-roslyn haskellPackages.ghcide
-    ];
 
     extraConfig = ''
       let mapleader = "\<SPACE>"
