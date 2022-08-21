@@ -52,7 +52,7 @@
     rnix-lsp # Nix
     rust-analyzer
     zls # Zig
-    omnisharp-roslyn # .NET 
+    #omnisharp-roslyn # .NET 
     sumneko-lua-language-server # Lua
     nodePackages.vim-language-server
     nodePackages.typescript-language-server
