@@ -11,7 +11,7 @@
     zoxide
 
     # Shell utils
-    htop exa
+    btop exa
   ];
   
   programs.bat = {

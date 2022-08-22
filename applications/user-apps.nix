@@ -14,9 +14,6 @@
     # Screenshots!
     flameshot
 
-    # Desktop notifications demon
-    dunst
-
     # Pic editing
     # gimp
   ];
