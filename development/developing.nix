@@ -8,8 +8,8 @@
     lazygit
 
     # build zig
-    lld_13
-    llvmPackages_13.llvm llvmPackages_13.libllvm
+    lld_14
+    llvmPackages_14.llvm llvmPackages_14.libllvm
 
     # debugger
     gdb

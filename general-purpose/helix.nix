@@ -50,13 +50,13 @@
     texlab # LaTeX
     gopls # Go 
     rnix-lsp # Nix
-    rust-analyzer
+    rust-analyzer # Rust
     zls # Zig
     #omnisharp-roslyn # .NET 
     sumneko-lua-language-server # Lua
-    nodePackages.vim-language-server
-    nodePackages.typescript-language-server
-    nodePackages.vscode-json-languageserver
-    haskell-language-server
+    nodePackages.vim-language-server # Vim
+    nodePackages.typescript-language-server # Typescript
+    nodePackages.vscode-json-languageserver # JSON
+    haskell-language-server # Haskell
   ];
 }

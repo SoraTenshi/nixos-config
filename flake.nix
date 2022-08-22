@@ -52,6 +52,7 @@
       system = "x86_64-linux";
     in
     {
+
       nixosConfigurations = {
         wsl = nixpkgs.lib.nixosSystem {
           system = system;
