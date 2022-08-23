@@ -101,7 +101,7 @@
             ./machines/thinkpad-t420/t420.nix
             ./development/global.nix
             ./ui/sddm.nix
-            nixos-hardware.nixosModules.lenovo-thinkpad-t420
+            nixos-hardware.nixosModules.lenovo-thinkpad-t470s
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -117,6 +117,28 @@
           ];
         };
 
+        neoncity = nixpkgs.lib.nixosSystem {
+          system = system;
+          specialArgs = { inherit sddm-theme grub2-theme; };
+          modules = [
+            ./machines/thinkpad-t420/t420.nix
+            ./development/global.nix
+            ./ui/sddm.nix
+            nixos-hardware.nixosModules.lenovo-thinkpad-t420
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                inherit
+                  dotfiles neovim-nightly zig-master helix-master;
+              };
+              home-manager.users.dreamer = { ... }: {
+                imports = [ ./profiles/dreamer/default.nix ];
+              };
+            }
+          ];
+        };
         xneoncity = nixpkgs.lib.nixosSystem {
           system = system;
           specialArgs = { inherit sddm-theme grub2-theme; };
