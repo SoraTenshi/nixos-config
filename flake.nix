@@ -94,7 +94,7 @@
           ];
         };
 
-        neoncity = nixpkgs.lib.nixosSystem {
+        t470 = nixpkgs.lib.nixosSystem {
           system = system;
           specialArgs = { inherit sddm-theme grub2-theme; };
           modules = [
