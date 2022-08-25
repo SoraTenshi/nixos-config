@@ -30,10 +30,10 @@
 
   services.picom  = {
     enable        = true;
-    fade          = true;
-    fadeDelta     = 5;
-    shadow        = false;
-    blur          = true;
+    #fade          = true;
+    #fadeDelta     = 5;
+    #shadow        = false;
+    #blur          = true;
     extraOptions  = ''
       # Corners
       corner-radius = 10.0;
