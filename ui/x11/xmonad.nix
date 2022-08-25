@@ -1,6 +1,10 @@
 { config, pkgs, dotfiles, ... }:
 
 {
+  imports = [
+    ./picom.nix
+  ];
+  
   home.pointerCursor = {
     package = pkgs.nordzy-cursor-theme;
     name = "Nordzy-black-cursors";
@@ -26,31 +30,6 @@
     imageDirectory = "${dotfiles}/images";
     display = "fill";
     interval = "1h";
-  };
-
-  services.picom  = {
-    enable        = true;
-    #fade          = true;
-    #fadeDelta     = 5;
-    #shadow        = false;
-    #blur          = true;
-    extraOptions  = ''
-      # Corners
-      corner-radius = 10.0;
-
-      blur: {
-        method = "dual_kawase";
-        strength = 2;
-        background = true;
-        background-frame = false;
-        background-fixed = false;
-        kern = "5x5box";
-      }
-
-      blur-background = false;
-      blur-background-frame = true;
-      blur-background-fixed = true;
-    '';
   };
 
   home.file = {
