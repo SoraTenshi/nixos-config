@@ -1,7 +1,7 @@
 { pkgs, sddm-theme, ... }:
 
 let
-  defaultUser = "neoncity";
+  defaultUser = "dreamer";
 in
 {
   boot.loader = {
@@ -66,7 +66,6 @@ in
   users.users.${defaultUser} = {
     shell = pkgs.zsh;
     isNormalUser = true;
-    isSystemUser = false;
     initialPassword = "12345";
     group = "users";
     extraGroups = [ "wheel" "networkmanager" ];
