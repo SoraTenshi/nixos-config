@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    zig-master.packages.x86_64-linux.master.latest
+    zig-master.packages.x86_64-linux.master
 
     # tooling
     lazygit
