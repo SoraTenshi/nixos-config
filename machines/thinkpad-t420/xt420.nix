@@ -1,7 +1,7 @@
 { pkgs, config, lib, nixos-hardware, modulesPath, ... }:
 
 let
-  defaultUser = "neoncity";
+  defaultUser = "dreamer";
 in
 {
   imports = [ 

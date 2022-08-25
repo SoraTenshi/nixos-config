@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  defaultUser = "neoncity";
+  defaultUser = "dreamer";
 in
 {
   users.users.${defaultUser} = {
