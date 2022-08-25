@@ -4,13 +4,6 @@ let
   defaultUser = "neoncity";
 in
 {
-  users.users.${defaultUser} = {
-    shell = pkgs.zsh;
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-  };
-
-
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
@@ -73,6 +66,7 @@ in
   users.users.${defaultUser} = {
     shell = pkgs.zsh;
     isNormalUser = true;
+    isSystemUser = false;
     initialPassword = "12345";
     group = "users";
     extraGroups = [ "wheel" "networkmanager" ];
