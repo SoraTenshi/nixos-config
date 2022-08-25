@@ -4,7 +4,7 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
-    zig-master.url = "github:arqv/zig-overlay";
+    zig-master.url = "github:mitchellh/zig-overlay";
     helix-master.url = "github:helix-editor/helix";
     # font-patcher.url   = "github:s0la1337/nerd-font-patcher-overlay"; # makes some trouble :(
     # nur.url          = "github:nix-community/NUR"; # not used yet, but make it accessible when i need to use it.

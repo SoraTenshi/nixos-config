@@ -16,9 +16,6 @@
     leftwm
     dmenu networkmanager_dmenu
 
-    # Compositor
-    picom
-
     # Panel
     # Maybe also volatile?
     polybar

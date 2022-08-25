@@ -20,9 +20,6 @@
     # Window Manager
     # Highly volatile
     dmenu networkmanager_dmenu
-
-    # Compositor
-    picom
   ];
   
   services.random-background = {
