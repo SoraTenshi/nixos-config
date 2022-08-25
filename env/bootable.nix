@@ -57,7 +57,7 @@ in
       extraPackages = haskellPackages: [
         pkgs.xmonad-log
       ];
-      config = ../../xmonad/xmonad.hs;
+      config = ../xmonad/xmonad.hs;
     };
   };
 
