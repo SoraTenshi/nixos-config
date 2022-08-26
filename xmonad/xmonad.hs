@@ -33,7 +33,7 @@ ovrModMask = mod4Mask
 
 rofiShowRun = spawn "rofi -show run"
 rofiShowShutdown = spawn "rofi -show menu -modi 'menu:rofi-power-menu --choices=shutdown/hibernate/reboot'"
-networkManager = spawn "dmenu_networkmanager"
+networkManager = spawn "networkmanager_dmenu"
 
 
 ovrKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
