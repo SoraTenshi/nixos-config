@@ -7,6 +7,7 @@ in
   users.users.${defaultUser} = {
     shell = pkgs.zsh;
     isNormalUser = true;
+    group = "users";
     extraGroups = [ "wheel" ];
   };
 
