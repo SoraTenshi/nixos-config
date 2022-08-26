@@ -31,13 +31,8 @@ ovrModMask = mod4Mask
 -- ewwClose :: String
 -- ewwClose = spawn "exec eww close-all"
 
-rofiShowRun :: String
 rofiShowRun = spawn "rofi -show run"
-
-rofiShowShutdown :: String
 rofiShowShutdown = spawn "rofi -show menu -modi 'menu:rofi-power-menu --choices=shutdown/hibernate/reboot'"
-
-networkManager :: String
 networkManager = spawn "dmenu_networkmanager"
 
 
