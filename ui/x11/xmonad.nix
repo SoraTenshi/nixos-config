@@ -16,6 +16,9 @@
   home.packages = with pkgs; [
     # App starter
     rofi rofi-power-menu rofi-pulse-select rofi-file-browser
+    
+    # widgets
+    eww
 
     # Window Manager
     # Highly volatile
