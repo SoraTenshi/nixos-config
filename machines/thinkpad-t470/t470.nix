@@ -1,7 +1,7 @@
 { pkgs, config, lib, nixos-hardware, modulesPath, ... }:
 
 let
-  defaultUser = "neoncity";
+  defaultUser = "dreamer";
 in
 {
   imports = [ 
@@ -11,9 +11,10 @@ in
   ];
 
   boot = {
-    initrd.availableKernelModules = [ "sdhci_pci" "usb_storage" "ehci_pci" ];
-    kernelModules = [ ];
+    initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
+    kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
+    loader.grub.trustedBoot.systemHasTPM = "YES_TPM_is_activated";
   };
 
   networking = {
@@ -21,8 +22,8 @@ in
     networkmanager.enable = true;
     useDHCP = false;
     interfaces = {
-      enp0s25.useDHCP = true;
-      wlp3s0.useDHCP = true;
+      enp0s31f6.useDHCP = true;
+      wlp4s0.useDHCP = true;
     };
   };
   
@@ -39,6 +40,20 @@ in
       ];
     };
   };
+
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/6939f3c9-d0e8-42cf-ab2f-cc2b184f637d";
+      fsType = "ext4";
+    };
+
+  fileSystems."/boot/efi" =
+    { device = "/dev/disk/by-uuid/B1B4-DF6F";
+      fsType = "vfat";
+    };
+
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/b28aea64-8b57-405d-a64f-d17f425cf472"; }
+    ];
 
   time.timeZone = "Europe/Berlin";
   fonts.fontDir.enable = true;

@@ -27,21 +27,6 @@ in
     };
   };
 
-  fileSystems."/" = {
-      device = "/dev/disk/by-label/NIXMAIN";
-      fsType = "ext4";
-    };
-
-    fileSystems."/boot/efi" = {
-      device = "/dev/disk/by-label/NIXBOOT";
-      fsType = "vfat";
-    };
-
-  swapDevices = [{
-      device = "/dev/disk/by-label/swap";
-    }
-  ];
-
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
