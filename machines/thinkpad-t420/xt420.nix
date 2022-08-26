@@ -40,6 +40,22 @@ in
     };
   };
 
+  fileSystems."/" = {
+      device = "/dev/disk/by-label/NIXMAIN";
+      fsType = "ext4";
+    };
+
+    fileSystems."/boot/efi" = {
+      device = "/dev/disk/by-label/NIXBOOT";
+      fsType = "vfat";
+    };
+
+  swapDevices = [{
+      device = "/dev/disk/by-label/swap";
+    }
+  ];
+
+
   time.timeZone = "Europe/Berlin";
   fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [
