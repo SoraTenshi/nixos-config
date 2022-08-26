@@ -4,5 +4,6 @@
   home.packages = with pkgs; [
     xclip
     gomuks
+    tldr
   ];
 }

@@ -67,7 +67,7 @@
                 inherit
                   dotfiles neovim-nightly zig-master helix-master;
               };
-              home-manager.users.neoncity = { ... }: {
+              home-manager.users.dreamer = { ... }: {
                 imports = [ ./profiles/wsl/default.nix ];
               };
             }
@@ -87,7 +87,7 @@
                 inherit
                   dotfiles neovim-nightly zig-master helix-master;
               };
-              home-manager.users.neoncity = { ... }: {
+              home-manager.users.dreamer = { ... }: {
                 imports = [ ./profiles/wsl-colemak/default.nix ];
               };
             }
