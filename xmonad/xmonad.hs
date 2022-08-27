@@ -123,8 +123,8 @@ ovrLogHook = return ()
 
 ovrStartupHook :: X ()
 ovrStartupHook = do
-    -- spawnOnce "exec eww daemon"
-    spawnOnce "picom --experimental-backends &> /dev/null &"
+    spawnOnce "exec eww daemon"
+    spawnOnce "picom --experimental-backends"
     spawnOnce "dunst"
     
 defaults = def {
