@@ -3,6 +3,7 @@
 {
   imports = [
     ./picom.nix
+    ./eww.nix
   ];
   
   home.pointerCursor = {
@@ -17,9 +18,6 @@
     # App starter
     rofi rofi-power-menu rofi-pulse-select rofi-file-browser
     
-    # widgets
-    eww
-
     # Window Manager
     # Highly volatile
     dmenu networkmanager_dmenu
