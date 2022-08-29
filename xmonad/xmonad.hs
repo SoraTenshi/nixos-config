@@ -7,7 +7,9 @@ import XMonad.Layout.Gaps
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.BinarySpacePartition
 
-import XMonad.Hooks.EwmhDesktops ( ewmh )
+import XMonad.Hooks.EwmhDesktops (ewmh)
+import XMonad.Hooks.ManageDocks
+    (avoidStruts, docks, manageDocks, Direction2D(D, L, R, U))
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -28,12 +30,11 @@ ovrNormalColor  = "#4A25AA"
 
 ovrModMask = mod4Mask
 
--- ewwClose :: String
 -- ewwClose = spawn "exec eww close-all"
-
 rofiShowRun = spawn "rofi -show run"
 rofiShowShutdown = spawn "rofi -show menu -modi 'menu:rofi-power-menu --choices=shutdown/hibernate/reboot'"
 networkManager = spawn "networkmanager_dmenu"
+lockScreen = spawn "betterlockscreen -l --blur 0.5"
 
 
 ovrKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
@@ -44,6 +45,7 @@ ovrKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_p     ), rofiShowShutdown)
     , ((modm .|. shiftMask, xK_q     ), kill)
     , ((modm,               xK_space ), sendMessage NextLayout)
+    , ((modm,               xK_l     ), lockScreen)
     , ((modm .|. shiftMask, xK_f     ), withFocused $ \win -> do 
         isFullscreen <- (M.member win . W.floating) `fmap` gets windowset
         if isFullscreen 
