@@ -21,7 +21,7 @@
     polybar
 
     # Images
-    nitrogen
+    feh
   ];
 
   # leftwm kinda takes cares of the polybar :)
