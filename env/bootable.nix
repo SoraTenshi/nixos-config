@@ -31,6 +31,19 @@ in
     };
   };
 
+  time.timeZone = "Europe/Berlin";
+
+  console.keyMap = "us";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    inputMethod = {
+      enabled = "ibus";
+      ibus.engines = with pkgs.ibus-engines; [
+        mozc
+      ];
+    };
+  };
+
   sound.enable = true;
   hardware.pulseaudio.enable = true;
   nixpkgs.config.allowUnfree = true;
@@ -67,6 +80,14 @@ in
     group = "users";
     extraGroups = [ "wheel" "networkmanager" ];
   };
+
+  fonts.fontDir.enable = true;
+  fonts.fonts = with pkgs; [
+    jetbrains-mono
+    meslo-lgs-nf
+    rictydiminished-with-firacode
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+  ];
 
   system.stateVersion = "22.11";
 }

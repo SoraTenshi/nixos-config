@@ -1,10 +1,11 @@
 { config, pkgs, dotfiles, ... }:
-
 {
   imports = [
     ./picom.nix
+    ./eww.nix
+    ../betterlockscreen.nix
   ];
-  
+
   home.pointerCursor = {
     package = pkgs.nordzy-cursor-theme;
     name = "Nordzy-black-cursors";
@@ -12,19 +13,20 @@
     x11.enable = true;
     gtk.enable = true;
   };
-  
+
   home.packages = with pkgs; [
     # App starter
-    rofi rofi-power-menu rofi-pulse-select rofi-file-browser
-    
-    # widgets
-    eww
+    rofi
+    rofi-power-menu
+    rofi-pulse-select
+    rofi-file-browser
 
     # Window Manager
     # Highly volatile
-    dmenu networkmanager_dmenu
+    dmenu
+    networkmanager_dmenu
   ];
-  
+
   services.random-background = {
     enable = true;
     imageDirectory = "${dotfiles}/images";

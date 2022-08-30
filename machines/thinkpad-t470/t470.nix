@@ -26,20 +26,9 @@ in
       wlp4s0.useDHCP = true;
     };
   };
-  
+
     # touchpad support!
   services.xserver.libinput.enable = true;
-
-  console.keyMap = "us";
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-    inputMethod = {
-      enabled = "ibus";
-      ibus.engines = with pkgs.ibus-engines; [
-        mozc
-      ];
-    };
-  };
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/6939f3c9-d0e8-42cf-ab2f-cc2b184f637d";
@@ -54,13 +43,4 @@ in
   swapDevices =
     [ { device = "/dev/disk/by-uuid/b28aea64-8b57-405d-a64f-d17f425cf472"; }
     ];
-
-  time.timeZone = "Europe/Berlin";
-  fonts.fontDir.enable = true;
-  fonts.fonts = with pkgs; [
-    jetbrains-mono
-    meslo-lgs-nf
-    rictydiminished-with-firacode
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-  ];
 }
