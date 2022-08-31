@@ -4,14 +4,15 @@ import Control.Monad ( join, when )
 import System.Exit
 
 import XMonad
+
 import XMonad.Util.SpawnOnce
+
 import XMonad.Layout.Gaps
-import XMonad.Layout.Fullscreen
+import XMonad.Layout.Spacing
 import XMonad.Layout.BinarySpacePartition
 
-import XMonad.Hooks.EwmhDesktops (ewmh)
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
-    (docks, manageDocks, Direction2D(D, L, R, U))
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -21,9 +22,11 @@ ovrDefaultTerm = "alacritty"
 
 ovrClickJustFocuses :: Bool
 ovrClickJustFocuses = True
+
 ovrFollowMouseFocus :: Bool
 ovrFollowMouseFocus = True
-ovrBorderWidth      = 5
+
+ovrBorderWidth = 3
 
 ovrWorkspaces = ["一", "二", "三", "四", "五", "六", "七", "八", "九"]
 
@@ -32,23 +35,6 @@ ovrNormalColor  = "#4A25AA"
 
 ovrModMask = mod4Mask
 
-addNETSupported :: Atom -> X ()
-addNETSupported x   = withDisplay $ \dpy -> do
-    r               <- asks theRoot
-    a_NET_SUPPORTED <- getAtom "_NET_SUPPORTED"
-    a               <- getAtom "ATOM"
-    liftIO $ do
-       sup <- (join . maybeToList) <$> getWindowProperty32 dpy a_NET_SUPPORTED r
-       when (fromIntegral x `notElem` sup) $
-         changeProperty32 dpy r a_NET_SUPPORTED a propModeAppend [fromIntegral x]
-
-addEWMHFullscreen :: X ()
-addEWMHFullscreen   = do
-    wms <- getAtom "_NET_WM_STATE"
-    wfs <- getAtom "_NET_WM_STATE_FULLSCREEN"
-    mapM_ addNETSupported [wms, wfs]
-
--- ewwClose = spawn "exec eww close-all"
 rofiShowRun = spawn "rofi -show run"
 rofiShowShutdown = spawn "rofi -show menu -modi 'menu:rofi-power-menu --choices=shutdown/hibernate/reboot'"
 networkManager = spawn "networkmanager_dmenu"
@@ -64,11 +50,6 @@ ovrKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_q     ), kill)
     , ((modm,               xK_space ), sendMessage NextLayout)
     , ((modm,               xK_l     ), lockScreen)
-    , ((modm .|. shiftMask, xK_f     ), withFocused $ \win -> do 
-        isFullscreen <- (M.member win . W.floating) `fmap` gets windowset
-        if isFullscreen 
-        then sendMessage $ RemoveFullscreen win
-        else sendMessage $ AddFullscreen win)
     , ((modm .|. shiftMask, xK_n     ), refresh)
     , ((modm,               xK_r     ), sendMessage $ Rotate)
     , ((modm,               xK_j     ), windows W.focusDown)
@@ -126,7 +107,7 @@ ovrMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-ovrLayout = gaps [(U,6), (R,10), (D,6), (L,10)] $ Tall 1 (12/100) (1/2) ||| emptyBSP ||| Full
+ovrLayout = avoidStruts (gaps [(U,6), (R,13), (D,6), (L,13)] $ Tall 1 (12/100) (1/2) ||| emptyBSP ||| Full)
 
 -- Essentially just managing
 -- e.g. "start MPlayer" -> "as floating"
@@ -165,7 +146,7 @@ defaults = def {
 --      manageHook         = ovrManageHook,
         handleEventHook    = ovrEventHook,
         logHook            = ovrLogHook,
-        startupHook        = ovrStartupHook >> addEWMHFullscreen
+        startupHook        = ovrStartupHook
 }
 
 help :: String
@@ -173,5 +154,5 @@ help = unlines ["Help:"]
 
 main :: IO ()
 main = do
-    xmonad $ ewmh defaults
+    xmonad $ docks $ ewmh $ ewmhFullscreen $ defaults
 
