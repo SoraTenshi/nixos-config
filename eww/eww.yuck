@@ -1,0 +1,10 @@
+(defwindow main_bar
+	:geometry (geometry :x "0%"
+						:y "0%"
+						:width "5px"
+						:height "95%"
+						:anchor "center left")
+		:stacking "fg"
+		:reserve (struts :distance "8px" :side "left")
+		:wm-ignore true
+	"test")
