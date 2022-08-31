@@ -1,4 +1,6 @@
 import Data.Monoid
+import Data.Maybe (maybeToList)
+import Control.Monad ( join, when )
 import System.Exit
 
 import XMonad
@@ -9,7 +11,7 @@ import XMonad.Layout.BinarySpacePartition
 
 import XMonad.Hooks.EwmhDesktops (ewmh)
 import XMonad.Hooks.ManageDocks
-    (avoidStruts, docks, manageDocks, Direction2D(D, L, R, U))
+    (docks, manageDocks, Direction2D(D, L, R, U))
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -30,11 +32,27 @@ ovrNormalColor  = "#4A25AA"
 
 ovrModMask = mod4Mask
 
+addNETSupported :: Atom -> X ()
+addNETSupported x   = withDisplay $ \dpy -> do
+    r               <- asks theRoot
+    a_NET_SUPPORTED <- getAtom "_NET_SUPPORTED"
+    a               <- getAtom "ATOM"
+    liftIO $ do
+       sup <- (join . maybeToList) <$> getWindowProperty32 dpy a_NET_SUPPORTED r
+       when (fromIntegral x `notElem` sup) $
+         changeProperty32 dpy r a_NET_SUPPORTED a propModeAppend [fromIntegral x]
+
+addEWMHFullscreen :: X ()
+addEWMHFullscreen   = do
+    wms <- getAtom "_NET_WM_STATE"
+    wfs <- getAtom "_NET_WM_STATE_FULLSCREEN"
+    mapM_ addNETSupported [wms, wfs]
+
 -- ewwClose = spawn "exec eww close-all"
 rofiShowRun = spawn "rofi -show run"
 rofiShowShutdown = spawn "rofi -show menu -modi 'menu:rofi-power-menu --choices=shutdown/hibernate/reboot'"
 networkManager = spawn "networkmanager_dmenu"
-lockScreen = spawn "betterlockscreen -l --blur 0.5"
+lockScreen = spawn "betterlockscreen -l --blur 0.5 --dim 60"
 
 
 ovrKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
@@ -128,6 +146,7 @@ ovrStartupHook = do
     spawnOnce "exec eww daemon"
     spawnOnce "picom --experimental-backends"
     spawnOnce "dunst"
+    spawnOnce "exec eww open-many main_bar"
     
 defaults = def {
         terminal           = ovrDefaultTerm,
@@ -146,7 +165,7 @@ defaults = def {
 --      manageHook         = ovrManageHook,
         handleEventHook    = ovrEventHook,
         logHook            = ovrLogHook,
-        startupHook        = ovrStartupHook
+        startupHook        = ovrStartupHook >> addEWMHFullscreen
 }
 
 help :: String
