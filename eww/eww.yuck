@@ -4,12 +4,14 @@
 ))
 
 (defwindow main_bar
-	:geometry (geometry :x "0%"
-						:y "0%"
-						:width "5px"
-						:height "95%"
+	:monitor 0
+	:geometry (geometry :x "0"
+						:y "0"
+						:width "30px"
+						:height "99%"
 						:anchor "center left")
-		:stacking "fg"
-		:wm-ignore true
-		(main_bar)
+	:windowtype "dock"
+	:wm-ignore true
+	:reserve (struts :side "left" :distance "35px")
+	(main_bar)
 )
