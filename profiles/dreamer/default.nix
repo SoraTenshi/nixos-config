@@ -5,7 +5,7 @@
 
   imports = [
     # ui
-    ../../ui/x11/x11.nix
+    ../../ui/x11/xmonad.nix
 
     # General purpose
     ../../general-purpose/cli-tools.nix
