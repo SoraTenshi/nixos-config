@@ -1,7 +1,3 @@
-*{
-  all: unset;
-}
-
 $bg: #1a1b26;
 $fg: #a9b1d6;
 $bl: #414868;
@@ -14,6 +10,12 @@ $ma: #bb9af7;
 $cy: #7dcfff;
 $wh: $foreground;
 
+*{
+  all: unset;
+  font-family: "MesloNGS NF";
+}
+
 .main_bar {
-  
+  background-color: $bg;
+  padding: 0.5rem 0;
 }
