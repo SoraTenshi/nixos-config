@@ -1,13 +1,22 @@
 ;; Variables
-(defvar ws1 "wmctrl -d | grep 0 | awk -F ' ' '{print $9}'")
-(defvar ws2 "wmctrl -d | grep 1 | awk -F ' ' '{print $9}'")
-(defvar ws3 "wmctrl -d | grep 2 | awk -F ' ' '{print $9}'")
-(defvar ws4 "wmctrl -d | grep 3 | awk -F ' ' '{print $9}'")
-(defvar ws5 "wmctrl -d | grep 4 | awk -F ' ' '{print $9}'")
-(defvar ws6 "wmctrl -d | grep 5 | awk -F ' ' '{print $9}'")
-(defvar ws7 "wmctrl -d | grep 6 | awk -F ' ' '{print $9}'")
-(defvar ws8 "wmctrl -d | grep 7 | awk -F ' ' '{print $9}'")
-(defvar ws9 "wmctrl -d | grep 8 | awk -F ' ' '{print $9}'")
+(defwidget bar [screen]
+	(centerbox :orientation "v"
+		(box :class "segment-top"
+			 :valign "start"
+			(top :screen screen))
+			(box :valign "center"
+				 :class "middle" 
+			(middle :screen screen))
+			(box :valign "end"
+				 :class "segment-bottom" 
+			(bottom :screen screen))))
+
+(defwidget top [screen]
+	(workspaces :wsp_yuck {workspaces_1_yuck}))
+
+(defwidget workspaces [wsp_yuck]
+	(literal :content wsp_yuck))
+))
 
 (defwidget workspaces []
 	(box :class "workspaces"
@@ -32,6 +41,7 @@
 (defwidget main_bar []
 	(box :class "bar"
 		 :orientation "v"
+	(bar)
 ))
 
 (defwindow main_bar
@@ -46,5 +56,4 @@
 	:hexpand false
 	:reserve (struts :side "left" :distance "35px")
 	(main_bar)
-	(workspaces)
 )
