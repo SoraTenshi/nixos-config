@@ -10,14 +10,19 @@
       corner-radius = 10.0;
       rounded-corners-exclude = [ "class_g = 'eww'" ];
 
+      blur-kern = "3x3box";
       blur = {
         method = "kawase";
-        strength = 5;
+        strength = 8;
         background = true;
         background-frame = false;
         background-fixed = false;
-        kern = "5x5box";
+        kern = "3x3box";
       };
+      
+      blur-background-exclude = [
+        "class_g = 'eww'"
+      ];
     };
   };
 }
