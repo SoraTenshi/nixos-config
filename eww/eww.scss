@@ -8,7 +8,7 @@ $ye: #e0af68;
 $bl: #7aa2f7;
 $ma: #bb9af7;
 $cy: #7dcfff;
-$wh: $foreground;
+$wh: $fg;
 
 *{
   all: unset;
@@ -17,5 +17,4 @@ $wh: $foreground;
 
 .main_bar {
   background-color: $bg;
-  padding: 0.5rem 0;
 }

@@ -107,7 +107,7 @@ ovrMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-ovrLayout = avoidStruts (gaps [(U,6), (R,13), (D,6), (L,13)] $ Tall 1 (12/100) (1/2) ||| emptyBSP ||| Full)
+ovrLayout = avoidStruts (gaps [(U,10), (R,15), (D,10), (L,15)] $ Tall 1 (12/100) (1/2) ||| emptyBSP ||| Full)
 
 -- Essentially just managing
 -- e.g. "start MPlayer" -> "as floating"
