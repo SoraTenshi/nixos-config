@@ -9,9 +9,9 @@
 (defvar ws8 "wmctrl -d | grep 7 | awk -F ' ' '{print $9}'")
 (defvar ws9 "wmctrl -d | grep 8 | awk -F ' ' '{print $9}'")
 
-(defwidget workspaces[]
+(defwidget workspaces []
 	(box :class "workspaces"
-		 :orientation "v"
+		 :orientation "top"
 		 :space-evenly true
 		 :valign "start"
 		 :spacing 10
@@ -36,7 +36,7 @@
 
 (defwindow main_bar
 	:monitor 0
-	:geometry (geometry :x "0"
+	:geometry (geometry :x "10"
 						:y "0"
 						:width "30px"
 						:height "99%"

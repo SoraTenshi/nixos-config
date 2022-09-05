@@ -5,8 +5,8 @@
     configDir = ../../eww;
   };
   
-  home.packages = with pkgs; [
-    wmctrl 
+  environment.systemPackages = with pkgs; [
+    wmctrl
     brightnessctl
   ];
 }

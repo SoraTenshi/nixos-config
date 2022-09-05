@@ -17,4 +17,9 @@ $wh: $fg;
 
 .main_bar {
   background-color: $bg;
+  color: $fg;
+}
+
+.workspaces button:hover {
+  color: $cy;
 }
