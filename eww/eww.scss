@@ -20,6 +20,24 @@ $wh: $fg;
   color: $fg;
 }
 
-.workspaces button:hover {
-  color: $cy;
+.workspaces {
+  button {
+    background: none;
+    margin: 3px;
+    padding-left: 1px;
+    &.inactive {
+      color: $fg;
+    }
+    &.active {
+      background-color: $cy;
+      color: $fg;
+    }
+    &.occupied {
+      color: $cy;
+    }
+    &.empty {
+      color: $fg;
+      font-size: 0.8rem;
+    }
+  }
 }
