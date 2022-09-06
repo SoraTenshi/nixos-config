@@ -4,20 +4,25 @@
     enable = true;
     fade = true;
     fadeDelta = 5;
-    experimentalBackends = true;
+    backend = "glx";
+    
+    opacityRules = [
+      "60:class_g = 'alacritty'"
+      "60:class_g = 'kitty'" # some day..
+    ];
 
     settings = {
-      corner-radius = 10.0;
-      rounded-corners-exclude = [ "class_g = 'eww'" ];
+      round-borders = 1;
+      corner-radius = 10;
 
-      blur-kern = "3x3box";
+      blur-kern = "5x5box";
       blur = {
-        method = "kawase";
-        strength = 8;
-        background = true;
+        method = "dual_kawase";
+        strength = 5;
+        background = false;
         background-frame = false;
         background-fixed = false;
-        kern = "3x3box";
+        kern = "5x5box";
       };
       
       blur-background-exclude = [

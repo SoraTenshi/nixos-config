@@ -6,6 +6,7 @@
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     zig-master.url = "github:mitchellh/zig-overlay";
     helix-master.url = "github:helix-editor/helix";
+
     # font-patcher.url   = "github:s0la1337/nerd-font-patcher-overlay"; # makes some trouble :(
     # nur.url          = "github:nix-community/NUR"; # not used yet, but make it accessible when i need to use it.
 
@@ -13,6 +14,11 @@
     #   url = "github:edolstra/flake-compat";
     #   flake = false;
     # };
+    
+    picom-ibhagwan = {
+      url = "github:ibhagwan/picom";
+      flake = false;
+    };
 
     grub2-theme = {
       url = "github:vinceliuice/grub2-themes";
@@ -47,12 +53,17 @@
     , zig-master
     , grub2-theme
     , helix-master
+    , picom-ibhagwan
     }@inputs:
     let
       system = "x86_64-linux";
+      overlays = [
+        (final: prev: {
+          picom = prev.picom.overrideAttrs(o: { src = picom-ibhagwan; });
+        })
+      ];
     in
     {
-
       nixosConfigurations = {
         wsl = nixpkgs.lib.nixosSystem {
           system = system;
@@ -104,11 +115,12 @@
             nixos-hardware.nixosModules.lenovo-thinkpad-t470s
             home-manager.nixosModules.home-manager
             {
+              nixpkgs.overlays = overlays;
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit
-                  dotfiles neovim-nightly zig-master helix-master;
+                  dotfiles neovim-nightly zig-master helix-master picom-ibhagwan;
               };
               home-manager.users.dreamer = { ... }: {
                 imports = [ ./profiles/dreamer/default.nix ];
