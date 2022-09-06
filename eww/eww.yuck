@@ -1,4 +1,6 @@
 ;; Variables
+(defvar workspaces_1_yuck "")
+
 (defwidget bar [screen]
 	(centerbox :orientation "v"
 		(box :class "segment-top"
@@ -13,47 +15,29 @@
 
 (defwidget top [screen]
 	(workspaces :wsp_yuck {workspaces_1_yuck}))
+	
+(defwidget middle [screen]
+	"lol")
+	
+(defwidget bottom [screen]
+	"xdd")
 
 (defwidget workspaces [wsp_yuck]
 	(literal :content wsp_yuck))
-))
-
-(defwidget workspaces []
-	(box :class "workspaces"
-		 :orientation "top"
-		 :space-evenly true
-		 :valign "start"
-		 :spacing 10
-	(button :onclick "wmctrl -s 0" ws1)
-	(button :onclick "wmctrl -s 1" ws2)
-	(button :onclick "wmctrl -s 2" ws3)
-	(button :onclick "wmctrl -s 3" ws4)
-	(button :onclick "wmctrl -s 4" ws5)
-	(button :onclick "wmctrl -s 5" ws6)
-	(button :onclick "wmctrl -s 6" ws7)
-	(button :onclick "wmctrl -s 7" ws8)
-	(button :onclick "wmctrl -s 8" ws9)))
 
 ;; brightnessctl -d intel_backlight -m | awk -F ',' '{print $4}'
 
 
-
-(defwidget main_bar []
-	(box :class "bar"
-		 :orientation "v"
-	(bar)
-))
 
 (defwindow main_bar
 	:monitor 0
 	:geometry (geometry :x "10"
 						:y "0"
 						:width "30px"
-						:height "99%"
+						:height "98%"
 						:anchor "center left")
 	:windowtype "dock"
 	:wm-ignore true
 	:hexpand false
 	:reserve (struts :side "left" :distance "35px")
-	(main_bar)
-)
+	(bar :screen 0))

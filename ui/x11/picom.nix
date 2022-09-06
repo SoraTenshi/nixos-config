@@ -14,6 +14,10 @@
     settings = {
       round-borders = 1;
       corner-radius = 10;
+      
+      rounded-corners-exclude = [
+        "class_g = 'eww'"
+      ];
 
       blur-kern = "5x5box";
       blur = {
