@@ -6,7 +6,7 @@ gib_workspace_names() {
   wmctrl -d \
     | awk '{ print $1 " " $2 " " $9 }' \
     | grep -v NSP \
-    | grep "${monitor}_"
+    | grep "${monitor}"
 }
 
 gib_workspace_yuck() {
@@ -21,12 +21,10 @@ gib_workspace_yuck() {
 
     if wmctrl -l | grep --regexp '.*\s\+'"$id"'\s\+.*' >/dev/null; then
       button_class="occupied"
-      button_name=name
     else
       button_class="empty"
-      button_name=name
     fi
-    buffered+="(button :class \"$button_class $active_class\"  :onclick \"wmctrl -s $id\" \"$button_name\")"
+    buffered+="(button :class \"$button_class $active_class\"  :onclick \"wmctrl -s $id\" \"$name\")"
     if [ $button_class = "occupied" -o $active_class = "active" ]; then
       echo -n "$buffered"
       buffered=""
