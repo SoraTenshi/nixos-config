@@ -120,12 +120,13 @@ ovrLayout = avoidStruts (gaps [(U,10), (R,15), (D,10), (L,15)] $ Tall 1 (12/100)
 
 ovrEventHook = mempty
 
-ovrLogHook = return ()
+ovrLogHook :: X ()
+ovrLogHook = spawn "/home/dreamer/.config/eww/update_workspaces.sh"
 
 ovrStartupHook :: X ()
 ovrStartupHook = do
     spawnOnce "exec eww daemon"
-    spawnOnce "picom --experimental-backends"
+    spawnOnce "picom"
     spawnOnce "dunst"
     spawnOnce "exec eww open-many main_bar"
     

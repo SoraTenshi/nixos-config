@@ -57,9 +57,13 @@
     }@inputs:
     let
       system = "x86_64-linux";
+      overlays = [
+        (final: prev: {
+          picom = prev.picom.overrideAttrs(o: { src = picom-ibhagwan; });
+        })
+      ];
     in
     {
-
       nixosConfigurations = {
         wsl = nixpkgs.lib.nixosSystem {
           system = system;
@@ -111,6 +115,7 @@
             nixos-hardware.nixosModules.lenovo-thinkpad-t470s
             home-manager.nixosModules.home-manager
             {
+              nixpkgs.overlays = overlays;
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
