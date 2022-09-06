@@ -121,7 +121,7 @@ ovrLayout = avoidStruts (gaps [(U,10), (R,15), (D,10), (L,15)] $ Tall 1 (12/100)
 ovrEventHook = mempty
 
 ovrLogHook :: X ()
-ovrLogHook = spawn "/home/dreamer/.config/eww/update_workspaces.sh"
+ovrLogHook = spawn "/home/dreamer/.config/eww/workspaces.sh"
 
 ovrStartupHook :: X ()
 ovrStartupHook = do

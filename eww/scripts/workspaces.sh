@@ -1,37 +1,33 @@
- #!/bin/sh
+#!/bin/sh
 
-monitor="$1"
+monitor="${1}"
 
-gib_workspace_names() {
+function get_workspaces {
   wmctrl -d \
     | awk '{ print $1 " " $2 " " $9 }' \
-    | grep -v NSP \
+    | grep -v 'NSP' \
     | grep "${monitor}"
 }
 
-gib_workspace_yuck() {
-  buffered=""
-  gib_workspace_names | while read -r id active name; do
-    name="${name#*_}"
-    if [ "$active" == '*' ]; then
-      active_class="active"
-    else
-      active_class="inactive"
-    fi
+function create_box {
+  get_workspaces | while read -r id active name; do
+    name="$(printf '%s\n' "${name}")"
+    class=""
 
-    if wmctrl -l | grep --regexp '.*\s\+'"$id"'\s\+.*' >/dev/null; then
-      button_class="occupied"
+    test "${active}" = "*" && class="${class:-}${class:+ }active"
+    case "$(wmctrl -l | awk '{print "(" $2}' | tr '\n' ')')" in
+      *"(${id})"*) class="${class:-}${class:+ }occupied";;
+    esac
+
+    if [[ "${active}" = "*" ]]; then
+      printf '%s' "(button${class:+ :class '${class:-}'} :onclick 'wmctrl -s ${id}' '「${name}」')"
     else
-      button_class="empty"
-    fi
-    buffered+="(button :class \"$button_class $active_class\"  :onclick \"wmctrl -s $id\" \"$name\")"
-    if [ $button_class = "occupied" -o $active_class = "active" ]; then
-      echo -n "$buffered"
-      buffered=""
+      printf '%s' "(button${class:+ :class '${class:-}'} :onclick 'wmctrl -s ${id}' '${name}')"
     fi
   done
 }
 
 xprop -spy -root _NET_CURRENT_DESKTOP | while read -r; do
-  echo '(box :orientation "v" :class "workspaces" :space-evenly true :halign "center" :valign "center" :vexpand true '"$(gib_workspace_yuck)"')'
+  sleep .01
+  printf '%s\n' '(box :orientation "v" :class "workspaces" :space-evenly true :vexpand true '"$(create_box)"')'
 done
