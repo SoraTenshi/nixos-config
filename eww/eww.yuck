@@ -1,43 +1,42 @@
 ;; Variables
-(defvar workspaces_1_yuck "")
+(deflisten workspaces
+	"scripts/workspaces.sh")
 
 (defwidget bar [screen]
 	(centerbox :orientation "v"
 		(box :class "segment-top"
 			 :valign "start"
-			(top :screen screen))
+			(top))
 			(box :valign "center"
 				 :class "middle" 
-			(middle :screen screen))
+			(middle))
 			(box :valign "end"
 				 :class "segment-bottom" 
-			(bottom :screen screen))))
+			(bottom))))
 
-(defwidget top [screen]
-	(workspaces :wsp_yuck {workspaces_1_yuck}))
+(defwidget top []
+	(workspaces))
 	
-(defwidget middle [screen]
+(defwidget middle []
 	"lol")
 	
-(defwidget bottom [screen]
+(defwidget bottom []
 	"xdd")
 
-(defwidget workspaces [wsp_yuck]
-	(literal :content wsp_yuck))
+(defwidget workspaces []
+	(literal :content workspaces))
 
 ;; brightnessctl -d intel_backlight -m | awk -F ',' '{print $4}'
 
-
-
 (defwindow main_bar
 	:monitor 0
-	:geometry (geometry :x "10"
+	:geometry (geometry :x "5"
 						:y "0"
-						:width "30px"
-						:height "98%"
+						:width "50px"
+						:height "1064px"
 						:anchor "center left")
 	:windowtype "dock"
 	:wm-ignore true
 	:hexpand false
-	:reserve (struts :side "left" :distance "35px")
+	:reserve (struts :side "left" :distance "50px")
 	(bar :screen 0))

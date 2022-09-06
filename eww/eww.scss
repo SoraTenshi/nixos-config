@@ -23,21 +23,20 @@ $wh: $fg;
 .workspaces {
   button {
     background: none;
-    margin: 3px;
-    padding-left: 1px;
+    margin-top: 5px;
+    padding: 1;
+    font-size: 1.1rem;
     &.inactive {
       color: $fg;
     }
     &.active {
-      background-color: $cy;
-      color: $fg;
-    }
-    &.occupied {
       color: $cy;
     }
+    &.occupied {
+      font-size: 1.3rem;
+    }
     &.empty {
-      color: $fg;
-      font-size: 0.8rem;
+      font-size: 1.1rem;
     }
   }
 }
