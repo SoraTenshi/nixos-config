@@ -1,14 +1,19 @@
-{ pkgs, ... }:
+{ picom-ibhagwan, pkgs, ... }:
 {
   services.picom = {
     enable = true;
+    package = picom-ibhagwan;
     fade = true;
     fadeDelta = 5;
     experimentalBackends = true;
+    
+    opacityRules = [
+      "60:class_g = alacritty"
+    ];
 
     settings = {
-      corner-radius = 10.0;
-      rounded-corners-exclude = [ "class_g = 'eww'" ];
+      corner-radius = 10;
+      rounded-corners-exclude = [ "class_g = eww" ];
 
       blur-kern = "3x3box";
       blur = {
