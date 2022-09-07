@@ -7,8 +7,8 @@ import XMonad
 
 import XMonad.Util.SpawnOnce
 
-import XMonad.Layout.Gaps
-import XMonad.Layout.Spacing
+import XMonad.Layout.LayoutModifier (ModifiedLayout)
+import XMonad.Layout.Spacing (Border (Border), Spacing, spacingRaw)
 import XMonad.Layout.BinarySpacePartition
 
 import XMonad.Hooks.EwmhDesktops
@@ -107,7 +107,10 @@ ovrMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-ovrLayout = avoidStruts (gaps [(U,10), (R,15), (D,10), (L,15)] $ Tall 1 (12/100) (1/2) ||| emptyBSP ||| Full)
+createSpacing :: Integer -> l a -> ModifiedLayout Spacing l a
+createSpacing i = spacingRaw True (Border 0 i 0 i) True (Border i 0 i 0) True
+
+ovrLayout = avoidStruts (createSpacing 5 $ Tall 1 (12/100) (1/2) ||| emptyBSP ||| Full)
 
 -- Essentially just managing
 -- e.g. "start MPlayer" -> "as floating"
