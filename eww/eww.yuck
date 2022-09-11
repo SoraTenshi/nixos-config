@@ -2,8 +2,8 @@
 (deflisten workspaces
 	"scripts/workspaces.sh")
 	
-(defpoll clock_hour   :interval "10s" "date +%H")
-(defpoll clock_minute :interval "2s"  "date +%M")
+(defpoll clock_hour   :interval "1s" "date +%H")
+(defpoll clock_minute :interval "1s"  "date +%M")
 (defpoll clock_second :interval "1s"  "date +%S")
 
 (defwidget bar [screen]
@@ -32,9 +32,9 @@
 	
 (defwidget time []
 	(box :class "module" :space-evenly "false" :orientation "v" :spacing 6
-		(label :text "${clock_hour}"   :class "hours")
-		(label :text clock_minute :class "minutes")
-		(label :text clock_second :class "seconds")))
+		(label :text "時 ${clock_hour}"   :class "hours")
+		(label :text "分 ${clock_minute}" :class "minutes")
+		(label :text "秒 ${clock_second}" :class "seconds")))
 
 ;; brightnessctl -d intel_backlight -m | awk -F ',' '{print $4}'
 
