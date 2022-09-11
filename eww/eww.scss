@@ -46,14 +46,15 @@ $wh: $fg;
     &.inactive {
       color: $fg;
     }
+    &.occupied {
+      color: $re;
+    }
     &.active {
+      font-size: 1.2rem;
       color: $cy;
     }
-    &.occupied {
-      font-size: 1.3rem;
-    }
     &.empty {
-      font-size: 1.1rem;
+      color: $fg;
     }
   }
 }
