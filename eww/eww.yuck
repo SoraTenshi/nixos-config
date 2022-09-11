@@ -2,8 +2,9 @@
 (deflisten workspaces
 	"scripts/workspaces.sh")
 	
-(defpoll time :interval "1s"
-	"./scripts/time.sh")
+(defpoll clock_hour   :interval "10s" "date +%H")
+(defpoll clock_minute :interval "2s"  "date +%M")
+(defpoll clock_second :interval "1s"  "date +%S")
 
 (defwidget bar [screen]
 	(centerbox :orientation "v"
@@ -11,10 +12,10 @@
 			 :class "segment-top"
 			 (top))
 		(box :valign "center"
-			 :class "segment-middle" 
+			 :class "segment-middle"
 			 (middle))
 		(box :valign "end"
-			 :class "segment-bottom" 
+			 :class "segment-bottom"
 			 (bottom))))
 
 (defwidget top []
@@ -30,7 +31,10 @@
 	(literal :content workspaces))
 	
 (defwidget time []
-	(literal :content time))
+	(box :class "module" :space-evenly "false" :orientation "v" :spacing 6
+		(label :text "${clock_hour}"   :class "hours")
+		(label :text clock_minute :class "minutes")
+		(label :text clock_second :class "seconds")))
 
 ;; brightnessctl -d intel_backlight -m | awk -F ',' '{print $4}'
 
@@ -42,7 +46,7 @@
 						:height "100%"
 						:anchor "center left")
 	:windowtype "dock"
-	:wm-ignore true
-	:hexpand false
-	:reserve (struts :side "left" :distance "65px")
+	:wm-ignore  true
+	:hexpand    false
+	:reserve    (struts :side "left" :distance "65px")
 	(bar :screen 0))
