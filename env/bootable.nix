@@ -66,8 +66,16 @@ in
       config = ../xmonad/xmonad.hs;
     };
   };
+  
+  environment.systemPackages = with pkgs;[
+    opensc
+  ];
 
-  programs.ssh.startAgent = true;
+  services.pcscd.enable = true;
+  programs.ssh = {
+    startAgent = true;
+    agentPKCS11Whitelist = "${pkgs.opensc}/lib/opensc-pkcs11.so";
+  };
 
   users.users.${defaultUser} = {
     shell = pkgs.zsh;
