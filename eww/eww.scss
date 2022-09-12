@@ -5,14 +5,14 @@ $gr: #9aa5ce;
 $re: #f7768e;
 $gr: #73daca;
 $ye: #e0af68;
-$bl: #7aa2f7;
-$ma: #bb9af7;
+$bu: #7aa2f7;
+$ma: #ff55ff;
 $cy: #7dcfff;
 $wh: $fg;
 
 *{
   all: unset;
-  font-family: "MesloNGS NF";
+  font-family: "RictyDiminished with FiraCode";
 }
 
 .main_bar {
@@ -21,40 +21,56 @@ $wh: $fg;
 }
 
 .module {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
+  border-radius: 0.1em;
+  border-color: $ma;
+}
+
+.ampm {
+  margin-top: 10px;
+  color: $bu;
 }
 
 .hours {
-  margin-top: 10px;
+  font-size: 1.5rem;
   color: $fg;
 }
 
 .minutes {
-  color: $bl;
+  font-size: 1.5rem;
+  color: $bu;
 }
 
 .seconds {
+  font-size: 1.5rem;
   color: $fg;
+}
+
+.weekday {
+  font-size: 1.3rem;
+  color: $bu;
+}
+
+.month {
+  color: $bu;
+}
+
+.day {
+  margin-bottom: 10px;
 }
 
 .workspaces {
   button {
     background: none;
-    margin-top: 5px;
-    padding: 1;
-    font-size: 1.1rem;
-    &.inactive {
-      color: $fg;
-    }
+    padding: 3;
+    font-size: 1.2rem;
+    color: $bl;
     &.occupied {
-      color: $re;
+      color: $fg;
     }
     &.active {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: $cy;
-    }
-    &.empty {
-      color: $fg;
     }
   }
 }
