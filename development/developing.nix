@@ -15,7 +15,7 @@
     gdb
 
     # compiler
-    clang go nim cargo rustc julia_17-bin
+    clang go nim cargo rustc julia-bin
     idris2 
     
     # interpreter

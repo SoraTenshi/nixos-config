@@ -31,7 +31,7 @@ in
 
   console.keyMap = "us";
   i18n = {
-    defaultLocale = "en_US.UTF-8";
+    defaultLocale = "ja_JP.utf8";
     inputMethod = {
       enabled = "ibus";
       ibus.engines = with pkgs.ibus-engines; [

@@ -8,9 +8,9 @@
 (defpoll clock_second :interval "1s" "date +%S")
 
 (defpoll date_year	  :interval "24h" "LANG=ja_JP.utf8 date +%Y")
-(defpoll date_month	  :interval "1h" "LANG=ja_JP.utf8 date +%m")
-(defpoll date_day	  :interval "1m" "LANG=ja_JP.utf8 date +%d")
-(defpoll weekday	  :interval "1m" "LANG=ja_JP.utf8 date +%A")
+(defpoll date_month	  :interval "1h"  "LANG=ja_JP.utf8 date +%m")
+(defpoll date_day	  :interval "1m"  "LANG=ja_JP.utf8 date +%d")
+(defpoll weekday	  :interval "1m"  "LANG=ja_JP.utf8 date +%A")
 
 (defwidget bar [screen]
 	(centerbox :orientation "v"
@@ -33,9 +33,7 @@
 (defwidget bottom []
 	(box :class "module" :space-evenly "false" :orientation "v" :spacing 6
 		(label :text "${weekday}"      :class "weekday")
-		(label :text "${date_year}"    :class "year")
-		(label :text "${date_month}"   :class "month")
-		(label :text "${date_day}"     :class "day")))
+		(label :text "${date_year}/${date_month}/${date_day}" :class "date")))
 
 (defwidget workspaces []
 	(literal :content workspaces))
@@ -43,15 +41,13 @@
 (defwidget time []
 	(box :class "module" :space-evenly "false" :orientation "v" :spacing 6
 		(label :text "${clock_ampm}"   :class "ampm")
-		(label :text "${clock_hour}"   :class "hours")
-		(label :text "${clock_minute}" :class "minutes")
-		(label :text "${clock_second}" :class "seconds")))
+		(label :text "${clock_hour}:${clock_minute}:${clock_second}" :class "hours")))
 
 ;; brightnessctl -d intel_backlight -m | awk -F ',' '{print $4}'
 
 (defwindow main_bar
 	:monitor 0
-	:geometry (geometry :x "5"
+	:geometry (geometry :x "0"
 						:y "0"
 						:width "50px"
 						:height "100%"
@@ -59,5 +55,5 @@
 	:windowtype "dock"
 	:wm-ignore  true
 	:hexpand    false
-	:reserve    (struts :side "left" :distance "70px")
+	:reserve    (struts :side "left" :distance "85px")
 	(bar :screen 0))
