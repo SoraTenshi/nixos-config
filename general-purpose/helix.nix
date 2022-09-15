@@ -57,6 +57,6 @@
     nodePackages.vim-language-server # Vim
     nodePackages.typescript-language-server # Typescript
     nodePackages.vscode-json-languageserver # JSON
-    haskell-language-server # Haskell
+    haskellPackages.haskell-language-server # Haskell
   ];
 }
