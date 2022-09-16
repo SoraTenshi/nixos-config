@@ -55,5 +55,5 @@
 	:windowtype "dock"
 	:wm-ignore  true
 	:hexpand    false
-	:reserve    (struts :side "left" :distance "85px")
+	:reserve    (struts :side "left" :distance "80px")
 	(bar :screen 0))

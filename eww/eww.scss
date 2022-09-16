@@ -31,18 +31,8 @@ $wh: $fg;
   color: $bu;
 }
 
-.hours {
-  font-size: 1.5rem;
-  color: $fg;
-}
-
-.minutes {
-  font-size: 1.5rem;
-  color: $bu;
-}
-
-.seconds {
-  font-size: 1.5rem;
+.time {
+  font-size: 1.2rem;
   color: $fg;
 }
 
@@ -52,6 +42,7 @@ $wh: $fg;
 }
 
 .date {
+  font-size: 1.1rem;
   margin-bottom: 10px;
 }
 
