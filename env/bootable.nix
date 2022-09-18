@@ -29,13 +29,13 @@ in
 
   time.timeZone = "Europe/Berlin";
 
-  console.keyMap = "us";
   i18n = {
     defaultLocale = "ja_JP.utf8";
     inputMethod = {
-      enabled = "ibus";
-      ibus.engines = with pkgs.ibus-engines; [
-        mozc
+      enabled = "fcitx5";
+      fcitx5.addons = with pkgs; [
+        fcitx5-mozc
+        fcitx5-gtk
       ];
     };
   };
@@ -68,7 +68,7 @@ in
   };
   
   environment.systemPackages = with pkgs;[
-    opensc
+    opensc fcitx5-configtool
   ];
 
   services.pcscd.enable = true;

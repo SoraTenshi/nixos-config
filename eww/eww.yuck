@@ -34,7 +34,7 @@
 	(box :class "module" :space-evenly "false" :orientation "v" :spacing 6
 		(label :text "${weekday}"      :class "weekday")
 		(label :text "${date_year}/${date_month}/${date_day}" :class "date")))
-
+		
 (defwidget workspaces []
 	(literal :content workspaces))
 	

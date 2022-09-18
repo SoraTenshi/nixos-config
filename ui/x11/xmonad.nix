@@ -38,5 +38,12 @@
     ".config/rofi" = {
       source = "${dotfiles}/rofi";
     };
+    ".xsession" = {
+      text = ''
+        GTK_IM_MODULE=fcitx
+        QT_IM_MODULE=fcitx
+        XMODIFIERS=@im=fcitx
+      '';
+    };
   };
 }
