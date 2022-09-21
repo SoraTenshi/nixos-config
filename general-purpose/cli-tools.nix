@@ -5,5 +5,6 @@
     ./nvim.nix
     ./zsh.nix
     ./misc.nix
+    ./rss.nix
   ];
 }
