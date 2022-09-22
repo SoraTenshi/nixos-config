@@ -37,7 +37,7 @@
 		(label :text "${date_year}/${date_month}/${date_day}" :class "date")))
 		
 (defwidget seperator []
-	(label :text "────" :class "seperator")))
+	(label :text "────" :class "seperator"))
 
 (defwidget workspaces []
 	(literal :content workspaces))
