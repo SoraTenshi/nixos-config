@@ -16,6 +16,7 @@ in
       splashImage = "${sddm-theme}/Backgrounds/nixos.png";
       splashMode = "stretch";
       device = "nodev";
+      fontSize = 32;
       extraEntries = ''
         menuentry "Reboot" {
           reboot
