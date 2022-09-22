@@ -45,15 +45,6 @@ in
   hardware.pulseaudio.enable = true;
   nixpkgs.config.allowUnfree = true;
 
-  # services.xserver = {
-  #   enable = true;
-  #   displayManager.defaultSession = "none+leftwm";
-  #   desktopManager.runXdgAutostartIfNone = true;
-  #   windowManager.leftwm.enable = true;
-  #   # touchpad support!
-  #   libinput.enable = true;
-  # };
-
   services.xserver = {
     enable = true;
     displayManager.defaultSession = "none+xmonad";
@@ -70,6 +61,8 @@ in
   
   environment.systemPackages = with pkgs;[
     opensc fcitx5-configtool
+    
+    exa zoxide bat
   ];
 
   services.pcscd.enable = true;
