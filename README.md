@@ -29,9 +29,9 @@ To do this, i preferr using `fdisk`.
 Simple enough, there is an easy formular to do that:
 
 ```sh
-$ sudo mkfs.fat -F 32 /dev/sda1
-$ sudo fatlabel /dev/sda1 NIXBOOT
-$ sudo mkfs.ext4 /dev/sda2 -L NIXMAIN
+sudo mkfs.fat -F 32 /dev/sda1
+sudo fatlabel /dev/sda1 NIXBOOT
+sudo mkfs.ext4 /dev/sda2 -L NIXMAIN
 ```
 
 The names are as simply described within /nixos-config/nixos/hardware-configuration.nix
@@ -41,9 +41,9 @@ The names are as simply described within /nixos-config/nixos/hardware-configurat
 Straight forward process.
 
 ```sh
-$ sudo mount /dev/disk/by-label/NIXMAIN /mnt
-$ sudo mkdir /mnt/boot
-$ sudo mount /dev/disk/by-label/NIXBOOT /mnt/boot
+sudo mount /dev/disk/by-label/NIXMAIN /mnt
+sudo mkdir /mnt/boot
+sudo mount /dev/disk/by-label/NIXBOOT /mnt/boot
 ```
 
 ### Step 4: Swapfile
@@ -52,9 +52,9 @@ Also very easy to understand, a swapfile is essentially 'extended memory' where 
 swapfile as extra Memory once its space runs out.
 
 ```sh
-$ sudo dd if=/dev/zero of=/mnt/.swapfile bs=1024 count=2097152
-$ sudo chmod 600 /mnt/.swapfile
-$ sudo mkswap /mnt/.swapfile
+sudo dd if=/dev/zero of=/mnt/.swapfile bs=1024 count=2097152
+sudo chmod 600 /mnt/.swapfile
+sudo mkswap /mnt/.swapfile
 ```
 
 Now this is a bit more interesting.
@@ -74,7 +74,7 @@ Multiplying those numbers together will get you around `2GiB`.
 This process is also straight forward:
 
 ```sh
-$ sudo nixos-generate-config --root /mnt
+sudo nixos-generate-config --root /mnt
 ```
 
 From here, this repository takes over.
@@ -84,7 +84,7 @@ From here, this repository takes over.
 Once everything is done, the fun part begins:
 
 ```sh
-$ sudo nixos-install
+sudo nixos-install
 ```
 
 And that's essentially it. 
@@ -96,8 +96,8 @@ After some time you will most likely be prompted to type in a new `superuser` pa
 Just add the Home-Manager to your `nix-channel` and let it do the magic.
 
 ```sh
-$ sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-[your-nixos-version].tar.gz home-manager
-$ sudo nix-channel --update
+sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-[your-nixos-version].tar.gz home-manager
+sudo nix-channel --update
 ```
 
 For more information regarding the Home-Manager, [use this Link](https://nix-community.github.io/home-manager/index.html)
@@ -121,7 +121,7 @@ e.g.:
 
 For now the usage of the flakes is (to install a flake profile):
 ```sh
-$ sudo nixos-rebuild switch --flake '.#[profile]'
+sudo nixos-rebuild switch --flake '.#[profile]'
 ```
 
 This is however most likely not the final version of it, as hardware information configuration are completely absent for now.
