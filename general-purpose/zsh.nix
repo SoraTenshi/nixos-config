@@ -37,7 +37,7 @@
 
     initExtra = ''
       eval "$(zoxide init zsh)"
-      eval "$(oh-my-posh init zsh --config 'https://raw.githubusercontent.com/s0LA1337/nixos-config/master/general-purpose/posh/default.omp.json')"
+      eval "$(oh-my-posh init zsh --config 'https://raw.githubusercontent.com/s0LA1337/nixos-config/master/oh-my-posh/tokyonight_ascii.opm.json')"
       # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
     '';
 
