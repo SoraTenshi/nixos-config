@@ -5,26 +5,23 @@
     enable = true;
     font = {
       name = "MesloLGS NF";
-      size = 11;
+      size = 18;
     };
     keybindings = {
       "ctrl+shift+c" = "copy_to_clipboard";
       "ctrl+shift+v" = "paste_from_clipboard";
-      "" = "";
-      "" = "";
-      "" = "";
-      "" = "";
     };
     settings = {
       scrollback_lines = 10000;
       enable_audio_bell = false;
       update_check_interval = 0;
       
+      background_opacity = "0.8";
+      
       # Tabs
       tab_bar_edge = "bottom";
       tab_bar_style = "fade";
       tab_bar_align = "center";
-      tab_seperator = "｜";
     };
     theme = "Tokyo Night Storm";
   };
