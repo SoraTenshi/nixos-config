@@ -73,7 +73,7 @@
         {
           "foreground": "cyan",
           "style": "plain",
-          "template": "<black>\u2500\u2500</>\u276f\u276f ",
+          "template": "<black>\u2500\u2500</>\u276f\u276f",
           "type": "text"
         }
       ]
