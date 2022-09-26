@@ -33,8 +33,9 @@
       };
       keys.normal = {
         "X" = "extend_line_above";
-        "{" = "goto_prev_paragraph";
-        "}" = "goto_next_paragraph";
+        "y" = "yank_main_selection_to_clipboard";
+      };
+      keys.select = {
         "y" = "yank_main_selection_to_clipboard";
       };
     };
