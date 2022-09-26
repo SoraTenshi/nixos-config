@@ -4,6 +4,7 @@
     {
       "type": "prompt",
       "alignment": "left",
+      "filler": "<black,transparent>\u2500</>",
       "segments": [
         {
           "foreground": "black",
@@ -38,6 +39,7 @@
       "type": "prompt",
       "alignment": "right",
       "newline": false,
+      "filler": "<black,transparent>\u2500</>",
       "segments": [
         {
           "type": "battery",
