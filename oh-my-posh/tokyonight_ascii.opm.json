@@ -16,7 +16,7 @@
           "foreground": "cyan",
           "leading_diamond": "\u2500\u2500[ ",
           "style": "diamond",
-          "template": "\uf313",
+          "template": "<,transparent>\uf313</>",
           "trailing_diamond": " ]",
           "type": "text"
         },
@@ -25,7 +25,7 @@
           "foreground": "cyan",
           "leading_diamond": "\u2500\u2500[ ",
           "style": "diamond",
-          "template": "{{ .Path }}",
+          "template": "<,transparent>{{ .Path }}</>",
           "trailing_diamond": " ]",
           "properties": {
             "style": "full"
@@ -43,30 +43,30 @@
           "type": "battery",
           "leading_diamond": "[ ",
           "style": "diamond",
-          "trailing_diamond": " ]",
+          "trailing_diamond": " ]\u2500\u2500",
           "background": "black",
           "foreground": "cyan",
-          "background_templates": [
-            "{{if eq \"Charging\" .State.String}}#40c4ff{{end}}",
-            "{{if eq \"Discharging\" .State.String}}#ff5722{{end}}",
-            "{{if eq \"Full\" .State.String}}#4caf50{{end}}"
+          "foreground_templates": [
+            "{{if eq \"Charging\" .State.String}}green{{end}}",
+            "{{if eq \"Discharging\" .State.String}}red{{end}}",
+            "{{if eq \"Full\" .State.String}}cyan{{end}}"
           ],
-          "template": " {{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}\uF295 ",
+          "template": "<,transparent>{{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}\uF295</>",
           "properties": {
-            "discharging_icon": "\uE231 ",
-            "charging_icon": "\uE234 ",
-            "charged_icon": "\uE22F "
+            "discharging_icon": "~ ",
+            "charging_icon": "++ ",
+            "charged_icon": "= "
           }
         },
         {
           "background": "black",
           "foreground": "cyan",
-          "leading_diamond": "\u2500\u2500[ ",
+          "leading_diamond": "[ ",
           "properties": {
             "time_format": "15:04:05"
           },
           "style": "diamond",
-          "template": "{{ .CurrentDate | date .Format }}",
+          "template": "<,transparent>{{ .CurrentDate | date .Format }}</>",
           "trailing_diamond": " ]",
           "type": "time"
         }
@@ -88,7 +88,7 @@
           "foreground": "cyan",
           "leading_diamond": "\u2500\u2500[ ",
           "style": "diamond",
-          "template": "<,transparent> {{ .UserName }} </><black,transparent>@</><,transparent> {{ .HostName }} </>",
+          "template": "<,transparent>{{ .UserName }}</><black,transparent>@</><,transparent>{{ .HostName }}</>",
           "trailing_diamond": " ]",
           "type": "text"
         },
