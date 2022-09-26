@@ -16,7 +16,7 @@
       enable_audio_bell = false;
       update_check_interval = 0;
       
-      background_opacity = "0.8";
+      background_opacity = "0.9";
       
       # Tabs
       tab_bar_edge = "bottom";
