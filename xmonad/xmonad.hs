@@ -17,8 +17,8 @@ import XMonad.Hooks.ManageDocks
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
-ovrDefaultTerm = "alacritty"
--- ovrDefaultTerm = "kitty" -- soon! :D
+-- ovrDefaultTerm = "alacritty"
+ovrDefaultTerm = "kitty" -- let's try it out! :)
 
 ovrClickJustFocuses :: Bool
 ovrClickJustFocuses = True
