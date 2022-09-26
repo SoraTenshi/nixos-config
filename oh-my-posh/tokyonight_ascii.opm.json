@@ -14,19 +14,22 @@
         {
           "background": "black",
           "foreground": "cyan",
-          "leading_diamond": "\u2500\u2500[",
+          "leading_diamond": "\u2500\u2500[ ",
           "style": "diamond",
           "template": "\uf313",
-          "trailing_diamond": "]",
+          "trailing_diamond": " ]",
           "type": "text"
         },
         {
           "background": "black",
           "foreground": "cyan",
-          "leading_diamond": "\u2500\u2500[",
+          "leading_diamond": "\u2500\u2500[ ",
           "style": "diamond",
           "template": "{{ .Path }}",
-          "trailing_diamond": "]",
+          "trailing_diamond": " ]",
+          "properties": {
+            "style": "full"
+          },
           "type": "path"
         }
       ]
@@ -37,15 +40,34 @@
       "newline": false,
       "segments": [
         {
+          "type": "battery",
+          "leading_diamond": "[ ",
+          "style": "diamond",
+          "trailing_diamond": " ]",
           "background": "black",
           "foreground": "cyan",
-          "leading_diamond": "\u2500\u2500[",
+          "background_templates": [
+            "{{if eq \"Charging\" .State.String}}#40c4ff{{end}}",
+            "{{if eq \"Discharging\" .State.String}}#ff5722{{end}}",
+            "{{if eq \"Full\" .State.String}}#4caf50{{end}}"
+          ],
+          "template": " {{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}\uF295 ",
+          "properties": {
+            "discharging_icon": "\uE231 ",
+            "charging_icon": "\uE234 ",
+            "charged_icon": "\uE22F "
+          }
+        },
+        {
+          "background": "black",
+          "foreground": "cyan",
+          "leading_diamond": "\u2500\u2500[ ",
           "properties": {
             "time_format": "15:04:05"
           },
           "style": "diamond",
           "template": "{{ .CurrentDate | date .Format }}",
-          "trailing_diamond": "]",
+          "trailing_diamond": " ]",
           "type": "time"
         }
       ]
@@ -64,10 +86,10 @@
         {
           "background": "black",
           "foreground": "cyan",
-          "leading_diamond": "\u2500\u2500[",
+          "leading_diamond": "\u2500\u2500[ ",
           "style": "diamond",
           "template": "{{ .UserName }}<black>@</>{{ .HostName }}",
-          "trailing_diamond": "]",
+          "trailing_diamond": " ]",
           "type": "text"
         },
         {

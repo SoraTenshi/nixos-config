@@ -37,7 +37,7 @@
 
     initExtra = ''
       eval "$(zoxide init zsh)"
-      eval "$(oh-my-posh init zsh)"
+      eval "$(oh-my-posh init zsh --config 'https://raw.githubusercontent.com/s0LA1337/nixos-config/master/general-purpose/posh/default.omp.json')"
       # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
     '';
 
@@ -55,11 +55,11 @@
       ls       = "exa --icons ";
     };
 
-    plugins = [{
-      name = "powerlevel10k";
-      src  = pkgs.zsh-powerlevel10k;
-      file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-    }];
+    # plugins = [{
+    #   name = "powerlevel10k";
+    #   src  = pkgs.zsh-powerlevel10k;
+    #   file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+    # }];
   };
 
   home.file = {
