@@ -12,13 +12,15 @@
 
     # Shell utils
     btop exa
+    
+    oh-my-posh
   ];
   
   programs.bat = {
     enable = true;
-    # config = {
-    #   theme = "Tokyo Night Storm";
-    # };
+    config = {
+      theme = "base16";
+    };
     # themes = {
     #   tokyonight_storm = {
         
@@ -34,8 +36,9 @@
     enableSyntaxHighlighting = true;
 
     initExtra = ''
-    eval "$(zoxide init zsh)"
-    [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+      eval "$(zoxide init zsh)"
+      eval "$(oh-my-posh init zsh)"
+      # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
     '';
 
     shellGlobalAliases = {

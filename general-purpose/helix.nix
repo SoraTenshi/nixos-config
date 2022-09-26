@@ -56,7 +56,7 @@
     sumneko-lua-language-server # Lua
     nodePackages.vim-language-server # Vim
     nodePackages.typescript-language-server # Typescript
-    nodePackages.vscode-json-languageserver # JSON
+    nodePackages.yaml-language-server # YAML / JSON
     haskellPackages.haskell-language-server # Haskell
   ];
 }
