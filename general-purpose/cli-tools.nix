@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ./starship.nix
+    # ./starship.nix
     ./helix.nix
     ./nvim.nix
     ./zsh.nix
