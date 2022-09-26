@@ -32,6 +32,20 @@
             "style": "full"
           },
           "type": "path"
+        },
+        {
+          "background": "black",
+          "foreground": "cyan",
+          "leading_diamond": "\u2500\u2500[ ",
+          "trailing_diamond": " ]",
+          "style": "diamond",
+          "properties": {
+            "fetch_status": true,
+            "fetch_upstream_icon": true,
+            "fetch_worktree_count": true
+          },
+          "template": "<,transparent>{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0}} \uF692 {{ .StashCount }}{{ end }}{{ if gt .WorktreeCount 0}} \uf1bb {{ .WorktreeCount }}{{ end }}</>",
+          "type": "git"
         }
       ]
     },
