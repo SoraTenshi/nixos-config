@@ -6,49 +6,84 @@
       "alignment": "left",
       "segments": [
         {
-          "foreground": "#414868",
+          "foreground": "black",
           "style": "plain",
           "template": "\u250c",
           "type": "text"
         },
         {
-          "background": "#414868",
-          "foreground": "#7dcfff",
-          "leading_diamond": "\u2500[",
+          "background": "black",
+          "foreground": "cyan",
+          "leading_diamond": "\u2500\u2500[",
           "style": "diamond",
           "template": "\uf313",
-          "trailing_diamond": "]\u2500",
+          "trailing_diamond": "]",
           "type": "text"
         },
         {
-          "background": "#414868",
-          "foreground": "#7dcfff",
-          "leading_diamond": "\u2500[",
+          "background": "black",
+          "foreground": "cyan",
+          "leading_diamond": "\u2500\u2500[",
+          "style": "diamond",
+          "template": "{{ .Path }}",
+          "trailing_diamond": "]",
+          "type": "path"
+        }
+      ]
+    },
+    {
+      "type": "rprompt",
+      "alignment": "right",
+      "newline": false,
+      "segments": [
+        {
+          "background": "black",
+          "foreground": "cyan",
+          "leading_diamond": "\u2500\u2500[",
           "properties": {
-            "time_format": "13:37"
+            "time_format": "15:04:05"
           },
           "style": "diamond",
           "template": "{{ .CurrentDate | date .Format }}",
-          "trailing_diamond": "]\u2500",
+          "trailing_diamond": "]",
           "type": "time"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "black",
+          "style": "plain",
+          "template": "\u2514",
+          "type": "text"
         },
         {
-          "background": "#414868",
-          "foreground": "#7dcfff",
-          "leading_diamond": "\u2500[",
+          "background": "black",
+          "foreground": "cyan",
+          "leading_diamond": "\u2500\u2500[",
           "style": "diamond",
-          "template": "{{ .Path }}",
-          "trailing_diamond": "]\u2500",
+          "template": "{{ .UserName }}<black>@</>{{ .HostName }}",
+          "trailing_diamond": "]",
+          "type": "text"
+        },
+        {
+          "foreground": "cyan",
+          "style": "plain",
+          "template": "<black>\u2500\u2500</>\u276f\u276f ",
           "type": "text"
         }
       ]
     }
   ],
+  "final_space": true,
+  "version": 2,
   "transient_prompt": {
     "background": "transparent",
-    "foreground": "#7dcfff",
-    "template": "❯❯ "
-  },
-  "final_space": true,
-  "version": 2
+    "foreground": "cyan",
+    "template": "\u276f\u276f "
+  }
 }
