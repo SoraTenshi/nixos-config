@@ -8,7 +8,6 @@
     
     opacityRules = [
       "60:class_g = 'alacritty'"
-      "60:class_g = 'kitty'" # some day..
     ];
 
     settings = {
