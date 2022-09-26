@@ -88,7 +88,7 @@
           "foreground": "cyan",
           "leading_diamond": "\u2500\u2500[ ",
           "style": "diamond",
-          "template": "{{ .UserName }}<black>@</>{{ .HostName }}",
+          "template": "<,transparent>{{ .UserName }}</><black>@</><,transparent>{{ .HostName }}</>",
           "trailing_diamond": " ]",
           "type": "text"
         },
