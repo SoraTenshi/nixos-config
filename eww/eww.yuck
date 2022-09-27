@@ -4,6 +4,7 @@
 
 (defvar show_volume false)
 (defvar show_brightness false)
+(defvar prev_volume 0)
 
 (defpoll clock_ampm   :interval "1s" "LANG=ja_JP.utf8 date +%p")
 (defpoll clock_hour   :interval "1s" "date +%I")
@@ -12,10 +13,10 @@
 
 (defpoll date_year	  :interval "24h" "LANG=ja_JP.utf8 date +%Y")
 (defpoll date_month	  :interval "1h"  "LANG=ja_JP.utf8 date +%m")
-(defpoll date_day	    :interval "1m"  "LANG=ja_JP.utf8 date +%d")
-(defpoll weekday	    :interval "1m"  "LANG=ja_JP.utf8 date +%A")
+(defpoll date_day	  :interval "1m"  "LANG=ja_JP.utf8 date +%d")
+(defpoll weekday	  :interval "1m"  "LANG=ja_JP.utf8 date +%A")
 
-; (defpoll volume     :interval "3s" "amixer -D pulse sget Master | grep 'Left:' | awk -f '[][]' '{ print $2}' | tr -d '%'")
+(defpoll cur_volume :interval "1s" "amixer sget Master | grep 'Right:' | awk -F '[][]' '{ print $2 }' | grep -o '[0-9]*'")
 (defpoll cur_bright :interval "1s" "light -G")
 
 (defwidget bar [screen]
@@ -59,17 +60,18 @@
 		(label :text "${clock_hour}:${clock_minute}:${clock_second}" :class "hours")))
 
 (defwidget volume []
-	(eventbox :onhover     "${EWW_CMD} update show_volume=true"
+	(eventbox :onhover     "${EWW_CMD} update show_volume=true && ${EWW_CMD} update prev_volume=${cur_volume}"
 			  :onhoverlost "${EWW_CMD} update show_volume=false"
-			  :cursor "default"
-	(box :orientation "v" :class "module" :spacing 6 :space-evenly "false" :vexpand true
+			  :onclick     "amixer sset Master ${{cur_volume > 0 ? 0 : prev_volume}}"
+			  :cursor      "default"
+	(box :orientation "v" :class "module" :space-evenly "false" :vexpand true
 		(revealer :transition "slideup"
 				  :reveal show_volume
-				  :duration "550ms"
+				  :duration "350ms"
 			(scale :class "volumebar"
 				   :value cur_volume
 				   :tooltip "Volume: ${cur_volume}%"
-				   :onchange "amixer -D pulse sset Master {}%"
+				   :onchange "amixer sset Master {}% && ${EWW_CMD} update prev_volume=${{cur_volume > 0 ? cur_volume : prev_volume}}"
 				   :orientation "v"
 				   :flipped true
 				   :max 100
@@ -81,7 +83,7 @@
 	(eventbox :onhover     "${EWW_CMD} update show_brightness=true"
 			  :onhoverlost "${EWW_CMD} update show_brightness=false"
 			  :cursor "default"
-	(box :orientation "v" :class "module" :spacing 6 :space-evenly "false" :vexpand true
+	(box :orientation "v" :class "module" :space-evenly "false" :vexpand true
 		(revealer :transition "slideup"
 				  :reveal show_brightness
 				  :duration "550ms"
