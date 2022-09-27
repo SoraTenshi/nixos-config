@@ -62,12 +62,20 @@ $wh: $fg;
   font-size: 2rem;
 }
 
-.brightbar through highlight {
-  background-color: $cy;
-  border-radius: 2px;
+scale trough {
+  all: unset;
+  background-color: $bg;
+  border-radius: 5px;
+  min-height: 80px;
+  min-width: 15px;
 }
 
-.volumebar through highlight {
+.brightbar trough highlight {
+  border-radius: 5px;
+  background-color: $cy;
+}
+
+.volumebar trough highlight {
   background-color: $cy;
   border-radius: 2px;
 }
