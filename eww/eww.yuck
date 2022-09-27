@@ -1,7 +1,10 @@
 ;; Variables
 (deflisten workspaces
 	"scripts/workspaces.sh")
-	
+
+(defvar vol_show false)
+(defvar bright_show false)
+
 (defpoll clock_ampm   :interval "1s" "LANG=ja_JP.utf8 date +%p")
 (defpoll clock_hour   :interval "1s" "date +%I")
 (defpoll clock_minute :interval "1s" "date +%M")
@@ -9,8 +12,11 @@
 
 (defpoll date_year	  :interval "24h" "LANG=ja_JP.utf8 date +%Y")
 (defpoll date_month	  :interval "1h"  "LANG=ja_JP.utf8 date +%m")
-(defpoll date_day	  :interval "1m"  "LANG=ja_JP.utf8 date +%d")
-(defpoll weekday	  :interval "1m"  "LANG=ja_JP.utf8 date +%A")
+(defpoll date_day	    :interval "1m"  "LANG=ja_JP.utf8 date +%d")
+(defpoll weekday	    :interval "1m"  "LANG=ja_JP.utf8 date +%A")
+
+(defpoll volume     :interval "3s" "amixer -D pulse sget Master | grep 'Left:' | awk -f '[][]' '{ print $2}' | tr -d '%'")
+(defpoll cur_bright :interval "5s" "brightnessctl -d intel_backlight -m | awk -F ',' '{print $4}'")
 
 (defwidget bar [screen]
 	(centerbox :orientation "v"
@@ -32,6 +38,7 @@
 	
 (defwidget bottom []
 	(box :class "module" :space-evenly "false" :orientation "v" :spacing 6
+		(brightness)
 		(seperator)
 		(label :text "${weekday}"                             :class "weekday")
 		(label :text "${date_year}/${date_month}/${date_day}" :class "date")))
@@ -47,7 +54,23 @@
 		(label :text "${clock_ampm}"   :class "ampm")
 		(label :text "${clock_hour}:${clock_minute}:${clock_second}" :class "hours")))
 
-;; brightnessctl -d intel_backlight -m | awk -F ',' '{print $4}'
+(defwidget brightness []
+	(box :orientation "v" :class "module" :spacing 6 :space-evenly "false"
+		(eventbox :onhover "eww -c /home/dreamer/.config/eww/bar update bright_show=true"
+						  :onhoverlost "eww -c /home/dreamer/.config/eww/bar update bright_show=false"
+			(revealer :transition "slideup"
+								:reveal brightness_show
+								:duration "550ms"
+			(scale :class "brightbar"
+						 :value cur_bright
+						 :tooltip "Brightness: ${brightness}%"
+						 :onchange "brightnessctl set {}%"
+						 :orientation "v"
+						 :flipped true
+						 :max 101
+						 :min 0))
+			(label :class "icon"
+						 :text ""))))
 
 (defwindow main_bar
 	:monitor 0
