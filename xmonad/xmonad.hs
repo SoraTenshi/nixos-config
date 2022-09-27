@@ -130,10 +130,10 @@ ovrLogHook = spawn "/home/dreamer/.config/eww/workspaces.sh"
 
 ovrStartupHook :: X ()
 ovrStartupHook = do
-    spawnOnce "exec eww daemon"
+    spawnOnce "eww daemon"
     spawnOnce "picom"
     spawnOnce "dunst"
-    spawnOnce "exec eww open-many main_bar"
+    spawnOnce "eww open-many main_bar"
     
 defaults = def {
         terminal           = ovrDefaultTerm,
