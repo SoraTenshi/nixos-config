@@ -60,9 +60,8 @@
 		(label :text "${clock_hour}:${clock_minute}:${clock_second}" :class "hours")))
 
 (defwidget volume []
-	(eventbox :onhover     "${EWW_CMD} update show_volume=true && ${EWW_CMD} update prev_volume=${cur_volume}"
+	(eventbox :onclick     "{show_volume ? 'amixer sset Master ${{cur_volume > 0 ? 0 : prev_volume}}' : '${EWW_CMD} update show_volume=true && ${EWW_CMD} update prev_volume=${cur_volume}'"
 			  :onhoverlost "${EWW_CMD} update show_volume=false"
-			  :onclick     "amixer sset Master ${{cur_volume > 0 ? 0 : prev_volume}}"
 			  :cursor      "default"
 	(box :orientation "v" :class "module" :space-evenly "false" :vexpand true
 		(revealer :transition "slideup"
@@ -80,7 +79,7 @@
 			   :text ""))))
 
 (defwidget brightness []
-	(eventbox :onhover     "${EWW_CMD} update show_brightness=true"
+	(eventbox :onclick     "${EWW_CMD} update show_brightness=true"
 			  :onhoverlost "${EWW_CMD} update show_brightness=false"
 			  :cursor "default"
 	(box :orientation "v" :class "module" :space-evenly "false" :vexpand true
