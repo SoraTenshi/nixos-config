@@ -51,7 +51,7 @@
       color7 = "#c0caf5";
 
       # bright
-      color8 = "#1D202F";
+      color8 = "#414868";
       color9 = "#f7768e";
       color10 = "#9ece6a";
       color11 = "#e0af68";
