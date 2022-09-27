@@ -27,6 +27,7 @@
 			 :class "segment-middle"
 			 (middle))
 		(box :valign "end"
+			 :vexpand "true"
 			 :class "segment-bottom"
 			 (bottom))))
 
@@ -37,7 +38,7 @@
 	(workspaces))
 	
 (defwidget bottom []
-	(box :class "module" :space-evenly "false" :orientation "v" :spacing 6
+	(box :class "module" :space-evenly "false" :orientation "v" :spacing 6 :vexpand true
 		(seperator)
 		(brightness)
 		(seperator)
@@ -56,10 +57,10 @@
 		(label :text "${clock_hour}:${clock_minute}:${clock_second}" :class "hours")))
 
 (defwidget brightness []
-	(eventbox :onhover "${EWW_CMD} update show_brightness=true"
+	(eventbox :onhover     "${EWW_CMD} update show_brightness=true"
 			  :onhoverlost "${EWW_CMD} update show_brightness=false"
 			  :cursor "default"
-	(box :orientation "v" :class "module" :spacing 6 :space-evenly "false"
+	(box :orientation "v" :class "module" :spacing 6 :space-evenly "false" :vexpand true
 		(revealer :transition "slideup"
 				  :reveal show_brightness
 				  :duration "550ms"
