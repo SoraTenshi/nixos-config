@@ -38,7 +38,6 @@
     initExtra = ''
       eval "$(zoxide init zsh)"
       eval "$(oh-my-posh init zsh --config 'https://raw.githubusercontent.com/s0LA1337/nixos-config/master/oh-my-posh/tokyonight_ascii.opm.json')"
-      # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
     '';
 
     shellGlobalAliases = {
@@ -53,18 +52,6 @@
       mv       = "mv -i ";
       cd       = "z ";
       ls       = "exa --icons ";
-    };
-
-    # plugins = [{
-    #   name = "powerlevel10k";
-    #   src  = pkgs.zsh-powerlevel10k;
-    #   file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-    # }];
-  };
-
-  home.file = {
-    ".p10k.zsh" = {
-      source = "${dotfiles}/powerlevel10k/.p10k.zsh";
     };
   };
 }
