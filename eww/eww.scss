@@ -56,6 +56,22 @@ $wh: $fg;
   color: $bl;
 }
 
+.icon {
+  font-family: "MesloLGS NF";
+  color: $cy;
+  margin: .2rem 0 .2rem 0;
+}
+
+.brightbar through highlight {
+  background-color: $cy;
+  border-radius: 2px;
+}
+
+.volumebar through highlight {
+  background-color: $cy;
+  border-radius: 2px;
+}
+
 .workspaces {
   button {
     background: none;
