@@ -37,7 +37,7 @@ ovrModMask = mod4Mask
 
 rofiShowRun = spawn "rofi -show run"
 rofiShowShutdown = spawn "rofi -show menu -modi 'menu:rofi-power-menu --choices=shutdown/hibernate/reboot'"
-networkManager = spawn "networkmanager_dmenu"
+networkManager = spawn "networkmanager_dmenu &"
 lockScreen = spawn "betterlockscreen -l --blur 0.5 --dim 60"
 screenshot = spawn "flameshot gui &"
 
@@ -50,7 +50,7 @@ ovrKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_p     ), rofiShowShutdown)
     , ((modm .|. shiftMask, xK_q     ), kill)
     , ((modm,               xK_space ), sendMessage NextLayout)
-    , ((modm,               xK_l     ), lockScreen)
+    , ((modm .|. shiftMask, xK_l     ), lockScreen)
     , ((modm .|. shiftMask, xK_n     ), refresh)
     , ((modm,               xK_Print ), screenshot)
     , ((modm,               xK_r     ), sendMessage $ Rotate)

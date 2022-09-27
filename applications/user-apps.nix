@@ -9,6 +9,7 @@
 
     # browser
     # vivaldi 
+    firefox
     qutebrowser
 
     # Screenshots!
