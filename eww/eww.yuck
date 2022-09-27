@@ -2,7 +2,7 @@
 (deflisten workspaces
 	"scripts/workspaces.sh")
 
-(defvar vol_show false)
+(defvar show_volume false)
 (defvar show_brightness false)
 
 (defpoll clock_ampm   :interval "1s" "LANG=ja_JP.utf8 date +%p")
@@ -40,6 +40,8 @@
 (defwidget bottom []
 	(box :class "module" :space-evenly "false" :orientation "v" :spacing 6 :vexpand true
 		(seperator)
+		(volume)
+		(seperator)
 		(brightness)
 		(seperator)
 		(label :text "${weekday}"                             :class "weekday")
@@ -56,6 +58,25 @@
 		(label :text "${clock_ampm}"   :class "ampm")
 		(label :text "${clock_hour}:${clock_minute}:${clock_second}" :class "hours")))
 
+(defwidget volume []
+	(eventbox :onhover     "${EWW_CMD} update show_volume=true"
+			  :onhoverlost "${EWW_CMD} update show_volume=false"
+			  :cursor "default"
+	(box :orientation "v" :class "module" :spacing 6 :space-evenly "false" :vexpand true
+		(revealer :transition "slideup"
+				  :reveal show_volume
+				  :duration "550ms"
+			(scale :class "volumebar"
+				   :value cur_volume
+				   :tooltip "Volume: ${cur_volume}%"
+				   :onchange "amixer -D pulse sset Master {}%"
+				   :orientation "v"
+				   :flipped true
+				   :max 100
+				   :min 0))
+		(label :class "icon"
+			   :text ""))))
+
 (defwidget brightness []
 	(eventbox :onhover     "${EWW_CMD} update show_brightness=true"
 			  :onhoverlost "${EWW_CMD} update show_brightness=false"
@@ -70,7 +91,7 @@
 				   :onchange "brightnessctl set {}%"
 				   :orientation "v"
 				   :flipped true
-				   :max 101
+				   :max 100
 				   :min 0))
 		(label :class "icon"
 			   :text ""))))
