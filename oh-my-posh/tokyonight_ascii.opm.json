@@ -17,9 +17,9 @@
           "foreground": "#7dcfff",
           "leading_diamond": "\u2500\u2500[ ",
           "style": "diamond",
-          "template": "<,transparent>\uf313</>",
+          "template": "<,transparent>{{ .Icon }}</>",
           "trailing_diamond": " ]",
-          "type": "text"
+          "type": "os"
         },
         {
           "background": "#414868",
