@@ -6,6 +6,7 @@ import System.Exit
 import XMonad
 
 import XMonad.Util.SpawnOnce
+import XMonad.Util.Cursor
 
 import XMonad.Layout.LayoutModifier (ModifiedLayout)
 import XMonad.Layout.Spacing (Border (Border), Spacing, spacingRaw)
@@ -134,6 +135,7 @@ ovrStartupHook = do
     spawnOnce "picom"
     spawnOnce "dunst"
     spawnOnce "eww open-many main_bar"
+    setDefaultCursor xC_left_ptr
     
 defaults = def {
         terminal           = ovrDefaultTerm,
