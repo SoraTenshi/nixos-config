@@ -15,7 +15,7 @@
       corner-radius = 10;
       
       rounded-corners-exclude = [
-        "class_g = 'eww'"
+        "class_g ?= 'eww'"
       ];
 
       blur-kern = "5x5box";
@@ -30,6 +30,7 @@
       
       blur-background-exclude = [
         "class_g = 'eww'"
+        "class_g ?= 'peek'"
       ];
     };
   };

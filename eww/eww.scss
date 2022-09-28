@@ -7,7 +7,7 @@ $re: #f7768e;
 $gr: #73daca;
 $ye: #e0af68;
 $bu: #7aa2f7;
-$ma: #ff55ff;
+$ma: #8031a7;
 $cy: #7dcfff;
 $wh: $fg;
 
@@ -21,23 +21,34 @@ $wh: $fg;
   color: $fg;
 }
 
+.segment-top {
+  margin-top: 1px;
+}
+
+.segment-middle {}
+
+.segment-bottom {
+  margin-bottom: 1px;
+}
+
 .color {
   background-color: $nd;
 }
 
 .module {
-  padding: 1px;
-  font-size: 1.2rem;
-  border-color: $ma;
+  background-color: $nd;
+  border: 0.8px solid $ma;
+  margin: 3px;
+  padding: 5px;
+  border-radius: 12px;
 }
 
 .ampm {
-  margin-top: 10px;
   color: $bu;
 }
 
 .time {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: $fg;
 }
 
@@ -48,18 +59,16 @@ $wh: $fg;
 
 .date {
   font-size: 1.1rem;
-  margin-bottom: 10px;
-}
-
-.seperator {
-  font-size: 1.2rem;
-  color: $bl;
 }
 
 .icon {
   font-family: "MesloLGS NF";
   color: $cy;
-  font-size: 2rem;
+  font-size: 1.5rem;
+}
+
+.info {
+  color: $cy;
 }
 
 scale trough {
@@ -82,15 +91,13 @@ scale trough {
 
 .workspaces {
   button {
-    background: none;
-    padding: 3;
-    font-size: 1.3rem;
+    margin-bottom: 7px;
     color: $bl;
     &.occupied {
       color: $fg;
     }
     &.active {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       color: $cy;
     }
   }
