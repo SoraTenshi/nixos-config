@@ -15,7 +15,7 @@
       corner-radius = 10;
       
       rounded-corners-exclude = [
-        "class_g ?= 'eww'"
+        "window_type = 'dock'"
       ];
 
       blur-kern = "5x5box";
