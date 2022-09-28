@@ -44,10 +44,18 @@
 	(box :class "segment-bottom" :space-evenly "false" :orientation "v" :spacing 3 :vexpand true
 		(volume)
 		(brightness)
-		(date)))
+		(date)
+		(battery)))
 		
 (defwidget workspaces []
 	(literal :content workspaces))
+
+(defwidget battery []
+	(box :class "module" :space-evenly "false" :orientation "v" :spacing 3
+		(label :text {EWW_BATTERY["BAT1"]["capacity"] > 74 ? "" : EWW_BATTERY["BAT1"]["capacity"] > 50 ? "" : EWW_BATTERY["BAT1"]["capacity"] > 25 ? "" : ""} 
+			   :class "icon")
+		(label :text "${EWW_BATTERY["BAT1"]["capacity"]}"
+			   :class "info")))
 
 (defwidget date []
 	(box :class "module" :space-evenly "false" :orientation "v" :spacing 3
@@ -63,10 +71,49 @@
 		(label :text "${clock_minute}" :class "time")
 		(label :text "${clock_second}" :class "time")))
 
+(defwidget brightness []
+	(eventbox :onclick     "${EWW_CMD} update show_brightness=true"
+			  :onhoverlost "${EWW_CMD} update show_brightness=false"
+	(box :orientation "v" :class "module" :space-evenly "false" :vexpand true
+		(revealer :transition "slideup"
+				  :reveal show_brightness
+				  :duration "550ms"
+			(scale :class "brightbar"
+				   :value cur_bright
+				   :tooltip "Brightness: ${round(cur_bright, 0)}%"
+				   :onchange "brightnessctl set {}%"
+				   :orientation "v"
+				   :flipped true
+				   :max 100
+				   :min 0))
+		(label :class "icon"
+			   :text "")
+		(label :class "info"
+			   :text "${cur_bright}%"))))
+
+(defwidget brightness []
+	(eventbox :onclick     "${EWW_CMD} update show_brightness=true"
+			  :onhoverlost "${EWW_CMD} update show_brightness=false"
+	(box :orientation "v" :class "module" :space-evenly "false" :vexpand true
+		(revealer :transition "slideup"
+				  :reveal show_brightness
+				  :duration "550ms"
+			(scale :class "brightbar"
+				   :value cur_bright
+				   :tooltip "Brightness: ${round(cur_bright, 0)}%"
+				   :onchange "brightnessctl set {}%"
+				   :orientation "v"
+				   :flipped true
+				   :max 100
+				   :min 0))
+		(label :class "icon"
+			   :text "")
+		(label :class "info"
+			   :text "${cur_bright}%"))))
+
 (defwidget volume []
 	(eventbox :onclick     {show_volume ? "amixer sset Master ${cur_volume > 0 ? 0 : prev_volume}" : "${EWW_CMD} update show_volume=true && ${EWW_CMD} update prev_volume=${cur_volume > 0 ? cur_volume : prev_volume}"}
 			  :onhoverlost "${EWW_CMD} update show_volume=false"
-			  :cursor      "default"
 	(box :orientation "v" :class "module" :space-evenly "false" :vexpand true
 		(revealer :transition "slideup"
 				  :reveal show_volume
@@ -87,7 +134,6 @@
 (defwidget brightness []
 	(eventbox :onclick     "${EWW_CMD} update show_brightness=true"
 			  :onhoverlost "${EWW_CMD} update show_brightness=false"
-			  :cursor "default"
 	(box :orientation "v" :class "module" :space-evenly "false" :vexpand true
 		(revealer :transition "slideup"
 				  :reveal show_brightness

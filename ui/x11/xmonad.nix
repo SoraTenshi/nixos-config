@@ -7,11 +7,11 @@
   ];
 
   home.pointerCursor = {
-    package = pkgs.nordzy-cursor-theme;
-    name = "Nordzy-black-cursors";
-    size = 32;
-    x11.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 24;
     gtk.enable = true;
+    x11.enable = true;
   };
 
   home.packages = with pkgs; [
