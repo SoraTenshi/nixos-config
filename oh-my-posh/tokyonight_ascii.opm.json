@@ -121,7 +121,7 @@
   "version": 2,
   "transient_prompt": {
     "background": "transparent",
-    "foreground": "#7dcfff",
+    "foreground": "{{eq .Code 0}} #7dcfff {{ne .Code 0}} #f7768e",
     "template": "\u276f\u276f "
   }
 }

@@ -33,10 +33,6 @@
       };
       keys.normal = {
         "X" = "extend_line_above";
-        "y" = "yank_main_selection_to_clipboard";
-      };
-      keys.select = {
-        "y" = "yank_main_selection_to_clipboard";
       };
     };
   };
