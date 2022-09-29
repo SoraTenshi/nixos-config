@@ -12,6 +12,7 @@
     size = 24;
     gtk.enable = true;
     x11.enable = true;
+    x11.defaultCursor = "Bibata-Modern-Classic";
   };
 
   home.packages = with pkgs; [
