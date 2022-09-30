@@ -14,7 +14,7 @@
     #   url = "github:edolstra/flake-compat";
     #   flake = false;
     # };
-    
+
     picom-ibhagwan = {
       url = "github:ibhagwan/picom";
       flake = false;
@@ -59,7 +59,7 @@
       system = "x86_64-linux";
       overlays = [
         (final: prev: {
-          picom = prev.picom.overrideAttrs(o: { src = picom-ibhagwan; });
+          picom = prev.picom.overrideAttrs (o: { src = picom-ibhagwan; });
         })
       ];
     in
@@ -76,10 +76,10 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit
-                  dotfiles neovim-nightly zig-master helix-master;
+                  self dotfiles neovim-nightly zig-master helix-master;
               };
               home-manager.users.dreamer = { ... }: {
-                imports = [ ./profiles/wsl/default.nix ];
+                imports = [ ./profiles/wsl/default.nix { inherit self; } ];
               };
             }
           ];
@@ -99,7 +99,7 @@
                   dotfiles neovim-nightly zig-master helix-master;
               };
               home-manager.users.dreamer = { ... }: {
-                imports = [ ./profiles/wsl-colemak/default.nix ];
+                imports = [ ./profiles/wsl-colemak/default.nix { inherit self; } ];
               };
             }
           ];
@@ -123,7 +123,7 @@
                   dotfiles neovim-nightly zig-master helix-master picom-ibhagwan;
               };
               home-manager.users.dreamer = { ... }: {
-                imports = [ ./profiles/dreamer/default.nix ];
+                imports = [ ./profiles/dreamer/default.nix { inherit self; } ];
               };
             }
           ];
@@ -146,7 +146,7 @@
                   dotfiles neovim-nightly zig-master helix-master;
               };
               home-manager.users.dreamer = { ... }: {
-                imports = [ ./profiles/dreamer/default.nix ];
+                imports = [ ./profiles/dreamer/default.nix { inherit self; } ];
               };
             }
           ];
@@ -168,7 +168,7 @@
                   dotfiles neovim-nightly zig-master helix-master;
               };
               home-manager.users.dreamer = { ... }: {
-                imports = [ ./profiles/xdreamer/default.nix ];
+                imports = [ ./profiles/xdreamer/default.nix { inherit self; } ];
               };
             }
           ];
@@ -191,7 +191,7 @@
                   dotfiles neovim-nightly zig-master helix-master;
               };
               home-manager.users.dreamer = { ... }: {
-                imports = [ ./profiles/dreamer-wl/default.nix ];
+                imports = [ ./profiles/dreamer-wl/default.nix { inherit self; } ];
               };
             }
           ];

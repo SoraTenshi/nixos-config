@@ -1,4 +1,4 @@
-{ config, pkgs, dotfiles, neovim-nightly, ... }:
+{ self, config, pkgs, dotfiles, neovim-nightly, ... }:
 
 {
   nixpkgs.overlays = neovim-nightly;

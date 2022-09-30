@@ -1,4 +1,4 @@
-{ config, home, ... }:
+{ self, config, home, ... }:
 
 {
   home.stateVersion = "22.11";
