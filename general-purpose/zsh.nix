@@ -1,19 +1,17 @@
 # Used for the configuration of specific configurations
 
-{ config, pkgs, dotfiles, ... }:
+{ config, pkgs, ... }:
 
 {
   home.packages = with pkgs; [
     # Actual Shell, with some skins
     zsh
 
-    # Plugin i guess?
+    # path finder
     zoxide
 
     # Shell utils
-    btop exa
-    
-    oh-my-posh
+    btop exa oh-my-posh
   ];
   
   programs.bat = {
@@ -21,11 +19,6 @@
     config = {
       theme = "base16";
     };
-    # themes = {
-    #   tokyonight_storm = {
-        
-    #   };
-    # };
   };
 
   # Shell

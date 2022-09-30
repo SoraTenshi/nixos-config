@@ -1,4 +1,4 @@
-{ config, pkgs, dotfiles, ... }:
+{ self, config, pkgs, ... }:
 {
   imports = [
     ./picom.nix
@@ -30,21 +30,16 @@
 
   services.random-background = {
     enable = true;
-    imageDirectory = "${dotfiles}/images";
+    imageDirectory = "${self}/images";
     display = "fill";
     interval = "1h";
   };
 
-  home.file = {
-    ".config/rofi" = {
-      source = "${dotfiles}/rofi";
-    };
-    ".xsession" = {
-      text = ''
-        GTK_IM_MODULE=fcitx
-        QT_IM_MODULE=fcitx
-        XMODIFIERS=@im=fcitx
-      '';
-    };
+  home.file.".xsession" = {
+    text = ''
+      GTK_IM_MODULE=fcitx
+      QT_IM_MODULE=fcitx
+      XMODIFIERS=@im=fcitx
+    '';
   };
 }

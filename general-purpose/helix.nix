@@ -1,4 +1,4 @@
-{ pkgs, lib, dotfiles, helix-master, ... }:
+{ pkgs, lib, helix-master, ... }:
 {
   programs.helix = {
     enable = true;
