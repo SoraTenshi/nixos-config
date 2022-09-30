@@ -1,4 +1,4 @@
-{ self, pkgs, config, home, ... }:
+{ pkgs, config, home, ... }:
 
 {
   home.stateVersion = "22.11";

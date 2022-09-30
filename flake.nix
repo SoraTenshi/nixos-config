@@ -79,7 +79,7 @@
                   self dotfiles neovim-nightly zig-master helix-master;
               };
               home-manager.users.dreamer = { ... }: {
-                imports = [ ./profiles/wsl/default.nix { inherit self; } ];
+                imports = [ ./profiles/wsl/default.nix ];
               };
             }
           ];
@@ -99,7 +99,7 @@
                   dotfiles neovim-nightly zig-master helix-master;
               };
               home-manager.users.dreamer = { ... }: {
-                imports = [ ./profiles/wsl-colemak/default.nix { inherit self; } ];
+                imports = [ ./profiles/wsl-colemak/default.nix ];
               };
             }
           ];
@@ -123,7 +123,7 @@
                   dotfiles neovim-nightly zig-master helix-master picom-ibhagwan;
               };
               home-manager.users.dreamer = { ... }: {
-                imports = [ ./profiles/dreamer/default.nix { inherit self; } ];
+                imports = [ ./profiles/dreamer/default.nix ];
               };
             }
           ];
@@ -146,7 +146,7 @@
                   dotfiles neovim-nightly zig-master helix-master;
               };
               home-manager.users.dreamer = { ... }: {
-                imports = [ ./profiles/dreamer/default.nix { inherit self; } ];
+                imports = [ ./profiles/dreamer/default.nix ];
               };
             }
           ];
@@ -168,7 +168,7 @@
                   dotfiles neovim-nightly zig-master helix-master;
               };
               home-manager.users.dreamer = { ... }: {
-                imports = [ ./profiles/xdreamer/default.nix { inherit self; } ];
+                imports = [ ./profiles/xdreamer/default.nix ];
               };
             }
           ];
@@ -191,7 +191,7 @@
                   dotfiles neovim-nightly zig-master helix-master;
               };
               home-manager.users.dreamer = { ... }: {
-                imports = [ ./profiles/dreamer-wl/default.nix { inherit self; } ];
+                imports = [ ./profiles/dreamer-wl/default.nix ];
               };
             }
           ];
