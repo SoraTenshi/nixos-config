@@ -1,4 +1,4 @@
-{ config, pkgs, nixpkgs, lib, dotfiles, ... }:
+{ config, pkgs, nixpkgs, lib, ... }:
 {
   home.packages = with pkgs; [
     discord steam

@@ -30,11 +30,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    dotfiles = {
-      url = "github:s0la1337/dotfiles";
-      flake = false;
-    };
-
     sddm-theme = {
       url = "github:s0la1337/tokyo-night-sddm";
       flake = false;
@@ -46,7 +41,6 @@
     , nixpkgs
     , nixpkgs-unstable
     , home-manager
-    , dotfiles
     , nixos-hardware
     , sddm-theme
     , neovim-nightly
@@ -76,7 +70,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit
-                  self dotfiles neovim-nightly zig-master helix-master;
+                  self neovim-nightly zig-master helix-master;
               };
               home-manager.users.dreamer = { ... }: {
                 imports = [ ./profiles/wsl/default.nix ];
@@ -96,7 +90,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit
-                  dotfiles neovim-nightly zig-master helix-master;
+                  neovim-nightly zig-master helix-master;
               };
               home-manager.users.dreamer = { ... }: {
                 imports = [ ./profiles/wsl-colemak/default.nix ];
@@ -120,7 +114,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit
-                  dotfiles neovim-nightly zig-master helix-master picom-ibhagwan;
+                  neovim-nightly zig-master helix-master picom-ibhagwan;
               };
               home-manager.users.dreamer = { ... }: {
                 imports = [ ./profiles/dreamer/default.nix ];
@@ -143,7 +137,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit
-                  dotfiles neovim-nightly zig-master helix-master;
+                  neovim-nightly zig-master helix-master;
               };
               home-manager.users.dreamer = { ... }: {
                 imports = [ ./profiles/dreamer/default.nix ];
@@ -165,7 +159,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit
-                  dotfiles neovim-nightly zig-master helix-master;
+                  neovim-nightly zig-master helix-master;
               };
               home-manager.users.dreamer = { ... }: {
                 imports = [ ./profiles/xdreamer/default.nix ];
@@ -188,7 +182,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit
-                  dotfiles neovim-nightly zig-master helix-master;
+                  neovim-nightly zig-master helix-master;
               };
               home-manager.users.dreamer = { ... }: {
                 imports = [ ./profiles/dreamer-wl/default.nix ];

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, dotfiles, ...}:
+{ config, lib, pkgs, ...}:
 {
 
   home.packages = with pkgs; [
@@ -26,11 +26,4 @@
     # Cross compatibility
     xwayland
   ];
-
-  home.file = {
-    ".config/river/init" = {
-      source = "${dotfiles}/river/init";
-    };
-  };
-
 }
