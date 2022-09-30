@@ -5,6 +5,5 @@
     gomuks
     tldr
     screenfetch
-    peek
   ];
 }

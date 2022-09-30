@@ -17,6 +17,7 @@
 
     # Pic editing
     # gimp
+    peek
   ];
 
   xsession.initExtra = ''
