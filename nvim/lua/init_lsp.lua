@@ -18,17 +18,16 @@ lcfg.util.default_config = vim.tbl_deep_extend(
   lsp_defaults
 )
 
-lcfg.zls.setup{}
-lcfg.ccls.setup{}
-lcfg.gopls.setup{}
-lcfg.rust_analyzer.setup{}
-lcfg.cmake.setup{}
-lcfg.dockerls.setup{}
-lcfg.html.setup{}
-lcfg.rnix.setup{}
-lcfg.vimls.setup{}
-lcfg.sumneko_lua.setup{}
-lcfg.ghcide.setup{}
-lcfg.idris2_lsp.setup{}
-lcfg.omnisharp.setup{}
-
+lcfg.zls.setup {}
+lcfg.ccls.setup {}
+lcfg.gopls.setup {}
+lcfg.rust_analyzer.setup {}
+lcfg.cmake.setup {}
+lcfg.dockerls.setup {}
+lcfg.html.setup {}
+lcfg.rnix.setup {}
+lcfg.vimls.setup {}
+lcfg.sumneko_lua.setup {}
+lcfg.ghcide.setup {}
+lcfg.idris2_lsp.setup {}
+lcfg.omnisharp.setup {}
