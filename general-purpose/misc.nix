@@ -5,5 +5,6 @@
     gomuks
     tldr
     screenfetch
+    gh
   ];
 }
