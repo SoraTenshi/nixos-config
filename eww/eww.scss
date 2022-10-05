@@ -43,6 +43,29 @@ $wh: $fg;
   border-radius: 10px;
 }
 
+.icon-progress {
+  font-size: 1.5rem;
+  min-width: 40px;
+  min-height: 40px;
+  color: $cy;
+}
+
+.battery-progress {
+  color: $ma;
+}
+
+.cpu-progress {
+  color: $re;
+}
+
+.mem-progress {
+  color: $gr;
+}
+
+.disk-progress {
+  color: $bl;
+}
+
 .ampm {
   color: $bu;
   font-size: 1.2rem;
