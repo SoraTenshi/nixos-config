@@ -7,7 +7,7 @@ $re: #f7768e;
 $gr: #73daca;
 $ye: #e0af68;
 $bu: #7aa2f7;
-$ma: #8031a7;
+$ma: #8031ca;
 $cy: #7dcfff;
 $wh: $fg;
 
@@ -22,13 +22,13 @@ $wh: $fg;
 }
 
 .segment-top {
-  margin-top: 1px;
+  margin-top: 2px;
 }
 
 .segment-middle {}
 
 .segment-bottom {
-  margin-bottom: 1px;
+  margin-bottom: 2px;
 }
 
 .color {
@@ -38,9 +38,9 @@ $wh: $fg;
 .module {
   background-color: $nd;
   border: 0.8px solid $ma;
-  margin: 3px;
-  padding: 3px;
-  border-radius: 12px;
+  margin: 1px 4px;
+  padding: 1px;
+  border-radius: 10px;
 }
 
 .ampm {
