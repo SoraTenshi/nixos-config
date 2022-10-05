@@ -86,7 +86,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit
-                  neovim-nightly zig-master helix-master picom-ibhagwan;
+                  self neovim-nightly zig-master helix-master picom-ibhagwan;
               };
               home-manager.users.dreamer = { ... }: {
                 imports = [ ./profiles/dreamer/default.nix ];

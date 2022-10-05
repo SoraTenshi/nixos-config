@@ -31,7 +31,7 @@ ovrBorderWidth = 3
 
 ovrWorkspaces = ["一", "二", "三", "四", "五", "六", "七", "八", "九"]
 
-ovrFocusedColor = "#8031A7"
+ovrFocusedColor = "#8031ca"
 ovrNormalColor  = "#4A25AA"
 
 ovrModMask = mod4Mask
@@ -113,7 +113,7 @@ ovrMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 createSpacing :: Integer -> l a -> ModifiedLayout Spacing l a
 createSpacing i = spacingRaw True (Border 0 i 0 i) True (Border i 0 i 0) True
 
-ovrLayout = avoidStruts (createSpacing 5 $ Tall 1 (12/100) (1/2) ||| emptyBSP ||| Full)
+ovrLayout = avoidStruts (createSpacing 15 $ Tall 1 (12/100) (1/2) ||| emptyBSP ||| Full)
 
 -- Essentially just managing
 -- e.g. "start MPlayer" -> "as floating"
