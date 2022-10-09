@@ -5,7 +5,8 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     zig-master.url = "github:mitchellh/zig-overlay";
-    helix-master.url = "github:helix-editor/helix";
+    helix-master.url = "github:s0LA1337/helix/experimental";
+    # helix-master.url = "github:helix-editor/helix"; # just so i don't lose it :D
 
     picom-ibhagwan = {
       url = "github:ibhagwan/picom";
