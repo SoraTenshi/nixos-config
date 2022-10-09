@@ -1,7 +1,17 @@
 # Used for the configuration of specific configurations
 
-{ config, pkgs, ... }:
+{ self, config, pkgs, ... }:
 
+
+let 
+  aliases = {
+    cat      = "bat --style=plain ";
+    mv       = "mv -i ";
+    cd       = "z ";
+    ls       = "exa --icons ";
+    ".."     = "cd ..";
+  };
+in
 {
   home.packages = with pkgs; [
     # Actual Shell, with some skins
@@ -30,23 +40,14 @@
 
     initExtra = ''
       eval "$(zoxide init zsh)"
-      eval "$(oh-my-posh init zsh --config 'https://raw.githubusercontent.com/s0LA1337/nixos-config/master/oh-my-posh/tokyonight_ascii.opm.json')"
+      eval "$(oh-my-posh init zsh --config '/home/dreamer/oh-my-posh/tokyonight_ascii.opm.json')"
     '';
 
-    shellGlobalAliases = {
-      cat      = "bat --style=plain ";
-      mv       = "mv -i ";
-      cd       = "z ";
-      ls       = "exa --icons ";
-      ".."     = "cd ..";
-    };
-
-    shellAliases = {
-      cat      = "bat --style=plain ";
-      mv       = "mv -i ";
-      cd       = "z ";
-      ls       = "exa --icons ";
-      ".."     = "cd ..";
-    };
+    shellGlobalAliases = aliases;
+    shellAliases = aliases;
+  };
+  
+  home.file."oh-my-posh" = {
+    source = "${self}/oh-my-posh";
   };
 }
