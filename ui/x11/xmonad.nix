@@ -3,7 +3,7 @@
   imports = [
     ./picom.nix
     ./eww.nix
-    ../betterlockscreen.nix
+    ./betterlockscreen.nix
   ];
 
   home.pointerCursor = {

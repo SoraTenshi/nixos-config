@@ -78,7 +78,7 @@
           modules = [
             ./machines/thinkpad-t470/t470.nix
             ./development/global.nix
-            ./ui/sddm.nix
+            ./ui/x11/sddm.nix
             nixos-hardware.nixosModules.lenovo-thinkpad-t470s
             home-manager.nixosModules.home-manager
             {
