@@ -40,7 +40,7 @@
 (defwidget workspaces []
 	(literal :content workspaces))
 	
-(defwindow main_bar
+(defwindow main-bar
 	:monitor 0
 	:geometry (geometry :x "0"
 						:y "0"
