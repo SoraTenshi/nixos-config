@@ -2,12 +2,12 @@
 (deflisten workspaces
 	"scripts/workspaces.sh")
 	
-(include "./module/status.yuck")
-(include "./module/network.yuck")
-(include "./module/brightness.yuck")
-(include "./module/volume.yuck")
-(include "./module/time.yuck")
-(include "./module/date.yuck")
+(include "./modules/status.yuck")
+(include "./modules/network.yuck")
+(include "./modules/brightness.yuck")
+(include "./modules/volume.yuck")
+(include "./modules/time.yuck")
+(include "./modules/date.yuck")
 
 (defwidget bar [screen]
 	(centerbox :orientation "v"
