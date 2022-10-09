@@ -10,7 +10,6 @@
     # browser
     # vivaldi 
     firefox
-    qutebrowser
 
     # Screenshots!
     flameshot
