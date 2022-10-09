@@ -38,6 +38,7 @@
       mv       = "mv -i ";
       cd       = "z ";
       ls       = "exa --icons ";
+      ".."     = "cd ..";
     };
 
     shellAliases = {
@@ -45,6 +46,7 @@
       mv       = "mv -i ";
       cd       = "z ";
       ls       = "exa --icons ";
+      ".."     = "cd ..";
     };
   };
 }

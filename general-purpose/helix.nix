@@ -13,6 +13,7 @@
         idle-timeout = 1;
         true-color = true;
         shell = [ "zsh" ];
+        rainbow-brackets = true;
         lsp.display-messages = true;
         cursor-shape.insert = "bar";
         whitespace.render = "all";
@@ -29,6 +30,7 @@
         };
         indent-guides = {
           render = true;
+          rainbow = "guide";
         };
       };
       keys.normal = {
