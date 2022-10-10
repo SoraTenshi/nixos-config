@@ -6,5 +6,6 @@
     tldr
     screenfetch
     gh
+    jq
   ];
 }
