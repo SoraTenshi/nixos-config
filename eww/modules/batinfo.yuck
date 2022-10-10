@@ -1,5 +1,6 @@
 (defwidget battery [] 
 		(circular-progress 
+			:active {EWW_BATTERY["BAT1"] != ""}
 			:tooltip "Battery: ${EWW_BATTERY["BAT1"]["capacity"]}%"
 			:class "battery-progress"
 			:value {EWW_BATTERY["BAT1"]["capacity"]}
