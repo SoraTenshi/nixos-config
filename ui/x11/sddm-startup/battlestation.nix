@@ -1,6 +1,30 @@
 { pkgs, ... }:
 {
-  services.xserver.displayManager.sddm.setupScript = ''
-    xrandr --output DVI-D-0 --off --output HDMI-0 --mode 1920x1080 --pos 992x0 --rotate normal --output DP-0 --primary --mode 1920x1080 --pos 0x1080 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --mode 1920x1080 --pos 1920x1080 --rotate normal --output DP-5 --off
-  '';
+  services.xserver = {
+    deviceSection = ''
+      Option "TearFree" "true"
+    '';
+    
+    xrandrHeads = [
+      {
+        output = "HDMI-0";
+        # monitorConfig = ''
+        #   \"Position\" \"990 0\"
+        # '';
+      }
+      {
+        output = "DP-0";
+        primary = true;
+        # monitorConfig = ''
+        #   \"Position\" \"0 1080\"
+        # '';
+      }
+      {
+        output = "DP-4";
+        # monitorConfig = ''
+        #   Option \"Position\" \"1920 1080\"
+        # '';
+      }
+    ];
+  };
 }
