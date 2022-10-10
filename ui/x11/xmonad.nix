@@ -27,7 +27,7 @@
     dmenu
     networkmanager_dmenu
   ];
-
+  
   services.random-background = {
     enable = true;
     imageDirectory = "${self}/images";

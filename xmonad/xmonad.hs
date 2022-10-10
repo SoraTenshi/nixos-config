@@ -53,7 +53,7 @@ ovrKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_space ), sendMessage NextLayout)
     , ((modm .|. shiftMask, xK_l     ), lockScreen)
     , ((modm .|. shiftMask, xK_n     ), refresh)
-    , ((modm,               xK_Print ), screenshot)
+    , ((controlMask,        xK_Print ), screenshot)
     , ((modm,               xK_r     ), sendMessage $ Rotate)
     , ((modm,               xK_j     ), windows W.focusDown)
     , ((modm,               xK_k     ), windows W.focusUp)
@@ -127,7 +127,7 @@ ovrLayout = avoidStruts (createSpacing 15 $ Tall 1 (12/100) (1/2) ||| emptyBSP |
 ovrEventHook = mempty
 
 ovrLogHook :: X ()
-ovrLogHook = spawn "/home/dreamer/.config/eww/scripts/workspaces.sh"
+ovrLogHook = mempty
 
 ovrStartupHook :: X ()
 ovrStartupHook = do

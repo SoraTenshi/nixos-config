@@ -80,6 +80,7 @@
             ./env/nvidia.nix
             ./development/global.nix
             ./ui/x11/sddm.nix
+            ./ui/x11/sddm-startup/battlestation.nix
             home-manager.nixosModules.home-manager
             {
               nixpkgs.overlays = overlays;
