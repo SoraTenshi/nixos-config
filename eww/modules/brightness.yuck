@@ -4,6 +4,8 @@
 (defwidget brightness []
 	(eventbox :onclick     "${EWW_CMD} update show_brightness=true"
 			  :onhoverlost "${EWW_CMD} update show_brightness=false"
+			  :active 	   {cur_bright != 0}
+			  :visible     {cur_bright != 0}
 	(box :orientation "v" :class "module" :space-evenly "false" :vexpand true
 		(revealer :transition "slideup"
 				  :reveal show_brightness
@@ -15,7 +17,7 @@
 				   :orientation "v"
 				   :flipped true
 				   :max 100
-				   :min 0))
+				   :min 1))
 		(label :class "icon"
 			   :text "")
 		(label :class "info"
