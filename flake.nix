@@ -72,6 +72,31 @@
           ];
         };
 
+        battlestation = nixpkgs.lib.nixosSystem {
+          system = system;
+          specialArgs = { inherit sddm-theme grub2-theme; };
+          modules = [
+            ./machines/battlestation/battlestation.nix
+            ./env/nvidia.nix
+            ./development/global.nix
+            ./ui/x11/sddm.nix
+            nixos-hardware.nixosModules.lenovo-thinkpad-t470s
+            home-manager.nixosModules.home-manager
+            {
+              nixpkgs.overlays = overlays;
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                inherit
+                  self neovim-nightly zig-master helix-master picom-ibhagwan;
+              };
+              home-manager.users.dreamer = { ... }: {
+                imports = [ ./profiles/dreamer/default.nix ];
+              };
+            }
+          ];
+        };
+
         t470 = nixpkgs.lib.nixosSystem {
           system = system;
           specialArgs = { inherit sddm-theme grub2-theme; };

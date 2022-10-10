@@ -16,8 +16,17 @@ in
       splashImage = "${sddm-theme}/Backgrounds/nixos.png";
       splashMode = "stretch";
       device = "nodev";
+      useOSProber = true;
       fontSize = 32;
       extraEntries = ''
+        menuentry "Windows 11" {
+	  insmod part_gpt
+	  insmod fat
+	  insmod search_fs_uuid
+	  insmod chain
+	  search --fs-uuid --set=root 32922B70922B382D
+	  chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+        }
         menuentry "Reboot" {
           reboot
         }
