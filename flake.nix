@@ -80,7 +80,6 @@
             ./env/nvidia.nix
             ./development/global.nix
             ./ui/x11/sddm.nix
-            nixos-hardware.nixosModules.lenovo-thinkpad-t470s
             home-manager.nixosModules.home-manager
             {
               nixpkgs.overlays = overlays;

@@ -3,6 +3,9 @@
 {
   nixpkgs.config.allowUnfree = true;
   
-  services.xserver.videoDriver = [ "nvidia" ];
+  services.xserver = {
+    enable = true;
+    videoDrivers = [ "nvidia" ];
+  };
   hardware.opengl.enable = true;
 }
