@@ -1,6 +1,6 @@
 import Data.Monoid
 import Data.Maybe (maybeToList)
-import Control.Monad ( join, when )
+import Control.Monad (join, when)
 import System.Exit
 
 import XMonad
@@ -32,7 +32,7 @@ ovrBorderWidth = 3
 ovrWorkspaces = ["一", "二", "三", "四", "五", "六", "七", "八", "九"]
 
 ovrFocusedColor = "#8031ca"
-ovrNormalColor  = "#4A25AA"
+ovrNormalColor  = "#4a25aa"
 
 ovrModMask = mod4Mask
 
