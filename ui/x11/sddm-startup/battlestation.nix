@@ -1,22 +1,18 @@
 { pkgs, ... }:
 {
   services.xserver = {
-    deviceSection = ''
-      Option "TearFree" "true"
-    '';
-    
     xrandrHeads = [
       {
         output = "HDMI-0";
         # monitorConfig = ''
-        #   \"Position\" \"990 0\"
+        #   Option \"Position\" \"990 0\"
         # '';
       }
       {
         output = "DP-0";
         primary = true;
         # monitorConfig = ''
-        #   \"Position\" \"0 1080\"
+        #   Option \"Position\" \"0 1080\"
         # '';
       }
       {
