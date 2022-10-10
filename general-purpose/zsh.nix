@@ -7,9 +7,8 @@ let
   aliases = {
     cat      = "bat --style=plain ";
     mv       = "mv -i ";
-    cd       = "z ";
     ls       = "exa --icons ";
-    ".."     = "cd ..";
+    cd       = "z ";
   };
 in
 {
