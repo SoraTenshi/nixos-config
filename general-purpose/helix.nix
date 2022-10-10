@@ -16,6 +16,7 @@
         rainbow-brackets = true;
         lsp.display-messages = true;
         cursor-shape.insert = "bar";
+        bufferline = "always";
         whitespace.render = "all";
         whitespace.characters = {
           space = "·";
@@ -23,6 +24,7 @@
           tab = "→";
           newline = "⤶";
         };
+        gutters = [ "diagnostics" "line-numbers" "spacer" ];
         statusline = {
           left = [ "mode" "spinner" "file-name" ];
           center = [ ];
@@ -35,6 +37,9 @@
       };
       keys.normal = {
         "X" = "extend_line_above";
+      };
+      keys.normal = {
+        "C-q" = ":bc";
       };
     };
   };
