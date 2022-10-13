@@ -113,7 +113,7 @@ ovrMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 createSpacing :: Integer -> l a -> ModifiedLayout Spacing l a
 createSpacing i = spacingRaw True (Border 0 i 0 i) True (Border i 0 i 0) True
 
-ovrLayout = avoidStruts (createSpacing 15 $ Tall 1 (12/100) (1/2) ||| emptyBSP ||| Full)
+ovrLayout = avoidStruts (createSpacing 8 $ Tall 1 (12/100) (1/2) ||| emptyBSP ||| Full)
 
 -- Essentially just managing
 -- e.g. "start MPlayer" -> "as floating"
