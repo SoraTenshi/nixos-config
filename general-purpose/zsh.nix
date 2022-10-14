@@ -38,11 +38,14 @@ in
       eval "$(zoxide init zsh)"
       eval "$(oh-my-posh init zsh --config '/home/dreamer/.oh-my-posh/tokyonight_ascii.opm.json')"
 
-      export KEY_SHIFT_CMD_LEFT=$'^[[1;10D'
-      export KEY_SHIFT_CMD_RIGHT=$'^[[1;10C'
-      export KEY_DEL=$'^[[3~' # Del
-      export KEY_BACKSPACE=$'^?' # Backspace
-      
+      bindkey '^[[1~'   beginning-of-line   # home
+      bindkey '^[[4~'   end-of-line         # end
+      bindkey '\e[3~'   delete-char         # delete
+      bindkey '\eOc'    forward-word        # ctrl right
+      bindkey '\eOd'    backward-word       # ctrl left
+      bindkey '^[[1;5C' forward-word        # ctrl right
+      bindkey '^[[1;5D' backward-word       # ctrl left
+      bindkey '^H'      backward-kill-word  # ctrl backspace
     '';
 
     shellAliases = aliases;
