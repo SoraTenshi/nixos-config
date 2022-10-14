@@ -10,3 +10,9 @@
 		(label :text "${clock_minute}" :class "time")
 		(label :text "${clock_second}" :class "time")))
 
+(defwidget time_h []
+	(box :class "module" :space-evenly "false" :orientation "h" :spacing 3
+		(label :text "${clock_ampm}"    :class "ampm")
+		(label :text "${clock_hour}:"   :class "time")
+		(label :text "${clock_minute}:" :class "time")
+		(label :text "${clock_second}"  :class "time")))

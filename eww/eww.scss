@@ -21,6 +21,16 @@ $wh: $fg;
   color: $fg;
 }
 
+.status2 {
+  background-color: $bg;
+  color: $fg;
+}
+
+.status3 {
+  background-color: $bg;
+  color: $fg;
+}
+
 .segment-top {
   margin-top: 2px;
 }
@@ -120,7 +130,7 @@ scale trough {
 
 .workspaces {
   button {
-    margin-bottom: 7px;
+    padding: 2px;
     color: $bl;
     &.occupied {
       color: $fg;

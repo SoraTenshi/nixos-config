@@ -134,7 +134,7 @@ ovrStartupHook = do
     spawnOnce "eww daemon"
     spawnOnce "picom"
     spawnOnce "dunst"
-    spawnOnce "eww open-many main-bar"
+    spawnOnce "eww open-many main-bar status2 status3"
     setDefaultCursor xC_left_ptr
     
 defaults = def {

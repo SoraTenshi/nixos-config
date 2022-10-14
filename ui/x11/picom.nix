@@ -8,6 +8,7 @@
     
     opacityRules = [
       "60:class_g = 'alacritty'"
+      "100:class_g = 'eww'"
     ];
 
     settings = {
@@ -29,7 +30,7 @@
       };
       
       blur-background-exclude = [
-        "class_g = 'eww'"
+        "class_g ?= 'eww'"
         "class_g ?= 'peek'"
       ];
     };

@@ -1,0 +1,28 @@
+(defwidget status-two [screen]
+	(centerbox :orientation "h" :vexpand false
+		(box :valign "start"
+			 :class "segment-top"
+			 (top-left))
+		(box :valign "center"
+			 :class "segment-middle"
+			 (top-mid))
+		(box :valign "end"
+			 :vexpand true
+			 :class "segment-bottom"
+			 (top-right))))
+
+(defwidget top-left []
+	(box :class "segment-top" :space-evenly "false" :orientation "h" :spacing 3 :vexpand false
+		(date_h)
+		(time_h)))
+
+(defwidget top-mid []
+	(box :class "segment-middle" :space-evenly "false" :orientation "h" :spacing 3 :vexpand false
+		(ws)))
+	
+(defwidget top-right []
+	(box :class "segment-bottom" :space-evenly "false" :orientation "h" :spacing 3 :vexpand false
+		))
+		
+(defwidget ws []
+	(literal :content {replace(workspaces, '\"v\"', '\"h\"')}))
