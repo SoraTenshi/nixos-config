@@ -12,7 +12,7 @@
 			 (top-right))))
 
 (defwidget top-left []
-	(box :class "segment-top" :space-evenly "false" :orientation "h" :spacing 3
+	(box :class "segment-left" :space-evenly "false" :orientation "h" :spacing 3
 		(date_h)))
 
 (defwidget top-mid []
@@ -20,7 +20,7 @@
 		(ws)))
 	
 (defwidget top-right []
-	(box :class "segment-bottom" :space-evenly "false" :orientation "h" :spacing 3
+	(box :class "segment-right" :space-evenly "false" :orientation "h" :spacing 3
 		(time_h)))
 		
 (defwidget ws []

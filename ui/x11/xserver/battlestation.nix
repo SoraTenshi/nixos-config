@@ -13,7 +13,7 @@
     '';
   
     synaptics = {
-      minSpeed = "0.2";
+      minSpeed = "0.05";
       accelFactor = null;
     };
 
