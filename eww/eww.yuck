@@ -57,7 +57,7 @@
 	(bar :screen 0))
 	
 (defwindow status2
-	:monitor 1
+	:monitor 2
 	:geometry (geometry :x "0"
 						:y "0"
 						:width "55px"
@@ -67,10 +67,10 @@
 	:wm-ignore  true
 	:hexpand 	false
 	:reserve    (struts :side "right" :distance "65px")
-	(status-three :screen 1))
+	(status-three :screen 2))
 	
 (defwindow status3
-	:monitor 2
+	:monitor 1
 	:geometry (geometry :x "0"
 						:y "0"
 						:width "100%"
@@ -80,4 +80,4 @@
 	:wm-ignore  true
 	:vexpand 	false
 	:reserve    (struts :side "top" :distance "50px")
-	(status-two :screen 2))
+	(status-two :screen 1))
