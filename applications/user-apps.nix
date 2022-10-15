@@ -1,5 +1,9 @@
 { config, pkgs, nixpkgs, lib, ... }:
 {
+  home.sessionVariables = {
+    "BROWSER" = "firefox";
+  };
+
   home.packages = with pkgs; [
     discord steam
 

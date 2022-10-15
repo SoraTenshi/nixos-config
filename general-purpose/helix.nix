@@ -17,6 +17,8 @@
         lsp.display-messages = true;
         cursor-shape.insert = "bar";
         bufferline = "always";
+        sticky-context = true;
+
         whitespace.render = "all";
         whitespace.characters = {
           space = "·";
@@ -24,6 +26,7 @@
           tab = "→";
           newline = "⤶";
         };
+
         gutters = [ "diagnostics" "line-numbers" "spacer" ];
         statusline = {
           left = [ "mode" "spinner" "file-name" ];
@@ -32,7 +35,7 @@
         };
         indent-guides = {
           render = true;
-          rainbow = "guide";
+          rainbow = true;
         };
       };
       keys.normal = {
