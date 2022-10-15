@@ -51,16 +51,16 @@
     # Language servers
     clang-tools # C-Style
     cmake-language-server # Cmake
-    texlab # LaTeX
     gopls # Go 
     rnix-lsp # Nix
     rust-analyzer # Rust
+    texlab # LaTeX
     zls # Zig
     #omnisharp-roslyn # .NET 
-    sumneko-lua-language-server # Lua
-    nodePackages.vim-language-server # Vim
-    nodePackages.typescript-language-server # Typescript
-    nodePackages.yaml-language-server # YAML / JSON
     haskellPackages.haskell-language-server # Haskell
+    nodePackages.typescript-language-server # Typescript
+    nodePackages.vim-language-server # Vim
+    nodePackages.yaml-language-server # YAML / JSON
+    sumneko-lua-language-server # Lua
   ];
 }
