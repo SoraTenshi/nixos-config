@@ -1,28 +1,19 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     zig-master.url = "github:mitchellh/zig-overlay";
     helix-master.url = "github:s0LA1337/helix/experimental";
-    # helix-master.url = "github:helix-editor/helix"; # just so i don't lose it :D
+    grub2-theme.url = "github:vinceliuice/grub2-themes";
+    home-manager.url = "github:nix-community/home-manager";
 
+    # Non-flakes
     picom-ibhagwan = {
       url = "github:ibhagwan/picom";
       flake = false;
     };
-
-    grub2-theme = {
-      url = "github:vinceliuice/grub2-themes";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     sddm-theme = {
       url = "github:s0la1337/tokyo-night-sddm";
       flake = false;
