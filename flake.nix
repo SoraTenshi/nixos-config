@@ -5,7 +5,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     zig-master.url = "github:mitchellh/zig-overlay";
-    helix-master.url = "github:s0LA1337/helix/experimental";
+    helix-master.url = "github:SoraTenshi/helix/experimental";
     grub2-theme.url = "github:vinceliuice/grub2-themes";
     home-manager.url = "github:nix-community/home-manager";
 
@@ -15,7 +15,7 @@
       flake = false;
     };
     sddm-theme = {
-      url = "github:s0la1337/tokyo-night-sddm";
+      url = "github:SoraTenshi/tokyo-night-sddm";
       flake = false;
     };
   };
