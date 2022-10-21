@@ -178,13 +178,13 @@
       "locked": {
         "lastModified": 1666338158,
         "narHash": "sha256-J1kbPtWhgSCI8ARERbyN51ESseE2HublLA9oLCRfMxc=",
-        "owner": "s0LA1337",
+        "owner": "SoraTenshi",
         "repo": "helix",
         "rev": "bbb2847e38cde5ecb4990e1c300cffcd351e7740",
         "type": "github"
       },
       "original": {
-        "owner": "s0LA1337",
+        "owner": "SoraTenshi",
         "ref": "experimental",
         "repo": "helix",
         "type": "github"
@@ -246,11 +246,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1666199281,
-        "narHash": "sha256-0hPwjHBszpgiSJvsgquXkN5C8XWS7S8ziFEafXgvYeY=",
+        "lastModified": 1666305135,
+        "narHash": "sha256-IKl/vrDIO1n26XaMrjUY712kZ/nmzMLWuNanEGAYSlE=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "fad558b6affd54075654dd55922348f76a95e338",
+        "rev": "a288b4f21423efb056061e4da3871a4247a7de79",
         "type": "github"
       },
       "original": {
@@ -267,11 +267,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1666254042,
-        "narHash": "sha256-hW78foWpAWm9vtG8nq+2d555E+ZGNoW/vGG4zOKt/+E=",
+        "lastModified": 1666340472,
+        "narHash": "sha256-LP1P989zpexFjfOqMVMBHRMWvQYSB+ccKcDCJNH660c=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "94e2111d084d8ac4ed99ccf1fff184cb9e3ab154",
+        "rev": "66808690a02fad5200061866193868d202a71340",
         "type": "github"
       },
       "original": {
@@ -297,11 +297,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1666337733,
-        "narHash": "sha256-BpSD/yXD1SefKAN3ZOCxJI+jjLVe9rMkIFzDpLrf7Jw=",
+        "lastModified": 1666356112,
+        "narHash": "sha256-j0gDnDyjJv0gXeRVKSvsNCKOHvdGKQbIcKcytT268Go=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "667e1161878c5b3d600d13ef213bd40e34e36b14",
+        "rev": "b7ac3c6618989afa122ae5946f4693a220c0a6b0",
         "type": "github"
       },
       "original": {
@@ -313,11 +313,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1666337733,
-        "narHash": "sha256-BpSD/yXD1SefKAN3ZOCxJI+jjLVe9rMkIFzDpLrf7Jw=",
+        "lastModified": 1666356112,
+        "narHash": "sha256-j0gDnDyjJv0gXeRVKSvsNCKOHvdGKQbIcKcytT268Go=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "667e1161878c5b3d600d13ef213bd40e34e36b14",
+        "rev": "b7ac3c6618989afa122ae5946f4693a220c0a6b0",
         "type": "github"
       },
       "original": {
@@ -360,11 +360,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1666244578,
-        "narHash": "sha256-OO0F2b83isMVHYtcvxiExig28zPE7Weo7r1fHtQTZzU=",
+        "lastModified": 1666275482,
+        "narHash": "sha256-P5cxOmp1Yi2miEDLQas8GLQQ4W54zYgHd2frvs+lERQ=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "260eb420a2e55e3a0411e731b933c3a8bf6b778e",
+        "rev": "d639b2dfacdb3464faa11936a8c751ea3ff57775",
         "type": "github"
       },
       "original": {
@@ -376,11 +376,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1666337733,
-        "narHash": "sha256-BpSD/yXD1SefKAN3ZOCxJI+jjLVe9rMkIFzDpLrf7Jw=",
+        "lastModified": 1666356112,
+        "narHash": "sha256-j0gDnDyjJv0gXeRVKSvsNCKOHvdGKQbIcKcytT268Go=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "667e1161878c5b3d600d13ef213bd40e34e36b14",
+        "rev": "b7ac3c6618989afa122ae5946f4693a220c0a6b0",
         "type": "github"
       },
       "original": {
@@ -462,13 +462,13 @@
       "locked": {
         "lastModified": 1662151979,
         "narHash": "sha256-3xuhffIn0+//Wy1kLc8a8/+LI6pRpff5Gua6qxdOjfk=",
-        "owner": "s0la1337",
+        "owner": "SoraTenshi",
         "repo": "tokyo-night-sddm",
         "rev": "71fe5e0ec60830b5986a7eac1d22cba11d322a8e",
         "type": "github"
       },
       "original": {
-        "owner": "s0la1337",
+        "owner": "SoraTenshi",
         "repo": "tokyo-night-sddm",
         "type": "github"
       }
@@ -494,11 +494,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1666312241,
-        "narHash": "sha256-0VR3VILJvjmvrATBY4tgR1u3me6eNRyoyy/6qu5wLlk=",
+        "lastModified": 1666354244,
+        "narHash": "sha256-mvDvsFFesjmJ6Uu5GQHaCSzQugzXBAAkGMJD5mrB5cQ=",
         "owner": "mitchellh",
         "repo": "zig-overlay",
-        "rev": "34437e1b74b5c0d76fcefeb6f63ed7281be4f9b7",
+        "rev": "77a519108b4c23b697b6991c2e9180b4bea86580",
         "type": "github"
       },
       "original": {
