@@ -30,13 +30,15 @@
 
         gutters = [ "diagnostics" "line-numbers" "spacer" ];
         statusline = {
-          left = [ "mode" "spinner" "file-name" ];
+          separator = "|";
+          left = [ "mode" "selections" "spinner" "file-name" "total-line-numbers"];
           center = [ ];
-          right = [ "diagnostics" "file-encoding" "file-line-ending" 
-                    "file-type" "position" "selections" ];
-          mode.normal = "NORMAL";
-          mode.select = "SELECT";
-          mode.insert = "INSERT";
+          right = [ "diagnostics" "file-encoding" "file-line-ending" "file-type" "position-percentage"  "position" ];
+          mode = {
+            normal = "NORMAL";
+            insert = "INSERT";
+            select = "SELECT";
+          };
         };
         indent-guides = {
           render = true;
