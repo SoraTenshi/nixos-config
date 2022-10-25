@@ -18,6 +18,7 @@
         cursor-shape.insert = "bar";
         bufferline = "always";
         sticky-context = true;
+        rulers = [ 80 ];
 
         whitespace.render = "all";
         whitespace.characters = {
@@ -31,7 +32,11 @@
         statusline = {
           left = [ "mode" "spinner" "file-name" ];
           center = [ ];
-          right = [ "diagnostics" "file-encoding" "file-line-ending" "file-type" "position" "selections" ];
+          right = [ "diagnostics" "file-encoding" "file-line-ending" 
+                    "file-type" "position" "selections" ];
+          mode.normal = "NORMAL";
+          mode.select = "SELECT";
+          mode.insert = "INSERT";
         };
         indent-guides = {
           render = true;
