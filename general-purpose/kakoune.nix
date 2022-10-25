@@ -11,8 +11,8 @@
         enable = true;
         highlightCursor = true;
         relative = true;
-        scrollOff.lines = 3;
       };
+      scrollOff.lines = 3;
       
       wrapLines = {
         enable = true;
