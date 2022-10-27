@@ -42,7 +42,7 @@
         };
         indent-guides = {
           render = true;
-          rainbow = true;
+          rainbow = "normal";
         };
       };
       keys.normal = {
@@ -66,7 +66,7 @@
     rust-analyzer # Rust
     texlab # LaTeX
     zls # Zig
-    #omnisharp-roslyn # .NET 
+    # omnisharp-roslyn # .NET 
     haskellPackages.haskell-language-server # Haskell
     nodePackages.typescript-language-server # Typescript
     nodePackages.vim-language-server # Vim
