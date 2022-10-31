@@ -4,7 +4,7 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = "MesloLGS NF";
+      name = "Lilex Light Nerd Font Complete Mono";
       size = 18;
     };
     keybindings = {
@@ -23,8 +23,8 @@
 
       # Tabs
       tab_bar_edge = "bottom";
-      tab_bar_style = "fade";
-      tab_bar_align = "center";
+      tab_bar_style = "slant";
+      tab_bar_align = "left";
 
       # Colours !
       background = "#24283b";
@@ -33,6 +33,9 @@
       selection_foreground = "#c0caf5";
       url_color = "#73daca";
       cursor = "#c0caf5";
+      cursor_shape = "beam";
+      cursor_stop_blinking_after = "0.0";
+      cursor_blink_interval = 1;
 
       # Tabs
       active_tab_background = "#7aa2f7";

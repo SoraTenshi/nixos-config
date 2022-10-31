@@ -86,7 +86,7 @@ in
     jetbrains-mono
     meslo-lgs-nf
     rictydiminished-with-firacode
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    (nerdfonts.override { fonts = [ "JetBrainsMono" "Lilex" ]; })
   ];
 
   system.stateVersion = "unstable";
