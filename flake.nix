@@ -8,6 +8,7 @@
     helix-master.url = "github:SoraTenshi/helix/experimental";
     grub2-theme.url = "github:vinceliuice/grub2-themes";
     home-manager.url = "github:nix-community/home-manager";
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
 
     # Non-flakes
     picom-ibhagwan = {
@@ -32,13 +33,18 @@
     , grub2-theme
     , helix-master
     , picom-ibhagwan
+    , emacs-overlay
     }@inputs:
     let
       system = "x86_64-linux";
+      
       overlays = [
         (final: prev: {
           picom = prev.picom.overrideAttrs (o: { src = picom-ibhagwan; });
         })
+      ];
+      otherOverlays = [
+        emacs-overlay.overlay
       ];
     in
     {
@@ -50,6 +56,7 @@
             ./development/global.nix
             home-manager.nixosModules.home-manager
             {
+              nixpkgs.overlays = overlays ++ otherOverlays;
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
@@ -74,7 +81,7 @@
             ./ui/x11/xserver/battlestation.nix
             home-manager.nixosModules.home-manager
             {
-              nixpkgs.overlays = overlays;
+              nixpkgs.overlays = overlays ++ otherOverlays;
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
@@ -98,7 +105,7 @@
             nixos-hardware.nixosModules.lenovo-thinkpad-t470s
             home-manager.nixosModules.home-manager
             {
-              nixpkgs.overlays = overlays;
+              nixpkgs.overlays = overlays ++ otherOverlays;
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
