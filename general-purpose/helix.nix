@@ -20,6 +20,10 @@
         sticky-context = true;
         rulers = [ 80 ];
         popup-border = "all";
+        
+        explorer = {
+          position = "embed";
+        };
 
         whitespace.render = "all";
         whitespace.characters = {
