@@ -19,6 +19,7 @@
         bufferline = "always";
         sticky-context = true;
         rulers = [ 80 ];
+        popup-border = "all";
 
         whitespace.render = "all";
         whitespace.characters = {
