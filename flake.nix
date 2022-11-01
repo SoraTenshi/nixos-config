@@ -1,14 +1,22 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs";
+    # nixpkgs.url = "github:NixOS/nixpkgs/";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
-    zig-master.url = "github:mitchellh/zig-overlay";
+    zig-overlay.url = "github:mitchellh/zig-overlay";
     helix-master.url = "github:SoraTenshi/helix/experimental";
     grub2-theme.url = "github:vinceliuice/grub2-themes";
     home-manager.url = "github:nix-community/home-manager";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
+
+    zls-overlay = {
+      url = "github:zigtools/zls/master";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        zig-overlay.follows = "zig-overlay";
+      };
+    };
 
     # Non-flakes
     picom-ibhagwan = {
@@ -24,23 +32,24 @@
   outputs =
     { self
     , nixpkgs
-    , nixpkgs-unstable
     , home-manager
     , nixos-hardware
     , sddm-theme
     , neovim-nightly
-    , zig-master
+    , zig-overlay
     , grub2-theme
     , helix-master
     , picom-ibhagwan
     , emacs-overlay
+    , zls-overlay
     }@inputs:
     let
       system = "x86_64-linux";
       
       overlays = [
         (final: prev: {
-          picom = prev.picom.overrideAttrs (o: { src = picom-ibhagwan; });
+          picom = prev.picom.overrideAttrs (c: { src = picom-ibhagwan; });
+          # zls = prev.zls.overrideAttrs (c: { src = zls-overlay; }); # seems to be broken for now (prolly 0.10 release)
         })
       ];
       otherOverlays = [
@@ -61,7 +70,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit
-                  self neovim-nightly zig-master helix-master;
+                  self neovim-nightly zig-overlay helix-master;
               };
               home-manager.users.dreamer = { ... }: {
                 imports = [ ./profiles/wsl/default.nix ];
@@ -86,7 +95,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit
-                  self neovim-nightly zig-master helix-master picom-ibhagwan;
+                  self neovim-nightly zig-overlay helix-master picom-ibhagwan;
               };
               home-manager.users.dreamer = { ... }: {
                 imports = [ ./profiles/dreamer/default.nix ];
@@ -110,7 +119,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit
-                  self neovim-nightly zig-master helix-master picom-ibhagwan;
+                  self neovim-nightly zig-overlay helix-master picom-ibhagwan;
               };
               home-manager.users.dreamer = { ... }: {
                 imports = [ ./profiles/dreamer/default.nix ];
@@ -133,7 +142,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit
-                  neovim-nightly zig-master helix-master;
+                  neovim-nightly zig-overlay helix-master;
               };
               home-manager.users.dreamer = { ... }: {
                 imports = [ ./profiles/dreamer/default.nix ];

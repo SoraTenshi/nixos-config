@@ -1,8 +1,8 @@
-{ pkgs, zig-master, config, ... }:
+{ pkgs, zig-overlay, config, ... }:
 
 {
   home.packages = with pkgs; [
-    zig-master.packages.x86_64-linux.master
+    zig-overlay.packages.x86_64-linux.master
 
     # tooling
     lazygit
