@@ -8,7 +8,6 @@ require('bufferline').setup {
     left_mouse_command = "buffer %d",
     middle_mouse_command = "bdelete! %d",
 
-    indicator_icon = '▎',
     buffer_close_icon = '',
     modified_icon = '●',
     close_icon = '',

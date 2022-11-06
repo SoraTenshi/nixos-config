@@ -1,4 +1,4 @@
-vim.g.mapleader = "<SPACE>"
+vim.g.mapleader = ' '
 
 local lspconfig = require('lspconfig')
 local on_attach = function(_, bufnr)

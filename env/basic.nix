@@ -4,6 +4,10 @@ let
   defaultUser = "dreamer";
 in
 {
+  imports = [
+    ./shared.nix
+  ];
+
   users.users.${defaultUser} = {
     shell = pkgs.zsh;
     isNormalUser = true;

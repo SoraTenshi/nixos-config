@@ -2,6 +2,7 @@
   inputs = {
     # nixpkgs.url = "github:NixOS/nixpkgs/";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nur.url = github:nix-community/NUR;
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     zig-overlay.url = "github:mitchellh/zig-overlay";
@@ -9,16 +10,19 @@
     grub2-theme.url = "github:vinceliuice/grub2-themes";
     home-manager.url = "github:nix-community/home-manager";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
-
-    zls-overlay = {
-      url = "github:zigtools/zls/master";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        zig-overlay.follows = "zig-overlay";
-      };
-    };
+    nil.url = "github:oxalica/nil";
 
     # Non-flakes
+    known-folders = {
+      url = "github:ziglibs/known-folders/master";
+      flake = false;
+    };
+
+    zls-master = {
+      url = "github:zigtools/zls/master";
+      flake = false;
+    };
+
     picom-ibhagwan = {
       url = "github:ibhagwan/picom";
       flake = false;
@@ -37,11 +41,14 @@
     , sddm-theme
     , neovim-nightly
     , zig-overlay
+    , zls-master
+    , known-folders
     , grub2-theme
     , helix-master
     , picom-ibhagwan
     , emacs-overlay
-    , zls-overlay
+    , nur
+    , nil
     }@inputs:
     let
       system = "x86_64-linux";
@@ -49,11 +56,22 @@
       overlays = [
         (final: prev: {
           picom = prev.picom.overrideAttrs (c: { src = picom-ibhagwan; });
-          # zls = prev.zls.overrideAttrs (c: { src = zls-overlay; }); # seems to be broken for now (prolly 0.10 release)
+          zls = prev.zls.overrideAttrs (c: {
+            version = "master";
+            src = zls-master;
+            dontConfigure = true;
+            dontInstall = false;
+            nativeBuildInputs = [ zig-overlay.packages.${system}.master ];
+            installPhase = ''
+              zig build install -Dcpu=baseline -Drelease-safe=true -Ddata_version=master -Dknown-folders=${known-folders.outPath}/known-folders.zig --prefix $out
+            '';
+          });
         })
       ];
       otherOverlays = [
         emacs-overlay.overlay
+        nur.overlay
+        zig-overlay.overlays.default
       ];
     in
     {
@@ -70,7 +88,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit
-                  self neovim-nightly zig-overlay helix-master;
+                  self neovim-nightly helix-master;
               };
               home-manager.users.dreamer = { ... }: {
                 imports = [ ./profiles/wsl/default.nix ];
@@ -95,7 +113,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit
-                  self neovim-nightly zig-overlay helix-master picom-ibhagwan;
+                  self neovim-nightly helix-master picom-ibhagwan;
               };
               home-manager.users.dreamer = { ... }: {
                 imports = [ ./profiles/dreamer/default.nix ];
@@ -119,7 +137,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit
-                  self neovim-nightly zig-overlay helix-master picom-ibhagwan;
+                  self neovim-nightly helix-master picom-ibhagwan;
               };
               home-manager.users.dreamer = { ... }: {
                 imports = [ ./profiles/dreamer/default.nix ];
@@ -142,7 +160,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit
-                  neovim-nightly zig-overlay helix-master;
+                  neovim-nightly helix-master;
               };
               home-manager.users.dreamer = { ... }: {
                 imports = [ ./profiles/dreamer/default.nix ];

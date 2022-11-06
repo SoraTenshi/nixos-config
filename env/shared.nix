@@ -2,7 +2,6 @@
 {
   nix.settings = {
     auto-optimise-store = true;
-    builder-use-substitutes = true;
     experimental-features = [ "nix-command" "flakes" ];
 
     substituters = [

@@ -1,4 +1,4 @@
-{ pkgs, lib, helix-master, ... }:
+{ self, pkgs, lib, nil, helix-master, ... }:
 {
   programs.helix = {
     enable = true;
@@ -58,8 +58,11 @@
       };
     };
   };
-
+  
   home.packages = with pkgs; [
+    # Formatting
+    alejandra
+    
     # Debugging stuff
     lldb
 

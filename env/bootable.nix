@@ -4,6 +4,10 @@ let
   defaultUser = "dreamer";
 in
 {
+  imports = [
+    ./shared.nix
+  ];
+
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
