@@ -33,7 +33,7 @@
       selection_foreground = "#c0caf5";
       url_color = "#73daca";
       cursor = "#c0caf5";
-      cursor_shape = "beam";
+      cursor_shape = "block";
       cursor_stop_blinking_after = "0.0";
       cursor_blink_interval = 1;
 
