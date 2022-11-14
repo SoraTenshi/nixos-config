@@ -66,14 +66,6 @@
               zig build install -Dcpu=baseline -Drelease-safe=true -Ddata_version=master -Dknown-folders=${known-folders.outPath}/known-folders.zig --prefix $out
             '';
           });
-          dmenu = prev.zls.overrideAttrs (c: {
-            patches = (c.patches or []) ++ [
-              "${self}/dmenu-patches/dmenu-alpha.diff"
-              "${self}/dmenu-patches/dmenu-border.diff"
-              "${self}/dmenu-patches/dmenu-center.diff"
-              "${self}/dmenu-patches/dmenu-fuzzymatch.diff"
-            ];
-          });
         })
       ];
       otherOverlays = [

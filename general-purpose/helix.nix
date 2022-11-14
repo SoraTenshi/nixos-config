@@ -15,7 +15,6 @@
         shell = [ "zsh" ];
         rainbow-brackets = true;
         lsp.display-messages = true;
-        cursor-shape.insert = "bar";
         bufferline = "always";
         sticky-context = true;
         rulers = [ 80 ];
