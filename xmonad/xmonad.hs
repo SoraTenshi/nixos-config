@@ -36,9 +36,9 @@ ovrNormalColor  = "#4a25aa"
 
 ovrModMask = mod4Mask
 
-rofiShowRun = spawn "rofi -show run"
-rofiShowShutdown = spawn "dmenu_run -l 15 -fn 'Lilex Nerd Font-16' -nb '#24283b' -nf '#a9b1d6' -sb '#414868' -sf '#7aa2f7' -p '-> ' -i -c -F"
-networkManager = spawn "networkmanager_dmenu -l 20 &"
+rofiShowRun = spawn "dmenu_run -l 15 -fn 'Lilex Nerd Font-16' -nb '#24283b' -nf '#a9b1d6' -sb '#414868' -sf '#7aa2f7' -p '-> ' &"
+rofiShowShutdown = spawn "rofi -show menu -modi 'menu:rofi-power-menu' &"
+networkManager = spawn "networkmanager_dmenu -l 15 -fn 'Lilex Nerd Font-16' -nb '#24283b' -nf '#a9b1d6' -sb '#414868' -sf '#7aa2f7' &"
 lockScreen = spawn "betterlockscreen -l --blur 0.5 --dim 60"
 screenshot = spawn "flameshot gui &"
 
