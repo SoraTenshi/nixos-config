@@ -73,6 +73,7 @@
     rust-analyzer # Rust
     texlab # LaTeX
     zls # Zig
+    elixir_ls # Elixir
     # omnisharp-roslyn # .NET 
     haskellPackages.haskell-language-server # Haskell
     nodePackages.typescript-language-server # Typescript

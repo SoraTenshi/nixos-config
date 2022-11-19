@@ -16,6 +16,7 @@
 
     # compiler
     clang go nim cargo rustc julia-bin
+    elixir
     idris2 
     
     # interpreter
