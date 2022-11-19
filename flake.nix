@@ -2,15 +2,14 @@
   inputs = {
     # nixpkgs.url = "github:NixOS/nixpkgs/";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nur.url = github:nix-community/NUR;
+    nur.url = "github:nix-community/NUR";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+    home-manager.url = "github:nix-community/home-manager";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     zig-overlay.url = "github:mitchellh/zig-overlay";
     helix-master.url = "github:SoraTenshi/helix/experimental";
     grub2-theme.url = "github:vinceliuice/grub2-themes";
-    home-manager.url = "github:nix-community/home-manager";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
-    nil.url = "github:oxalica/nil";
 
     # Non-flakes
     known-folders = {
@@ -48,8 +47,7 @@
     , picom-ibhagwan
     , emacs-overlay
     , nur
-    , nil
-    }@inputs:
+    }:
     let
       system = "x86_64-linux";
       

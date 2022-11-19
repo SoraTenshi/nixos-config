@@ -98,6 +98,7 @@ vim.cmd([[
         set tabstop=2 shiftwidth=2 smarttab expandtab
         set noexpandtab
         set cursorline
+        set scrolloff=5
         set encoding=UTF-8
         set smartcase
         set smartindent

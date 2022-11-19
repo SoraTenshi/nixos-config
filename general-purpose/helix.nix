@@ -1,4 +1,4 @@
-{ self, pkgs, lib, nil, helix-master, ... }:
+{ self, pkgs, lib, helix-master, ... }:
 {
   programs.helix = {
     enable = true;
@@ -67,9 +67,9 @@
 
     # Language servers
     clang-tools # C-Style
-    cmake-language-server # Cmake
+    # cmake-language-server # Cmake
     gopls # Go 
-    rnix-lsp # Nix
+    nil # Nix
     rust-analyzer # Rust
     texlab # LaTeX
     zls # Zig

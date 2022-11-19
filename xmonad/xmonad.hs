@@ -163,4 +163,3 @@ help = unlines ["Help:"]
 main :: IO ()
 main = do
     xmonad $ docks $ ewmh $ ewmhFullscreen $ defaults
-

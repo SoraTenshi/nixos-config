@@ -24,7 +24,7 @@
       # design stuff
       tokyonight-nvim indent-blankline-nvim
       # tree sitter
-      (nvim-treesitter.withPlugins (_: with plugins; pkgs.tree-sitter.allGrammars)) nvim-ts-rainbow
+      (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars)) nvim-ts-rainbow
     ];
   };
 
