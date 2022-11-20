@@ -51,9 +51,9 @@
       };
       keys.normal = {
         "X" = "extend_line_above";
-      };
-      keys.normal = {
         "C-q" = ":bc";
+        "C-d" = ["half_page_down" "align_view_center"];
+        "C-u" = ["half_page_up" "align_view_center"];
       };
     };
   };
