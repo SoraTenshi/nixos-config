@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ./wezterm.nix
+    # ./wezterm.nix
     ./kitty.nix
     ./user-apps.nix
     ./dunst.nix

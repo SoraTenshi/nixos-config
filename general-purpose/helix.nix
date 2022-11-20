@@ -8,7 +8,7 @@
       editor = {
         line-number = "relative";
         cursorline = true;
-        scrolloff = 10;
+        scrolloff = 5;
         color-modes = true;
         idle-timeout = 1;
         true-color = true;

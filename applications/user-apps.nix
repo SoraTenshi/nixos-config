@@ -13,7 +13,7 @@
 
     # browser
     # vivaldi 
-    firefox
+    firefox-bin
 
     # Screenshots!
     flameshot
