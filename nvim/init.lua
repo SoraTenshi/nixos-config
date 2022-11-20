@@ -55,6 +55,9 @@ nmap("<leader>n", "<cmd>:NERDTreeFocus<cr>")
 nmap("<C-t>", "<cmd>:NERDTreeToggle<cr>")
 nmap("<C-f>", "<cmd>:NERDTreeFind<cr>")
 
+nmap("<C-d>", "<C-d>zz")
+nmap("<C-u>", "<C-u>zz")
+
 vmap("p", '<cmd>"_dP')
 vmap(")<", "<cmd><gv")
 vmap(")>", "<cmd>>gv")
