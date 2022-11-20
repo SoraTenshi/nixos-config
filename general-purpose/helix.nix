@@ -32,7 +32,7 @@
           newline = "⤶";
         };
 
-        gutters = [ "diagnostics" "line-numbers" "spacer" ];
+        gutters = [ "diagnostics" "line-numbers" "spacer" "diff"];
         statusline = {
           separator = "|";
           left = [ "mode" "selections" "spinner" "file-name" "total-line-numbers"];
