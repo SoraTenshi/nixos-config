@@ -11,16 +11,13 @@
 
     plugins = with pkgs.vimPlugins; [
       # utilities
-      telescope-nvim vim-easy-align vim-multiple-cursors vim-commentary vim-css-color vim-devicons which-key-nvim vim-eunuch vim-cursorword
+      telescope-nvim vim-easy-align vim-css-color which-key-nvim vim-cursorword
       # visual 
-      nerdtree
       lualine-nvim lualine-lsp-progress
       # buffer stuff
       bufferline-nvim
       # auto complete
-      nvim-cmp cmp-buffer cmp-path lspkind-nvim nvim-lspconfig lsp_signature-nvim cmp_luasnip luasnip cmp-nvim-lsp
-      # syntax highlighting
-      vim-polyglot
+      nvim-lspconfig lsp_signature-nvim cmp_luasnip luasnip cmp-nvim-lsp nvim-cmp lspkind-nvim
       # design stuff
       tokyonight-nvim indent-blankline-nvim
       # tree sitter
