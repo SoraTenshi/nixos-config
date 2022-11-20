@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  hardware.nvidia.forceFullCompositionPipeline = true;
+
   services.autorandr.enable = true;
   services.xserver = {
     displayManager.sessionCommands = ''
