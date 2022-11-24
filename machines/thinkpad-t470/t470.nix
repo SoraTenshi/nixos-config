@@ -1,8 +1,5 @@
 { pkgs, config, lib, nixos-hardware, modulesPath, ... }:
 
-let
-  defaultUser = "dreamer";
-in
 {
   imports = [ 
     (modulesPath + "/installer/scan/not-detected.nix")

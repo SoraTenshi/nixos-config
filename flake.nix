@@ -64,6 +64,27 @@
               zig build install -Dcpu=baseline -Drelease-safe=true -Ddata_version=master -Dknown-folders=${known-folders.outPath}/known-folders.zig --prefix $out
             '';
           });
+          river = prev.river.overrideAttrs (c: {
+            installPhase = ''
+                runHook preInstall
+                zig build -Drelease-safe -Dcpu=baseline -Dxwayland -Dman-pages --prefix $out install
+                runHook postInstall
+            '';
+            postInstall = 
+              let 
+                riverSession = ''
+                  [Desktop Entry]
+                  Name=River
+                  Comment=Dynamic Wayland compositor
+                  Exec=river
+                  Type=Application
+                '';
+              in
+                ''
+                  mkdir -p $out/share/wayland-sessions
+                  echo "${riverSession}" > $out/share/wayland-sessions/river.desktop
+                '';
+          });
         })
       ];
       otherOverlays = [
