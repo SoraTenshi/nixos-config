@@ -6,7 +6,7 @@ in
 {
   imports = [
     ./shared.nix
-    ../ui/wl/riverwm.nix
+    # ../ui/wl/riverwm.nix
     ../ui/x11/sddm.nix
   ];
 
