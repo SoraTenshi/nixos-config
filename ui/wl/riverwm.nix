@@ -1,20 +1,47 @@
-{ self, config, pkgs, ... }:
+{ config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    river
-    
     eww-wayland
-    wofi
-    
+
+    dconf
+
+    river
+
     wayland-utils
+    wayland
+
+    wofi
+
+    xwayland
   ];
 
-  programs.xwayland.enable = true;
+  xdg.portal.wlr.enable = true;
 
-  services.random-background = {
+  services.greetd = {
     enable = true;
-    imageDirectory = "${self}/images";
-    display = "fill";
-    interval = "1h";
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd} --cmd river";
+      };
+    };
+  };
+
+  services.pipewire = {
+    audio.enable = true;
+    systemWide = true;
+  };
+
+  environment.sessionVariables = {
+    XDG_SESSION_TYPE = "wayland";
+    XDG_SESSION_DESKTOP = "river";
+    XDG_CURRENT_DESKTOP = "river";
+    MOZ_ENABLE_WAYLAND = "1";
+    CLUTTER_BACKEND = "wayland";
+    QT_QPA_PLATFORM = "wayland-egl";
+    ECORE_EVAS_ENGINE = "wayland-egl";
+    ELM_ENGINE = "wayland_egl";
+    SDL_VIDEODRIVER = "wayland";
+    _JAVA_AWT_WM_NONREPARENTING = "1";
+    NO_AT_BRIDGE = "1";
   };
 }

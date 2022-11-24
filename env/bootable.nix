@@ -1,4 +1,4 @@
-{ pkgs, sddm-theme, ... }:
+{ self, pkgs, sddm-theme, ... }:
 
 let
   defaultUser = "dreamer";
@@ -6,6 +6,7 @@ in
 {
   imports = [
     ./shared.nix
+    # ../ui/wl/riverwm.nix
   ];
 
   boot.loader = {
@@ -50,7 +51,7 @@ in
   sound.enable = true;
   hardware.pulseaudio.enable = true;
   nixpkgs.config.allowUnfree = true;
-
+  
   services.xserver = {
     enable = true;
     displayManager.defaultSession = "none+xmonad";

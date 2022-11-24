@@ -8,6 +8,9 @@
     # ui
     ../../ui/x11/xmonad.nix
 
+    # wl
+    ../../ui/wl/tools.nix
+
     # General purpose
     ../../general-purpose/cli-tools.nix
     
