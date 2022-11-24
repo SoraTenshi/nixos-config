@@ -102,7 +102,6 @@
             ./machines/battlestation/battlestation.nix
             ./env/nvidia.nix
             ./development/global.nix
-            ./ui/x11/sddm.nix
             ./ui/x11/xserver/battlestation.nix
             home-manager.nixosModules.home-manager
             {
@@ -126,7 +125,6 @@
           modules = [
             ./machines/thinkpad-t470/t470.nix
             ./development/global.nix
-            ./ui/x11/sddm.nix
             nixos-hardware.nixosModules.lenovo-thinkpad-t470s
             home-manager.nixosModules.home-manager
             {
@@ -150,7 +148,6 @@
           modules = [
             ./machines/thinkpad-t420/t420.nix
             ./development/global.nix
-            ./ui/sddm.nix
             nixos-hardware.nixosModules.lenovo-thinkpad-t420
             home-manager.nixosModules.home-manager
             {

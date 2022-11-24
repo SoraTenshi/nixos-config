@@ -151,23 +151,16 @@
 
       # Set background and border color
       riverctl background-color 0x002b36
-      riverctl border-color-focused 0x93a1a1
-      riverctl border-color-unfocused 0x586e75
+      riverctl border-color-focused 0x8031ca
+      riverctl border-color-unfocused 0x4a25aa
 
       # Set keyboard repeat rate
       riverctl set-repeat 50 300
 
-      # Make certain views start floating
-      riverctl float-filter-add app-id float
-      riverctl float-filter-add title "popup title with spaces"
-
-      # Set app-ids and titles of views which should use client side decorations
-      riverctl csd-filter-add app-id "gedit"
-
       # Set the default layout generator to be rivertile and start it.
       # River will send the process group of the init executable SIGTERM on exit.
       riverctl default-layout rivertile
-      rivertile -view-padding 6 -outer-padding 6
+      rivertile -view-padding 4 -outer-padding 4
     '';
   };
 }

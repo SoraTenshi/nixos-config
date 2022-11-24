@@ -15,20 +15,38 @@
     xwayland
   ];
 
-  xdg.portal.wlr.enable = true;
-
-  services.greetd = {
+  xdg.portal = {
     enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.greetd} --cmd river";
-      };
-    };
+    wlr.enable = true;
   };
 
   services.pipewire = {
     audio.enable = true;
     systemWide = true;
+  };
+  
+  services.xserver.displayManager = {
+    sessionPackages = [
+      (pkgs.river.overrideAttrs
+        (prevAttrs: {
+          postInstall = 
+            let 
+              riverSession = ''
+                [Desktop Entry]
+                Name=River
+                Comment=Dynamic Wayland compositor
+                Exec=river
+                Type=Application
+              '';
+            in
+              ''
+                mkdir -p $out/share/wayland-sessions
+                echo "${riverSession}" > $out/share/wayland-sessions/river.desktop
+              '';
+          passthru.providedSessions = [ "river" ];
+        })
+      )
+    ];
   };
 
   environment.sessionVariables = {
