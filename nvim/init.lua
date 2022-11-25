@@ -84,6 +84,7 @@ nmap("x", '"_x')
 vim.cmd([[
         set clipboard+=unnamedplus
         syntax on
+				set guicursor=i:block
         set hidden
         set nobackup
         set signcolumn=yes:2
