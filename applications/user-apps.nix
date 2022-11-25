@@ -24,8 +24,6 @@
   ];
 
   xsession.initExtra = ''
-    ${lib.concatMapStrings (s: s + " & \n") (
-      "flameshot"
-      )}
+    ${lib.concatMapStrings (s: s + " & \n") "flameshot"}
   '';
 }

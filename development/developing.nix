@@ -26,7 +26,7 @@
     cmake 
   ];
 
-  xdg.configFile."zls.json".text = (builtins.toJSON {
+  xdg.configFile."zls.json".text = builtins.toJSON {
     "$schema" = "https://raw.githubusercontent.com/zigtools/zls/master/schema.json";
     zig_exe_path = "${pkgs.zigpkgs.master.outPath}/bin/zig";
     enable_snippets = true;
@@ -39,5 +39,5 @@
     operator_completions = true;
     include_at_in_builtins = false;
     max_detail_length = 104857;
-  });
+  };
 }

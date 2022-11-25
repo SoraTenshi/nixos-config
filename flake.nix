@@ -96,7 +96,7 @@
     {
       nixosConfigurations = {
         wsl = nixpkgs.lib.nixosSystem {
-          system = system;
+          inherit system;
           modules = [
             ./machines/wsl/wsl.nix
             ./development/global.nix
@@ -117,7 +117,7 @@
         };
 
         battlestation = nixpkgs.lib.nixosSystem {
-          system = system;
+          inherit system;
           specialArgs = { inherit sddm-theme grub2-theme; };
           modules = [
             ./machines/battlestation/battlestation.nix
@@ -141,7 +141,7 @@
         };
 
         t470 = nixpkgs.lib.nixosSystem {
-          system = system;
+          inherit system;
           specialArgs = { inherit sddm-theme grub2-theme; };
           modules = [
             ./machines/thinkpad-t470/t470.nix
@@ -164,7 +164,7 @@
         };
 
         t420 = nixpkgs.lib.nixosSystem {
-          system = system;
+          inherit system;
           specialArgs = { inherit sddm-theme grub2-theme; };
           modules = [
             ./machines/thinkpad-t420/t420.nix
