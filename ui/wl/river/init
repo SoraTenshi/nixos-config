@@ -4,7 +4,7 @@
 riverctl map normal Super+Shift Return spawn kitty
 
 # Wofi?
-riverctl map normal Super P spawn wofi --show drun --insensitive --gtk-dark --allow-images
+riverctl map normal Super P spawn 'wofi --show drun --insensitive --gtk-dark --allow-images'
 
 # Super+Q to close the focused view
 riverctl map normal Super+Shift Q close
@@ -133,7 +133,7 @@ do
 done
 
 # Set background and border color
-riverctl background-color 0x002b36
+riverctl background-color 0x24283b
 riverctl border-color-focused 0x8031ca
 riverctl border-color-unfocused 0x4a25aa
 
@@ -145,4 +145,4 @@ riverctl border-width 3
 # Set the default layout generator to be rivercarro and start it.
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivercarro
-exec rivercarro -inner-gaps 8 -outer-gaps 8
+exec rivercarro -inner-gaps 12 -outer-gaps 12
