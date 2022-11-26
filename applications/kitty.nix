@@ -4,7 +4,7 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = "Lilex Light Nerd Font Complete Mono";
+      name = "Lilex Nerd Font Mono";
       size = 18;
     };
     keybindings = {
