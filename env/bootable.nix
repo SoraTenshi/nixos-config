@@ -10,6 +10,11 @@ in
     ../ui/x11/sddm.nix
   ];
 
+  environment.variables = {
+    EDITOR = "hx";
+    VISUAL = "hx";
+  };
+
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
@@ -70,7 +75,7 @@ in
   environment.systemPackages = with pkgs;[
     opensc fcitx5-configtool
     
-    exa zoxide bat
+    exa zoxide bat fzf
   ];
 
   services.pcscd.enable = true;
@@ -89,10 +94,9 @@ in
 
   fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [
-    jetbrains-mono
     meslo-lgs-nf
     rictydiminished-with-firacode
-    (nerdfonts.override { fonts = [ "JetBrainsMono" "Lilex" ]; })
+    (nerdfonts.override { fonts = [ "Lilex" ]; })
   ];
 
   system.stateVersion = "unstable";

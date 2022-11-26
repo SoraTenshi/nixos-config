@@ -7,5 +7,6 @@
     screenfetch
     gh
     jq
+    btop
   ];
 }
