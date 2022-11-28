@@ -7,8 +7,8 @@ riverctl map normal Super+Shift Return spawn kitty
 # riverctl map normal Super P spawn "wofi --show drun --insensitive --gtk-dark --allow-images"
 riverctl map normal Super+Shift P spawn "rofi -show menu -modi 'menu:rofi-power-menu' &" 
 
-riverctl map normal Super P spawn "fuzzel -f 'Lilex Nerd Font-16' -l 15 -b 24283bff -t a9b1d6ff -m 414868ff -s 414868ff -C 8031caff -S 7aa2f7ff -p '->' -r 0 -B 2 &"
-riverctl map normal Super N spawn "networkmanager_dmenu -l 15 -fn 'Lilex Nerd Font-16' -nb '#24283b' -nf '#a9b1d6' -sb '#414868' -sf '#7aa2f7' &"
+riverctl map normal Super P spawn "fuzzel &"
+riverctl map normal Super N spawn "networkmanager_dmenu &"
 
 # Super+Q to close the focused view
 riverctl map normal Super+Shift Q close
@@ -152,8 +152,10 @@ riverctl border-color-unfocused 0x4a25aa
 # Set keyboard repeat rate
 riverctl set-repeat 50 300
 
-riverctl border-width 3
+riverctl border-width 2
 
+killall waybar
+riverctl spawn waybar
 wlr-randr \
 --output DP-1 --on --custom-mode 1920x1080@165 --preferred --pos 0,1080 --transform normal \
 --output DP-3 --on --custom-mode 1920x1080@60 --pos 1920,1080 --transform normal \
