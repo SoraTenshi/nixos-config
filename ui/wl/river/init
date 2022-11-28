@@ -4,7 +4,10 @@
 riverctl map normal Super+Shift Return spawn kitty
 
 # Wofi?
-riverctl map normal Super P spawn 'wofi --show drun --insensitive --gtk-dark --allow-images'
+# riverctl map normal Super P spawn "wofi --show drun --insensitive --gtk-dark --allow-images"
+riverctl map normal Super P spawn "dmenu-wl_run -l 15 -fn 'Lilex Nerd Font-16' -nb '#24283b' -nf '#a9b1d6' -sb '#414868' -sf '#7aa2f7' -p '-> ' &"
+riverctl map normal Super+Shift P spawn "rofi -show menu -modi 'menu:rofi-power-menu' &" 
+riverctl map normal Super N spawn "networkmanager_dmenu -l 15 -fn 'Lilex Nerd Font-16' -nb '#24283b' -nf '#a9b1d6' -sb '#414868' -sf '#7aa2f7' &"
 
 # Super+Q to close the focused view
 riverctl map normal Super+Shift Q close
@@ -64,21 +67,29 @@ riverctl map-pointer normal Super BTN_LEFT move-view
 # Super + Right Mouse Button to resize views
 riverctl map-pointer normal Super BTN_RIGHT resize-view
 
+# Enable Scratchpad
+all_tags=$(((1 << 32) - 1))
+sticky_tag=$((1 << 31))
+all_but_sticky_tag=$(( $all_tags ^ $sticky_tag ))
+
+riverctl map normal Super S toggle-view-tags $sticky_tag
+riverctl spawn-tagmask ${all_but_sticky_tag}
+
 for i in $(seq 1 9)
 do
   tags=$((1 << ($i - 1)))
 
   # Super+[1-9] to focus tag [0-8]
-  riverctl map normal Super $i set-focused-tags $tags
+  riverctl map normal Super $i set-focused-tags $(($tags + $sticky_tag))
 
   # Super+Shift+[1-9] to tag focused view with tag [0-8]
-  riverctl map normal Super+Shift $i set-view-tags $tags
+  riverctl map normal Super+Shift $i set-view-tags $(($tags + $sticky_tag))
 
   # Super+Ctrl+[1-9] to toggle focus of tag [0-8]
-  riverctl map normal Super+Control $i toggle-focused-tags $tags
+  riverctl map normal Super+Control $i toggle-focused-tags $(($tags + $sticky_tag))
 
   # Super+Shift+Ctrl+[1-9] to toggle tag [0-8] of focused view
-  riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
+  riverctl map normal Super+Shift+Control $i toggle-view-tags $(($tags + $sticky_tag))
 done
 
 # Super+0 to focus all tags
@@ -141,6 +152,8 @@ riverctl border-color-unfocused 0x4a25aa
 riverctl set-repeat 50 300
 
 riverctl border-width 3
+
+wlr-randr --output DP-1 --on --custom-mode 1920x1080@165 --preferred --pos 0,1080 --transform normal --output DP-3 --on --custom-mode 1920x1080@60 --pos 1920,1080 --transform normal --output HDMI-A-1 --on --custom-mode 1920x1080@60 --pos 960,0 --transform normal
 
 # Set the default layout generator to be rivercarro and start it.
 # River will send the process group of the init executable SIGTERM on exit.

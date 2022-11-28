@@ -5,13 +5,6 @@
     ../x11/eww.nix
   ];
 
-  services.random-background = {
-    enable = true;
-    imageDirectory = "${self}/images";
-    display = "fill";
-    interval = "1h";
-  };
-
   home.packages = with pkgs; [
     wlr-randr
   ];
