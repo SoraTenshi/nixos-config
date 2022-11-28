@@ -6,6 +6,8 @@
     
     eww-wayland
 
+    fuzzel
+
     libva
 
     river

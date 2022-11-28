@@ -5,14 +5,15 @@ riverctl map normal Super+Shift Return spawn kitty
 
 # Wofi?
 # riverctl map normal Super P spawn "wofi --show drun --insensitive --gtk-dark --allow-images"
-riverctl map normal Super P spawn "dmenu-wl_run -l 15 -fn 'Lilex Nerd Font-16' -nb '#24283b' -nf '#a9b1d6' -sb '#414868' -sf '#7aa2f7' -p '-> ' &"
 riverctl map normal Super+Shift P spawn "rofi -show menu -modi 'menu:rofi-power-menu' &" 
+
+riverctl map normal Super P spawn "fuzzel -f 'Lilex Nerd Font-16' -l 15 -b 24283bff -t a9b1d6ff -m 414868ff -s 414868ff -C 8031caff -S 7aa2f7ff -p '->' -r 0 -B 2 &"
 riverctl map normal Super N spawn "networkmanager_dmenu -l 15 -fn 'Lilex Nerd Font-16' -nb '#24283b' -nf '#a9b1d6' -sb '#414868' -sf '#7aa2f7' &"
 
 # Super+Q to close the focused view
 riverctl map normal Super+Shift Q close
 
-# Super+Shift+E to exit river
+# Super+Shift+Q to exit river
 riverctl map normal Super+Shift+Control Q exit
 
 # Super+J and Super+K to focus the next/previous view in the layout stack
@@ -153,7 +154,10 @@ riverctl set-repeat 50 300
 
 riverctl border-width 3
 
-wlr-randr --output DP-1 --on --custom-mode 1920x1080@165 --preferred --pos 0,1080 --transform normal --output DP-3 --on --custom-mode 1920x1080@60 --pos 1920,1080 --transform normal --output HDMI-A-1 --on --custom-mode 1920x1080@60 --pos 960,0 --transform normal
+wlr-randr \
+--output DP-1 --on --custom-mode 1920x1080@165 --preferred --pos 0,1080 --transform normal \
+--output DP-3 --on --custom-mode 1920x1080@60 --pos 1920,1080 --transform normal \
+--output HDMI-A-1 --on --custom-mode 1920x1080@60 --pos 960,0 --transform normal
 
 # Set the default layout generator to be rivercarro and start it.
 # River will send the process group of the init executable SIGTERM on exit.
