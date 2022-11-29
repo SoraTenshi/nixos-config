@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../x11/eww.nix
+    "${self}/ui/x11/eww.nix"
   ];
 
   home.packages = with pkgs; [
@@ -168,7 +168,7 @@
     };
     "fuzzel/fuzzel.ini" = {
       text = ''
-        font='Lilex Nerd Font Mono-36'
+        font='Lilex Nerd Font Mono-16'
         prompt='->'
 
         [colors]
@@ -183,9 +183,6 @@
         [border]
         width=2
         radius=0
-        
-        [dmenu]
-        mode=index
       '';
     };
   };
