@@ -18,6 +18,10 @@
   boot.loader.grub.trustedBoot.systemHasTPM = "YES_TPM_is_activated";
 
   hardware.nvidia.modesetting.enable = true;
+  
+  environment.systemPackages = with pkgs; [
+    egl-wayland
+  ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/c2d3c3eb-96e5-44ea-b36c-7b5679ba48a8";

@@ -150,6 +150,8 @@ riverctl background-color 0x24283b
 riverctl border-color-focused 0x8031ca
 riverctl border-color-unfocused 0x4a25aa
 
+riverctl focus-follows-cursor normal
+
 riverctl float-filter-add "flameshot"
 
 # Set keyboard repeat rate
