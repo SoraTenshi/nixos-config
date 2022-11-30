@@ -6,6 +6,7 @@
 
   home.packages = with pkgs; [
     discord steam
+    discord-canary
 
     qmk
 
