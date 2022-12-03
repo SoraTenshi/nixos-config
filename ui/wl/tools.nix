@@ -27,12 +27,12 @@
           "DP-3"
           "HDMI-A-1"
         ];
-        modules-left = [ "river/tags" ];
-        modules-center = [ "clock" ];
+        modules-left = [ "clock" ];
+        modules-center = [ "river/tags" ];
         modules-right = [ "network" "cpu" "memory" "temperature" ];
 
         clock = {
-          format = "{:年%Y 月%m 日%d %T}";
+          format = "{:年%Y 月%m 日%d %T | %A}";
           interval = 1;
         };
       
@@ -144,6 +144,7 @@
       }
       
       #clock {
+        margin-left: 0px;
         font-size: 1.3rem;
         margin-bottom: 4px;
       }
