@@ -160,14 +160,10 @@ riverctl border-width 2
 killall waybar
 riverctl spawn waybar
 
-# Wayland workaround -.-
-wlr-randr --output DP-2 --off
-sleep 1
 wlr-randr \
 --output DP-1 --on --custom-mode 1920x1080@165 --preferred --pos 0,1080 --transform normal \
 --output DP-3 --on --custom-mode 1920x1080@60 --pos 1920,1080 --transform normal \
 --output HDMI-A-1 --on --custom-mode 1920x1080@60 --pos 960,0 --transform normal \
-# -.-
 
 # Set the default layout generator to be rivercarro and start it.
 # River will send the process group of the init executable SIGTERM on exit.
