@@ -8,6 +8,8 @@
   home.packages = with pkgs; [
     fuzzel
 
+    # screenshot stuff
+    grim
     slurp
 
     wayshot
@@ -37,11 +39,14 @@
         };
       
         network = {
-          format-wifi = "{essid} {signalStrength}%";
-          format-ethernet = "{ifname}: {ipaddr}/{cidr}";
-          format-linked = "{ifname} (No IP)";
+          min-length = 25;
+          interval = 1;
+          format-wifi = "﬉ {essid} ({signalStrength}%)";
+          format-ethernet = " {ipaddr}/{cidr}";
+          format-linked = " {ifname} (No IP)";
           format-disconnected = "Disconnected";
-          tooltip = false;
+          format-alt = " {bandwidthUpBytes}   {bandwidthDownBytes}";
+          tooltip = true;
         };
       
         cpu = {
@@ -90,20 +95,17 @@
         background-color: #24283b; /*base02*/
         border: 2px solid #8031ca; /*base1*/
       }
-
+      
       #tags button {
-        color: #a9b1d6; /*base1*/
-        border: 2px solid #24283b; /*base02*/
-  
-        /* Disable animation on click, GTK has the stupidest defaults */
-        transition-property: none;
+        color: #a9b1d6;
+        border: 2px solid #24283b;
       }
 
       /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
       #tags button:hover {
         box-shadow: inherit;
-        text-shadow: inherit;
-        background: #24283b; /*base02*/
+        background: #8031ca; /*base02*/
+        color: #7dcfff;
       }
 
       #tags button.focused {
@@ -141,6 +143,17 @@
         background-color: #24283b; /*base02*/
         color: #a9b1d6; /*base1*/
         border: 2px solid #8031ca; /*base1*/
+      }
+      
+      #network button {
+        color: #a9b1d6;
+        border: 2px solid #24283b;
+      }
+
+      #network button:hover {
+        box-shadow: inherit;
+        background: #8031ca;
+        color: #7dcfff;
       }
       
       #clock {
