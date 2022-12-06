@@ -50,7 +50,7 @@
         };
       
         cpu = {
-          format = "CPU{usage:3}%";
+          format = "﬙{usage:3}%";
           interval= 1;
           states= {
             warning = 50;
@@ -60,7 +60,7 @@
         };
       
         memory = {
-          format = "MEM {}%";
+          format = " {}%";
           interval = 1;
           states = {
             warning = 50;
@@ -70,7 +70,7 @@
         };
       
         temperature = {
-          format = "{temperatureC}°C";
+          format = " {temperatureC}°C";
           interval = 1;
           hwmon-path = "/sys/class/hwmon/hwmon1/temp1_input";
           critical-threshold = 75;
@@ -136,7 +136,6 @@
       #mode,
       #cpu,
       #memory,
-      #network,
       #temperature {
         margin-left: 8px;
         margin-bottom: 4px;
@@ -145,6 +144,14 @@
         border: 2px solid #8031ca; /*base1*/
       }
       
+      #network {
+        margin-left: 8px;
+        margin-bottom: 4px;
+        background-color: #24283b; /*base02*/
+        color: #a9b1d6; /*base1*/
+        border: 2px solid #8031ca; /*base1*/
+      }
+
       #network button {
         color: #a9b1d6;
         border: 2px solid #24283b;
