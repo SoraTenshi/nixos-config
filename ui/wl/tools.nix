@@ -32,7 +32,7 @@
         modules-right = [ "network" "cpu" "memory" "temperature" ];
 
         clock = {
-          format = "{:年%Y 月%m 日%d %T | %A}";
+          format = "{:%a | 年%Y 月%m 日%d %T}";
           interval = 1;
         };
       

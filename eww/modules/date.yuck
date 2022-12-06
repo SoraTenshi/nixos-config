@@ -13,6 +13,6 @@
 (defwidget date_h []
 	(box :class "module" :space-evenly false :orientation "h" :spacing 3
 		(label :text "${weekday}" 	   :class "weekday")
-		(label :text "${date_year}年"  :class "date")
-		(label :text "${date_month}月" :class "date")
-		(label :text "${date_day}日"   :class "date")))
+		(label :text "年${date_year}"  :class "date")
+		(label :text "月${date_month}" :class "date")
+		(label :text "日${date_day}"   :class "date")))
