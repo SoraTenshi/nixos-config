@@ -53,7 +53,7 @@
 	:windowtype "dock"
 	:wm-ignore  true
 	:hexpand    false
-	:reserve    (struts :side "left" :distance "65px")
+	:reserve    (struts :side "left" :distance "55px")
 	(bar :screen 0))
 	
 (defwindow status2
@@ -66,7 +66,7 @@
 	:windowtype "dock"
 	:wm-ignore  true
 	:hexpand 	false
-	:reserve    (struts :side "right" :distance "65px")
+	:reserve    (struts :side "right" :distance "55px")
 	(status-three :screen 1))
 	
 (defwindow status3
@@ -79,5 +79,5 @@
 	:windowtype "dock"
 	:wm-ignore  true
 	:vexpand 	false
-	:reserve    (struts :side "top" :distance "50px")
+	:reserve    (struts :side "top" :distance "35px")
 	(status-two :screen 2))

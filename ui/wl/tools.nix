@@ -192,6 +192,9 @@
         font='Lilex Nerd Font Mono-16'
         prompt='->'
 
+        [dmenu]
+        mode=text
+
         [colors]
         background=24283bff
         text=a9b1d6ff

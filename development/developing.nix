@@ -24,7 +24,7 @@
     nodejs
 
     # cmake
-    cmake 
+    cmake mmake
   ];
 
   xdg.configFile."zls.json".text = builtins.toJSON {

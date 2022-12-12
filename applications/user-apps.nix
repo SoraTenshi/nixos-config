@@ -23,6 +23,9 @@
     # Pic editing
     # gimp
     peek
+    
+    # Flashcards
+    anki-bin
   ];
 
   xsession.initExtra = ''
