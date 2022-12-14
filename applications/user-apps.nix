@@ -14,7 +14,7 @@
     freshfetch
 
     # browser
-    # vivaldi 
+    vivaldi 
     firefox-bin
 
     # Screenshots!

@@ -170,3 +170,4 @@ wlr-randr \
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivercarro
 exec rivercarro -inner-gaps 12 -outer-gaps 0
+exec systemctl --user import-environment
