@@ -154,6 +154,12 @@
             ./development/global.nix
             nixos-hardware.nixosModules.lenovo-thinkpad-t470s
             home-manager.nixosModules.home-manager
+            nur.nixosModules.nur # for config.nur
+            ({ config, ... }:{
+              home-manager.sharedModules = [
+                config.nur.repos.rycee.hmModules.emacs-init
+              ];
+            })
             {
               nixpkgs.overlays = overlays ++ otherOverlays;
               home-manager.useGlobalPkgs = true;

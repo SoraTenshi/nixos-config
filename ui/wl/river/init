@@ -171,3 +171,4 @@ wlr-randr \
 riverctl default-layout rivercarro
 exec rivercarro -inner-gaps 12 -outer-gaps 0
 exec systemctl --user import-environment
+exec fcitx5

@@ -25,6 +25,15 @@
           # The :hook keyword allows adding functions onto hooks, here only the basename of the hook is required.
           hook = [ "(prog-mode . rainbow-delimiters-mode)" ];
         };
+        
+        meow = {
+          enable = true;
+          config = builtins.readFile "${self}/emacs/meow.el";
+          extraConfig = ''
+            (meow-setup)
+            (meow-global-mode 1)
+          '';
+        };
 
         nyan-mode = {
           enable = true;
