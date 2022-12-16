@@ -34,6 +34,15 @@
             (meow-global-mode 1)
           '';
         };
+        
+        doom-themes = {
+          enable = true;
+          config = builtins.readFile "${self}/emacs/tokyonight.el";
+          extraConfig = ''
+            (doom-tokyonight-storm)
+            (load-theme 'doom-tokyo-night t)
+          '';
+        };
 
         nyan-mode = {
           enable = true;
