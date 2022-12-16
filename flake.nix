@@ -125,6 +125,12 @@
             ./development/global.nix
             ./ui/x11/xserver/battlestation.nix
             home-manager.nixosModules.home-manager
+            nur.nixosModules.nur # for config.nur
+            ({ config, ... }:{
+              home-manager.sharedModules = [
+                config.nur.repos.rycee.hmModules.emacs-init
+              ];
+            })
             {
               nixpkgs.overlays = overlays ++ otherOverlays;
               home-manager.useGlobalPkgs = true;

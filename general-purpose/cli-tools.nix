@@ -3,7 +3,7 @@
   imports = [
     ./kakoune.nix
     ./helix.nix
-    # ./emacs.nix
+     ./emacs.nix
     ./nvim.nix
     ./zsh.nix
     ./nushell.nix
