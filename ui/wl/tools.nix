@@ -39,7 +39,6 @@
         };
       
         network = {
-          min-length = 25;
           interval = 1;
           format-wifi = "﬉ {essid} ({signalStrength}%)";
           format-ethernet = " {ipaddr}/{cidr}";
@@ -50,7 +49,7 @@
         };
       
         cpu = {
-          format = "﬙{usage:3}%";
+          format = "﬙{usage:2}%";
           interval= 1;
           states= {
             warning = 50;
@@ -60,7 +59,7 @@
         };
       
         memory = {
-          format = " {}%";
+          format = "  {}%";
           interval = 1;
           states = {
             warning = 50;
@@ -137,6 +136,7 @@
       #cpu,
       #memory,
       #temperature {
+        padding: 8px;
         margin-left: 8px;
         margin-bottom: 4px;
         background-color: #24283b; /*base02*/
@@ -145,6 +145,7 @@
       }
       
       #network {
+        padding: 8px;
         margin-left: 8px;
         margin-bottom: 4px;
         background-color: #24283b; /*base02*/
@@ -164,6 +165,7 @@
       }
       
       #clock {
+        padding: 8px;
         margin-left: 0px;
         font-size: 1.3rem;
         margin-bottom: 4px;
