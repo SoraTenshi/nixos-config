@@ -13,6 +13,7 @@
     slurp
 
     wayshot
+    waylock
     wlr-randr
     wofi
   ];

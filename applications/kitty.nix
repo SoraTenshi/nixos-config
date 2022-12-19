@@ -3,8 +3,11 @@
 {
   programs.kitty = {
     enable = true;
+    extraConfig = ''
+      font_features LilexNerdFontCompleteM-Light +isol -medi -fina -init
+    '';
     font = {
-      name = "Lilex Nerd Font Mono";
+      name = "Lilex Nerd Font Complete Mono";
       size = 18;
     };
     keybindings = {
@@ -16,7 +19,7 @@
       enable_audio_bell = false;
       update_check_interval = 0;
 
-      background_opacity = "0.9";
+      background_opacity = "0.8";
       background_tint = "0.5";
 
       confirm_os_window_close = 0;
