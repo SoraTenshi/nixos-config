@@ -39,6 +39,7 @@
         };
       
         network = {
+          min-length = 25;
           interval = 1;
           format-wifi = "﬉ {essid} ({signalStrength}%)";
           format-ethernet = " {ipaddr}/{cidr}";
