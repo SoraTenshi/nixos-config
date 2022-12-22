@@ -28,7 +28,7 @@ in
       splashMode = "stretch";
       device = "nodev";
       useOSProber = true;
-      fontSize = 32;
+      fontSize = 64;
       extraEntries = ''
         menuentry "Reboot" {
           reboot
