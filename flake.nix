@@ -7,7 +7,7 @@
     home-manager.url = "github:nix-community/home-manager";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     zig-overlay.url = "github:mitchellh/zig-overlay";
-    helix-master.url = "github:SoraTenshi/helix/experimental";
+    helix-master.url = "github:SoraTenshi/helix/experimental-22.12";
     grub2-theme.url = "github:vinceliuice/grub2-themes";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
 
@@ -101,6 +101,12 @@
             ./machines/wsl/wsl.nix
             ./development/global.nix
             home-manager.nixosModules.home-manager
+            nur.nixosModules.nur # for config.nur
+            ({ config, ... }:{
+              home-manager.sharedModules = [
+                config.nur.repos.rycee.hmModules.emacs-init
+              ];
+            })
             {
               nixpkgs.overlays = overlays ++ otherOverlays;
               home-manager.useGlobalPkgs = true;
