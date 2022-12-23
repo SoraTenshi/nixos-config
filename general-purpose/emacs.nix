@@ -10,6 +10,10 @@
     init = {
       enable = true;
       recommendedGcSettings = true;
+      
+      prelude = ''
+        (whitespace-mode)
+      '';
 
       usePackage = {
         # https://github.com/Fanael/rainbow-delimiters
