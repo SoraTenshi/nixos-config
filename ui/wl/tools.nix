@@ -20,25 +20,41 @@
   
   programs.waybar = {
     enable = true;
+    systemd.enable = true;
     settings = {
       mainBar = {
         layer = "top";
         position = "top";
         height = 30;
         output = [
+          "eDP-1"
           "DP-1"
           "DP-3"
           "HDMI-A-1"
         ];
         modules-left = [ "clock" ];
         modules-center = [ "river/tags" ];
-        modules-right = [ "network" "cpu" "memory" "temperature" ];
+        modules-right = [ "network" "cpu" "memory" "temperature" "battery" ];
 
         clock = {
           format = "{:%a | 年%Y 月%m 日%d %T}";
           interval = 1;
         };
-      
+
+        battery = {
+          states = {
+            good = 95;
+            warning = 30;
+            critical = 15;
+          };
+          format = "{icon} {capacity}%";
+          format-alt = "{time}";
+          format-full = "";
+          format-charging = " {capacity}%";
+          format-plugged = " {capacity}%";
+          format-icons = [ "" "" "" "" "" ];      
+        };
+
         network = {
           min-length = 25;
           interval = 1;
@@ -137,6 +153,7 @@
       #mode,
       #cpu,
       #memory,
+      #battery,
       #temperature {
         padding: 8px;
         margin-left: 8px;
