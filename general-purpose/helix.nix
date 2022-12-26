@@ -34,7 +34,8 @@
 
         gutters = [ "diagnostics" "line-numbers" "spacer" "diff"];
         statusline = {
-          separator = "|";
+          mode-separator = "";
+          separator = "";
           left = [ "mode" "selections" "spinner" "file-name" "total-line-numbers"];
           center = [ ];
           right = [ "diagnostics" "file-encoding" "file-line-ending" "file-type" "position-percentage"  "position" ];
