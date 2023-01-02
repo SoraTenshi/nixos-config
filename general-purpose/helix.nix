@@ -12,7 +12,6 @@
         color-modes = true;
         idle-timeout = 1;
         true-color = true;
-        shell = [ "zsh" ];
         rainbow-brackets = true;
         lsp.display-messages = true;
         bufferline = "always";
