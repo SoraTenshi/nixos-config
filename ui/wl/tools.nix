@@ -27,7 +27,7 @@
         position = "top";
         height = 30;
         output = [
-          "eDP-1"
+          # "eDP-1"
           "DP-2"
           "DP-3"
           "HDMI-A-1"
@@ -52,7 +52,7 @@
           format-full = "";
           format-charging = " {capacity}%";
           format-plugged = " {capacity}%";
-          format-icons = [ "" "" "" "" "" ];      
+          format-icons = [ "" "" "" "" "" ];
         };
 
         network = {
@@ -77,7 +77,7 @@
         };
       
         memory = {
-          format = "  {}%";
+          format = " {}%";
           interval = 1;
           states = {
             warning = 50;
@@ -231,3 +231,4 @@
       '';
     };
   };
+}
