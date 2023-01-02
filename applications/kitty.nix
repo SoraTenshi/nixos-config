@@ -19,7 +19,7 @@
       enable_audio_bell = false;
       update_check_interval = 0;
 
-      background_opacity = "0.8";
+      background_opacity = "0.9";
       background_tint = "0.5";
 
       confirm_os_window_close = 0;

@@ -12,6 +12,9 @@
     qmk
 
     freshfetch
+    
+    # memos
+    obsidian
 
     # browser
     vivaldi 
