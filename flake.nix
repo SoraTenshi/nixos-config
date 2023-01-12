@@ -26,6 +26,7 @@
       url = "github:ibhagwan/picom";
       flake = false;
     };
+
     sddm-theme = {
       url = "github:SoraTenshi/tokyo-night-sddm";
       flake = false;

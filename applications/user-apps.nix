@@ -29,6 +29,10 @@
     
     # Flashcards
     anki-bin
+
+    lutris
+    wineWowPackages.stable
+    winetricks
   ];
 
   xsession.initExtra = ''
