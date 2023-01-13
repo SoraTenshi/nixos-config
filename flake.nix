@@ -13,7 +13,12 @@
 
     # Non-flakes
     known-folders = {
-      url = "github:ziglibs/known-folders/master";
+      url = "github:ziglibs/known-folders";
+      flake = false;
+    };
+
+    tres = {
+      url = "github:ziglibs/tres";
       flake = false;
     };
 
@@ -43,6 +48,7 @@
     , zig-overlay
     , zls-master
     , known-folders
+    , tres
     , grub2-theme
     , helix-master
     , picom-ibhagwan
@@ -62,7 +68,7 @@
             dontInstall = false;
             nativeBuildInputs = [ zig-overlay.packages.${system}.master ];
             installPhase = ''
-              zig build install -Dcpu=baseline -Drelease-safe=true -Ddata_version=master -Dknown-folders=${known-folders.outPath}/known-folders.zig --prefix $out
+              zig build install -Dcpu=baseline -Drelease-safe=true -Ddata_version=master -Dtres=${tres.outPath}/tres.zig -Dknown-folders=${known-folders.outPath}/known-folders.zig --prefix $out
             '';
           });
           river = prev.river.overrideAttrs (c: {

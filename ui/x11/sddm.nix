@@ -1,6 +1,6 @@
 { config, pkgs, sddm-theme, ... }:
 {
-  qt5 = {
+  qt = {
     enable        = true;
     platformTheme = "gtk2";
     style         = "gtk2";
