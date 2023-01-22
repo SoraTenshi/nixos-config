@@ -11,6 +11,8 @@
     grub2-theme.url = "github:vinceliuice/grub2-themes";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
 
+    nixos-wsl.url = "github:nix-community/NixOS-WSL";
+
     # Non-flakes
     known-folders = {
       url = "github:ziglibs/known-folders";
@@ -54,6 +56,7 @@
     , picom-ibhagwan
     , emacs-overlay
     , nur
+    , nixos-wsl
     }:
     let
       system = "x86_64-linux";
@@ -107,6 +110,7 @@
           modules = [
             ./machines/wsl/wsl.nix
             ./development/global.nix
+            nixos-wsl.nixosModules.wsl
             home-manager.nixosModules.home-manager
             nur.nixosModules.nur # for config.nur
             ({ config, ... }:{
