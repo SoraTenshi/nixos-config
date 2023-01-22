@@ -12,11 +12,12 @@ in
     shell = pkgs.zsh;
     isNormalUser = true;
     group = "users";
+    password = "12345";
     extraGroups = [ "wheel" ];
   };
 
   services.openssh.enable = true;
   programs.ssh.startAgent = true;
 
-  system.stateVersion = "22.11";
+  system.stateVersion = "unstable";
 }
