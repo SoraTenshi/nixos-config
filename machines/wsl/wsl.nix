@@ -14,6 +14,6 @@ in
     defaultUser = "${defaultUser}";
     startMenuLaunchers = true;
     nativeSystemd = true;
-    interop.includePath = false;
+    interop.register = false;
   };
 }
