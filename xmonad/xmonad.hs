@@ -129,11 +129,11 @@ ovrLogHook = mempty
 
 ovrStartupHook :: X ()
 ovrStartupHook = do
+    setDefaultCursor xC_left_ptr
     spawnOnce "eww daemon"
     spawnOnce "picom"
     spawnOnce "dunst"
     spawnOnce "eww open-many main-bar status2 status3"
-    setDefaultCursor xC_left_ptr
     
 defaults = def {
         terminal           = ovrDefaultTerm,

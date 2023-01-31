@@ -21,7 +21,7 @@
     idris2 
     
     # interpreter
-    nodejs
+    nodejs guile
 
     # cmake
     cmake mmake
