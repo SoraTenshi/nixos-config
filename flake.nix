@@ -95,6 +95,7 @@
                   echo "${riverSession}" > $out/share/wayland-sessions/river.desktop
                 '';
           });
+          material-symbols = prev.callPackage ./derivations/material-symbols/material-symbols.nix {};
         })
       ];
       otherOverlays = [
