@@ -7,7 +7,7 @@
       font_features LilexNerdFontCompleteM-Light +isol -medi -fina -init
     '';
     font = {
-      name = "Lilex Light Nerd Font Complete Mono";
+      name = "Lilex Medium Font Complete Mono";
       size = 18;
     };
     keybindings = {

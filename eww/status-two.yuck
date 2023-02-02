@@ -13,7 +13,8 @@
 
 (defwidget top-left []
 	(box :class "segment-left" :space-evenly "false" :orientation "h" :spacing 3
-		(date_h)))
+		(date_h)
+		(status-h)))
 
 (defwidget top-mid []
 	(box :class "segment-middle" :space-evenly "false" :orientation "h" :spacing 3

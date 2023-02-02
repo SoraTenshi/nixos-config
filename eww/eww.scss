@@ -16,38 +16,16 @@ $wh: $fg;
   font-family: "Lilex Light Nerd Font Complete Mono";
 }
 
-.main-bar {
+.main-bar, .status2, .status3 {
   background-color: $bg;
   color: $fg;
 }
 
-.status2 {
-  background-color: $bg;
-  color: $fg;
-}
-
-.status3 {
-  background-color: $bg;
-  color: $fg;
-}
-
-.segment-top {
-  margin-top: 2px;
-}
-
-.segment-middle {}
-
-.segment-bottom {
-  margin-bottom: 2px;
-}
-
-.segment-left {
-  margin-left: 2px;
-}
-
-.segment-right {
-  margin-right: 2px;
-}
+.segment-top, 
+.segment-middle, 
+.segment-bottom, 
+.segment-left, 
+.segment-right {} 
 
 .color {
   background-color: $nd;
@@ -56,15 +34,15 @@ $wh: $fg;
 .module {
   background-color: $nd;
   border: 0.8px solid $ma;
-  margin: 1px 4px;
+  margin: 0px 4px;
   padding: 1px;
-  border-radius: 10px;
+  // border-radius: 10px;
 }
 
 .icon-progress {
-  font-size: 1.5rem;
-  min-width: 40px;
-  min-height: 40px;
+  font-size: 1.1rem;
+  min-width: 30px;
+  min-height: 30px;
   color: $cy;
 }
 
@@ -94,7 +72,7 @@ $wh: $fg;
   font-size: 1.3rem;
 }
 
-.time {
+.time, .date {
   padding: 1px;
   font-size: 1.4rem;
   color: $fg;
@@ -104,11 +82,6 @@ $wh: $fg;
   padding: 1px;
   font-size: 1.3rem;
   color: $bu;
-}
-
-.date {
-  padding: 1px;
-  font-size: 1.4rem;
 }
 
 .icon {
@@ -130,9 +103,11 @@ scale trough {
   min-width: 15px;
 }
 
-.brightbar trough highlight {
-  border-radius: 5px;
-  background-color: $cy;
+.brightbar, .volumebar {
+  trough highlight {
+    border-radius: 5px;
+    background-color: $cy;
+  }
 }
 
 .volumebar trough highlight {
@@ -141,6 +116,9 @@ scale trough {
 }
 
 .workspaces {
+  background-color: $nd;
+  border: 0.8px solid $ma;
+  padding: 1px;
   button {
     padding: 2px;
     color: $bl;

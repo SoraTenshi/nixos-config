@@ -10,3 +10,10 @@
 		(mem)
 		(disk)))
 
+(defwidget status-h []
+	(box :class "module" :space-evenly true :orientation "h" :spacing 9 :hexpand false
+		(battery)
+		(cpu)
+		(mem)
+		(disk)))
+

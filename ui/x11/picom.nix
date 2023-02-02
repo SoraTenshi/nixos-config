@@ -12,7 +12,7 @@
     ];
 
     settings = {
-      round-borders = 1;
+      round-borders = 0;
       corner-radius = 10;
       
       rounded-corners-exclude = [

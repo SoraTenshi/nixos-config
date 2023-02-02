@@ -1,6 +1,6 @@
 (defwidget disk []
 	(circular-progress
-		:tooltip "Space left: ${round(EWW_DISK["/"]["used_perc"], 0)}%"
+		:tooltip "Space used: ${round(EWW_DISK["/"]["used_perc"], 0)}%"
 		:class "disk-progress"
 		:value {EWW_DISK["/"]["used_perc"]}
 		:start-at 75
