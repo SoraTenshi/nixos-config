@@ -18,7 +18,7 @@
 
     # browser
     vivaldi 
-    firefox-bin
+    firefox
 
     # Screenshots!
     flameshot
