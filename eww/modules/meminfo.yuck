@@ -6,6 +6,6 @@
 		:start-at 75
 		:thickness 4
 		:clockwise true
-		(box :class "icon-progress"
-			(label :text ""))))
+		(label :class "inner-icon"
+			   :text "")))
 

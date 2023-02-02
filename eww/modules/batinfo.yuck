@@ -8,6 +8,6 @@
 			:start-at 75
 			:thickness 4
 			:clockwise true
-			(box :class "icon-progress"
-				(label :text {EWW_BATTERY["BAT1"]["status"] == "Charging" ? "" : EWW_BATTERY["BAT1"]["capacity"] > 74 ? "" : EWW_BATTERY["BAT1"]["capacity"] > 50 ? "" : EWW_BATTERY["BAT1"]["capacity"] > 25 ? "" : ""}))))
+			(label :class "inner-icon"
+				   :text {EWW_BATTERY["BAT1"]["status"] == "Charging" ? "" : EWW_BATTERY["BAT1"]["capacity"] > 74 ? "" : EWW_BATTERY["BAT1"]["capacity"] > 50 ? "" : EWW_BATTERY["BAT1"]["capacity"] > 25 ? "" : ""})))
 

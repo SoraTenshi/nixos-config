@@ -47,26 +47,26 @@
 	:monitor 0
 	:geometry (geometry :x "0"
 						:y "0"
-						:width "55px"
+						:width "60px"
 						:height "100%"
 						:anchor "center left")
 	:windowtype "dock"
 	:wm-ignore  true
 	:hexpand    false
-	:reserve    (struts :side "left" :distance "55px")
+	:reserve    (struts :side "left" :distance "65px")
 	(bar :screen 0))
 	
 (defwindow status2
 	:monitor 2
 	:geometry (geometry :x "0"
 						:y "0"
-						:width "55px"
+						:width "60px"
 						:height "100%"
 						:anchor "center right")
 	:windowtype "dock"
 	:wm-ignore  true
 	:hexpand 	false
-	:reserve    (struts :side "right" :distance "55px")
+	:reserve    (struts :side "right" :distance "65px")
 	(status-three :screen 1))
 	
 (defwindow status3

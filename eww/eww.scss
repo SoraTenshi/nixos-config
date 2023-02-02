@@ -40,30 +40,44 @@ $wh: $fg;
 }
 
 .icon-progress {
-  font-size: 1.1rem;
+  font-family: "MaterialSymbolsSharp";
+  font-size: 1.3rem;
   min-width: 30px;
   min-height: 30px;
+  margin-top: 5px;
   color: $cy;
 }
 
+.inner-icon {
+  @extend .icon-progress;
+  margin-top: 0px;
+}
+
+.icon {
+  font-family: "MaterialSymbolsSharp";
+  color: $cy;
+  font-size: 1.5rem;
+}
+
+
 .battery-progress {
+  @extend .icon-progress;
   color: $ma;
-  margin-top: 5px;
 }
 
 .cpu-progress {
+  @extend .icon-progress;
   color: $re;
-  margin-top: 5px;
 }
 
 .mem-progress {
+  @extend .icon-progress;
   color: $gr;
-  margin-top: 5px;
 }
 
 .disk-progress {
+  @extend .icon-progress;
   color: $bl;
-  margin-top: 5px;
 }
 
 .ampm {
@@ -82,12 +96,6 @@ $wh: $fg;
   padding: 1px;
   font-size: 1.3rem;
   color: $bu;
-}
-
-.icon {
-  font-family: "MaterialSymbolsSharp";
-  color: $cy;
-  font-size: 1.5rem;
 }
 
 .info {
@@ -118,8 +126,8 @@ scale trough {
 .workspaces {
   background-color: $nd;
   border: 0.8px solid $ma;
-  font-size: 0.8rem;
-  font-family: "Ricty Diminished with Fira Code";
+  font-size: 1.2rem;
+  font-family: Ricty Diminished with Fira Code;
   button {
     padding: 2.5px;
     color: $bl;
@@ -127,7 +135,7 @@ scale trough {
       color: $fg;
     }
     &.active {
-      font-size: 1.0rem;
+      font-size: 1.4rem;
       color: $cy;
     }
   }
