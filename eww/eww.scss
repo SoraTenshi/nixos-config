@@ -17,7 +17,7 @@ $wh: $fg;
 }
 
 .main-bar, .status2, .status3 {
-  background-color: $bg;
+  background-color: rgba($bg, 0.8);
   color: $fg;
 }
 
@@ -32,7 +32,7 @@ $wh: $fg;
 }
 
 .module {
-  background-color: $nd;
+  background-color: rgba($nd, 0.4);
   border: 0.8px solid $ma;
   padding: 1px;
 }
@@ -103,7 +103,7 @@ $wh: $fg;
 
 scale trough {
   all: unset;
-  background-color: $bl;
+  background-color: rgba($bl, 0.4);
   border-radius: 5px;
   min-height: 80px;
   min-width: 15px;
@@ -116,13 +116,8 @@ scale trough {
   }
 }
 
-.volumebar trough highlight {
-  border-radius: 5px;
-  background-color: $cy;
-}
-
 .workspaces {
-  background-color: $nd;
+  background-color: rgba($nd, 0.4);
   border: 0.8px solid $ma;
   font-size: 1.2rem;
   font-family: Ricty Diminished with Fira Code;
