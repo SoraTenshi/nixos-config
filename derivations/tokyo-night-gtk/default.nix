@@ -33,6 +33,6 @@ stdenvNoCC.mkDerivation {
     homepage = "www.pling.com/p/1681315/";
     license = licenses.gpl3Only;
     platforms = platforms.unix;
-    maintainers = [ soratenshi ];
+    maintainers = [ maintainer.soratenshi ];
   };
 }

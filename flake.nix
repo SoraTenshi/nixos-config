@@ -38,6 +38,11 @@
       url = "github:SoraTenshi/tokyo-night-sddm";
       flake = false;
     };
+
+    tokyo-night-gtk = {
+      url = "github:Fausto-Korpsvart/Tokyo-Night-GTK-Theme";
+      flake = false;
+    };
   };
 
   outputs =
@@ -57,6 +62,7 @@
     , emacs-overlay
     , nur
     , nixos-wsl
+    , tokyo-night-gtk
     }:
     let
       system = "x86_64-linux";
@@ -71,7 +77,8 @@
             dontInstall = false;
             nativeBuildInputs = [ zig-overlay.packages.${system}.master ];
             installPhase = ''
-              zig build install -Dcpu=baseline -Drelease-safe=true -Ddata_version=master -Dtres=${tres.outPath}/tres.zig -Dknown-folders=${known-folders.outPath}/known-folders.zig --prefix $out
+              mkdir -p $out
+              zig build install -Dcpu=baseline -Doptimize=ReleaseSafe -Ddata_version=master -Dtres=${tres.outPath}/tres.zig -Dknown-folders=${known-folders.outPath}/known-folders.zig --prefix $out
             '';
           });
           river = prev.river.overrideAttrs (c: {
@@ -96,6 +103,7 @@
                 '';
           });
           material-symbols = prev.callPackage ./derivations/material-symbols {};
+          tokyo-night-gtk = prev.callPackage ./derivations/tokyo-night-gtk {inherit tokyo-night-gtk;};
         })
       ];
       otherOverlays = [

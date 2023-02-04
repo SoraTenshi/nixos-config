@@ -12,6 +12,11 @@ in
 
   gtk = {
     enable = true;
+    theme = {
+      name = "Tokyonight-Storm-BL";
+      package = pkgs.tokyo-night-gtk;
+    };
+
     cursorTheme = {
       package = cursorPackage;
       name = cursorName;
