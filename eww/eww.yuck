@@ -65,7 +65,7 @@
 						:anchor "center right")
 	:windowtype "dock"
 	:wm-ignore  true
-	:hexpand 	false
+	:hexpand    false
 	:reserve    (struts :side "right" :distance "65px")
 	(status-three :screen 1))
 	
