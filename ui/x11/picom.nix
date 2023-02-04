@@ -12,9 +12,6 @@
     ];
 
     settings = {
-      round-borders = 0;
-      corner-radius = 10;
-      
       rounded-corners-exclude = [
         "window_type = 'dock'"
       ];

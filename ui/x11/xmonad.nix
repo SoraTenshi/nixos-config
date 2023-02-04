@@ -1,17 +1,30 @@
 { self, config, pkgs, ... }:
+
+let
+  cursorPackage = pkgs.catppuccin-cursors.macchiatoBlue;
+  cursorName = "Catppuccin-Macchiato-Blue-Cursors";
+in
 {
   imports = [
     ./picom.nix
     ./eww.nix
   ];
 
+  gtk = {
+    enable = true;
+    cursorTheme = {
+      package = cursorPackage;
+      name = cursorName;
+    };
+  };
+
   home.pointerCursor = {
-    package = pkgs.catppuccin-cursors.macchiatoBlue;
-    name = "Catppuccin-Macchiato-Blue-Cursors";
+    package = cursorPackage;
+    name = cursorName;
     size = 32;
     gtk.enable = true;
     x11.enable = true;
-    x11.defaultCursor = "Catppuccin-Macchiato-Blue-Cursors";
+    x11.defaultCursor = cursorName;
   };
 
   home.packages = with pkgs; [

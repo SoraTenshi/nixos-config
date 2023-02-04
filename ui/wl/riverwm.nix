@@ -62,7 +62,7 @@
 
     CLUTTER_BACKEND                     = "wayland";
     SDL_VIDEODRIVER                     = "wayland";
-    QT_QPA_PLATFORM                     = "wayland";
+    # QT_QPA_PLATFORM                     = "wayland";
 
     __GL_GSYNC_ALLOWED                  = "0";
     __GL_VRR_ALLOWED                    = "0";
@@ -72,8 +72,6 @@
     MOZ_ENABLE_WAYLAND                  = "1";
     WLR_NO_HARDWARE_CURSORS             = "1";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-
-    QT_QPA_PLATFORMTHEME                = "qt5ct";
 
     WLR_DRM_DEVICES                     = "/dev/dri/card1:/dev/dri/card0";
     WLR_BACKEND                         = "vulkan";
