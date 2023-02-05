@@ -1,5 +1,6 @@
 { config, ... }:
 {
+  programs.dconf.enable = true;
   nix.settings = {
     auto-optimise-store = true;
     experimental-features = [ "nix-command" "flakes" ];
