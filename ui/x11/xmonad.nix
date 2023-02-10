@@ -23,6 +23,11 @@ in
     };
   };
 
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
+  };
+
   home.pointerCursor = {
     package = cursorPackage;
     name = cursorName;

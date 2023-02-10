@@ -11,6 +11,7 @@ import XMonad.Util.Cursor
 import XMonad.Layout.LayoutModifier (ModifiedLayout)
 import XMonad.Layout.Spacing (Border (Border), Spacing, spacingRaw)
 import XMonad.Layout.BinarySpacePartition
+import XMonad.Layout.ToggleLayouts
 
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
@@ -50,6 +51,7 @@ ovrKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_p     ), rofiShowShutdown)
     , ((modm .|. shiftMask, xK_q     ), kill)
     , ((modm,               xK_space ), sendMessage NextLayout)
+    , ((modm,               xK_f     ), sendMessage $ Toggle "Full")
     , ((modm .|. shiftMask, xK_n     ), refresh)
     , ((controlMask,        xK_Print ), screenshot)
     , ((modm,               xK_r     ), sendMessage $ Rotate)
@@ -108,10 +110,11 @@ ovrMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
+
 createSpacing :: Integer -> l a -> ModifiedLayout Spacing l a
 createSpacing i = spacingRaw True (Border 0 i 0 i) True (Border i 0 i 0) True
 
-ovrLayout = avoidStruts (createSpacing 8 $ Tall 1 (12/100) (1/2) ||| emptyBSP ||| Full)
+ovrLayout = avoidStruts ((toggleLayouts Full) (createSpacing 8 $ Tall 1 (12/100) (1/2) ||| emptyBSP))
 
 -- Essentially just managing
 -- e.g. "start MPlayer" -> "as floating"

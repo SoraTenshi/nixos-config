@@ -5,6 +5,7 @@
     
     settings = {
       global = {
+        follow = "mouse";
         alignment = "left";
         vertical_alignment = "center";
         width = 400;
@@ -28,6 +29,7 @@
         
         seperator_color = "frame";
         sort = "yes";
+        startup_notification = true;
       };
       
       urgency_normal = {
