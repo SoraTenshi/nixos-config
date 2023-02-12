@@ -1,18 +1,26 @@
-{ pkgs, ... }:
+{ pkgs, nix-gaming, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    vulkan-loader
-
+    amdvlk
+    dxvk
+    
     winetricks
+    vulkan-tools
+    openssl
+    gnome.zenity
+
     (lutris.override {
       lutris-unwrapped = lutris-unwrapped.override {
-        wine = wineWowPackages.staging;
+        wine = nix-gaming.packages.${pkgs.system}.wine-tkg;
       };
     })
   ];
+
+  boot.kernel.sysctl = { "abi.vsyscall32" = 0; };
+  environment.sessionVariables = { QT_X11_NO_MITSHM = "1"; };
   
   services.xserver = {
     enable = true;

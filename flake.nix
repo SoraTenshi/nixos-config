@@ -10,6 +10,7 @@
     helix-master.url = "github:SoraTenshi/helix/experimental-22.12";
     grub2-theme.url = "github:vinceliuice/grub2-themes";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
+    nix-gaming.url = "github:fufexan/nix-gaming";
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
 
@@ -63,6 +64,7 @@
     , nur
     , nixos-wsl
     , tokyo-night-gtk
+    , nix-gaming
     }:
     let
       system = "x86_64-linux";
@@ -70,17 +72,17 @@
       overlays = [
         (final: prev: {
           picom = prev.picom.overrideAttrs (c: { src = picom-ibhagwan; });
-          zls = prev.zls.overrideAttrs (c: {
-            version = "master";
-            src = zls-master;
-            dontConfigure = true;
-            dontInstall = false;
-            nativeBuildInputs = [ zig-overlay.packages.${system}.master ];
-            installPhase = ''
-              mkdir -p $out
-              zig build install -Dcpu=baseline -Doptimize=ReleaseSafe -Ddata_version=master -Dtres=${tres.outPath}/tres.zig -Dknown-folders=${known-folders.outPath}/known-folders.zig --prefix $out
-            '';
-          });
+          # zls = prev.zls.overrideAttrs (c: {
+          #   version = "master";
+          #   src = zls-master;
+          #   dontConfigure = true;
+          #   dontInstall = false;
+          #   nativeBuildInputs = [ zig-overlay.packages.${system}.master ];
+          #   installPhase = ''
+          #     mkdir -p $out
+          #     zig build install -Dcpu=baseline -Doptimize=ReleaseSafe -Ddata_version=master -Dtres=${tres.outPath}/tres.zig -Dknown-folders=${known-folders.outPath}/known-folders.zig --prefix $out
+          #   '';
+          # });
           river = prev.river.overrideAttrs (c: {
             installPhase = ''
                 runHook preInstall
@@ -144,7 +146,7 @@
 
         battlestation = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit sddm-theme grub2-theme; };
+          specialArgs = { inherit sddm-theme grub2-theme nix-gaming; };
           modules = [
             ./machines/battlestation/battlestation.nix
             ./env/nvidia.nix
