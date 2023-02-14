@@ -9,5 +9,6 @@
     ./nushell.nix
     ./misc.nix
     ./rss.nix
+    ./zellij.nix
   ];
 }
