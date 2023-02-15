@@ -19,8 +19,6 @@ stdenvNoCC.mkDerivation {
     gnome-themes-extra
   ];
 
-  dontBuild = true;
-
   installPhase = ''
     runHook preInstall
     mkdir -p $out/share/themes
