@@ -93,6 +93,8 @@ in
     opensc fcitx5-configtool
     
     exa zoxide bat fzf
+
+    libxkbcommon openal harfbuzz 
   ];
 
   services.pcscd.enable = true;
