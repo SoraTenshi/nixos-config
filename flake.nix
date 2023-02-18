@@ -178,6 +178,7 @@
           inherit system;
           specialArgs = { inherit sddm-theme grub2-theme; };
           modules = [
+            ./ui/arcan/default.nix
             ./machines/thinkpad-t470/t470.nix
             ./development/global.nix
             nixos-hardware.nixosModules.lenovo-thinkpad-t470s
