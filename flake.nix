@@ -20,6 +20,11 @@
       flake = false;
     };
 
+    diffz = {
+      url = "github:ziglibs/diffz";
+      flake = false;
+    };
+
     tres = {
       url = "github:ziglibs/tres";
       flake = false;
@@ -57,6 +62,7 @@
     , zls-master
     , known-folders
     , tres
+    , diffz
     , grub2-theme
     , helix-master
     , picom-ibhagwan
@@ -72,38 +78,38 @@
       overlays = [
         (final: prev: {
           picom = prev.picom.overrideAttrs (c: { src = picom-ibhagwan; });
-          # zls = prev.zls.overrideAttrs (c: {
-          #   version = "master";
-          #   src = zls-master;
-          #   dontConfigure = true;
-          #   dontInstall = false;
-          #   nativeBuildInputs = [ zig-overlay.packages.${system}.master ];
-          #   installPhase = ''
-          #     mkdir -p $out
-          #     zig build install -Dcpu=baseline -Doptimize=ReleaseSafe -Ddata_version=master -Dtres=${tres.outPath}/tres.zig -Dknown-folders=${known-folders.outPath}/known-folders.zig --prefix $out
-          #   '';
-          # });
-          # river = prev.river.overrideAttrs (c: {
-          #   installPhase = ''
-          #       runHook preInstall
-          #       zig build -Drelease-safe -Dcpu=baseline -Dxwayland -Dman-pages --prefix $out install
-          #       runHook postInstall
-          #   '';
-          #   postInstall = 
-          #     let 
-          #       riverSession = ''
-          #         [Desktop Entry]
-          #         Name=River
-          #         Comment=Dynamic Wayland compositor
-          #         Exec=river
-          #         Type=Application
-          #       '';
-          #     in
-          #       ''
-          #         mkdir -p $out/share/wayland-sessions
-          #         echo "${riverSession}" > $out/share/wayland-sessions/river.desktop
-          #       '';
-          # });
+          zls = prev.zls.overrideAttrs (c: {
+            version = "master";
+            src = zls-master;
+            dontConfigure = true;
+            dontInstall = false;
+            nativeBuildInputs = [ zig-overlay.packages.${system}.master ];
+            installPhase = ''
+              mkdir -p $out
+              zig build install -Dcpu=baseline -Doptimize=ReleaseSafe -Ddata_version=master -Dtres=${tres.outPath}/tres.zig -Ddiffz=${diffz.outPath}/DiffMatchPatch.zig -Dknown-folders=${known-folders.outPath}/known-folders.zig --prefix $out
+            '';
+          });
+          river = prev.river.overrideAttrs (c: {
+            installPhase = ''
+                runHook preInstall
+                zig build -Drelease-safe -Dcpu=baseline -Dxwayland -Dman-pages --prefix $out install
+                runHook postInstall
+            '';
+            postInstall = 
+              let 
+                riverSession = ''
+                  [Desktop Entry]
+                  Name=River
+                  Comment=Dynamic Wayland compositor
+                  Exec=river
+                  Type=Application
+                '';
+              in
+                ''
+                  mkdir -p $out/share/wayland-sessions
+                  echo "${riverSession}" > $out/share/wayland-sessions/river.desktop
+                '';
+          });
           material-symbols = prev.callPackage ./derivations/material-symbols {};
           tokyo-night-gtk = prev.callPackage ./derivations/tokyo-night-gtk {inherit tokyo-night-gtk;};
         })
