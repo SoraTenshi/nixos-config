@@ -1,5 +1,12 @@
 { self, config, pkgs, neovim-nightly, codeium, ... }:
 
+let 
+  codeium-vim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    pname = "codeium";
+    version = "master";
+    src = codeium;
+  };
+in
 {
   nixpkgs.overlays = neovim-nightly;
 
@@ -21,12 +28,13 @@
 
       # auto complete
       nvim-lspconfig lsp_signature-nvim cmp_luasnip luasnip cmp-nvim-lsp nvim-cmp lspkind-nvim
+      auto-pairs
 
       # design stuff
       tokyonight-nvim indent-blankline-nvim fidget-nvim
 
       # Toy
-      guess-indent-nvim 
+      guess-indent-nvim codeium-vim
       
       # tree sitter
       (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars)) nvim-ts-rainbow

@@ -22,6 +22,8 @@
 
     diffz = {
       url = "github:ziglibs/diffz";
+    codeium = {
+      url = "github:Exafunction/codeium.vim";
       flake = false;
     };
 
@@ -71,6 +73,7 @@
     , nixos-wsl
     , tokyo-night-gtk
     , nix-gaming
+    , codeium
     }:
     let
       system = "x86_64-linux";
@@ -141,7 +144,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit
-                  self neovim-nightly helix-master;
+                  self neovim-nightly helix-master codeium;
               };
               home-manager.users.dreamer = { ... }: {
                 imports = [ ./profiles/wsl/default.nix ];
@@ -171,7 +174,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit
-                  self neovim-nightly helix-master picom-ibhagwan;
+                  self neovim-nightly helix-master picom-ibhagwan codeium;
               };
               home-manager.users.dreamer = { ... }: {
                 imports = [ ./profiles/dreamer/default.nix ];
@@ -201,7 +204,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit
-                  self neovim-nightly helix-master picom-ibhagwan;
+                  self neovim-nightly helix-master picom-ibhagwan codeium;
               };
               home-manager.users.dreamer = { ... }: {
                 imports = [ ./profiles/dreamer/default.nix ];

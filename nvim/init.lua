@@ -35,6 +35,7 @@ require('init_ll')
 require('init_ts')
 require('init_bl')
 require('init_sh')
+require('init_gi')
 
 require('indent')
 require('completion')

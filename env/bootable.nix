@@ -56,24 +56,25 @@ in
   };
 
   sound.enable = true;
+  hardware.pulseaudio.enable = true;
   nixpkgs.config.allowUnfree = true;
 
-  services.pipewire = {
-    enable = true;
-    alsa = {
-      enable = true;
-      support32Bit = true;
-    };
+  # services.pipewire = {
+  #   enable = true;
+  #   alsa = {
+  #     enable = true;
+  #     support32Bit = true;
+  #   };
 
-    pulse.enable = true;
+  #   pulse.enable = true;
 
-    # To be integrated
-    # lowLatency = {
-    #   enable = true;
-    #   quantum = 64;
-    #   rate = 48000;
-    # };
-  };
+  #   # To be integrated
+  #   # lowLatency = {
+  #   #   enable = true;
+  #   #   quantum = 64;
+  #   #   rate = 48000;
+  #   # };
+  # };
   
   services.xserver = {
     enable = true;
