@@ -13,16 +13,17 @@
         idle-timeout = 1;
         true-color = true;
         rainbow-brackets = true;
-        lsp.display-messages = true;
         bufferline = "always";
-        sticky-context = true;
         rulers = [ 80 ];
         popup-border = "all";
-        
-        explorer = {
-          position = "embed";
-        };
+        soft-wrap.enable = true;
 
+        lsp = {
+          display-messages = true;
+          display-inlay-hints = true;
+          display-inline-diagnostics = true;
+        };
+        
         whitespace.render = "all";
         whitespace.characters = {
           space = "·";
@@ -46,7 +47,7 @@
         };
         indent-guides = {
           render = true;
-          rainbow = "normal";
+          rainbow-option = "normal";
         };
       };
       keys.normal = {
