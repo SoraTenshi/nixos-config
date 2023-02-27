@@ -17,9 +17,14 @@
 
     # compiler
     clang go nim cargo rustc julia-bin
-    elixir
+    elixir gleam erlang
     idris2 
-    
+
+    nasm
+
+    # practice
+    exercism
+
     # interpreter
     nodejs guile
 

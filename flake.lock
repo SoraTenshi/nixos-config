@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "codeium": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1676685247,
+        "narHash": "sha256-ktil6ypic7oZcsmoiGW3t4jkIsx/GAWC4q4xukxnPfY=",
+        "owner": "Exafunction",
+        "repo": "codeium.vim",
+        "rev": "be2fa21f4f63850382a0cefeaa9f766b977c9f0c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Exafunction",
+        "repo": "codeium.vim",
+        "type": "github"
+      }
+    },
     "crane": {
       "flake": false,
       "locked": {
@@ -666,6 +682,7 @@
     },
     "root": {
       "inputs": {
+        "codeium": "codeium",
         "diffz": "diffz",
         "emacs-overlay": "emacs-overlay",
         "grub2-theme": "grub2-theme",

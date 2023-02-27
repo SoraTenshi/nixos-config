@@ -20,10 +20,13 @@
       flake = false;
     };
 
-    diffz = {
-      url = "github:ziglibs/diffz";
     codeium = {
       url = "github:Exafunction/codeium.vim";
+      flake = false;
+    };
+
+    diffz = {
+      url = "github:ziglibs/diffz";
       flake = false;
     };
 
@@ -157,6 +160,7 @@
           inherit system;
           specialArgs = { inherit sddm-theme grub2-theme nix-gaming; };
           modules = [
+            ./ui/arcan/default.nix
             ./machines/battlestation/battlestation.nix
             ./env/nvidia.nix
             ./development/global.nix

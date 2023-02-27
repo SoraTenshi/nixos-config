@@ -28,12 +28,10 @@ $wh: $fg;
 .segment-right {} 
 
 .color {
-  background-color: $nd;
 }
 
 .module {
-  background-color: rgba($nd, 0.4);
-  border: 0.8px solid $ma;
+  border: 1px solid $ma;
   padding: 1px;
 }
 
@@ -117,8 +115,7 @@ scale trough {
 }
 
 .workspaces {
-  background-color: rgba($nd, 0.4);
-  border: 0.8px solid $ma;
+  border: 1px solid $ma;
   font-size: 1.2rem;
   font-family: Ricty Diminished with Fira Code;
   button {
