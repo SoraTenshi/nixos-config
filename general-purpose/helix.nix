@@ -5,6 +5,7 @@
     package = helix-master.packages."x86_64-linux".default;
     settings = {
       theme = "tokyonight_storm";
+      icons = "nerdfonts";
       editor = {
         line-number = "relative";
         cursorline = true;
@@ -14,9 +15,10 @@
         true-color = true;
         rainbow-brackets = true;
         bufferline = "always";
-        rulers = [ 80 ];
+        rulers = [ 100 ];
         popup-border = "all";
         soft-wrap.enable = true;
+        completion-replace = true;
 
         lsp = {
           display-messages = true;
