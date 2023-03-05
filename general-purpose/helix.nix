@@ -20,6 +20,11 @@
         soft-wrap.enable = true;
         completion-replace = true;
 
+        sticky-context = {
+          enable = true;
+          indicator = true;
+        };
+
         lsp = {
           display-messages = true;
           display-inlay-hints = true;
@@ -82,6 +87,6 @@
     nodePackages.typescript-language-server # Typescript
     nodePackages.vim-language-server # Vim
     nodePackages.yaml-language-server # YAML / JSON
-    sumneko-lua-language-server # Lua
+    luajitPackages.lua-lsp # Lua
   ];
 }
