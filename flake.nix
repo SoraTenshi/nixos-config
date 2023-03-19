@@ -11,32 +11,13 @@
     grub2-theme.url = "github:vinceliuice/grub2-themes";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     nix-gaming.url = "github:fufexan/nix-gaming";
-
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
+    zls-master.url = "github:zigtools/zls/master";
+
 
     # Non-flakes
-    known-folders = {
-      url = "github:ziglibs/known-folders";
-      flake = false;
-    };
-
     codeium = {
       url = "github:Exafunction/codeium.vim";
-      flake = false;
-    };
-
-    diffz = {
-      url = "github:ziglibs/diffz";
-      flake = false;
-    };
-
-    tres = {
-      url = "github:ziglibs/tres";
-      flake = false;
-    };
-
-    zls-master = {
-      url = "github:zigtools/zls/master";
       flake = false;
     };
 
@@ -65,9 +46,6 @@
     , neovim-nightly
     , zig-overlay
     , zls-master
-    , known-folders
-    , tres
-    , diffz
     , grub2-theme
     , helix-master
     , picom-ibhagwan
@@ -83,18 +61,8 @@
       
       overlays = [
         (final: prev: {
+          prev.zls = zls-master.packages.zls;
           picom = prev.picom.overrideAttrs (c: { src = picom-ibhagwan; });
-          zls = prev.zls.overrideAttrs (c: {
-            version = "master";
-            src = zls-master;
-            dontConfigure = true;
-            dontInstall = false;
-            nativeBuildInputs = [ zig-overlay.packages.${system}.master ];
-            installPhase = ''
-              mkdir -p $out
-              zig build install -Dcpu=baseline -Doptimize=ReleaseSafe -Ddata_version=master -Dtres=${tres.outPath}/tres.zig -Ddiffz=${diffz.outPath}/DiffMatchPatch.zig -Dknown-folders=${known-folders.outPath}/known-folders.zig --prefix $out
-            '';
-          });
           river = prev.river.overrideAttrs (c: {
             installPhase = ''
                 runHook preInstall

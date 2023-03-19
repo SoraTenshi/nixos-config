@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     xclip
@@ -8,5 +8,6 @@
     gh
     jq
     btop
+    tiny
   ];
 }
