@@ -1,4 +1,4 @@
-{ self, pkgs, sddm-theme, ... }:
+{ pkgs, sddm-theme, ... }:
 
 let
   defaultUser = "dreamer";
@@ -59,13 +59,12 @@ in
   hardware.pulseaudio.enable = true;
   nixpkgs.config.allowUnfree = true;
 
+  # security.rtkit.enable = true;
   # services.pipewire = {
   #   enable = true;
-  #   alsa = {
-  #     enable = true;
-  #     support32Bit = true;
-  #   };
-
+  #   audio.enable = true;
+  #   alsa.enable = true;
+  #   alsa.support32Bit = true;
   #   pulse.enable = true;
 
   #   # To be integrated
@@ -96,6 +95,8 @@ in
     exa zoxide bat fzf
 
     libxkbcommon openal harfbuzz 
+
+    pavucontrol
   ];
 
   services.pcscd.enable = true;
@@ -109,7 +110,7 @@ in
     isNormalUser = true;
     initialPassword = "12345";
     group = "users";
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" ];
   };
 
   fonts.fontDir.enable = true;
@@ -117,6 +118,7 @@ in
     material-symbols
     meslo-lgs-nf
     rictydiminished-with-firacode
+    noto-fonts-emoji
     (nerdfonts.override { fonts = [ "Lilex" ]; })
   ];
 

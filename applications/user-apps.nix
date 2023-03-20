@@ -9,7 +9,7 @@
     discord-canary
     discord-ptb
 
-    qmk
+    qmk vial
 
     freshfetch
     
