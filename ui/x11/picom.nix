@@ -1,10 +1,12 @@
-{ pkgs, ... }:
+{ ... }:
 {
   services.picom = {
     enable = true;
     fade = true;
     fadeDelta = 5;
     backend = "glx";
+
+    vSync = false;
     
     opacityRules = [
       "60:class_g = 'alacritty'"

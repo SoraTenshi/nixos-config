@@ -21,6 +21,10 @@
 
   boot.kernel.sysctl = { "abi.vsyscall32" = 0; };
   environment.sessionVariables = { QT_X11_NO_MITSHM = "1"; };
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+  };
   
   services.xserver = {
     enable = true;
