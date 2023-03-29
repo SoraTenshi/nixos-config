@@ -7,7 +7,7 @@
     home-manager.url = "github:nix-community/home-manager";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     zig-overlay.url = "github:mitchellh/zig-overlay";
-    helix-master.url = "github:SoraTenshi/helix/daily-driver";
+    helix-master.url = "github:SoraTenshi/helix/new-daily-driver";
     grub2-theme.url = "github:vinceliuice/grub2-themes";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     nix-gaming.url = "github:fufexan/nix-gaming";

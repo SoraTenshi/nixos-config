@@ -76,6 +76,7 @@ in
   # };
   
   services.xserver = {
+    layout = "eu";
     enable = true;
     displayManager.defaultSession = "none+xmonad";
     desktopManager.runXdgAutostartIfNone = true;
@@ -105,6 +106,7 @@ in
     agentPKCS11Whitelist = "${pkgs.opensc}/lib/opensc-pkcs11.so";
   };
 
+  programs.zsh.enable = true;
   users.users.${defaultUser} = {
     shell = pkgs.zsh;
     isNormalUser = true;

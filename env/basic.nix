@@ -8,6 +8,7 @@ in
     ./shared.nix
   ];
 
+  programs.zsh.enable = true;
   users.users.${defaultUser} = {
     shell = pkgs.zsh;
     isNormalUser = true;
