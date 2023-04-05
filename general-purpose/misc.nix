@@ -9,5 +9,6 @@
     jq
     btop
     tiny
+    gptcommit
   ];
 }

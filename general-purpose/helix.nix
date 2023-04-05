@@ -29,7 +29,6 @@
         lsp = {
           display-messages = true;
           display-inlay-hints = true;
-          display-inline-diagnostics = true;
         };
         
         whitespace.render = "all";
