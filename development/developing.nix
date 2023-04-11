@@ -34,16 +34,18 @@
 
   xdg.configFile."zls.json".text = builtins.toJSON {
     "$schema" = "https://raw.githubusercontent.com/zigtools/zls/master/schema.json";
-    zig_exe_path = "${pkgs.zigpkgs.master.outPath}/bin/zig";
-    enable_snippets = true;
     enable_ast_check_diagnostics = true;
     enable_autofix = false;
     enable_import_embedfile_argument_completions = true;
-    warn_style = true;
-    enable_semantic_tokens = true;
     enable_inlay_hints = true;
-    operator_completions = true;
+    enable_semantic_tokens = true;
+    enable_snippets = true;
+    highlight_global_var_declarations = true;
     include_at_in_builtins = false;
     max_detail_length = 104857;
+    operator_completions = true;
+    use_comptime_interpreter = true;
+    warn_style = true;
+    zig_exe_path = "${pkgs.zigpkgs.master.outPath}/bin/zig";
   };
 }
