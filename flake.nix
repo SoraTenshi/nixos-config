@@ -14,7 +14,6 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     zls-master.url = "github:zigtools/zls/master";
 
-
     # Non-flakes
     codeium = {
       url = "github:Exafunction/codeium.vim";

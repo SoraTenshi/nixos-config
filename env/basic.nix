@@ -17,7 +17,13 @@ in
     extraGroups = [ "wheel" ];
   };
 
+  time = {
+    hardwareClockInLocalTime = true;
+    timeZone = "Europe/Berlin";
+  };
+
   services.openssh.enable = true;
+  virtualisation.docker.enable = true;
   programs.ssh.startAgent = true;
 
   system.stateVersion = "unstable";

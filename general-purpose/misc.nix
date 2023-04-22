@@ -10,5 +10,6 @@
     btop
     tiny
     gptcommit
+    docker
   ];
 }
