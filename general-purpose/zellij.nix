@@ -1,10 +1,19 @@
-{ self, pkgs, ... }:
+{ pkgs, ... }:
 {
   programs.zellij = {
     enable = true;
     settings = {
-      theme = "custom";
-      themes.custom = {
+      ui = {
+        pane-frames = {
+          rounded-corners = false;
+          hide-session-name = true;
+        };
+      };
+
+      scrollback_editor = "hx";
+      simplified-ui = true;
+      theme = "tokyonight-storm";
+      themes.tokyonight-storm = {
         fg = "#a9b1d6";
         bg = "#24283b";
         black = "#383e5a";
