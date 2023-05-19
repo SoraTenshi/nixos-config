@@ -12,7 +12,11 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-  boot.loader.grub.trustedBoot.systemHasTPM = "YES_TPM_is_activated";
+
+  security.tpm2 = {
+    enable = true;
+    pkcs11.enable = true;
+  };
 
   hardware.nvidia = {
     modesetting.enable = true;

@@ -11,7 +11,11 @@
     initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
-    loader.grub.trustedBoot.systemHasTPM = "YES_TPM_is_activated";
+  };
+
+  security.tpm2 = {
+    enable = true;
+    pkcs11.enable = true;
   };
 
   networking = {
