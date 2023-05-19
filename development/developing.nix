@@ -16,6 +16,7 @@
     gdb
 
     # compiler
+    rustup
     clang go nim cargo rustc julia-bin
     elixir gleam erlang
     idris2 
@@ -40,8 +41,6 @@
     enable_inlay_hints = true;
     enable_semantic_tokens = true;
     enable_snippets = true;
-    highlight_global_var_declarations = true;
-    include_at_in_builtins = true;
     max_detail_length = 104857;
     operator_completions = true;
     use_comptime_interpreter = true;
