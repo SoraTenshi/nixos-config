@@ -16,7 +16,6 @@
     gdb
 
     # compiler
-    rustup
     clang go nim cargo rustc julia-bin
     elixir gleam erlang
     idris2 
