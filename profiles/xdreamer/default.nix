@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  home.stateVersion = "unstable";
+  home.stateVersion = "23.05";
 
   imports = [
     # ui
