@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   imports = [
     ./kakoune.nix
@@ -9,6 +9,6 @@
     ./nushell.nix
     ./misc.nix
     ./rss.nix
-    ./zellij.nix
+    # ./zellij.nix
   ];
 }

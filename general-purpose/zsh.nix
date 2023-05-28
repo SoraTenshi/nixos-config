@@ -37,7 +37,7 @@ in
     initExtra = ''
       eval "$(zoxide init zsh)"
       eval "$(oh-my-posh init zsh --config '/home/dreamer/.oh-my-posh/tokyonight_ascii.opm.json')"
-      eval "$(zellij setup --generate-auto-start zsh)"
+      # eval "$(zellij setup --generate-auto-start zsh)"
 
       bindkey '^[[1~'   beginning-of-line   # home
       bindkey '^[[4~'   end-of-line         # end
