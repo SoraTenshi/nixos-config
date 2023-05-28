@@ -1,4 +1,4 @@
-{ pkgs, nix-gaming, ... }:
+{ pkgs, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -11,12 +11,6 @@
     vulkan-tools
     openssl
     gnome.zenity
-
-    (lutris.override {
-      lutris-unwrapped = lutris-unwrapped.override {
-        wine = nix-gaming.packages.${pkgs.system}.wine-tkg;
-      };
-    })
   ];
 
   boot.kernel.sysctl = { "abi.vsyscall32" = 0; };

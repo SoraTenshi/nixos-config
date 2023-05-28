@@ -6,7 +6,10 @@ in
 {
   imports = [
     ./shared.nix
+
     ../ui/wl/riverwm.nix
+    ../ui/wl/gnome.nix
+
     ../ui/x11/sddm.nix
     # ../ui/x11/lightdm.nix
   ];
@@ -79,7 +82,12 @@ in
     layout = "eu";
     enable = true;
     displayManager.defaultSession = "none+xmonad";
-    desktopManager.runXdgAutostartIfNone = true;
+    desktopManager = {
+      gnome = {
+        enable = true;
+      };
+      runXdgAutostartIfNone = true;
+    };
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
