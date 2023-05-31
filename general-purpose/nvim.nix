@@ -1,4 +1,4 @@
-{ self, config, pkgs, neovim-nightly, ... }:
+{ self, pkgs, neovim-nightly, ... }:
 
 {
   nixpkgs.overlays = neovim-nightly;
@@ -14,14 +14,15 @@
       telescope-nvim vim-easy-align vim-css-color which-key-nvim vim-cursorword
 
       # visual 
-      lualine-nvim lualine-lsp-progress
+      lualine-nvim lualine-lsp-progress nvim-web-devicons
 
       # buffer stuff
       bufferline-nvim
 
       # auto complete
       nvim-lspconfig lsp_signature-nvim cmp_luasnip luasnip cmp-nvim-lsp nvim-cmp lspkind-nvim
-      auto-pairs
+
+      nvim-treesitter-context auto-pairs
 
       # design stuff
       tokyonight-nvim indent-blankline-nvim fidget-nvim

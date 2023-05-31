@@ -6,7 +6,7 @@
     odin
   
     # tooling
-    lazygit
+    lazygit delta
 
     # build zig
     lld_14
@@ -35,7 +35,7 @@
   xdg.configFile."zls.json".text = builtins.toJSON {
     "$schema" = "https://raw.githubusercontent.com/zigtools/zls/master/schema.json";
     enable_ast_check_diagnostics = true;
-    enable_autofix = false;
+    enable_autofix = true;
     enable_import_embedfile_argument_completions = true;
     enable_inlay_hints = true;
     enable_semantic_tokens = true;

@@ -1,7 +1,8 @@
 require('bufferline').setup {
   options = {
     mode = "buffers",
-    numbers = "none",
+    numbers = "both",
+    numer_style = "superscript",
 
     close_command = "bdelete! %d",
     right_mouse_command = "bdelete! %d",
@@ -35,7 +36,7 @@ require('bufferline').setup {
     show_buffer_icons = true,
     show_buffer_close_icons = false,
     show_buffer_default_icon = true,
-    show_close_icon = false,
+    show_close_icon = true,
     show_tab_indicators = true,
 
     separator_style = "slant",
