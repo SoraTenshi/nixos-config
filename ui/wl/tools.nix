@@ -208,6 +208,12 @@
       executable = true;
       source = "${self}/ui/wl/river/init";
     };
+    "electron/electron-flags.conf" = {
+      text = ''
+        --enable-features=WaylandWindowDecorations
+        --ozone-platform-hint=auto
+      '';
+    };
     "fuzzel/fuzzel.ini" = {
       text = ''
         font='Lilex Nerd Font Mono-16'
