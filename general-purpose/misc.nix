@@ -11,5 +11,6 @@
     tiny
     gptcommit
     docker
+    ncdu
   ];
 }
