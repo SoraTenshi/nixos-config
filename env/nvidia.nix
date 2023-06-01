@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -17,13 +17,16 @@
   environment.sessionVariables = { QT_X11_NO_MITSHM = "1"; };
 
   hardware.nvidia = {
+    powerManagement.enable = true;
     modesetting.enable = true;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
   
   services.xserver = {
     enable = true;
     videoDrivers = [ "nvidia" ];
   };
+
   hardware.opengl = {
     enable = true;
     driSupport32Bit = true;

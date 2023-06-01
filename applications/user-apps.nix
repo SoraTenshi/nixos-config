@@ -1,4 +1,4 @@
-{ config, pkgs, nixpkgs, lib, ... }:
+{ pkgs, lib, ... }:
 {
   home.sessionVariables = {
     "BROWSER" = "firefox";
@@ -19,6 +19,7 @@
     # browser
     vivaldi 
     firefox
+    nyxt
 
     # Screenshots!
     flameshot
