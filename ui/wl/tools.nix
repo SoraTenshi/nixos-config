@@ -208,7 +208,7 @@
       executable = true;
       source = "${self}/ui/wl/river/init";
     };
-    "electron/electron-flags.conf" = {
+    "electron-flags.conf" = {
       text = ''
         --enable-features=WaylandWindowDecorations
         --ozone-platform-hint=auto

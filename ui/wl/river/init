@@ -9,7 +9,6 @@ riverctl map normal Super+Shift P spawn "rofi -show menu -modi 'menu:rofi-power-
 
 riverctl map normal Super P spawn "fuzzel"
 riverctl map normal Super N spawn "networkmanager_dmenu"
-riverctl map normal Super+Shift D spawn "discord --enable-features=UseOzonePlatform"
 riverctl map normal Control Print spawn "grim -g \"\$(slurp)\" - | wl-copy"
 
 # Super+Q to close the focused view
