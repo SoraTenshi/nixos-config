@@ -13,9 +13,6 @@
     gnome.zenity
   ];
 
-  boot.kernel.sysctl = { "abi.vsyscall32" = 0; };
-  environment.sessionVariables = { QT_X11_NO_MITSHM = "1"; };
-
   hardware.nvidia = {
     powerManagement.enable = true;
     modesetting.enable = true;
