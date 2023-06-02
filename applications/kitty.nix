@@ -43,8 +43,7 @@
       # Cursor!
       cursor = "#c0caf5";
       cursor_shape = "block";
-      cursor_stop_blinking_after = "0.0";
-      cursor_blink_interval = 1;
+      cursor_blink_interval = 0;
 
       # Tabs
       active_tab_background = "#7aa2f7";
