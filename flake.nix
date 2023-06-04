@@ -24,11 +24,6 @@
       url = "github:SoraTenshi/tokyo-night-sddm";
       flake = false;
     };
-
-    tokyo-night-gtk = {
-      url = "github:Fausto-Korpsvart/Tokyo-Night-GTK-Theme";
-      flake = false;
-    };
   };
 
   outputs =
@@ -46,7 +41,6 @@
     , emacs-overlay
     , nur
     , nixos-wsl
-    , tokyo-night-gtk
     , nix-gaming
     }:
     let
@@ -54,7 +48,8 @@
       
       overlays = [
         (final: prev: {
-          prev.zls = zls-master.packages.zls;
+        # zls just broke again lmao
+          #zls = zls-master.packages.${system}.default;
           picom = prev.picom.overrideAttrs (c: { src = picom-ibhagwan; });
           river = prev.river.overrideAttrs (c: {
             installPhase = ''
@@ -78,7 +73,6 @@
                 '';
           });
           material-symbols = prev.callPackage ./derivations/material-symbols {};
-          tokyo-night-gtk = prev.callPackage ./derivations/tokyo-night-gtk {inherit tokyo-night-gtk;};
         })
       ];
       otherOverlays = [

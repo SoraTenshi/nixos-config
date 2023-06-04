@@ -57,6 +57,10 @@
           rainbow-option = "normal";
         };
       };
+      keys = {
+        "supertab" = "move_parent_node_end";
+      };
+
       keys.normal = {
         "X" = "extend_line_above";
         "C-q" = ":bc";

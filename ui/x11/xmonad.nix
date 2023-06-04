@@ -1,4 +1,4 @@
-{ self, config, pkgs, ... }:
+{ self, pkgs, ... }:
 
 let
   cursorPackage = pkgs.catppuccin-cursors.macchiatoBlue;
