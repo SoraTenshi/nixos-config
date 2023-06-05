@@ -1,6 +1,6 @@
 # Used for the configuration of specific configurations
 
-{ self, config, pkgs, ... }:
+{ self, pkgs, ... }:
 
 
 let 

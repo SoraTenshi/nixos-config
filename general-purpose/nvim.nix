@@ -29,6 +29,7 @@
 
       # Toy
       guess-indent-nvim
+      copilot-vim
       
       # tree sitter
       (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars)) nvim-ts-rainbow
