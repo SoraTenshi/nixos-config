@@ -48,8 +48,8 @@
       
       overlays = [
         (final: prev: {
-        # zls just broke again lmao
-          #zls = zls-master.packages.${system}.default;
+        # zls just broke again lmao maybe ok again? :D
+          zls = zls-master.packages.${system}.default;
           picom = prev.picom.overrideAttrs (c: { src = picom-ibhagwan; });
           river = prev.river.overrideAttrs (c: {
             installPhase = ''
