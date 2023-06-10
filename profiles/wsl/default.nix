@@ -8,6 +8,9 @@
     # General purpose
     ../../general-purpose/cli-tools.nix
 
+    # Nyxt
+    ../../applications/nyxt.nix
+
     # development
     ../../development/developing.nix
   ];

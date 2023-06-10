@@ -19,7 +19,6 @@
     # browser
     vivaldi 
     firefox
-    nyxt
 
     # Screenshots!
     flameshot

@@ -12,5 +12,6 @@
     gptcommit
     docker
     ncdu
+    imhex
   ];
 }
