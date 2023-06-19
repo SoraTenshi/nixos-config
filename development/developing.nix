@@ -1,4 +1,4 @@
-{ self, zls-overlay, pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -17,7 +17,8 @@
 
     # compiler
     clang go nim cargo rustc julia-bin
-    elixir gleam erlang
+    elixir erlang 
+    swift swiftPackages.swiftpm
     idris2 
 
     nasm

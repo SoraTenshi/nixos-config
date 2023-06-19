@@ -1,4 +1,4 @@
-{ self, pkgs, lib, helix-master, ... }:
+{ pkgs, helix-master, ... }:
 {
   programs.helix = {
     enable = true;
@@ -86,6 +86,7 @@
     texlab # LaTeX
     zls # Zig
     elixir_ls # Elixir
+    sourcekit-lsp # Swift & Obj-C
     # omnisharp-roslyn # .NET 
     haskellPackages.haskell-language-server # Haskell
     nodePackages.typescript-language-server # Typescript
