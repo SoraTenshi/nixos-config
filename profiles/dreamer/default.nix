@@ -1,18 +1,17 @@
 { ... }:
-
 {
   home.stateVersion = "23.05";
   manual.manpages.enable = false;
 
   imports = [
     # ui
-    ../../ui/x11/xmonad.nix
+    ../home/x11/xmonad.nix
 
     # wl
-    ../../ui/wl/tools.nix
+    ../home/wl/tools.nix
 
     # General purpose
-    ../../general-purpose/cli-tools.nix
+    ../home/general-purpose/cli-tools.nix
     
     # User applications
     ../../applications/apps.nix
