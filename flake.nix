@@ -81,5 +81,53 @@
         let
           isDarwinSystem = isDarwin (mkSystemFromString system);
           nixpkgs = if isDarwinSystem then inputs.nixpkgs-nixos else inputs.nixpkgs-darwin;
-      )
+          nixpkgs-cfg = {
+            inherit system;
+            config = {
+              allowUnfree = true;
+              #allowBroken = true;
+            };
+          };
+          pkgs-unstable = import inputs.nixpkgs-nixos nixpkgs-cfg;
+          pkgs = import nixpkgs (nixpkgs-cfg // {
+            overlays = [
+              (self: super: {
+                helix = pkgs-unstable.helix;
+              })
+            ];
+          });
+
+          specialArgs = {
+            inherit inputs;
+            nixos-hardware = inputs.nixos-hardware;
+            unstable = pkgs-unstable;
+          };
+
+          in
+          {
+            system = 
+              let 
+                systemBase = 
+                  if isDarwinSystem
+                  then darwin.lib.darwinSystem else pkgs.lib.nixosSystem;
+                homeManagerBase = 
+                  if isDarwinSystem
+                  then home-manager.darwinModules.home-manager else home-manager.nixosModules.home-manager;
+              in
+                systemBase {
+                  modules = [
+                    ./configuration.nix
+                    homeManagerBase {
+                      home-manager.useGlobalPkgs = true;
+                      home-manager.useUserPackages = true;
+
+                      home-manager.extraSpecialArgs = specialArgs;
+                    }
+                  ];
+                };
+      })
+    //
+    {
+      inherit nixosConfigurations darwinConfigurations self;
+    };
 }
