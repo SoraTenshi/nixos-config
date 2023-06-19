@@ -8,7 +8,6 @@ in
     ./shared.nix
 
     ../ui/wl/riverwm.nix
-    ../ui/wl/gnome.nix
 
     ../ui/x11/sddm.nix
     # ../ui/x11/lightdm.nix
@@ -79,13 +78,10 @@ in
   # };
   
   services.xserver = {
-    layout = "eu";
     enable = true;
+    layout = "eu";
     displayManager.defaultSession = "none+xmonad";
     desktopManager = {
-      gnome = {
-        enable = true;
-      };
       runXdgAutostartIfNone = true;
     };
     windowManager.xmonad = {

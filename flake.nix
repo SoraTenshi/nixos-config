@@ -33,11 +33,6 @@
       url = "github:SoraTenshi/tokyo-night-sddm";
       flake = false;
     };
-
-    tokyo-night-gtk = {
-      url = "github:Fausto-Korpsvart/Tokyo-Night-GTK-Theme";
-      flake = false;
-    };
   };
 
   outputs =
@@ -55,7 +50,6 @@
     , emacs-overlay
     , nur
     , nixos-wsl
-    , tokyo-night-gtk
     , nix-gaming
     , flake-utils
     , darwin

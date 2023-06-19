@@ -17,16 +17,16 @@
     xwayland
   ];
 
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
-  };
+  # xdg.portal = {
+  #   enable = true;
+  #   wlr.enable = true;
+  #   extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+  # };
 
-  services.pipewire = {
-    audio.enable = true;
-    systemWide = true;
-  };
+  # services.pipewire = {
+  #   audio.enable = true;
+  #   systemWide = true;
+  # };
   
   services.xserver.displayManager = {
     sessionPackages = [
@@ -74,6 +74,6 @@
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
 
     WLR_DRM_DEVICES                     = "/dev/dri/card1:/dev/dri/card0";
-    WLR_BACKEND                         = "vulkan";
+    WLR_BACKEND                         = "eglstream";
   };
 }

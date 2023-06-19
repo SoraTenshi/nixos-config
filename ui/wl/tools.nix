@@ -1,4 +1,4 @@
-{ self, config, pkgs, ... }:
+{ self, pkgs, ... }:
 
 {
   imports = [
@@ -207,6 +207,12 @@
     "river/init" = {
       executable = true;
       source = "${self}/ui/wl/river/init";
+    };
+    "electron-flags.conf" = {
+      text = ''
+        --enable-features=WaylandWindowDecorations
+        --ozone-platform-hint=auto
+      '';
     };
     "fuzzel/fuzzel.ini" = {
       text = ''

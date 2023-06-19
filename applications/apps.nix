@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   imports = [
     # ./wezterm.nix
@@ -6,5 +6,6 @@
     ./user-apps.nix
     ./dunst.nix
     ./spotify.nix
+    ./nyxt.nix
   ];
 }

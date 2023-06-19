@@ -1,4 +1,4 @@
-{ self, pkgs, lib, helix-master, ... }:
+{ pkgs, helix-master, ... }:
 {
   programs.helix = {
     enable = true;
@@ -57,6 +57,10 @@
           rainbow-option = "normal";
         };
       };
+      keys = {
+        "supertab" = "move_parent_node_end";
+      };
+
       keys.normal = {
         "X" = "extend_line_above";
         "C-q" = ":bc";
@@ -82,6 +86,7 @@
     texlab # LaTeX
     zls # Zig
     elixir_ls # Elixir
+    sourcekit-lsp # Swift & Obj-C
     # omnisharp-roslyn # .NET 
     haskellPackages.haskell-language-server # Haskell
     nodePackages.typescript-language-server # Typescript

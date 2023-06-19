@@ -1,4 +1,4 @@
-{ config, pkgs, nixpkgs, lib, ... }:
+{ pkgs, lib, ... }:
 {
   home.sessionVariables = {
     "BROWSER" = "firefox";

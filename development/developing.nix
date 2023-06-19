@@ -1,4 +1,4 @@
-{ self, zls-overlay, pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -17,7 +17,8 @@
 
     # compiler
     clang go nim cargo rustc julia-bin
-    elixir gleam erlang
+    elixir erlang 
+    swift swiftPackages.swiftpm
     idris2 
 
     nasm
@@ -38,12 +39,15 @@
     enable_autofix = true;
     enable_import_embedfile_argument_completions = true;
     enable_inlay_hints = true;
+    inlay_hints_hide_redundant_param_names = true;
+    inlay_hints_hide_redundant_param_names_last_token = true;
     enable_semantic_tokens = true;
     enable_snippets = true;
     max_detail_length = 104857;
     operator_completions = true;
     use_comptime_interpreter = true;
     warn_style = true;
+    include_at_in_builtins = true;
     zig_exe_path = "${pkgs.zigpkgs.master.outPath}/bin/zig";
   };
 }

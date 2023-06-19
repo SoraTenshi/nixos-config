@@ -18,11 +18,6 @@
     pkcs11.enable = true;
   };
 
-  hardware.nvidia = {
-    modesetting.enable = true;
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
-  };
-  
   environment.systemPackages = with pkgs; [
     egl-wayland
   ];

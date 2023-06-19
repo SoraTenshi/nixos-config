@@ -1,8 +1,5 @@
-{ pkgs, ... }:
+{ ... }:
 {
-  hardware.nvidia.forceFullCompositionPipeline = true;
-
-  services.autorandr.enable = true;
   services.xserver = {
     displayManager.sessionCommands = ''
       xrandr --output DVI-D-0 --off \
@@ -13,12 +10,5 @@
              --output DP-4 --rate 165 --primary --mode 1920x1080 --pos 0x1080 --rotate normal \
              --output DP-5 --off
     '';
-  
-    synaptics = {
-      minSpeed = "0.05";
-      accelFactor = null;
-    };
-
-    videoDrivers = [ "nvidia" ];
   };
 }
