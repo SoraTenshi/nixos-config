@@ -1,19 +1,15 @@
-{ ... }:
-
+{ self, ... }:
+let
+  home = "${self}/home/";
+  join = builtins.concatPaths;
+in
 {
   home.stateVersion = "23.05";
-  manual.manpages.enable = false;
-
   imports = [
     # General purpose
-    ../../general-purpose/cli-tools.nix
-
-    ../../applications/kitty.nix
-
-    # Nyxt
-    ../../applications/nyxt.nix
-
-    # development
-    ../../development/developing.nix
+    join [home "kitty"]
+    join [home "misc"]
+    join [home "development"]
+    join [home "shells" "zsh"]
   ];
 }

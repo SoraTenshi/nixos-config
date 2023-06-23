@@ -10,12 +10,14 @@ let
     ls       = "exa --icons ";
     cd       = "z ";
     termbin  = "nc termbin.com 9999"; 
+    grep     = "rg ";
   };
 in
 {
   home.packages = with pkgs; [
     # Shell utils
-    btop exa oh-my-posh
+    btop exa oh-my-posh ripgrep
+    gh jq
   ];
   
   programs.fzf.enable = true;
@@ -53,6 +55,6 @@ in
   };
   
   home.file.".oh-my-posh" = {
-    source = "${self}/oh-my-posh";
+    source = "${self}/home/shells/zsh/oh-my-posh";
   };
 }

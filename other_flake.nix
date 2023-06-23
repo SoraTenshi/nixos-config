@@ -1,53 +1,28 @@
 {
-  inputs = {
-    nixpkgs-nixos.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/release-23.05";
+  inputs = rec {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    nur.url = "github:nix-community/NUR";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
-
-    # Darwin specific
-    nixpkgs-darwin = {
-      url = "github.com:NixOS/nixpkgs/nixpkgs-23.05-darwin";
-      follows = "nixpkgs";
-    };
-
-    nix-darwin = {
-      url = "github:lnl7/nix-darwin/master";
-      follows = "nixpkgs";
-    };
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-
-
-    nur = {
-      url = "github:nix-community/NUR";
-      follows = "nixpkgs-nixos";
-    };
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      follows = "nixpkgs";
-    };
-
-    neovim-nightly = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      follows = "nixpkgs";
-    };
-
-    zig-overlay = {
-      url = "github:mitchellh/zig-overlay";
-      follows = "nixpkgs";
-    };
-
-    helix-master = {
-      url = "github:SoraTenshi/helix/new-daily-driver";
-      follows = "nixpkgs";
-    };
-
+    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
+    zig-overlay.url = "github:mitchellh/zig-overlay";
+    helix-master.url = "github:SoraTenshi/helix/new-daily-driver";
     grub2-theme.url = "github:vinceliuice/grub2-themes";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
+    nix-gaming.url = "github:fufexan/nix-gaming";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     zls-master.url = "github:zigtools/zls/master";
 
     flake-utils.url = "github:numtide/flake-utils";
+
+    # Darwin specific
+    nixpkgs-darwin.url = "github.com:NixOS/nixpkgs/nixpkgs-23.05-darwin";
+    nix-darwin.url = "github:lnl7/nix-darwin/master";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    darwin = nix-darwin;
 
     # Non-flakes
     picom-ibhagwan = {
@@ -61,7 +36,7 @@
     };
   };
 
-  outputs = 
+  outputs =
     { self
     , nixpkgs
     , home-manager
@@ -82,9 +57,77 @@
     , ...
     }@inputs:
     let
-      system = builtins.currentSystem;
+      hosts = {
+        "battlestation" = "x86_64-linux";
+        "lemon"         = "x86_64-linux";
+        "combustible"   = "aarch64-darwin";
+      };
+
+      # Credits to @Fionera for this great thing
+      lib = inputs.nixpkgs.lib;
+      isDarwin = lib.systems.inspect.predicates.isDarwin;
+      isLinux = lib.systems.inspect.predicates.isLinux;
+      mkSystemFromString = lib.systems.parse.mkSystemFromString;
+
+      nixosConfigurations = 
+        lib.mapAttrs(name: value: self.system."${value}")
+          (lib.filterAttrs (name: value: isLinux (mkSystemFromString value)) hosts);
+     
+      darwinConfigurations = 
+        lib.mapAttrs(name: value: self.system."${value}")
+          (lib.filterAttrs (name: value: isLinux (mkSystemFromString value)) hosts);
     in
+    flake-utils.lib.eachDefaultSystem
+      (system:
+        let
+          isDarwinSystem = isDarwin (mkSystemFromString system);
+          nixpkgs = if isDarwinSystem then inputs.nixpkgs else inputs.nixpkgs-darwin;
+          nixpkgs-cfg = {
+            inherit system;
+            config = {
+              allowUnfree = true;
+              #allowBroken = true;
+            };
+          };
+          pkgs-unstable = import inputs.nixpkgs nixpkgs-cfg;
+          pkgs = import nixpkgs (nixpkgs-cfg // {
+            overlays = [
+              (self: super: {
+                helix = pkgs-unstable.helix;
+              })
+            ];
+          });
+
+          specialArgs = {
+            inherit self inputs;
+            nixos-hardware = inputs.nixos-hardware;
+            unstable = pkgs-unstable;
+          };
+
+          in
+          {
+            system = 
+              let 
+                systemBase = 
+                  if isDarwinSystem
+                  then darwin.lib.darwinSystem else pkgs.lib.nixosSystem;
+                homeManagerBase = 
+                  if isDarwinSystem
+                  then home-manager.darwinModules.home-manager else home-manager.nixosModules.home-manager;
+              in
+                systemBase {
+                  modules = [
+                    ./configuration.nix
+                    homeManagerBase {
+                      home-manager.useGlobalPkgs = true;
+                      home-manager.useUserPackages = true;
+                      home-manager.extraSpecialArgs = specialArgs;
+                    }
+                  ];
+                };
+      })
+    //
     {
-      
+      inherit nixosConfigurations darwinConfigurations self;
     };
 }

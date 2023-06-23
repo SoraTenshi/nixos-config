@@ -5,11 +5,8 @@
     gomuks
     tldr
     screenfetch
-    gh
-    jq
     btop
     tiny
-    gptcommit
     docker
     ncdu
     imhex

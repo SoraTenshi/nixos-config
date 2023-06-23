@@ -1,10 +1,7 @@
-{ pkgs, ... }:
-let 
-  defaultUser = "dreamer";
-in
+{ pkgs, username, ... }:
 {
   programs.zsh.enable = true;
-  users.users.${defaultUser} = {
+  users.users.${username} = {
     shell = pkgs.zsh;
     isNormalUser = true;
     group = "users";
