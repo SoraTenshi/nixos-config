@@ -54,15 +54,8 @@
     , darwin
     }:
     let
-      hosts = {
-        "battlestation" = "x86_64-linux";
-        "combustible" = "aarch64-darwin";
-        "t470" = "x86_64-linux";
-        "wsl" = "x86_64-linux";
-      };
+      system = builtins.currentSystem;
 
-      system = "x86_64-linux";
-      
       overlays = [
         (final: prev: {
           zls = zls-master.packages.${system}.default;
@@ -202,7 +195,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit
-                  self neovim-nightly helix-master;
+                  self helix-master;
               };
               home-manager.users.lemon = { ... }: {
                 imports = [ ./profiles/lemon ];
