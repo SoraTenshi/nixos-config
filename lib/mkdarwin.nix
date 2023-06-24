@@ -16,6 +16,7 @@ let
   systemSpecificOverlays = [
     (final: prev: {
       zls = zls-master.packages.${system}.default;
+      helix = helix-master.packages.${system}.default;
     })
   ];
 in
@@ -28,7 +29,8 @@ darwin.lib.darwinSystem {
     "${self}/darwin"
 
   ] ++ extraModules ++ [
-    home-manager.darwinModules.home-manager {
+    home-manager.darwinModules.home-manager
+    {
       home-manager = {
         useGlobalPkgs = true;
         useUserPackages = true;
