@@ -23,6 +23,8 @@
       "homebrew/cask-fonts"
       "homebrew/core"
       "homebrew/services"
+
+      "koekeishiya/formulae" # yabai & skhd
     ];
   };
 }

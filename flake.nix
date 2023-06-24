@@ -2,25 +2,30 @@
   description = "My personal NixOS / Darwin flake.";
 
   inputs = {
-    # nixpkgs.url = "github:NixOS/nixpkgs/";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    nur.url = "github:nix-community/NUR";
+    # i will probably just pin everything from now on. 
+    # no more unstable.
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-23.05";
 
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    # but then on the other side...
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    darwin.url = "github:lnl7/nix-darwin";
-    darwin.inputs.nixpkgs.follows = "nixpkgs";
+    darwin = {
+      url = "github:lnl7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixos-wsl.url = "github:nix-community/NixOS-WSL";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     zig-overlay.url = "github:mitchellh/zig-overlay";
     helix-master.url = "github:SoraTenshi/helix/new-daily-driver";
     grub2-theme.url = "github:vinceliuice/grub2-themes";
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
-    nix-gaming.url = "github:fufexan/nix-gaming";
-    nixos-wsl.url = "github:nix-community/NixOS-WSL";
     zls-master.url = "github:zigtools/zls/master";
 
     # Non-flakes
@@ -47,14 +52,11 @@
     , grub2-theme
     , helix-master
     , picom-ibhagwan
-    , emacs-overlay
-    , nur
     , nixos-wsl
-    , nix-gaming
     , darwin
     }:
     let
-      system = builtins.currentSystem;
+      system = "x86_64-linux";
 
       overlays = [
         (final: prev: {
@@ -85,8 +87,6 @@
         })
       ];
       otherOverlays = [
-        emacs-overlay.overlay
-        nur.overlay
         zig-overlay.overlays.default
       ];
     in
@@ -99,12 +99,6 @@
             ./home/development
             nixos-wsl.nixosModules.wsl
             home-manager.nixosModules.home-manager
-            nur.nixosModules.nur # for config.nur
-            ({ config, ... }:{
-              home-manager.sharedModules = [
-                config.nur.repos.rycee.hmModules.emacs-init
-              ];
-            })
             {
               nixpkgs.overlays = overlays ++ otherOverlays;
               home-manager.useGlobalPkgs = true;
@@ -122,20 +116,14 @@
 
         battlestation = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit sddm-theme grub2-theme nix-gaming; };
+          specialArgs = { inherit sddm-theme grub2-theme; };
           modules = [
-            ./ui/arcan
             ./machines/battlestation
             ./modules/nvidia
             ./home/development
+            ./ui/arcan
             ./ui/x11/xserver
             home-manager.nixosModules.home-manager
-            nur.nixosModules.nur # for config.nur
-            ({ config, ... }:{
-              home-manager.sharedModules = [
-                config.nur.repos.rycee.hmModules.emacs-init
-              ];
-            })
             {
               nixpkgs.overlays = overlays ++ otherOverlays;
               home-manager.useGlobalPkgs = true;
@@ -160,12 +148,6 @@
             ./home/development
             nixos-hardware.nixosModules.lenovo-thinkpad-t470s
             home-manager.nixosModules.home-manager
-            nur.nixosModules.nur # for config.nur
-            ({ config, ... }:{
-              home-manager.sharedModules = [
-                config.nur.repos.rycee.hmModules.emacs-init
-              ];
-            })
             {
               nixpkgs.overlays = overlays ++ otherOverlays;
               home-manager.useGlobalPkgs = true;
@@ -183,9 +165,9 @@
       };
 
       darwinConfigurations = {
+        system = "aarch64-darwin";
         combustible = darwin.lib.darwinSystem {
-          system = "aarch64-darwin";
-          pkgs = import nixpkgs { system = "aarch64-darwin"; };
+          pkgs = import nixpkgs { system = "${system}"; };
           modules = [
             ./machines/combustible
             home-manager.darwinModules.home-manager

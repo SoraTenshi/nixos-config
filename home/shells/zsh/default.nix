@@ -11,6 +11,7 @@ let
     cd       = "z ";
     termbin  = "nc termbin.com 9999"; 
     grep     = "rg ";
+    lg       = "lazygit";
   };
 in
 {
@@ -24,8 +25,16 @@ in
   programs.zoxide.enable = true;
   programs.bat = {
     enable = true;
-    config = {
-      theme = "base16";
+    themes = builtins.readFile ./tokyonight_storm.tmTheme;
+    config.theme = "TokyoNight";
+  };
+
+  programs.git = {
+    enable = true;
+    extraConfig = {
+      branch.autosetuprebase = "always";
+      color.ui = true;
+      init.defaultBranch = "main";
     };
   };
 
