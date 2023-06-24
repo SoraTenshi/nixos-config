@@ -1,6 +1,6 @@
 { self, ... }:
 {
   imports = [
-    (/. + "${self}/darwin")
+    "${self}/darwin"
   ];
 }
