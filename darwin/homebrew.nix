@@ -2,29 +2,16 @@
 {
   homebrew = {
     enable = true;
-    onActivation = {
-      cleanup = "zap";
-      autoUpdate = true;
-    };
+    onActivation.cleanup = "zap";
+    taps = [
+      "homebrew/cask"
+    ];
     brews = [
-      "skhd"
-      "yabai"
+      
     ];
     casks = [
-      "aldente"
-      "bartender"
-
       "ubersicht"
-    ];
-    taps = [
-      "homebrew/bundle"
-      "homebrew/cask"
-      "homebrew/cask-drivers"
-      "homebrew/cask-fonts"
-      "homebrew/core"
-      "homebrew/services"
-
-      "koekeishiya/formulae" # yabai & skhd
+      "alfred"
     ];
   };
 }

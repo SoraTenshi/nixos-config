@@ -2,6 +2,7 @@
 {
   imports = [
     ./homebrew.nix
-    ./keybindings.nix
+    ./yabai.nix
+    ./skhd.nix
   ];
 }
