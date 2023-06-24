@@ -98,7 +98,7 @@
       };
 
       darwinConfigurations = {
-        combusitible = mkDarwin "Combusitible" {
+        combustible = mkDarwin "combustible" {
           inherit self darwin home-manager helix-master neovim-nightly overlays zls-master;
           nixpkgs = nixpkgs-darwin;
           system = "aarch64-darwin";
