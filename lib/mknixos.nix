@@ -41,21 +41,14 @@ nixpkgs.lib.nixosSystem {
         useUserPackages = true;
         extraSpecialArgs = if isHardwareMachine then {
           inherit
-            self neovim-nightly picom-ibhagwan;
+            self neovim-nightly picom-ibhagwan user;
         } else {
           inherit
-            self neovim-nightly;
+            self neovim-nightly user;
         };
         users.${user} = {
           imports = [ ../profiles/${hostname} ];
         };
-      };
-    }
-
-    {
-      config._module.args = {
-        currentSystemName = hostname;
-        currentSystem = system;
       };
     }
   ];

@@ -34,16 +34,9 @@ darwin.lib.darwinSystem {
         useUserPackages = true;
         extraSpecialArgs = {
           inherit
-            self neovim-nightly helix-master;
+            self neovim-nightly helix-master user;
         };
         users.${user} = import "${self}/profiles/${user}";
-      };
-    }
-
-    {
-      config._module.args = {
-        currentSystemName = hostname;
-        currentSystem = system;
       };
     }
   ];

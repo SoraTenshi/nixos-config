@@ -1,7 +1,4 @@
-# Used for the configuration of specific configurations
-
-{ self, pkgs, ... }:
-
+{ self, pkgs, user, ... }:
 
 let 
   aliases = {
@@ -49,7 +46,7 @@ in
 
     initExtra = ''
       eval "$(zoxide init zsh)"
-      eval "$(oh-my-posh init zsh --config '/home/dreamer/.oh-my-posh/tokyonight_ascii.opm.json')"
+      eval "$(oh-my-posh init zsh --config '/home/${user}/.config/oh-my-posh/tokyonight_ascii.opm.json')"
       # eval "$(zellij setup --generate-auto-start zsh)"
 
       bindkey '^[[1~'   beginning-of-line   # home
@@ -65,7 +62,7 @@ in
     shellAliases = aliases;
   };
   
-  home.file.".oh-my-posh" = {
+  xdg.configFile."oh-my-posh" = {
     source = "${self}/home/shells/zsh/oh-my-posh";
   };
 }
