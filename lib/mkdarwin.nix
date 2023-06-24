@@ -20,15 +20,14 @@ let
     })
   ];
 in
-darwin.lib.darwinSystem rec {
-  inherit system user;
+darwin.lib.darwinSystem {
+  inherit system;
   modules = [
     { nixpkgs.overlays = systemSpecificOverlays ++ overlays; }
 
     "${self}/machines/${hostname}"
     "${self}/darwin"
     "${self}/modules/font"
-    "${self}/modules/user"
 
   ] ++ extraModules ++ [
     home-manager.darwinModules.home-manager
