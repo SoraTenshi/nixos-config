@@ -6,8 +6,8 @@
 
     # i will probably just pin everything from now on. 
     # no more unstable.
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
-    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
+    nixpkgs-nixos.url = "github:NixOS/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
 
     # but then on the other side...
     # nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -43,8 +43,8 @@
 
   outputs =
     { self
+    , nixpkgs-nixos
     , nixpkgs
-    , nixpkgs-darwin
     , home-manager
     , nixos-hardware
     , sddm-theme
@@ -68,7 +68,8 @@
     {
       nixosConfigurations = {
         wsl = mkNixOS "wsl" {
-          inherit self nixpkgs home-manager helix-master neovim-nightly overlays zls-master;
+          inherit self home-manager helix-master neovim-nightly overlays zls-master;
+          nixpkgs = nixpkgs-nixos;
           isHardwareMachine = false;
           system = "x86_64-linux";
           user = "nightmare";
@@ -78,7 +79,8 @@
         };
 
         battlestation = mkNixOS "battlestation" {
-          inherit self nixpkgs home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme;
+          inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme;
+          nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           user = "dreamer";
           extraModules = [
@@ -88,7 +90,8 @@
         };
 
         t470 = mkNixOS "thinkpad-t470" {
-          inherit self nixpkgs home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme;
+          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme;
+          nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           user = "dreamer";
           extraModules = [
@@ -99,8 +102,7 @@
 
       darwinConfigurations = {
         combustible = mkDarwin "combustible" {
-          inherit self darwin home-manager helix-master neovim-nightly overlays zls-master;
-          nixpkgs = nixpkgs-darwin;
+          inherit self nixpkgs darwin home-manager helix-master neovim-nightly overlays zls-master;
           system = "aarch64-darwin";
           user = "lemon";
         };
