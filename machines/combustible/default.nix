@@ -10,5 +10,5 @@
     # End Nix
   '';
 
-  environment.shells = [ pkgs.bashInteractive pkgs.zsh pkgs.bash ];
+  environment.shells = [ pkgs.bashInteractive pkgs.zsh ];
 }

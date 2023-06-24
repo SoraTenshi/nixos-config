@@ -20,7 +20,7 @@ let
     })
   ];
 in
-darwin.lib.darwinSystem {
+darwin.lib.darwinSystem rec {
   inherit system user;
   modules = [
     { nixpkgs.overlays = systemSpecificOverlays ++ overlays; }
