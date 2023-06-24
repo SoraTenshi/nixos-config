@@ -36,7 +36,9 @@ darwin.lib.darwinSystem {
           inherit
             self neovim-nightly helix-master user;
         };
-        users.${user} = import "${self}/profiles/${user}";
+        users.${user} = {
+          imports = [ ../profiles/${hostname} ];
+        };
       };
     }
   ];
