@@ -1,7 +1,9 @@
 { pkgs, ... }:
 {
+  services.nix-daemon.enable = true;
   nix.useDaemon = true;
 
+  programs.zsh.enable = true;
   programs.zsh.shellInit = ''
     # Nix
     if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
@@ -11,4 +13,8 @@
   '';
 
   environment.shells = [ pkgs.bashInteractive pkgs.zsh ];
+
+  # Used for backwards compatibility, please read the changelog before changing.
+  # $ darwin-rebuild changelog
+  system.stateVersion = 4;
 }
