@@ -1,5 +1,6 @@
 { self, ... }:
 {
+  home.stateVersion = "23.05";
   imports = [
     "${self}/home/kitty"
 
