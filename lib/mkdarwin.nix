@@ -7,17 +7,27 @@ hostname:
 , overlays
 , neovim-nightly
 , helix-master
+, zls-master
 , darwin
+, extraModules ? [] # extra modules
 }:
 
+let 
+  systemSpecificOverlays = [
+    (final: prev: {
+      zls = zls-master.packages.${system}.default;
+    })
+  ];
+in
 darwin.lib.darwinSystem {
   inherit system;
   modules = [
-    { nixpkgs.overlays = overlays; }
+    { nixpkgs.overlays = systemSpecificOverlays ++ overlays; }
 
     (/. + "${self}/machines/${hostname}")
     (/. + "${self}/darwin")
 
+  ] ++ extraModules ++ [
     home-manager.darwinModules.home-manager {
       home-manager = {
         useGlobalPkgs = true;

@@ -56,134 +56,50 @@
     , darwin
     }:
     let
-      system = "x86_64-linux";
+      mkDarwin = import ./lib/mkdarwin.nix;
+      mkNixOS = import ./lib/mknixos.nix;
 
       overlays = [
-        (final: prev: {
-          zls = zls-master.packages.${system}.default;
-          picom = prev.picom.overrideAttrs (c: { src = picom-ibhagwan; });
-          river = prev.river.overrideAttrs (c: {
-            installPhase = ''
-                runHook preInstall
-                zig build -Drelease-safe -Dcpu=baseline -Dxwayland -Dman-pages --prefix $out install
-                runHook postInstall
-            '';
-            postInstall = 
-              let 
-                riverSession = ''
-                  [Desktop Entry]
-                  Name=River
-                  Comment=Dynamic Wayland compositor
-                  Exec=river
-                  Type=Application
-                '';
-              in
-                ''
-                  mkdir -p $out/share/wayland-sessions
-                  echo "${riverSession}" > $out/share/wayland-sessions/river.desktop
-                '';
-          });
-          material-symbols = prev.callPackage ./derivations/material-symbols {};
-        })
-      ];
-      otherOverlays = [
         zig-overlay.overlays.default
       ];
     in
     {
       nixosConfigurations = {
-        wsl = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./machines/wsl
-            ./home/development
+        wsl = mkNixOS "wsl" {
+          inherit self nixpkgs home-manager helix-master neovim-nightly overlays zls-master;
+          isHardwareMachine = false;
+          system = "x86_64-linux";
+          user = "wsl";
+          extraModules = [
             nixos-wsl.nixosModules.wsl
-            home-manager.nixosModules.home-manager
-            {
-              nixpkgs.overlays = overlays ++ otherOverlays;
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {
-                inherit
-                  self neovim-nightly helix-master;
-              };
-              home-manager.users.dreamer = { ... }: {
-                imports = [ ./profiles/wsl ];
-              };
-            }
           ];
         };
 
-        battlestation = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit sddm-theme grub2-theme; };
-          modules = [
-            ./machines/battlestation
+        battlestation = mkNixOS "battlestation" {
+          inherit self nixpkgs home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme;
+          system = "x86_64-linux";
+          user = "dreamer";
+          extraModules = [
             ./modules/nvidia
-            ./home/development
-            ./ui/arcan
             ./ui/x11/xserver
-            home-manager.nixosModules.home-manager
-            {
-              nixpkgs.overlays = overlays ++ otherOverlays;
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {
-                inherit
-                  self neovim-nightly helix-master picom-ibhagwan;
-              };
-              home-manager.users.dreamer = { ... }: {
-                imports = [ ./profiles/dreamer ];
-              };
-            }
           ];
         };
 
-        t470 = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit sddm-theme grub2-theme; };
-          modules = [
-            ./ui/arcan
-            ./machines/thinkpad-t470
-            ./home/development
-            nixos-hardware.nixosModules.lenovo-thinkpad-t470s
-            home-manager.nixosModules.home-manager
-            {
-              nixpkgs.overlays = overlays ++ otherOverlays;
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {
-                inherit
-                  self neovim-nightly helix-master picom-ibhagwan;
-              };
-              home-manager.users.dreamer = { ... }: {
-                imports = [ ./profiles/dreamer ];
-              };
-            }
+        t470 = mkNixOS "thinkpad-t470" {
+          inherit self nixpkgs home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme;
+          system = "x86_64-linux";
+          user = "dreamer";
+          extraModules = [
+            nixos-hardware.nixosModule.lenovo-thinkpad-t470s
           ];
         };
       };
 
       darwinConfigurations = {
-        system = "aarch64-darwin";
-        combustible = darwin.lib.darwinSystem {
-          pkgs = import nixpkgs { system = "${system}"; };
-          modules = [
-            ./machines/combustible
-            home-manager.darwinModules.home-manager
-            {
-              nixpkgs.overlays = overlays ++ otherOverlays;
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {
-                inherit
-                  self helix-master;
-              };
-              home-manager.users.lemon = { ... }: {
-                imports = [ ./profiles/lemon ];
-              };
-            }
-          ];
+        combusitible = mkDarwin "Combusitible" {
+          inherit self darwin nixpkgs home-manager helix-master neovim-nightly overlays zls-master;
+          system = "aarch64-darwin";
+          user = "lemon";
         };
       };
     };
