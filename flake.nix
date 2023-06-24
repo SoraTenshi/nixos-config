@@ -6,18 +6,19 @@
 
     # i will probably just pin everything from now on. 
     # no more unstable.
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-23.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
+    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
 
     # but then on the other side...
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    # nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     darwin = {
-      url = "github:lnl7/nix-darwin";
+      url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -43,6 +44,7 @@
   outputs =
     { self
     , nixpkgs
+    , nixpkgs-darwin
     , home-manager
     , nixos-hardware
     , sddm-theme
@@ -69,7 +71,7 @@
           inherit self nixpkgs home-manager helix-master neovim-nightly overlays zls-master;
           isHardwareMachine = false;
           system = "x86_64-linux";
-          user = "wsl";
+          user = "dreamer";
           extraModules = [
             nixos-wsl.nixosModules.wsl
           ];
@@ -97,7 +99,8 @@
 
       darwinConfigurations = {
         combusitible = mkDarwin "Combusitible" {
-          inherit self darwin nixpkgs home-manager helix-master neovim-nightly overlays zls-master;
+          inherit self darwin home-manager helix-master neovim-nightly overlays zls-master;
+          nixpkgs = nixpkgs-darwin;
           system = "aarch64-darwin";
           user = "lemon";
         };

@@ -25,8 +25,10 @@ in
   programs.zoxide.enable = true;
   programs.bat = {
     enable = true;
-    themes = builtins.readFile ./tokyonight_storm.tmTheme;
-    config.theme = "TokyoNight";
+    themes = {
+      tokyonight-storm = builtins.readFile ./tokyonight_storm.tmTheme;
+    };
+    config.theme = "tokyonight-storm";
   };
 
   programs.git = {

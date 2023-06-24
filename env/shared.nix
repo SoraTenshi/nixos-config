@@ -1,4 +1,4 @@
-{ config, ... }:
+{ ... }:
 {
   programs.dconf.enable = true;
   nix.settings = {

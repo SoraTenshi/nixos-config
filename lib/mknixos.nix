@@ -6,11 +6,11 @@ hostname:
 , user
 , overlays
 , neovim-nightly
-, picom-ibhagwan
 , helix-master
-, sddm-theme
-, grub2-theme
 , zls-master
+, picom-ibhagwan ? null
+, sddm-theme ? null
+, grub2-theme ? null
 , isHardwareMachine ? true
 , extraModules ? [] # default to an empty list if not provided
 }:
@@ -18,7 +18,8 @@ hostname:
 let 
   systemSpecificOverlays = [
     (final: prev: {
-      zls = zls-master.packages.${system}.default;
+      # zls = zls-master.packages.${system}.default;
+      helix = helix-master.packages.${system}.default;
       picom = prev.picom.overrideAttrs (c: { src = picom-ibhagwan; });
       material-symbols = prev.callPackage ./derivations/material-symbols {};
     })
@@ -30,7 +31,7 @@ nixpkgs.lib.nixosSystem {
   modules = [
     { nixpkgs.overlays = systemSpecificOverlays ++ overlays; }
 
-    (/. + "${self}/machines/${hostname}")
+    "${self}/machines/${hostname}"
 
   ] ++ extraModules ++ [
     home-manager.nixosModules.home-manager
@@ -40,14 +41,21 @@ nixpkgs.lib.nixosSystem {
         useUserPackages = true;
         extraSpecialArgs = if isHardwareMachine then {
           inherit
-            self neovim-nightly helix-master picom-ibhagwan;
+            self neovim-nightly picom-ibhagwan;
         } else {
           inherit
-            self neovim-nightly helix-master;
+            self neovim-nightly;
         };
         users.${user} = {
-          imports = [ ./profiles/${user} ];
+          imports = [ ../profiles/${hostname} ];
         };
+      };
+    }
+
+    {
+      config._module.args = {
+        currentSystemName = hostname;
+        currentSystem = system;
       };
     }
   ];

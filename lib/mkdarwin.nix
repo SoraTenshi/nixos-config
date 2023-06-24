@@ -24,8 +24,8 @@ darwin.lib.darwinSystem {
   modules = [
     { nixpkgs.overlays = systemSpecificOverlays ++ overlays; }
 
-    (/. + "${self}/machines/${hostname}")
-    (/. + "${self}/darwin")
+    "${self}/machines/${hostname}"
+    "${self}/darwin"
 
   ] ++ extraModules ++ [
     home-manager.darwinModules.home-manager {
@@ -36,7 +36,14 @@ darwin.lib.darwinSystem {
           inherit
             self neovim-nightly helix-master;
         };
-        users.${user} = import (/. + "${self}/profiles/${user}");
+        users.${user} = import "${self}/profiles/${user}";
+      };
+    }
+
+    {
+      config._module.args = {
+        currentSystemName = hostname;
+        currentSystem = system;
       };
     }
   ];

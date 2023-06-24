@@ -1,4 +1,4 @@
-{ helix-master, system, ... }:
+{ ... }:
 {
   imports = [
     ../language-servers
@@ -6,7 +6,6 @@
 
   programs.helix = {
     enable = true;
-    package = helix-master.packages.${system}.default;
     settings = {
       theme = "tokyonight_storm";
       icons = "nerdfonts";
