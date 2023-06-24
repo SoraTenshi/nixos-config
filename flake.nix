@@ -71,7 +71,7 @@
           inherit self nixpkgs home-manager helix-master neovim-nightly overlays zls-master;
           isHardwareMachine = false;
           system = "x86_64-linux";
-          user = "dreamer";
+          user = "nightmare";
           extraModules = [
             nixos-wsl.nixosModules.wsl
           ];

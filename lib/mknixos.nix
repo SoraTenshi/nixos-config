@@ -47,7 +47,7 @@ nixpkgs.lib.nixosSystem {
             self neovim-nightly user;
         };
         users.${user} = {
-          imports = [ ../profiles/${hostname} ];
+          imports = [ ../profiles/${user} ];
         };
       };
     }
