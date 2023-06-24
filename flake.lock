@@ -690,32 +690,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1687614044,
-        "narHash": "sha256-G7K5XWpJXhxmRiTYc65NQDYvE7EVC+Diab3H6/XnXzE=",
+        "lastModified": 1687628373,
+        "narHash": "sha256-V0FNrm+sTXGO3itgdrn9oQSYYM/Ujhiruj2e1b6ldoc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d77c6e5e690056d1212b93161225040208da0b7f",
+        "rev": "20accfd98cb67b7dcd45d752845c54a4d72fc604",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
         "ref": "master",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-darwin": {
-      "locked": {
-        "lastModified": 1687489123,
-        "narHash": "sha256-SjLfNT5X/1+4RrDpsyD/J9usnf9N7xoN2u+HMVqKSSQ=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "fc541b860a2890aac7f0c6fc43a86d43080f631a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-23.05-darwin",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -752,6 +736,22 @@
         "dir": "lib",
         "owner": "NixOS",
         "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-nixos": {
+      "locked": {
+        "lastModified": 1687466461,
+        "narHash": "sha256-oupXI7g7RPzlpGUfAu1xG4KBK53GrZH8/xeKgKDB4+Q=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "ecb441f22067ba1d6312f4932a7c64efa8d19a7b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-23.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -837,16 +837,16 @@
     },
     "nixpkgs_6": {
       "locked": {
-        "lastModified": 1687466461,
-        "narHash": "sha256-oupXI7g7RPzlpGUfAu1xG4KBK53GrZH8/xeKgKDB4+Q=",
+        "lastModified": 1687489123,
+        "narHash": "sha256-SjLfNT5X/1+4RrDpsyD/J9usnf9N7xoN2u+HMVqKSSQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ecb441f22067ba1d6312f4932a7c64efa8d19a7b",
+        "rev": "fc541b860a2890aac7f0c6fc43a86d43080f631a",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-23.05",
+        "ref": "nixpkgs-23.05-darwin",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -949,7 +949,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_6",
-        "nixpkgs-darwin": "nixpkgs-darwin",
+        "nixpkgs-nixos": "nixpkgs-nixos",
         "picom-ibhagwan": "picom-ibhagwan",
         "sddm-theme": "sddm-theme",
         "zig-overlay": "zig-overlay",
