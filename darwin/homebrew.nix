@@ -9,13 +9,14 @@
     ];
 
     brews = [
-      
     ];
 
     casks = [
+      "bartender"
       "ubersicht"
       "raycast"
       "spotify"
+      # for YabaiIndicator, use the default installation..
     ];
   };
 }

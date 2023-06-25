@@ -27,6 +27,7 @@
       background_tint = "0.5";
 
       confirm_os_window_close = 0;
+      macos_hide_titlebar = "yes";
 
       # Tabs
       tab_bar_edge = "bottom";
