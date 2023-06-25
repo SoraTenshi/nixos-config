@@ -1,5 +1,8 @@
-{ username, ... }:
+{ ... }:
 
+let 
+  username = "nightmare";
+in
 {
   imports = [
     ../../configuration.nix

@@ -1,5 +1,8 @@
-{ pkgs, sddm-theme, username, ... }:
+{ pkgs, sddm-theme, ... }:
 
+let
+  username = "dreamer";
+in
 {
   imports = [
     ./shared.nix

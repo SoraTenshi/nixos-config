@@ -21,7 +21,7 @@ let
   ];
 in
 darwin.lib.darwinSystem {
-  inherit system username;
+  inherit system;
   modules = [
     { nixpkgs.overlays = systemSpecificOverlays ++ overlays; }
 

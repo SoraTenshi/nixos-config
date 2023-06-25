@@ -26,12 +26,12 @@ let
   ];
 in
 nixpkgs.lib.nixosSystem {
-  inherit system username;
+  inherit system;
   specialArgs = if isHardwareMachine then { inherit sddm-theme grub2-theme; } else {};
   modules = [
     { nixpkgs.overlays = systemSpecificOverlays ++ overlays; }
 
-    "${self}/machines/${hostname}"
+    ../machines/${hostname}
 
   ] ++ extraModules ++ [
     home-manager.nixosModules.home-manager

@@ -1,5 +1,8 @@
-{ pkgs, username, ... }:
+{ pkgs, ... }:
 
+let
+  username = "nightmare";
+in
 {
   imports = [
     ./shared.nix
