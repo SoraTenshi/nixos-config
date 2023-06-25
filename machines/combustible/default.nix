@@ -1,5 +1,9 @@
 { pkgs, ... }:
 {
+  imports = [
+    ../../configuration.nix
+  ];
+
   services.nix-daemon.enable = true;
   nix.useDaemon = true;
 
