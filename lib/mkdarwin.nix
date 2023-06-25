@@ -25,9 +25,9 @@ darwin.lib.darwinSystem {
   modules = [
     { nixpkgs.overlays = systemSpecificOverlays ++ overlays; }
 
-    "${self}/machines/${hostname}"
-    "${self}/darwin"
-    "${self}/modules/font"
+    ../machines/${hostname}
+    ../darwin
+    ../modules/font
 
   ] ++ extraModules ++ [
     home-manager.darwinModules.home-manager

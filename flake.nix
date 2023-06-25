@@ -22,12 +22,24 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    neovim-nightly = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    helix-master = {
+      url = "github:SoraTenshi/helix/new-daily-driver";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    zls-master = {
+      url = "github:zigtools/zls/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
-    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     zig-overlay.url = "github:mitchellh/zig-overlay";
-    helix-master.url = "github:SoraTenshi/helix/new-daily-driver";
     grub2-theme.url = "github:vinceliuice/grub2-themes";
-    zls-master.url = "github:zigtools/zls/master";
 
     # Non-flakes
     picom-ibhagwan = {

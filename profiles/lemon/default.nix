@@ -1,13 +1,13 @@
-{ self, ... }:
+{ ... }:
 {
   home.stateVersion = "23.05";
   imports = [
-    "${self}/home/kitty"
+    ../../home/kitty"
 
-    "${self}/home/editors/helix"
+    ../../home/editors/helix"
 
-    "${self}/home/shells/zsh"
+    ../../home/shells/zsh"
 
-    "${self}/home/cli-tools"
+    ../../home/cli-tools"
   ];
 }

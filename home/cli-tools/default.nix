@@ -9,7 +9,6 @@
     tiny
     docker
     ncdu
-    imhex
     # OpenPGP 
     gnupg1 gpg-tui pinentry
   ];
