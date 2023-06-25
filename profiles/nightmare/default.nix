@@ -1,6 +1,8 @@
 { ... }:
 {
   home.stateVersion = "23.05";
+  xdg.enable = true;
+
   imports = [
     # General purpose
     ../../home/editors/helix

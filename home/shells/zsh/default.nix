@@ -30,6 +30,8 @@ in
 
   programs.git = {
     enable = true;
+    userName = "SoraTenshi";
+    userEmail = "dream@neoncity.dev";
     extraConfig = {
       branch.autosetuprebase = "always";
       color.ui = true;

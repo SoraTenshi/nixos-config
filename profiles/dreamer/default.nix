@@ -3,6 +3,8 @@
   home.stateVersion = "23.05";
   manual.manpages.enable = false;
 
+  xdg.enable = true;
+
   imports = [
     # ui
     ../../home/x11/xmonad.nix
