@@ -4,12 +4,14 @@
   xdg.enable = true;
 
   imports = [
-    ../../home/kitty"
+    ../../home/kitty
 
-    ../../home/editors/helix"
+    ../../home/editors/helix
 
-    ../../home/shells/zsh"
+    ../../home/development/darwin.nix
 
-    ../../home/cli-tools"
+    ../../home/shells/zsh
+
+    ../../home/cli-tools
   ];
 }

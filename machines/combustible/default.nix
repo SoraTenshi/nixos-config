@@ -6,6 +6,7 @@
 
   services.nix-daemon.enable = true;
   nix.useDaemon = true;
+  nix.configureBuildUsers = true;
 
   programs.zsh.enable = true;
   programs.zsh.shellInit = ''

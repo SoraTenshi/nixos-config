@@ -1,9 +1,6 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    # tooling
-    lazygit delta
-
     # debugger
     gdb
 

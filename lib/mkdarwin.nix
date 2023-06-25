@@ -15,7 +15,7 @@ hostname:
 let 
   systemSpecificOverlays = [
     (final: prev: {
-      zls = zls-master.packages.${system}.default;
+      # zls = zls-master.packages.${system}.default;
       helix = helix-master.packages.${system}.default;
     })
   ];
@@ -28,6 +28,13 @@ darwin.lib.darwinSystem {
     ../machines/${hostname}
     ../darwin
     ../modules/font
+
+    ({ pkgs, ... }: {
+      users.users.${username} = {
+        home = "/Users/${username}";
+        shell = pkgs.zsh;
+      };
+    })
 
   ] ++ extraModules ++ [
     home-manager.darwinModules.home-manager
