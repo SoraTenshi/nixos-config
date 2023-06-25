@@ -15,6 +15,7 @@
     casks = [
       "ubersicht"
       "raycast"
+      "spotify"
     ];
   };
 }
