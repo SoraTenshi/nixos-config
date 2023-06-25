@@ -84,7 +84,7 @@
           nixpkgs = nixpkgs-nixos;
           isHardwareMachine = false;
           system = "x86_64-linux";
-          user = "nightmare";
+          username = "nightmare";
           extraModules = [
             nixos-wsl.nixosModules.wsl
           ];
@@ -94,7 +94,7 @@
           inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
-          user = "dreamer";
+          username = "dreamer";
           extraModules = [
             ./modules/nvidia
             ./ui/x11/xserver
@@ -105,7 +105,7 @@
           inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
-          user = "dreamer";
+          username = "dreamer";
           extraModules = [
             nixos-hardware.nixosModule.lenovo-thinkpad-t470s
           ];
@@ -116,7 +116,7 @@
         combustible = mkDarwin "combustible" {
           inherit self nixpkgs darwin home-manager helix-master neovim-nightly overlays zls-master;
           system = "aarch64-darwin";
-          user = "lemon";
+          username = "lemon";
         };
       };
     };

@@ -1,8 +1,5 @@
-{ ... }:
+{ username, ... }:
 
-let
-  defaultUser = "dreamer";
-in
 {
   imports = [
     ../../configuration.nix
@@ -11,7 +8,7 @@ in
 
   wsl = {
     enable = true;
-    defaultUser = "${defaultUser}";
+    defaultUser = "${username}";
     startMenuLaunchers = true;
     nativeSystemd = true;
     interop.register = false;

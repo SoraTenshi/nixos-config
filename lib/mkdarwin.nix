@@ -3,7 +3,7 @@ hostname:
 , nixpkgs
 , home-manager
 , system
-, user
+, username
 , overlays
 , neovim-nightly
 , helix-master
@@ -21,7 +21,7 @@ let
   ];
 in
 darwin.lib.darwinSystem {
-  inherit system;
+  inherit system username;
   modules = [
     { nixpkgs.overlays = systemSpecificOverlays ++ overlays; }
 
@@ -37,10 +37,10 @@ darwin.lib.darwinSystem {
         useUserPackages = true;
         extraSpecialArgs = {
           inherit
-            self neovim-nightly user;
+            self neovim-nightly username;
         };
-        users.${user} = {
-          imports = [ ../profiles/${user} ];
+        users.${username} = {
+          imports = [ ../profiles/${username} ];
         };
       };
     }

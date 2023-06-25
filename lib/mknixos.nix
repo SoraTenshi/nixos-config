@@ -3,7 +3,7 @@ hostname:
 , nixpkgs
 , home-manager
 , system
-, user
+, username
 , overlays
 , neovim-nightly
 , helix-master
@@ -26,7 +26,7 @@ let
   ];
 in
 nixpkgs.lib.nixosSystem {
-  inherit system;
+  inherit system username;
   specialArgs = if isHardwareMachine then { inherit sddm-theme grub2-theme; } else {};
   modules = [
     { nixpkgs.overlays = systemSpecificOverlays ++ overlays; }
@@ -41,13 +41,13 @@ nixpkgs.lib.nixosSystem {
         useUserPackages = true;
         extraSpecialArgs = if isHardwareMachine then {
           inherit
-            self neovim-nightly picom-ibhagwan user;
+            self neovim-nightly picom-ibhagwan username;
         } else {
           inherit
-            self neovim-nightly user;
+            self neovim-nightly username;
         };
-        users.${user} = {
-          imports = [ ../profiles/${user} ];
+        users.${username} = {
+          imports = [ ../profiles/${username} ];
         };
       };
     }

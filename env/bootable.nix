@@ -1,8 +1,5 @@
-{ pkgs, sddm-theme, ... }:
+{ pkgs, sddm-theme, username, ... }:
 
-let
-  defaultUser = "dreamer";
-in
 {
   imports = [
     ./shared.nix
@@ -111,7 +108,7 @@ in
   };
 
   programs.zsh.enable = true;
-  users.users.${defaultUser} = {
+  users.users.${username} = {
     shell = pkgs.zsh;
     isNormalUser = true;
     initialPassword = "12345";
