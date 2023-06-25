@@ -14,7 +14,7 @@
 
     casks = [
       "ubersicht"
-      "alfred"
+      "raycast"
     ];
   };
 }
