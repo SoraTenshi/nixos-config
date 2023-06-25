@@ -23,7 +23,10 @@ in
 darwin.lib.darwinSystem {
   inherit system;
   modules = [
-    { nixpkgs.overlays = systemSpecificOverlays ++ overlays; }
+    {
+      nixpkgs.overlays = systemSpecificOverlays ++ overlays;
+      nixpkgs.config.allowUnfree = true;
+    }
 
     ../machines/${hostname}
     ../darwin

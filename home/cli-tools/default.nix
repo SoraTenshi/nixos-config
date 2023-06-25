@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    xclip
     gomuks
     tldr
     screenfetch
@@ -9,7 +8,5 @@
     tiny
     docker
     ncdu
-    # OpenPGP 
-    gnupg1 gpg-tui pinentry
   ];
 }

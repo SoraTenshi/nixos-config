@@ -9,6 +9,7 @@
     ../../home/editors/helix
 
     ../../home/development/darwin.nix
+    ../../home/user-apps/darwin.nix
 
     ../../home/shells/zsh
 

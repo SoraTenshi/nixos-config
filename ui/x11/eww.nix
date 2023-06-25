@@ -1,4 +1,4 @@
-{ self, pkgs, ... }:
+{ pkgs, ... }:
 {
   programs.eww = {
     enable = true;
@@ -6,6 +6,7 @@
   };
   
   home.packages = with pkgs; [
+    xclip
     wmctrl
     light
     brightnessctl
