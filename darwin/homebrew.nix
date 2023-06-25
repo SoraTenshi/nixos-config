@@ -12,6 +12,7 @@
     ];
 
     casks = [
+      "linearmouse"
       "bartender"
       "ubersicht"
       "raycast"
