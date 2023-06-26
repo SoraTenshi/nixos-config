@@ -8,7 +8,7 @@
       focus_follows_mouse = "autoraise";
       mouse_follows_focus = "off";
       top_padding = "6";
-      bottom_padding = "12";
+      bottom_padding = "24";
       left_padding = "6";
       right_padding = "6";
       window_gap = "6";
