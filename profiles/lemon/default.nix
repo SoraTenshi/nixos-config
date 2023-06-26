@@ -7,6 +7,7 @@
     ../../home/kitty
 
     ../../home/editors/helix
+    ../../home/editors/neovim
 
     ../../home/development/darwin.nix
     ../../home/user-apps/darwin.nix

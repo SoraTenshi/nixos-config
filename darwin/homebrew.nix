@@ -17,6 +17,7 @@
       "ubersicht"
       "raycast"
       "spotify"
+      "stats"
       # for YabaiIndicator, use the default installation..
     ];
   };
