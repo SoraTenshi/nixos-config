@@ -10,6 +10,7 @@
     ../../home/cli-tools
 
     ../../home/development
+    ../../home/lazygit
 
     ../../home/shells/zsh
   ];

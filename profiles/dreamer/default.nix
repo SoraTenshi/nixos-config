@@ -19,6 +19,6 @@
     ../../../applications/apps.nix
 
     # development
-    ../../../development/developing.nix
+    ../../home/lazygit
   ];
 }

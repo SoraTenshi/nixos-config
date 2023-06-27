@@ -14,6 +14,8 @@
 
     ../../home/shells/zsh
 
+    ../../home/lazygit
+
     ../../home/cli-tools
   ];
 }

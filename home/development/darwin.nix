@@ -1,8 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    # i am lazy lmao
-    lazygit lazydocker
+    lazydocker
 
     # some commonly used compiler stuff
     zigpkgs.master
