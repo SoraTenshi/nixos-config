@@ -50,6 +50,7 @@ in
       eval "$(zoxide init zsh)"
       eval "$(oh-my-posh init zsh --config '~/.config/oh-my-posh/tokyonight_ascii.opm.json')"
       # eval "$(zellij setup --generate-auto-start zsh)"
+      export PATH=$PATH:~/.cargo/bin
 
       bindkey '^[[1~'   beginning-of-line   # home
       bindkey '^[[4~'   end-of-line         # end
