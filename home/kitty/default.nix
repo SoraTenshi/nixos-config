@@ -2,9 +2,6 @@
 {
   programs.kitty = {
     enable = true;
-    extraConfig = ''
-      font_features LilexNerdFontCompleteM-Light +isol -medi -fina -init
-    '';
     font = {
       name = "Lilex Nerd Font Mono Regular";
       size = if pkgs.stdenvNoCC.isDarwin then 24 else 18;
