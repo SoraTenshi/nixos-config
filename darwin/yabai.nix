@@ -14,6 +14,10 @@
       window_gap = "6";
     };
     extraConfig = ''
+      .blacklist {
+        "League Of Legends"
+      }
+
       yabai -m rule --add title='Preferences' manage=off layer=above
       yabai -m rule --add title='^(Opening)' manage=off layer=above
       yabai -m rule --add title='Library' manage=off layer=above
