@@ -66,7 +66,7 @@
       # Make window native fullscreen
       alt - f         : yabai -m window --toggle zoom-fullscreen
       shift + alt - f : yabai -m window --toggle native-fullscreen
-'';
+  '';
   };
 
   system.keyboard.enableKeyMapping = true;
