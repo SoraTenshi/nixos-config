@@ -17,7 +17,6 @@ let
     (final: prev: {
       zls = zls-master.packages.${system}.default;
       helix = helix-master.packages.${system}.default;
-      material-symbols = prev.callPackage ./derivations/material-symbols {};
     })
   ];
 in
