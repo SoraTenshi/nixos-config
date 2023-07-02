@@ -12,6 +12,8 @@
       left_padding = "6";
       right_padding = "6";
       window_gap = "6";
+      window_shadow = "float";
+      window_topmost = "on";
       active_window_border = "#7dcfff";
       normal_window_border = "#24283b";
     };
