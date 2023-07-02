@@ -66,6 +66,14 @@
       # Make window native fullscreen
       alt - f         : yabai -m window --toggle zoom-fullscreen
       shift + alt - f : yabai -m window --toggle native-fullscreen
+
+      # reOrder all windows
+      shift + alt - o : \
+        yabai -m query --windows --display | jq -re '.[] | select(.app=="kitty") | "yabai -m window \(.id) --space 1"' | sh ; \
+        yabai -m query --windows --display | jq -re '.[] | select(.app=="Arc Browser") | "yabai -m window \(.id) --space 2"' | sh ; \
+        yabai -m query --windows --display | jq -re '.[] | select(.app=="Discord") | "yabai -m window \(.id) --space 3"' | sh ; \
+        yabai -m query --windows --display | jq -re '.[] | select(.app=="Mail") | "yabai -m window \(.id) --space 4"' | sh ; \
+        yabai -m query --windows --display | jq -re '.[] | select(.app=="Spotify") | "yabai -m window \(.id) --space 5"' | sh
   '';
   };
 

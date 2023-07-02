@@ -15,7 +15,7 @@ in
   home.packages = with pkgs; [
     # Shell utils
     btop exa oh-my-posh ripgrep
-    gh jq
+    gh jq gh-dash
   ];
   
   programs.fzf.enable = true;
