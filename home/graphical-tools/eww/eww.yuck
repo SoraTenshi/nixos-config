@@ -44,7 +44,7 @@
 	(literal :content workspaces))
 	
 (defwindow main-bar
-	:monitor 0
+	:monitor 1
 	:geometry (geometry :x "0"
 						:y "0"
 						:width "60px"
@@ -70,7 +70,7 @@
 	(status-three :screen 1))
 	
 (defwindow status3
-	:monitor 1
+	:monitor 0
 	:geometry (geometry :x "0"
 						:y "0"
 						:width "100%"

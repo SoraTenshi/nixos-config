@@ -18,6 +18,25 @@
     pkcs11.enable = true;
   };
 
+  services.xserver = {
+    # Sucks to be me, i have to adjust it every time i move cable / connections
+    # Thank you x11...
+    # Well also under wayland this won't work as intented.....
+
+    # Linux desktop truly is a mess.
+    displayManager.sessionCommands = ''
+      xrandr
+        --output DP-4 --mode 1920x1080 --rate 165 --pos 0x1080 \
+        --output HDMI-0 --mode 1920x1080 --rate 60 --pos 940x0 \
+        --output DP-0 --mode 1920x1080 --rate 75 --pos 1920x1080 \
+
+        --output DP-1 --off \
+        --output DP-2 --off \
+        --output DP-3 --off \
+        --output DP-5 --off \
+    '';
+  };
+
   environment.systemPackages = with pkgs; [
     egl-wayland
   ];

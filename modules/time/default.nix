@@ -6,6 +6,11 @@
     libxkbcommon
   ];
 
+  time = {
+    timeZone = "Europe/Berlin";
+    hardwareClockInLocalTime = true;
+  };
+
   services.xserver = {
     enable = true;
     layout = "eu";

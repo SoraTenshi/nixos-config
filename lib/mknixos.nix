@@ -30,7 +30,10 @@ nixpkgs.lib.nixosSystem {
   specialArgs = if isHardwareMachine then { inherit sddm-theme grub2-theme; } else {};
   modules = [
     { nixpkgs.overlays = systemSpecificOverlays ++ overlays; }
-
+    ../modules/user
+    ../modules/font
+    ../modules/time
+    ../modules/cachix
     ../machines/${hostname}
 
   ] ++ extraModules ++ [

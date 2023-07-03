@@ -97,7 +97,6 @@
           username = "dreamer";
           extraModules = [
             ./modules/nvidia
-            ./ui/x11/xserver
           ];
         };
 

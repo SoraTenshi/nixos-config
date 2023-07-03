@@ -1,10 +1,6 @@
 { self, pkgs, ... }:
 
 {
-  imports = [
-    "${self}/ui/x11/eww.nix"
-  ];
-
   home.packages = with pkgs; [
     fuzzel
 
@@ -206,7 +202,7 @@
   xdg.configFile = {
     "river/init" = {
       executable = true;
-      source = "${self}/ui/wl/river/init";
+      source = ./init;
     };
     "electron-flags.conf" = {
       text = ''
