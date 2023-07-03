@@ -24,6 +24,7 @@ let
       material-symbols = prev.callPackage ../derivations/material-symbols {};
     })
   ];
+  lib = nixpkgs.lib;
 in
 nixpkgs.lib.nixosSystem {
   inherit system;
@@ -34,6 +35,19 @@ nixpkgs.lib.nixosSystem {
     ../modules/font
     ../modules/time
     ../modules/cachix
+    ../modules/common
+    ../modules/variables
+    ../modules/ssh
+
+    # only for hardware
+    # no WSL as an example
+    (lib.mkIf isHardwareMachine [
+      ../modules/boot     
+      ../modules/sddm
+      ../modules/sound
+      ../modules/wayland
+      ../modules/x11
+    ])
     ../machines/${hostname}
 
   ] ++ extraModules ++ [

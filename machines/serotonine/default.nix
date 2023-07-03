@@ -4,7 +4,6 @@
   imports = [ 
     (modulesPath + "/installer/scan/not-detected.nix")
     ../../configuration.nix
-    ../../env/bootable.nix
   ];
 
   boot = {
@@ -19,7 +18,7 @@
   };
 
   networking = {
-    hostName = "neoncity";
+    hostName = "serotonine";
     networkmanager.enable = true;
     useDHCP = false;
     interfaces = {
@@ -44,4 +43,6 @@
   swapDevices =
     [ { device = "/dev/disk/by-uuid/b28aea64-8b57-405d-a64f-d17f425cf472"; }
     ];
+
+  system.stateVersion = "unstable";
 }

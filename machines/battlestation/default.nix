@@ -5,7 +5,6 @@
     [
       (modulesPath + "/installer/scan/not-detected.nix")
       "${self}/configuration.nix"
-      "${self}/env/bootable.nix"
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
@@ -60,10 +59,11 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking = {
-    hostName = "neoncity";
-    useDHCP = lib.mkDefault true;
+    hostName = "battlestation";
+    enp4s0.useDHCP = true;
   };
-  # networking.interfaces.enp4s0.useDHCP = lib.mkDefault true;
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  system.stateVersion = "unstable";
 }
