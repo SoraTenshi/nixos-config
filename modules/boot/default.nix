@@ -1,4 +1,4 @@
-{ ... }:
+{ sddm-theme, ... }:
 {
   boot.loader = {
     efi = {

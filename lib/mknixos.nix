@@ -26,7 +26,7 @@ let
   ];
   lib = nixpkgs.lib;
 in
-nixpkgs.lib.nixosSystem {
+lib.nixosSystem {
   inherit system;
   specialArgs = if isHardwareMachine then { inherit sddm-theme grub2-theme; } else {};
   modules = [
@@ -39,18 +39,18 @@ nixpkgs.lib.nixosSystem {
     ../modules/variables
     ../modules/ssh
 
-    # only for hardware
-    # no WSL as an example
-    (lib.mkIf isHardwareMachine [
-      ../modules/boot     
-      ../modules/sddm
-      ../modules/sound
-      ../modules/wayland
-      ../modules/x11
-    ])
     ../machines/${hostname}
 
-  ] ++ extraModules ++ [
+    # only for hardware
+    # no WSL as an example
+  ] ++ (if isHardwareMachine then [
+    ../modules/boot
+    ../modules/sddm
+    ../modules/sound
+    ../modules/wayland
+    ../modules/x11
+  # End the scope, and add an additional list of the extra modules
+  ] else []) ++ extraModules ++ [
     home-manager.nixosModules.home-manager
     {
       home-manager = {
