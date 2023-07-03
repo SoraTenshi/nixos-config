@@ -101,7 +101,7 @@
           ];
         };
 
-        t470 = mkNixOS "thinkpad-t470" {
+        serotonine = mkNixOS "serotonine" {
           inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
