@@ -35,6 +35,10 @@
         url = "https://devblogs.microsoft.com/oldnewthing/feed";
         title = "old new thing";
       }
+      {
+        url = "http://feeds.feedburner.com/kubkon";
+        title = "Kubkon's Blog";
+      }
     ];
     maxItems = 20;
     extraConfig = ''
