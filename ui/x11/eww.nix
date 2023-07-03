@@ -2,7 +2,7 @@
 {
   programs.eww = {
     enable = true;
-    configDir = ../../eww;
+    configDir = ../../home/eww/eww;
   };
   
   home.packages = with pkgs; [

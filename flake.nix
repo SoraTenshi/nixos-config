@@ -107,7 +107,7 @@
           system = "x86_64-linux";
           username = "dreamer";
           extraModules = [
-            nixos-hardware.nixosModule.lenovo-thinkpad-t470s
+            nixos-hardware.nixosModules.lenovo-thinkpad-t470s
           ];
         };
       };

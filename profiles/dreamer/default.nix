@@ -7,18 +7,28 @@
 
   imports = [
     # ui
-    ../../home/x11/xmonad.nix
+    ../../ui/x11/xmonad.nix
 
     # wl
-    ../../home/wl/tools.nix
+    ../../ui/wl/tools.nix
+
+    # Editor stuff
+    ../../home/shells/zsh
+    ../../home/editors/helix
+    ../../home/editors/neovim
 
     # General purpose
-    ../../home/general-purpose/cli-tools.nix
+    ../../home/lazygit
+    ../../home/cli-tools
+    ../../home/newsboat
+    ../../home/dunst
     
     # User applications
-    ../../../applications/apps.nix
+    ../../home/nyxt
+    ../../home/kitty
+    ../../home/spotify
 
     # development
-    ../../home/lazygit
+    ../../home/development
   ];
 }
