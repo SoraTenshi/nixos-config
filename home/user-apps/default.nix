@@ -8,5 +8,7 @@
     qmk
 
     vial
+
+    firefox
   ];
 }

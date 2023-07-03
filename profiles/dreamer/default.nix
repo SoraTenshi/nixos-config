@@ -22,6 +22,7 @@
     
     ../../home/nyxt
     ../../home/spotify
+    ../../home/user-apps
 
     ../../home/development
   ];

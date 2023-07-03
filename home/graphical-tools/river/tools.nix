@@ -24,7 +24,7 @@
         height = 30;
         output = [
           # "eDP-1"
-          "DP-2"
+          "DP-1"
           "DP-3"
           "HDMI-A-1"
         ];

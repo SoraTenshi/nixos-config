@@ -2,7 +2,7 @@
 A collection of my (hopefully) growing NixOS Config
 
 Shoutout to:
-- @CRTified for introducing me to it :)
+- [@CRTified](https://github.com/crtified) for introducing me to it :)
 
 - [Wil T](https://www.youtube.com/channel/UCLsaznoh7qsE8sc3XQurubw) as he posts a lot of helpfule videos about Nix(OS) and also is essentially
 the reason i could write this tutorial.

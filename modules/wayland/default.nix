@@ -45,7 +45,7 @@
     LIBVA_DRIVER_NAME                   = "nvidia";
     GBM_BACKEND                         = "nvidia-drm";
 
-    XDG_SESSION_TYPE                    = "wayland";
+    # XDG_SESSION_TYPE                    = "wayland";
     XDG_SESSION_DESKTOP                 = "river";
     XDG_CURRENT_DESKTOP                 = "river";
 

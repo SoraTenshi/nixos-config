@@ -28,9 +28,14 @@ let
 in
 lib.nixosSystem {
   inherit system;
-  specialArgs = if isHardwareMachine then { inherit sddm-theme grub2-theme; } else {};
+  specialArgs = if isHardwareMachine then { inherit sddm-theme grub2-theme username; } 
+    else { inherit username; };
   modules = [
-    { nixpkgs.overlays = systemSpecificOverlays ++ overlays; }
+    {
+      nixpkgs.overlays = systemSpecificOverlays ++ overlays;
+      nixpkgs.config.allowUnfree = true;
+    }
+
     ../modules/user
     ../modules/font
     ../modules/time
@@ -39,18 +44,18 @@ lib.nixosSystem {
     ../modules/variables
     ../modules/ssh
 
-    ../machines/${hostname}
-
     # only for hardware
     # no WSL as an example
   ] ++ (if isHardwareMachine then [
     ../modules/boot
+    ../modules/x11
+    ../modules/wayland
     ../modules/sddm
     ../modules/sound
-    ../modules/wayland
-    ../modules/x11
   # End the scope, and add an additional list of the extra modules
   ] else []) ++ extraModules ++ [
+    ../machines/${hostname}
+
     home-manager.nixosModules.home-manager
     {
       home-manager = {
