@@ -1,10 +1,6 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ../home/graphical-tools/river
-  ];
-
   environment.systemPackages = with pkgs; [
     libva
 

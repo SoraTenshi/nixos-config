@@ -6,7 +6,7 @@ in
 {
   imports = [
     ./picom.nix
-    ./eww.nix
+    ../eww
   ];
 
   gtk = {

@@ -1,0 +1,16 @@
+(defpoll clock_ampm   :interval "1s" "LANG=ja_JP.utf8 date +%p")
+(defpoll clock_hour   :interval "1s" "date +%I")
+(defpoll clock_minute :interval "1s" "date +%M")
+(defpoll clock_second :interval "1s" "date +%S")
+
+(defwidget time []
+	(box :class "module" :space-evenly "false" :orientation "v" :spacing 3
+		(label :text "${clock_ampm}"   :class "ampm")
+		(label :text "${clock_hour}"   :class "time")
+		(label :text "${clock_minute}" :class "time")
+		(label :text "${clock_second}" :class "time")))
+
+(defwidget time_h []
+	(box :class "module" :space-evenly "false" :orientation "h" :spacing 3
+		(label :text {replace("${clock_ampm}", '\s', '')}    :class "ampm")
+		(label :text {replace("${clock_hour}:${clock_minute}:${clock_second}", '\s', '')} :class "time")))

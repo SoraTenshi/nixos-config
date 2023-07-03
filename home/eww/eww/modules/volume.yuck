@@ -1,0 +1,24 @@
+(defvar show_volume false)
+(defvar prev_volume 0)
+
+(defpoll cur_volume :interval "1s" "amixer sget Master | grep 'Right:' | awk -F '[][]' '{ print $2 }' | grep -o '[0-9]*'")
+
+(defwidget volume []
+	(eventbox :onclick     {show_volume ? "amixer sset Master ${cur_volume > 0 ? 0 : prev_volume}" : "${EWW_CMD} update show_volume=true && ${EWW_CMD} update prev_volume=${cur_volume > 0 ? cur_volume : prev_volume}"}
+			  :onhoverlost "${EWW_CMD} update show_volume=false"
+	(box :orientation "v" :class "module" :space-evenly "false" :vexpand true
+		(revealer :transition "slideup"
+				  :reveal show_volume
+				  :duration "350ms"
+			(scale :class "volumebar"
+				   :value cur_volume
+				   :tooltip "Volume: ${cur_volume}%"
+				   :onchange "amixer sset Master {}% && ${EWW_CMD} update prev_volume=${cur_volume > 0 ? cur_volume : prev_volume}"
+				   :orientation "v"
+				   :flipped true
+				   :max 100
+				   :min 0))
+		(label :class "icon"
+			   :text "${cur_volume > 75 ? '' : cur_volume > 25 ? '' : cur_volume > 1 ? '' : ''}")
+		(label :class "info"
+			   :text "${cur_volume}%"))))

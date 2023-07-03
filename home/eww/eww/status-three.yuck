@@ -1,0 +1,26 @@
+(defwidget status-three [screen]
+	(centerbox :orientation "v"
+		(box :valign "start"
+			 :class "segment-top"
+			 (right-top))
+		(box :valign "center"
+			 :class "segment-middle"
+			 (right-mid))
+		(box :valign "end"
+			 :class "segment-bottom"
+			 (right-bot))))
+
+(defwidget right-top []
+	(box :class "segment-top" :space-evenly false :orientation "v" :spacing 3
+		(time)))
+
+(defwidget right-mid []
+	(box :class "segment-middle" :space-evenly false :orientation "v" :spacing 3
+		(workspaces)))
+	
+(defwidget right-bot []
+	(box :class "segment-bottom" :space-evenly false :orientation "v" :spacing 3
+		(date)))
+		
+(defwidget workspaces []
+	(literal :content workspaces))

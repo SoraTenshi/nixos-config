@@ -59,7 +59,8 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking = {
     hostName = "battlestation";
-    enp4s0.useDHCP = true;
+    useDHCP = false;
+    interfaces.enp4s0.useDHCP = true;
   };
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
