@@ -79,7 +79,7 @@
     in
     {
       nixosConfigurations = {
-        wsl = mkNixOS "plutonium" {
+        plutonium = mkNixOS "plutonium" {
           inherit self home-manager helix-master neovim-nightly overlays zls-master;
           nixpkgs = nixpkgs-nixos;
           isHardwareMachine = false;
