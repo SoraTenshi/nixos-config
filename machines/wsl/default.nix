@@ -1,12 +1,7 @@
-{ ... }:
-
-let 
-  username = "nightmare";
-in
+{ username, ... }:
 {
   imports = [
     ../../configuration.nix
-    ../../env/basic.nix
   ];
 
   wsl = {
@@ -16,4 +11,6 @@ in
     nativeSystemd = true;
     interop.register = false;
   };
+
+  system.stateVersion = "23.05";
 }
