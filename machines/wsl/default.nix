@@ -13,4 +13,5 @@
   };
 
   system.stateVersion = "23.05";
+  networking.hostName = "plutonium"; # because it glows... got it? 
 }

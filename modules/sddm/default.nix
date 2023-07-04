@@ -1,4 +1,4 @@
-{ config, pkgs, sddm-theme, ... }:
+{ pkgs, sddm-theme, ... }:
 {
   qt = {
     enable        = true;

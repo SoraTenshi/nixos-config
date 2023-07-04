@@ -79,7 +79,7 @@
     in
     {
       nixosConfigurations = {
-        wsl = mkNixOS "wsl" {
+        wsl = mkNixOS "plutonium" {
           inherit self home-manager helix-master neovim-nightly overlays zls-master;
           nixpkgs = nixpkgs-nixos;
           isHardwareMachine = false;
@@ -96,6 +96,7 @@
           system = "x86_64-linux";
           username = "dreamer";
           extraModules = [
+            ./modules/sddm
             ./modules/nvidia
           ];
         };
@@ -106,6 +107,7 @@
           system = "x86_64-linux";
           username = "dreamer";
           extraModules = [
+            ./modules/sddm
             nixos-hardware.nixosModules.lenovo-thinkpad-t470s
           ];
         };
