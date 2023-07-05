@@ -15,7 +15,7 @@
     ../../home/shells/zsh
 
     ../../home/lazygit
-
+    ../../home/newsboat
     ../../home/cli-tools
   ];
 }
