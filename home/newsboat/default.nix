@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   programs.newsboat = {
     enable = true;
@@ -38,6 +38,10 @@
       {
         url = "http://feeds.feedburner.com/kubkon";
         title = "Kubkon's Blog";
+      }
+      {
+        url = "https://verdagon.dev/rss.xml";
+        title = "Verdragon's Blog";
       }
     ];
     maxItems = 20;
