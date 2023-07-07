@@ -26,7 +26,7 @@
 
         sticky-context = {
           enable = true;
-          indicator = true;
+          indicator = false;
         };
 
         lsp = {

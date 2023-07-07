@@ -13,6 +13,7 @@
     ../../home/editors/neovim
 
     ../../home/shells/zsh
+    ../../home/shells/elvish
 
     ../../home/lazygit
     ../../home/newsboat
