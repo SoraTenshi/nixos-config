@@ -1,4 +1,4 @@
-{ ...}:
+{ color-scheme, ...}:
 {
   services.dunst = {
     enable = true;
@@ -13,7 +13,7 @@
         offset = "50x50";
         origin = "top-right";
         transparency = 30;
-        frame_color = "#1a1b26"; # non storm for better frame-contrast :)
+        frame_color = "#${color-scheme.colors.base05}";
         scale = 0;
         font = "RictyDiminished with FiraCode 11";
         
@@ -33,8 +33,8 @@
       };
       
       urgency_normal = {
-        background = "#24283b";
-        foreground = "#a9b1d6";
+        background = "#${color-scheme.colors.base00}";
+        foreground = "#${color-scheme.colors.base05}";
         timeout = 7;
       };
     };

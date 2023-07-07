@@ -11,6 +11,7 @@
 
     # but then on the other side...
     # nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nix-colors.url = "github:misterio77/nix-colors";
 
     darwin = {
       url = "github:lnl7/nix-darwin/master";
@@ -68,6 +69,7 @@
     , picom-ibhagwan
     , nixos-wsl
     , darwin
+    , nix-colors
     }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
@@ -80,7 +82,7 @@
     {
       nixosConfigurations = {
         plutonium = mkNixOS "plutonium" {
-          inherit self home-manager helix-master neovim-nightly overlays zls-master;
+          inherit self home-manager helix-master neovim-nightly overlays zls-master nix-colors;
           nixpkgs = nixpkgs-nixos;
           isHardwareMachine = false;
           system = "x86_64-linux";
@@ -91,7 +93,7 @@
         };
 
         battlestation = mkNixOS "battlestation" {
-          inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme;
+          inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme nix-colors;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dreamer";
@@ -102,7 +104,7 @@
         };
 
         serotonine = mkNixOS "serotonine" {
-          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme;
+          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme nix-colors;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dreamer";
@@ -115,7 +117,7 @@
 
       darwinConfigurations = {
         combustible = mkDarwin "combustible" {
-          inherit self nixpkgs darwin home-manager helix-master neovim-nightly overlays zls-master;
+          inherit self nixpkgs darwin home-manager helix-master neovim-nightly overlays zls-master nix-colors;
           system = "aarch64-darwin";
           username = "lemon";
         };

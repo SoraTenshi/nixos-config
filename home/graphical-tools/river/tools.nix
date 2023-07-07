@@ -210,6 +210,7 @@
         --ozone-platform-hint=auto
       '';
     };
+    # TODO: Migrate to base16 & nix-colors
     "fuzzel/fuzzel.ini" = {
       text = ''
         font='Lilex Nerd Font Mono-16'

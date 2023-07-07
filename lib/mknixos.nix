@@ -13,6 +13,7 @@ hostname:
 , grub2-theme ? null
 , isHardwareMachine ? true
 , extraModules ? [] # default to an empty list if not provided
+, nix-colors
 }:
 
 let 
@@ -25,6 +26,7 @@ let
     })
   ];
   lib = nixpkgs.lib;
+  color-scheme = nix-colors.colorSchemes.tokyo-night-storm;
 in
 lib.nixosSystem {
   inherit system;
@@ -63,10 +65,10 @@ lib.nixosSystem {
         useUserPackages = true;
         extraSpecialArgs = if isHardwareMachine then {
           inherit
-            self neovim-nightly picom-ibhagwan username;
+            self neovim-nightly picom-ibhagwan username color-scheme;
         } else {
           inherit
-            self neovim-nightly username;
+            self neovim-nightly username color-scheme;
         };
         users.${username} = {
           imports = [ ../profiles/${username} ];

@@ -10,6 +10,7 @@ hostname:
 , zls-master
 , darwin
 , extraModules ? [] # extra modules
+, nix-colors
 }:
 
 let 
@@ -19,6 +20,7 @@ let
       helix = helix-master.packages.${system}.default;
     })
   ];
+  color-scheme = nix-colors.colorSchemes.tokyo-night-storm;
 in
 darwin.lib.darwinSystem {
   inherit system;
@@ -47,7 +49,7 @@ darwin.lib.darwinSystem {
         useUserPackages = true;
         extraSpecialArgs = {
           inherit
-            self neovim-nightly username;
+            self neovim-nightly username color-scheme;
         };
         users.${username} = {
           imports = [ ../profiles/${username} ];
