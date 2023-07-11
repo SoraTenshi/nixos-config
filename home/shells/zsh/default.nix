@@ -9,7 +9,6 @@ let
     termbin  = "nc termbin.com 9999"; 
     grep     = "rg ";
     lg       = "lazygit";
-    devshell = "nix flake init --template github:the-nix-way/dev-templates#";
   };
 in
 {
@@ -53,10 +52,14 @@ in
       export PATH=$PATH:~/.cargo/bin
 
       # Define autocomplete for devshell init
+      devshell() {
+        nix flake init --template github:the-nix-way/dev-templates#$1
+      }
+
       _devshell() {
-        compadd -- clojure csharp cue dhall elixir elm gleam go \
-         hashi haskell java kotlin latex nickel nim nix node ocaml \
-         opa php protobuf purescript python ruby rust-toolchain rust scala shell zig
+        compadd clojure csharp cue dhall elixir elm gleam go \
+           hashi haskell java kotlin latex nickel nim nix node ocaml \
+           opa php protobuf purescript python ruby rust-toolchain rust scala shell zig
       }
       compdef _devshell devshell
       # End definition of devshell
