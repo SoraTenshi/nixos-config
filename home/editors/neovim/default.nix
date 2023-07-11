@@ -4,6 +4,10 @@
     ../language-servers
   ];
 
+  home.packages = [
+    pkgs.lua54Packages.fennel
+  ];
+
   nixpkgs.overlays = neovim-nightly;
   programs.neovim = {
     enable        = true;
@@ -12,6 +16,8 @@
     vimdiffAlias  = true;
 
     plugins = with pkgs.vimPlugins; [
+      aniseed
+
       # utilities
       telescope-nvim vim-easy-align vim-css-color which-key-nvim vim-cursorword
 
