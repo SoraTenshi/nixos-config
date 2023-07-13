@@ -12,6 +12,7 @@
     ];
 
     casks = [
+      "datweatherdoe"
       "linearmouse"
       "bartender"
       "ubersicht"
