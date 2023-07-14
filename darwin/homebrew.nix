@@ -16,6 +16,7 @@
       "linearmouse"
       "bartender"
       "ubersicht"
+      "keycastr"
       "raycast"
       "spotify"
       "stats"
