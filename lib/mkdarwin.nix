@@ -2,6 +2,7 @@ hostname:
 { self
 , nixpkgs
 , home-manager
+, nur
 , system
 , username
 , overlays
@@ -16,7 +17,7 @@ hostname:
 let 
   systemSpecificOverlays = [
     (final: prev: {
-      zls = zls-master.packages.${system}.default;
+      # zls = zls-master.packages.${system}.default;
       helix = helix-master.packages.${system}.default;
     })
   ];
@@ -42,6 +43,13 @@ darwin.lib.darwinSystem {
     })
 
   ] ++ extraModules ++ [
+    nur.nixosModules.nur
+    ({ config, ... }:{
+      home-manager.sharedModules = [
+        config.nur.repos.rycee.hmModules.emacs-init
+      ];
+    })
+
     home-manager.darwinModules.home-manager
     {
       home-manager = {

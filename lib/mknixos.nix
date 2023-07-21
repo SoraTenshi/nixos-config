@@ -2,6 +2,7 @@ hostname:
 { self
 , nixpkgs
 , home-manager
+, nur
 , system
 , username
 , overlays
@@ -45,6 +46,13 @@ lib.nixosSystem {
     ../modules/common
     ../modules/variables
     ../modules/ssh
+
+    nur.nixosModules.nur
+    ({ config, ... }:{
+      home-manager.sharedModules = [
+        config.nur.repos.rycee.hmModules.emacs-init
+      ];
+    })
 
     # only for hardware
     # no WSL as an example

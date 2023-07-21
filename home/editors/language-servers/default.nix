@@ -9,20 +9,23 @@
 
     # Language servers
     clang-tools # C-Style
-    # cmake-language-server # Cmake
+    cmake-language-server # Cmake, pray to never need to use it
     gopls # Go 
     nil # Nix
     rust-analyzer # Rust
+    # ols # Odin
     texlab # LaTeX
     zls # Zig
     ols # Odin
     elixir_ls # Elixir
     sourcekit-lsp # Swift & Obj-C
-    # omnisharp-roslyn # .NET 
+
     haskellPackages.haskell-language-server # Haskell
+
     nodePackages.typescript-language-server # Typescript
     nodePackages.vim-language-server # Vim
     nodePackages.yaml-language-server # YAML / JSON
+
     luajitPackages.lua-lsp # Lua
   ];
 

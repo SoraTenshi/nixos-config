@@ -11,6 +11,7 @@
 
     ../../home/editors/helix
     ../../home/editors/neovim
+    # ../../home/editors/emacs
 
     ../../home/shells/zsh
     ../../home/shells/elvish

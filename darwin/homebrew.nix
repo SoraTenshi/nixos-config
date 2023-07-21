@@ -13,6 +13,7 @@
 
     casks = [
       "datweatherdoe"
+      "utm"
       "linearmouse"
       "bartender"
       "ubersicht"
