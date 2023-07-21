@@ -13,7 +13,6 @@
     gopls # Go 
     nil # Nix
     rust-analyzer # Rust
-    # ols # Odin
     texlab # LaTeX
     zls # Zig
     ols # Odin

@@ -5,7 +5,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
     nixpkgs-nixos.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     nix-colors.url = "github:misterio77/nix-colors";
     nur.url = "github:nix-community/NUR";
