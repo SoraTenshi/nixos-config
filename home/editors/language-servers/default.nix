@@ -15,6 +15,7 @@
     rust-analyzer # Rust
     texlab # LaTeX
     zls # Zig
+    ols # Odin
     elixir_ls # Elixir
     sourcekit-lsp # Swift & Obj-C
     # omnisharp-roslyn # .NET 

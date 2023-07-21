@@ -6,7 +6,7 @@
 
     # i will probably just pin everything from now on. 
     # no more unstable.
-    nixpkgs-nixos.url = "github:NixOS/nixpkgs/nixos-23.05";
+    nixpkgs-nixos.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
 
     # but then on the other side...
