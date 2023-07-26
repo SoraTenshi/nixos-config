@@ -4,7 +4,7 @@ let
   aliases = {
     cat      = "bat --style=plain ";
     mv       = "mv -i ";
-    ls       = "exa --icons ";
+    ls       = "exa --icons --grid";
     cd       = "z ";
     termbin  = "nc termbin.com 9999"; 
     grep     = "rg ";
