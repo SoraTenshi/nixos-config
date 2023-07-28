@@ -45,10 +45,10 @@
         gutters = [ "diagnostics" "line-numbers" "spacer" "diff"];
         statusline = {
           mode-separator = "";
-          separator = "";
-          left = [ "mode" "selections" "spinner" "file-name" "total-line-numbers"];
-          center = [ ];
-          right = [ "diagnostics" "file-encoding" "file-line-ending" "file-type" "position-percentage"  "position" ];
+          separator = "of";
+          left = [ "mode" "selections" "file-type-icon" "file-type" "register" "spinner" "diagnostics" ];
+          center = [ "file-name" ];
+          right = [ "file-encoding" "file-line-ending" "position-percentage" "spacer" "separator" "total-line-numbers" ];
           mode = {
             normal = "NORMAL";
             insert = "INSERT";
