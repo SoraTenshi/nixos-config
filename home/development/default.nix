@@ -12,6 +12,7 @@
     go
     nim
     julia-bin
+    ocaml opam
 
     elixir erlang 
     swift swiftPackages.swiftpm
