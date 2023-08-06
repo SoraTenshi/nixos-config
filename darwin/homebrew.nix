@@ -9,13 +9,13 @@
     ];
 
     brews = [
+      "docker-compose"
     ];
 
     casks = [
       "datweatherdoe"
       "utm"
       "linearmouse"
-      "bartender"
       "ubersicht"
       "keycastr"
       "raycast"
