@@ -9,19 +9,20 @@
     ];
 
     brews = [
+      "docker-machine"
       "docker-compose"
     ];
 
     casks = [
       "datweatherdoe"
-      "utm"
-      "linearmouse"
-      "ubersicht"
+      "docker"
       "keycastr"
+      "linearmouse"
       "raycast"
       "spotify"
       "stats"
-      # for YabaiIndicator, use the default installation..
+      "ubersicht"
+      "utm"
     ];
   };
 }

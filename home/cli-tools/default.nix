@@ -6,7 +6,6 @@
     screenfetch
     btop
     tiny
-    docker
     ncdu
   ];
 }
