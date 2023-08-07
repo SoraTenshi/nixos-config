@@ -19,6 +19,8 @@
     elixir_ls # Elixir
     sourcekit-lsp # Swift & Obj-C
 
+    ocamlPackages.ocaml-lsp # OCaml
+
     haskellPackages.haskell-language-server # Haskell
 
     nodePackages.typescript-language-server # Typescript

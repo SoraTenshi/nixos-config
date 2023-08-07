@@ -12,7 +12,7 @@
     go
     nim
     julia-bin
-    ocaml opam
+    ocaml opam dune-release
 
     elixir erlang 
     swift swiftPackages.swiftpm
