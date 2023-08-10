@@ -17,7 +17,7 @@ hostname:
 let 
   systemSpecificOverlays = [
     (final: prev: {
-      # zls = zls-master.packages.${system}.default;
+      zls = zls-master.packages.${system}.default;
       helix = helix-master.packages.${system}.default;
     })
   ];

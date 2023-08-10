@@ -67,6 +67,10 @@
         "C-d" = ["half_page_down" "align_view_center"];
         "C-u" = ["half_page_up" "align_view_center"];
       };
+
+      keys.normal."\\" = {
+        "t" = [":o ~/todo.md"];
+      };
     };
   };
   

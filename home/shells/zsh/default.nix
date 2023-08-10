@@ -41,10 +41,10 @@ in
 
   # Shell
   programs.zsh = {
-    enable                   = true;
-    enableCompletion         = true;
-    enableAutosuggestions    = true;
-    enableSyntaxHighlighting = true;
+    enable                    = true;
+    enableCompletion          = true;
+    enableAutosuggestions     = true;
+    syntaxHighlighting.enable = true;
 
     initExtra = ''
       eval "$(zoxide init zsh)"
