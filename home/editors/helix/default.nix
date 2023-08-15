@@ -69,7 +69,7 @@
       };
 
       keys.normal."\\" = {
-        "t" = [":o ~/todo.md"];
+        "t" = [":vs ~/todo.md"];
       };
     };
   };
