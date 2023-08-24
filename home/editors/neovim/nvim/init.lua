@@ -67,9 +67,7 @@ vmap(")>", "<cmd>>gv")
 vmap("y", "<cmd>myy`y")
 vmap("Y", "<cmd>myY`y")
 
-map("", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<cr>")
-
-nmap("<leader>k", "<cmd>:nohlsearch<cr>")
+nmap("<leader>k", "<cmd>lua vim.lsp.buf.signature_help()<cr>")
 nmap("<leader>f", "<cmd>Telescope find_files<cr>")
 nmap("<leader>t", "<cmd>Telescope<cr>")
 nmap("<leader>w!", "<cmd>:SudoWrite<cr>")

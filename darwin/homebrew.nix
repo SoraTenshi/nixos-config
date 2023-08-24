@@ -11,6 +11,8 @@
     brews = [
       "docker-machine"
       "docker-compose"
+      "qemu"
+      "podman"
     ];
 
     casks = [
@@ -20,7 +22,6 @@
       "linearmouse"
       "raycast"
       "spotify"
-      "stats"
       "ubersicht"
       "utm"
     ];
