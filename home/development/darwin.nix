@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    gnumake
     lazydocker
 
     # some commonly used compiler stuff

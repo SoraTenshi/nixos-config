@@ -27,6 +27,6 @@
     exercism
 
     # cmake
-    cmake mmake
+    cmake gnumake
   ];
 }
