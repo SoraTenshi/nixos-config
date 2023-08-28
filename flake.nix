@@ -111,6 +111,16 @@
             nixos-hardware.nixosModules.lenovo-thinkpad-t470s
           ];
         };
+
+        radium = mkNixOS "radium" {
+          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme nix-colors nur;
+          nixpkgs = nixpkgs-nixos;
+          system = "aarch64-linux";
+          username = "spectre";
+          extraModules = [
+            ./modules/sddm
+          ];
+        };
       };
 
       darwinConfigurations = {
