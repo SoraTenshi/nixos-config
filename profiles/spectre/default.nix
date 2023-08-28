@@ -17,6 +17,7 @@
     
     ../../home/user-apps
 
-    ../../home/development
+    # ../../home/development
+    ../../home/development/darwin.nix
   ];
 }
