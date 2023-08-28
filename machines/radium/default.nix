@@ -28,6 +28,18 @@
     fsType = "vfat";
   };
 
+  services.xserver = {
+    # Sucks to be me, i have to adjust it every time i move cable / connections
+    # Thank you x11...
+    # Well also under wayland this won't work as intented.....
+
+    # Linux desktop truly is a mess.
+    displayManager.sessionCommands = ''
+      xrandr \
+        --output Virtual-1 --mode 1512x982 --rate 60 --pos 0x0 \
+    '';
+  };
+
   swapDevices = [];
 
   security.sudo.wheelNeedsPassword = false;
