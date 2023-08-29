@@ -1,12 +1,13 @@
-{ ... }:
+{ modulesPath, ... }:
 {
   imports = [
+    (modulesPath + "/profiles/qemu-guest.nix")
     ../../configuration.nix
   ];
 
   boot = {
-    initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
-    kernelModules = [ "kvm-intel" ];
+    initrd.availableKernelModules = [ "xhci_pci" "virtio_pci" "usbhid" "nvme" "usb_storage" "sr_mod" ];
+    kernelModules = [ ];
     extraModulePackages = [ ];
     binfmt.emulatedSystems = [ "x86_64-linux" ];
   };
@@ -28,6 +29,11 @@
     fsType = "vfat";
   };
 
+  swapDevices = [];
+
+  environment.variables.LIBGL_ALWAYS_SOFTWARE = "1";
+
+  services.spice-vdagentf.enable = true;
   services.xserver = {
     # Sucks to be me, i have to adjust it every time i move cable / connections
     # Thank you x11...
@@ -39,8 +45,6 @@
         --output Virtual-1 --mode 1512x982 --rate 60 --pos 0x0 \
     '';
   };
-
-  swapDevices = [];
 
   security.sudo.wheelNeedsPassword = false;
 

@@ -15,9 +15,6 @@
     ../../home/cli-tools
     ../../home/lazygit
     
-    ../../home/user-apps
-
-    # ../../home/development
     ../../home/development/darwin.nix
   ];
 }
