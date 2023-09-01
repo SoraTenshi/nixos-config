@@ -7,5 +7,6 @@
     btop
     tiny
     ncdu
+    gnumake
   ];
 }
