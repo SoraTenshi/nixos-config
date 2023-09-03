@@ -8,7 +8,7 @@ let
     cd       = "z ";
     termbin  = "nc termbin.com 9999"; 
     grep     = "rg ";
-    lg       = "lazygit";
+    lg       = "TERM=xterm-256color lazygit"; # ugly hotfix
   };
 in
 {

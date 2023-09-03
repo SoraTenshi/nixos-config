@@ -1,7 +1,7 @@
 { pkgs, ... }: 
 {
   fonts.fontDir.enable = true;
-  fonts.packages = with pkgs; [
+  fonts.fonts = with pkgs; [
     material-symbols
     meslo-lgs-nf
     rictydiminished-with-firacode
