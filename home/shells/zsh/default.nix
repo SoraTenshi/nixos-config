@@ -4,7 +4,7 @@ let
   aliases = {
     cat      = "bat --style=plain ";
     mv       = "mv -i ";
-    ls       = "exa --icons --grid";
+    ls       = "eza --icons --grid";
     cd       = "z ";
     termbin  = "nc termbin.com 9999"; 
     grep     = "rg ";
@@ -14,7 +14,7 @@ in
 {
   home.packages = with pkgs; [
     # Shell utils
-    btop exa oh-my-posh ripgrep
+    btop eza oh-my-posh ripgrep
     gh jq gh-dash
   ];
   
