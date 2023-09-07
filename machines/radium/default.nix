@@ -33,7 +33,6 @@
 
   environment.variables.LIBGL_ALWAYS_SOFTWARE = "1";
 
-  services.spice-vdagentf.enable = true;
   services.xserver = {
     # Sucks to be me, i have to adjust it every time i move cable / connections
     # Thank you x11...
