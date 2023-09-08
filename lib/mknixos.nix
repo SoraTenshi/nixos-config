@@ -13,6 +13,7 @@ hostname:
 , sddm-theme ? null
 , grub2-theme ? null
 , isHardwareMachine ? true
+, isVM ? false
 , extraModules ? [] # default to an empty list if not provided
 , nix-colors
 }:
@@ -31,8 +32,8 @@ let
 in
 lib.nixosSystem {
   inherit system;
-  specialArgs = if isHardwareMachine then { inherit sddm-theme grub2-theme username; } 
-    else { inherit username; };
+  specialArgs = if isHardwareMachine then { inherit sddm-theme grub2-theme isVM username; } 
+    else { inherit username isVM; };
   modules = [
     {
       nixpkgs.overlays = systemSpecificOverlays ++ overlays;
