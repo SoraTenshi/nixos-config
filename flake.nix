@@ -117,6 +117,7 @@
           nixpkgs = nixpkgs-nixos;
           system = "aarch64-linux";
           username = "spectre";
+          isVM = true;
           extraModules = [
             ./modules/sddm
           ];
