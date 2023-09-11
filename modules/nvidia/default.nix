@@ -4,6 +4,7 @@
     powerManagement.enable = true;
     modesetting.enable = true;
     package = config.boot.kernelPackages.nvidiaPackages.beta;
+    open = true;
   };
 
   services.xserver = {

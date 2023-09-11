@@ -4,8 +4,7 @@
   xdg.enable = true;
 
   imports = [
-    ../../home/graphical-tools/river
-
+    ../../home/wayland/river
     ../../home/x11
 
     ../../home/kitty
