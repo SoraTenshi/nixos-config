@@ -4,40 +4,13 @@
   environment.systemPackages = with pkgs; [
     libva
 
-    river
-    rivercarro
-
-    wayland-utils
-    wayland
-
     wl-clipboard
+
+    wayland
+    wayland-utils
 
     xwayland
   ];
-
-  services.xserver.displayManager = {
-    sessionPackages = [
-      (pkgs.river.overrideAttrs
-        (prevAttrs: {
-          postInstall = 
-            let 
-              riverSession = ''
-                [Desktop Entry]
-                Name=River
-                Comment=Dynamic Wayland compositor
-                Exec=river
-                Type=Application
-              '';
-            in
-              ''
-                mkdir -p $out/share/wayland-sessions
-                echo "${riverSession}" > $out/share/wayland-sessions/river.desktop
-              '';
-          passthru.providedSessions = [ "river" ];
-        })
-      )
-    ];
-  };
 
   # Holy shit wlroots, are you serious ?!
   environment.sessionVariables = {
@@ -46,8 +19,6 @@
     GBM_BACKEND                         = "nvidia-drm";
 
     # XDG_SESSION_TYPE                    = "wayland";
-    XDG_SESSION_DESKTOP                 = "river";
-    XDG_CURRENT_DESKTOP                 = "river";
 
     CLUTTER_BACKEND                     = "wayland";
     SDL_VIDEODRIVER                     = "wayland";
