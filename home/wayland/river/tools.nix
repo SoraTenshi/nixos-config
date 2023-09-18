@@ -1,4 +1,4 @@
-{ self, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -13,7 +13,7 @@
     wlr-randr
     wofi
   ];
-  
+
   programs.waybar = {
     enable = true;
     systemd.enable = true;

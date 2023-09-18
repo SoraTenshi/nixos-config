@@ -15,7 +15,7 @@
         transparency = 30;
         frame_color = "#${color-scheme.colors.base05}";
         scale = 0;
-        font = "RictyDiminished with FiraCode 11";
+        font = "Lilex Nerd Font Mono 11";
         
         padding = 8;
         horizontal_padding = 8;
