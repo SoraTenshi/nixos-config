@@ -35,7 +35,7 @@
       urgency_normal = {
         background = "#${color-scheme.colors.base00}";
         foreground = "#${color-scheme.colors.base05}";
-        timeout = 7;
+        timeout = 3;
       };
     };
   };

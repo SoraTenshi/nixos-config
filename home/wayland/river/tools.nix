@@ -202,7 +202,7 @@
   xdg.configFile = {
     "river/init" = {
       executable = true;
-      source = ./river/init;
+      source = ./init;
     };
     "electron-flags.conf" = {
       text = ''

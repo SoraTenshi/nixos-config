@@ -8,5 +8,6 @@
     tiny
     ncdu
     gnumake
+    unzip
   ];
 }
