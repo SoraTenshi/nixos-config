@@ -45,6 +45,8 @@ in
 
     dmenu
     networkmanager_dmenu
+
+    flameshot
   ];
 
   services.random-background = {
