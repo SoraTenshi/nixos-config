@@ -8,7 +8,7 @@
     enable = true;
     settings = {
       theme = "tokyonight_storm";
-      icons = "nerdfonts";
+      # icons = "nerdfonts"; 
       editor = {
         line-number = "relative";
         cursorline = true;
@@ -44,9 +44,8 @@
 
         gutters = [ "diagnostics" "line-numbers" "spacer" "diff"];
         statusline = {
-          mode-separator = "";
           separator = "of";
-          left = [ "mode" "selections" "file-type-icon" "file-type" "register" "spinner" "diagnostics" ];
+          left = [ "mode" "selections" "file-type" "register" "spinner" "diagnostics" ];
           center = [ "file-name" ];
           right = [ "file-encoding" "file-line-ending" "position-percentage" "spacer" "separator" "total-line-numbers" ];
           mode = {
