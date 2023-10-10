@@ -3,8 +3,8 @@
   services.skhd = {
     enable = true;
     skhdConfig = ''
-      # opens Kitty rawr x3
-      alt - return : open -na ~/Applications/Home\ Manager\ Apps/kitty.app
+      # opens Ghostty spooky owo
+      alt - return : open -na ~/Applications/Ghostty.app
 
       # Navigation
       alt - h : yabai -m window --focus west
