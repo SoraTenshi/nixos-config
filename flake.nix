@@ -122,6 +122,17 @@
             ./modules/sddm
           ];
         };
+
+        loqius = mkNixOS "loqius" {
+          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme nix-colors nur;
+          nixpkgs = nixpkgs-nixos;
+          system = "x86_64-linux";
+          username = "dev";
+          extraModules = [
+            ./modules/sddm
+            nixos-hardware.nixosModules.lenovo-thinkpad-l14-amd
+          ];
+        };
       };
 
       darwinConfigurations = {

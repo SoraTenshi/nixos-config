@@ -5,10 +5,12 @@
       canTouchEfiVariables = true;
       efiSysMountPoint = if isVM then "/boot" else "/boot/efi";
     };
+
     grub = {
       enable = true;
       efiSupport = true;
       copyKernels = true;
+      enableCryptodisk = true;
       splashImage = "${sddm-theme}/Backgrounds/nixos.png";
       splashMode = "stretch";
       device = "nodev";
