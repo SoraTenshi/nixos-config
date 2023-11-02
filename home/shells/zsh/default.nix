@@ -31,16 +31,12 @@ in
 
     git = {
       enable = true;
-      userName = "SoraTenshi";
-      userEmail = "dream@neoncity.dev";
-      extraConfig = {
-        branch.autosetuprebase = "always";
-        color.ui = true;
-        init.defaultBranch = "main";
-      };
+      includes = [
+        { path = "~/.config/git/userconfig.inc"; }
+      ];
     };
 
-  # Shell
+    # Shell
     zsh = {
       enable                    = true;
       enableCompletion          = true;

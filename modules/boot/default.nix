@@ -10,7 +10,7 @@
       enable = true;
       efiSupport = true;
       copyKernels = true;
-      enableCryptodisk = true;
+      #enableCryptodisk = true;
       splashImage = "${sddm-theme}/Backgrounds/nixos.png";
       splashMode = "stretch";
       device = "nodev";

@@ -9,5 +9,6 @@
     ncdu
     gnumake
     unzip
+    tmate
   ];
 }

@@ -1,4 +1,4 @@
-{ modulesPath, ... }:
+{ config, modulesPath, ... }:
 
 {
   imports = [ 
@@ -7,15 +7,16 @@
   ];
 
   boot = {
-    initrd.luks.devices = {
-      root = {
-        device = ""; # todo
-        preLVM = true;
-      };
+    initrd = {
+        availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+
+        luks.devices = {
+            "luks-02f3657f-1e4b-4c27-8699-14b6c7800fe8".device = "/dev/disk/by-uuid/02f3657f-1e4b-4c27-8699-14b6c7800fe8";
+            "luks-1db63256-f82d-41cf-a676-34df3d4cdda7".device = "/dev/disk/by-uuid/1db63256-f82d-41cf-a676-34df3d4cdda7";
+        };
     };
-    initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "usbhid" ];
-    kernelModules = [ "kvm-amd" ];
-    extraModulePackages = [ ];
+    kernelModules = [ "v4l2loopback" ];
+    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
   };
 
   security.tpm2 = {
@@ -28,32 +29,41 @@
     networkmanager.enable = true;
     useDHCP = false;
     interfaces = {
-      # todo
-      # enp0s31f6.useDHCP = true;
-      # wlp4s0.useDHCP = true;
+      enp2s0f0.useDHCP = true;
+      wlp3s0.useDHCP = true;
+      wwan0.useDHCP = true;
     };
   };
 
   # touchpad support!
-  services.xserver.libinput = {
+  services.xserver = {
     enable = true;
-    touchpad.naturalScrolling = true;
+    videoDrivers = [ "displaylink" "modesetting" ];
+    libinput = {
+      enable = true;
+      touchpad.naturalScrolling = true;
+    };
   };
 
   fileSystems."/" =
-    { # todo
+    { device = "/dev/disk/by-uuid/5fcfbbcd-7bc3-4858-8424-12ded996ea9f";
       fsType = "ext4";
     };
 
   fileSystems."/boot/efi" =
-    { # todo
+    { device = "/dev/disk/by-uuid/C94B-1C6E";
       fsType = "vfat";
     };
 
   swapDevices =
-    [ { # todo
-     }
+    [ { device = "/dev/disk/by-uuid/f3a71f47-540f-4870-a6d2-1de0b815af48"; }
     ];
+
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryFlavor = "tty";
+    # enableSSHSupport = true;
+  };
 
   system.stateVersion = "23.05";
 }

@@ -8,7 +8,7 @@
     zigpkgs.master
     odin
     clang
-    cargo rustc
+    cargo rustc clippy rustfmt
     go
     nim
     julia-bin

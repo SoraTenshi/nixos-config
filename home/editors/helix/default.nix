@@ -6,6 +6,13 @@
 
   programs.helix = {
     enable = true;
+    # languages = {
+    #   language-server = {
+    #     rust-analyzer.config = {
+    #       check.command = "clippy";
+    #     };
+    #   };
+    # };
     settings = {
       theme = "tokyonight_storm";
       # icons = "nerdfonts"; 

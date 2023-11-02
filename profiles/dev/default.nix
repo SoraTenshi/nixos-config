@@ -16,6 +16,8 @@
     ../../home/lazygit
     ../../home/newsboat
     ../../home/dunst
+    ../../home/email
+    ../../home/work-specific
     
     ../../home/spotify
     ../../home/user-apps

@@ -12,7 +12,7 @@
     cmake-language-server # Cmake, pray to never need to use it
     gopls # Go 
     nil # Nix
-    rust-analyzer # Rust
+    rust-analyzer-unwrapped # Rust
     texlab # LaTeX
     zls # Zig
     ols # Odin

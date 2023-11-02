@@ -16,7 +16,7 @@
   };
 
   i18n = {
-    defaultLocale = "ja_JP.utf8";
+    defaultLocale = "en_US.utf8";
     inputMethod = {
       enabled = "fcitx5";
       fcitx5.addons = with pkgs; [
