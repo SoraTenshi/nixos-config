@@ -27,28 +27,6 @@ in
     platformTheme = "gtk";
   };
 
-  home.pointerCursor = {
-    package = cursorPackage;
-    name = cursorName;
-    size = 32;
-    gtk.enable = true;
-    x11.enable = true;
-    x11.defaultCursor = cursorName;
-  };
-
-  home.packages = with pkgs; [
-    # App starter
-    rofi
-    rofi-power-menu
-    rofi-pulse-select
-    rofi-file-browser
-
-    dmenu
-    networkmanager_dmenu
-
-    flameshot
-  ];
-
   services.random-background = {
     enable = true;
     imageDirectory = "${self}/images";
@@ -56,11 +34,35 @@ in
     interval = "1h";
   };
 
-  home.file.".xsession" = {
-    text = ''
-      GTK_IM_MODULE=fcitx
-      QT_IM_MODULE=fcitx
-      XMODIFIERS=@im=fcitx
-    '';
+
+  home = {
+    pointerCursor = {
+      package = cursorPackage;
+      name = cursorName;
+      size = 32;
+      gtk.enable = true;
+      x11.enable = true;
+      x11.defaultCursor = cursorName;
+    };
+
+    packages = with pkgs; [
+      # App starter
+      rofi
+      rofi-power-menu
+      rofi-pulse-select
+      rofi-file-browser
+
+      dmenu
+      networkmanager_dmenu
+
+      flameshot
+    ];
+    file.".xsession" = {
+      text = ''
+        GTK_IM_MODULE=fcitx
+        QT_IM_MODULE=fcitx
+        XMODIFIERS=@im=fcitx
+      '';
+    };
   };
 }
