@@ -1,4 +1,4 @@
-{ ... }:
+_:
 {
   environment.variables = {
     EDITOR = "hx";

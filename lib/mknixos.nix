@@ -27,7 +27,7 @@ let
       material-symbols = prev.callPackage ../derivations/material-symbols {};
     })
   ];
-  lib = nixpkgs.lib;
+  inherit (nixpkgs) lib;
   color-scheme = nix-colors.colorSchemes.tokyo-night-storm;
 in
 lib.nixosSystem {

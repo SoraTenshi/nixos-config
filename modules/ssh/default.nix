@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs;[
-    opensc 
+    opensc
   ];
 
   virtualisation.docker.enable = true;
