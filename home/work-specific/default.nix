@@ -11,7 +11,7 @@
   home.packages = [
     pkgs.thunderbird
     pkgs.mumble
-    pkgs.zanthura
+    pkgs.zathura
     pkgs.keepassxc
   ];
 }
