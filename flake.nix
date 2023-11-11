@@ -86,6 +86,7 @@
           system = "x86_64-linux";
           username = "nightmare";
           extraModules = [
+            ./modules/distcc
             nixos-wsl.nixosModules.wsl
           ];
         };

@@ -14,7 +14,7 @@ in
 {
   home.packages = with pkgs; [
     # Shell utils
-    btop eza oh-my-posh ripgrep
+    htop btop eza oh-my-posh ripgrep
     gh jq gh-dash
   ];
   
