@@ -21,7 +21,6 @@ let
       helix = helix-master.packages.${system}.default;
     })
   ];
-  color-scheme = nix-colors.colorSchemes.tokyo-night-storm;
 in
 darwin.lib.darwinSystem {
   inherit system;
@@ -57,7 +56,7 @@ darwin.lib.darwinSystem {
         useUserPackages = true;
         extraSpecialArgs = {
           inherit
-            self neovim-nightly username color-scheme;
+            self neovim-nightly username nix-colors;
         };
         users.${username} = {
           imports = [ ../profiles/${username} ];

@@ -7,9 +7,8 @@ _:
     backend = "glx";
 
     vSync = false;
-    
+
     opacityRules = [
-      "60:class_g = 'alacritty'"
       "100:class_g = 'eww'"
     ];
 

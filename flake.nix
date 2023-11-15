@@ -7,7 +7,7 @@
     nixpkgs-nixos.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    nix-colors.url = "github:misterio77/nix-colors";
+    stylix.url = "github:danth/stylix";
     nur.url = "github:nix-community/NUR";
 
     darwin = {
@@ -67,7 +67,7 @@
     , picom-ibhagwan
     , nixos-wsl
     , darwin
-    , nix-colors
+    , stylix
     }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
@@ -80,7 +80,7 @@
     {
       nixosConfigurations = {
         plutonium = mkNixOS "plutonium" {
-          inherit self home-manager helix-master neovim-nightly overlays zls-master nix-colors nur;
+          inherit self home-manager helix-master neovim-nightly overlays zls-master stylix nur;
           nixpkgs = nixpkgs-nixos;
           isHardwareMachine = false;
           system = "x86_64-linux";
@@ -92,7 +92,7 @@
         };
 
         battlestation = mkNixOS "battlestation" {
-          inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme nix-colors nur;
+          inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme stylix nur;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dreamer";
@@ -103,7 +103,7 @@
         };
 
         serotonine = mkNixOS "serotonine" {
-          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme nix-colors nur;
+          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme stylix nur;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dreamer";
@@ -114,7 +114,7 @@
         };
 
         radium = mkNixOS "radium" {
-          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme nix-colors nur;
+          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme stylix nur;
           nixpkgs = nixpkgs-nixos;
           system = "aarch64-linux";
           username = "spectre";
@@ -125,7 +125,7 @@
         };
 
         loqius = mkNixOS "loqius" {
-          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme nix-colors nur;
+          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme stylix nur;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dev";
@@ -138,7 +138,7 @@
 
       darwinConfigurations = {
         combustible = mkDarwin "combustible" {
-          inherit self nixpkgs darwin home-manager helix-master neovim-nightly overlays zls-master nix-colors nur;
+          inherit self nixpkgs darwin home-manager helix-master neovim-nightly overlays zls-master stylix nur;
           system = "aarch64-darwin";
           username = "lemon";
         };

@@ -23,10 +23,6 @@ in
     zoxide.enable = true;
     bat = {
       enable = true;
-      themes = {
-        tokyonight-storm = builtins.readFile ./tokyonight_storm.tmTheme;
-      };
-      config.theme = "tokyonight-storm";
     };
 
     git = {

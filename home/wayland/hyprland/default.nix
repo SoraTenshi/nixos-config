@@ -1,7 +1,6 @@
-{ nix-colors, config, ... }:
+{ config, ... }:
 
 let 
-  color = nix-colors.colorSchemes.tokyo-night-storm;
   cursor = config.home.pointerCursor;
 in
 {
@@ -50,12 +49,6 @@ in
       general = {
         gaps_in = 5;
         gaps_out = 5;
-        col = {
-          active_border = "rgba(88888888)";
-          inactive_border = "rgba(00000088)";
-          group_border_active = "rgba(${color.pink}88)";
-          group_border = "rgba(${color.surface0}88)";
-        };
         layout = "master";
       };
 

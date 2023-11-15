@@ -34,17 +34,7 @@ in
     interval = "1h";
   };
 
-
   home = {
-    pointerCursor = {
-      package = cursorPackage;
-      name = cursorName;
-      size = 32;
-      gtk.enable = true;
-      x11.enable = true;
-      x11.defaultCursor = cursorName;
-    };
-
     packages = with pkgs; [
       # App starter
       rofi

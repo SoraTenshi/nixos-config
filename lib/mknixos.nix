@@ -15,7 +15,7 @@ hostname:
 , isHardwareMachine ? true
 , isVM ? false
 , extraModules ? [] # default to an empty list if not provided
-, nix-colors
+, stylix
 }:
 
 let 
@@ -28,12 +28,11 @@ let
     })
   ];
   inherit (nixpkgs) lib;
-  color-scheme = nix-colors.colorSchemes.tokyo-night-storm;
 in
 lib.nixosSystem {
   inherit system;
-  specialArgs = if isHardwareMachine then { inherit sddm-theme grub2-theme isVM username; } 
-    else { inherit username isVM; };
+  specialArgs = if isHardwareMachine then { inherit sddm-theme grub2-theme isVM username stylix; } 
+    else { inherit username isVM stylix; };
   modules = [
     {
       nixpkgs.overlays = systemSpecificOverlays ++ overlays;
@@ -58,6 +57,7 @@ lib.nixosSystem {
     # only for hardware
     # no WSL as an example
   ] ++ (if isHardwareMachine then [
+    ../modules/stylix
     ../modules/boot
     ../modules/x11
     ../modules/wayland
@@ -67,6 +67,7 @@ lib.nixosSystem {
   ] else []) ++ extraModules ++ [
     ../machines/${hostname}
 
+    stylix.nixosModules.stylix
     home-manager.nixosModules.home-manager
     {
       home-manager = {
@@ -74,10 +75,10 @@ lib.nixosSystem {
         useUserPackages = true;
         extraSpecialArgs = if isHardwareMachine then {
           inherit
-            self neovim-nightly picom-ibhagwan username color-scheme;
+            self neovim-nightly picom-ibhagwan username;
         } else {
           inherit
-            self neovim-nightly username color-scheme;
+            self neovim-nightly username;
         };
         users.${username} = {
           imports = [ ../profiles/${username} ];
