@@ -2,6 +2,7 @@
 
 let 
   cursor = config.home.pointerCursor;
+  terminal = "kitty";
 in
 {
   wayland.windowManager.hyprland = {
@@ -12,6 +13,27 @@ in
     settings = {
       "$mod" = "SUPER";
       "$pavucontrol" = "class:^(pavucontrol)$";
+
+      bindm = [
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
+      ];
+
+      bind = [
+        #### Execute apps ####
+        "$mod SHIFT, ENTER, exec, ${terminal}"
+        "$mod, P, exec, fuzzel"
+
+        #### Controls ####
+        "$mod SHIFT, Q, killactive"
+        "$mod, F, fullscreen"
+        "$mod, T, togglefloating"
+        "$mod, "
+
+        #### Multi Monitor stuff ####
+        "$mod SHIFT, bracketleft, focusmonitor, l"
+        "$mod SHIFT, bracketright, focusmonitor, r"
+      ];
 
       exec-once = [
         "hyprctl setcursor ${cursor.name} ${toString cursor.size}"
