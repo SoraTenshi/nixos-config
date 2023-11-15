@@ -1,14 +1,13 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    gomuks
-    tldr
-    screenfetch
     btop
-    tiny
+    gomuks
     ncdu
-    gnumake
-    unzip
+    neofetch
+    tiny
+    tldr
     tmate
+    unzip
   ];
 }
