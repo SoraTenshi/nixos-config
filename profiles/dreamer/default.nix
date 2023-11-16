@@ -6,8 +6,12 @@ _:
   imports = [
     ../../home/stylix
 
+    # Wayland ?
     ../../home/wayland/river
     ../../home/wayland/hyprland
+    ../../home/anyrun
+
+    # x11 aka. xmonad in my case
     ../../home/x11
 
     ../../home/kitty

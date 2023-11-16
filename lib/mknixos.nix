@@ -16,6 +16,7 @@ hostname:
 , isVM ? false
 , extraModules ? [] # default to an empty list if not provided
 , stylix
+, anyrun
 }:
 
 let 
@@ -51,6 +52,7 @@ lib.nixosSystem {
     ({ config, ... }:{
       home-manager.sharedModules = [
         config.nur.repos.rycee.hmModules.emacs-init
+        anyrun.homeManagerModules.default
       ];
     })
 
@@ -67,6 +69,7 @@ lib.nixosSystem {
   ] else []) ++ extraModules ++ [
     ../machines/${hostname}
 
+    # anyrun.homeManagerModules.default
     stylix.nixosModules.stylix
     home-manager.nixosModules.home-manager
     {
@@ -75,7 +78,7 @@ lib.nixosSystem {
         useUserPackages = true;
         extraSpecialArgs = if isHardwareMachine then {
           inherit
-            self neovim-nightly picom-ibhagwan username;
+            self neovim-nightly picom-ibhagwan username anyrun;
         } else {
           inherit
             self neovim-nightly username;

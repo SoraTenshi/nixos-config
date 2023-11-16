@@ -5,9 +5,7 @@
 
     discord-canary
 
-    qmk
-
-    vial
+    qmk vial
 
     firefox
   ];

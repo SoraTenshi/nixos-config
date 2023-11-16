@@ -35,6 +35,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    anyrun = {
+      url = "github:Kirottu/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     zig-overlay.url = "github:mitchellh/zig-overlay";
     grub2-theme.url = "github:vinceliuice/grub2-themes";
@@ -68,6 +73,7 @@
     , nixos-wsl
     , darwin
     , stylix
+    , anyrun
     }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
@@ -92,7 +98,7 @@
         };
 
         battlestation = mkNixOS "battlestation" {
-          inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme stylix nur;
+          inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme stylix nur anyrun;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dreamer";
@@ -103,7 +109,7 @@
         };
 
         serotonine = mkNixOS "serotonine" {
-          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme stylix nur;
+          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme stylix nur anyrun;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dreamer";
@@ -125,7 +131,7 @@
         };
 
         loqius = mkNixOS "loqius" {
-          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme stylix nur;
+          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme stylix nur anyrun;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dev";

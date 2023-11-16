@@ -3,6 +3,7 @@
 let 
   cursor = config.home.pointerCursor;
   terminal = "kitty";
+  other-terminal = "/home/dreamer/.local/bin/ghostty";
   workspaces = ["一" "二" "三" "四" "五" "六" "七" "八" "九"];
   keys = [1 2 3 4 5 6 7 8 9];
 
@@ -11,7 +12,7 @@ let
     else [ (f (builtins.head xs) (builtins.head ys)) ] ++ zipWith f (builtins.tail xs) (builtins.tail ys);
 
   workspaceChange = ws: nr: "SUPER, ${builtins.toString nr}, workspace, name:${ws}";
-  workspaceMove = ws: nr: "SUPERSHIFT, ${builtins.toString nr}, movetoworkspace, name:${ws}";
+  workspaceMove = ws: nr: "SUPERSHIFT, ${builtins.toString nr}, movetoworkspacesilent, name:${ws}";
 in
 {
   wayland.windowManager.hyprland = {
@@ -29,13 +30,22 @@ in
 
       bind = [
         #### Execute apps ####
-        "SUPERSHIFT, ENTER, exec, ${terminal}"
+        "SUPERSHIFT, RETURN, exec, ${terminal}"
+        "SUPER, RETURN, exec, ${other-terminal}"
         "SUPER, P, exec, fuzzel"
 
         #### Controls ####
         "SUPERSHIFT, Q, killactive"
         "SUPER, F, fullscreen"
         "SUPER, T, togglefloating"
+        "SUPER, H, movefocus, l"
+        "SUPER, L, movefocus, r"
+        "SUPER, K, movefocus, u"
+        "SUPER, J, movefocus, d"
+        "SUPERSHIFT, H, resizeactive, -40 0"
+        "SUPERSHIFT, L, resizeactive, 40 0"
+        "SUPERSHIFT, K, resizeactive, 0 40"
+        "SUPERSHIFT, J, resizeactive, 0 -40"
 
         #### Multi Monitor stuff ####
         "SUPERSHIFT, bracketleft, focusmonitor, l"
@@ -74,7 +84,7 @@ in
         numlock_by_default = true;
         accel_profile = "flat";
         scroll_method = "2fg";
-        natural_scroll = true;
+        natural_scroll = false; # this also is there on mouse ;/
         touchpad = {
           scroll_factor = 0.3;
         };
