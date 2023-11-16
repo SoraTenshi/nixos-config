@@ -5,6 +5,7 @@ in
 {
   stylix = {
     autoEnable = true;
+    polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-terminal-storm.yaml";
     image = ../../images/background0.jpg;
     opacity = {
@@ -42,11 +43,7 @@ in
         name = "Noto Color Emoji";
       };
 
-      sizes = {
-        applications = 18;
-        popups = 11;
-        terminal = font-size;
-      };
+      sizes.terminal = font-size;
     };
   };
 }

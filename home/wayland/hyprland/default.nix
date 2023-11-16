@@ -3,6 +3,15 @@
 let 
   cursor = config.home.pointerCursor;
   terminal = "kitty";
+  workspaces = ["一" "二" "三" "四" "五" "六" "七" "八" "九"];
+  keys = [1 2 3 4 5 6 7 8 9];
+
+  zipWith = f: xs: ys:
+    if xs == [] || ys == [] then []
+    else [ (f (builtins.head xs) (builtins.head ys)) ] ++ zipWith f (builtins.tail xs) (builtins.tail ys);
+
+  workspaceChange = ws: nr: "SUPER, ${builtins.toString nr}, workspace, name:${ws}";
+  workspaceMove = ws: nr: "SUPERSHIFT, ${builtins.toString nr}, movetoworkspace, name:${ws}";
 in
 {
   wayland.windowManager.hyprland = {
@@ -11,29 +20,32 @@ in
     systemd.enable = true;
     xwayland.enable = true;
     settings = {
-      "$mod" = "SUPER";
       "$pavucontrol" = "class:^(pavucontrol)$";
 
       bindm = [
-        "$mod, mouse:272, movewindow"
-        "$mod, mouse:273, resizewindow"
+        "SUPER, mouse:272, movewindow"
+        "SUPER, mouse:273, resizewindow"
       ];
 
       bind = [
         #### Execute apps ####
-        "$mod SHIFT, ENTER, exec, ${terminal}"
-        "$mod, P, exec, fuzzel"
+        "SUPERSHIFT, ENTER, exec, ${terminal}"
+        "SUPER, P, exec, fuzzel"
 
         #### Controls ####
-        "$mod SHIFT, Q, killactive"
-        "$mod, F, fullscreen"
-        "$mod, T, togglefloating"
-        "$mod, "
+        "SUPERSHIFT, Q, killactive"
+        "SUPER, F, fullscreen"
+        "SUPER, T, togglefloating"
 
         #### Multi Monitor stuff ####
-        "$mod SHIFT, bracketleft, focusmonitor, l"
-        "$mod SHIFT, bracketright, focusmonitor, r"
-      ];
+        "SUPERSHIFT, bracketleft, focusmonitor, l"
+        "SUPERSHIFT, bracketright, focusmonitor, r"
+      ] ++ 
+      #### Change workspace ####
+      (zipWith workspaceChange workspaces keys)
+      ++
+      #### Move to workspace ####
+      (zipWith workspaceMove workspaces keys);
 
       exec-once = [
         "hyprctl setcursor ${cursor.name} ${toString cursor.size}"
@@ -42,12 +54,12 @@ in
       ];
 
       misc = {
-        disable_autoreload = true;
+        disable_autoreload = false;
         disable_hyprland_logo = false;
         disable_splash_rendering = true;
         animate_mouse_windowdragging = false;
-        groupbar_titles_font_size = 16;
-        groupbar_gradients = false;
+        # groupbar_titles_font_size = 16;
+        # groupbar_gradients = false;
       };
 
       gestures = {
