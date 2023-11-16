@@ -1,11 +1,11 @@
-{ ... }:
+_:
 {
   home.stateVersion = "23.05";
   xdg.enable = true;
 
   imports = [
     ../../home/stylix
-  
+
     ../../home/wayland/river
     ../../home/wayland/hyprland
     ../../home/x11

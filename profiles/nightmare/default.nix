@@ -1,9 +1,10 @@
-{ ... }:
+_:
 {
   home.stateVersion = "23.05";
   xdg.enable = true;
 
   imports = [
+    ../../home/stylix
     # General purpose
     ../../home/editors/helix
 
