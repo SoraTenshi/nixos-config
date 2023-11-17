@@ -4,7 +4,6 @@ _:
   xdg.enable = true;
 
   imports = [
-    ../../home/stylix
     # General purpose
     ../../home/editors/helix
 

@@ -86,7 +86,7 @@
     {
       nixosConfigurations = {
         plutonium = mkNixOS "plutonium" {
-          inherit self home-manager helix-master neovim-nightly overlays zls-master stylix nur;
+          inherit self home-manager helix-master neovim-nightly overlays zls-master nur;
           nixpkgs = nixpkgs-nixos;
           isHardwareMachine = false;
           system = "x86_64-linux";
@@ -98,29 +98,37 @@
         };
 
         battlestation = mkNixOS "battlestation" {
-          inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme stylix nur anyrun;
+          inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme nur anyrun;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dreamer";
           extraModules = [
             ./modules/sddm
             ./modules/nvidia
+            stylix.nixosModules.stylix
+          ];
+          extraHomeModules = [
+            anyrun.homeManagerModules.default
           ];
         };
 
         serotonine = mkNixOS "serotonine" {
-          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme stylix nur anyrun;
+          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme nur anyrun;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dreamer";
           extraModules = [
             ./modules/sddm
             nixos-hardware.nixosModules.lenovo-thinkpad-t470s
+            stylix.nixosModules.stylix
+          ];
+          extraHomeModules = [
+            anyrun.homeManagerModules.default
           ];
         };
 
         radium = mkNixOS "radium" {
-          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme stylix nur;
+          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme nur;
           nixpkgs = nixpkgs-nixos;
           system = "aarch64-linux";
           username = "spectre";
@@ -131,20 +139,24 @@
         };
 
         loqius = mkNixOS "loqius" {
-          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme stylix nur anyrun;
+          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme nur anyrun;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dev";
           extraModules = [
             ./modules/sddm
             nixos-hardware.nixosModules.lenovo-thinkpad-l14-amd
+            stylix.nixosModules.stylix
+          ];
+          extraHomeModules = [
+            anyrun.homeManagerModules.default
           ];
         };
       };
 
       darwinConfigurations = {
         combustible = mkDarwin "combustible" {
-          inherit self nixpkgs darwin home-manager helix-master neovim-nightly overlays zls-master stylix nur;
+          inherit self nixpkgs darwin home-manager helix-master neovim-nightly overlays zls-master nur;
           system = "aarch64-darwin";
           username = "lemon";
         };

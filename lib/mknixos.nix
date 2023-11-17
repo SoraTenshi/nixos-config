@@ -15,8 +15,7 @@ hostname:
 , isHardwareMachine ? true
 , isVM ? false
 , extraModules ? [] # default to an empty list if not provided
-, stylix
-, anyrun
+, extraHomePackages ? []
 }:
 
 let 
@@ -32,8 +31,8 @@ let
 in
 lib.nixosSystem {
   inherit system;
-  specialArgs = if isHardwareMachine then { inherit sddm-theme grub2-theme isVM username stylix; } 
-    else { inherit username isVM stylix; };
+  specialArgs = if isHardwareMachine then { inherit sddm-theme grub2-theme isVM username; } 
+    else { inherit username isVM; };
   modules = [
     {
       nixpkgs.overlays = systemSpecificOverlays ++ overlays;
@@ -52,8 +51,7 @@ lib.nixosSystem {
     ({ config, ... }:{
       home-manager.sharedModules = [
         config.nur.repos.rycee.hmModules.emacs-init
-        anyrun.homeManagerModules.default
-      ];
+      ] ++ extraHomePackages;
     })
 
     # only for hardware
@@ -69,8 +67,6 @@ lib.nixosSystem {
   ] else []) ++ extraModules ++ [
     ../machines/${hostname}
 
-    # anyrun.homeManagerModules.default
-    stylix.nixosModules.stylix
     home-manager.nixosModules.home-manager
     {
       home-manager = {
@@ -78,7 +74,7 @@ lib.nixosSystem {
         useUserPackages = true;
         extraSpecialArgs = if isHardwareMachine then {
           inherit
-            self neovim-nightly picom-ibhagwan username anyrun;
+            self neovim-nightly picom-ibhagwan username;
         } else {
           inherit
             self neovim-nightly username;
