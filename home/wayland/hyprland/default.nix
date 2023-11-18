@@ -68,8 +68,6 @@ in
         disable_hyprland_logo = false;
         disable_splash_rendering = true;
         animate_mouse_windowdragging = false;
-        # groupbar_titles_font_size = 16;
-        # groupbar_gradients = false;
       };
 
       gestures = {
@@ -80,13 +78,15 @@ in
       input = {
         kb_layout = "eu";
         kb_options = "compose:ralt";
+        repeat_rate = 50;
         follow_mouse = 1;
         numlock_by_default = true;
         accel_profile = "flat";
         scroll_method = "2fg";
-        natural_scroll = false; # this also is there on mouse ;/
+        natural_scroll = false;
         touchpad = {
           scroll_factor = 0.3;
+          natural_scroll = true;
         };
       };
     
