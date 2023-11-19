@@ -1,20 +1,24 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 let 
   cursor = config.home.pointerCursor;
   terminal = "kitty";
   other-terminal = "/home/dreamer/.local/bin/ghostty";
-  workspaces = ["一" "二" "三" "四" "五" "六" "七" "八" "九"];
-  keys = [1 2 3 4 5 6 7 8 9];
+  keys = ["1" "2" "3" "4" "5" "6" "7" "8" "9"];
 
   zipWith = f: xs: ys:
     if xs == [] || ys == [] then []
     else [ (f (builtins.head xs) (builtins.head ys)) ] ++ zipWith f (builtins.tail xs) (builtins.tail ys);
 
-  workspaceChange = ws: nr: "SUPER, ${builtins.toString nr}, workspace, name:${ws}";
-  workspaceMove = ws: nr: "SUPERSHIFT, ${builtins.toString nr}, movetoworkspacesilent, name:${ws}";
+  workspaces = ws: nr: "workspace = ${ws}, persistent:true"; 
+  workspaceChange = ws: nr: "SUPER, ${nr}, workspace, name:${ws}";
+  workspaceMove = ws: nr: "SUPERSHIFT, ${nr}, movetoworkspacesilent, name:${ws}";
 in
 {
+  home.packages = [
+    pkgs.wdisplays
+  ];
+  
   wayland.windowManager.hyprland = {
     enable = true;
     enableNvidiaPatches = true;
@@ -54,15 +58,14 @@ in
         "SUPERSHIFT, bracketright, focusmonitor, r"
       ] ++ 
       #### Change workspace ####
-      (zipWith workspaceChange workspaces keys)
+      (zipWith workspaceChange keys keys)
       ++
       #### Move to workspace ####
-      (zipWith workspaceMove workspaces keys);
+      (zipWith workspaceMove keys keys);
 
       exec-once = [
         "hyprctl setcursor ${cursor.name} ${toString cursor.size}"
-
-        # "eww open bar"
+        "ags"
       ];
 
       misc = {
@@ -116,7 +119,7 @@ in
       xwayland = {
         force_zero_scaling = true;
       };
-
     };
+    workspace = zipWith workspaces keys;
   };
 }
