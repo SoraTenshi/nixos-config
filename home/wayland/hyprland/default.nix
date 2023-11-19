@@ -44,10 +44,10 @@ in
         "SUPER, L, movefocus, r"
         "SUPER, K, movefocus, u"
         "SUPER, J, movefocus, d"
-        "SUPERSHIFT, H, resizeactive, -40 0"
-        "SUPERSHIFT, L, resizeactive, 40 0"
-        "SUPERSHIFT, K, resizeactive, 0 40"
-        "SUPERSHIFT, J, resizeactive, 0 -40"
+        "SUPERSHIFT, H, resizeactive, -100 0"
+        "SUPERSHIFT, L, resizeactive, 100 0"
+        "SUPERSHIFT, K, resizeactive, 0 100"
+        "SUPERSHIFT, J, resizeactive, 0 -100"
 
         #### Multi Monitor stuff ####
         "SUPERSHIFT, bracketleft, focusmonitor, l"
@@ -80,7 +80,7 @@ in
       input = {
         kb_layout = "eu";
         kb_options = "compose:ralt";
-        repeat_rate = 50;
+        repeat_rate = 60;
         follow_mouse = 1;
         numlock_by_default = true;
         accel_profile = "flat";
@@ -95,7 +95,6 @@ in
       general = {
         gaps_in = 5;
         gaps_out = 5;
-        layout = "master";
       };
 
       decoration = {

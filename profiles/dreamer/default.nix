@@ -10,6 +10,7 @@ _:
     ../../home/wayland/river
     ../../home/wayland/hyprland
     ../../home/anyrun
+    ../../home/ags
 
     # x11 aka. xmonad in my case
     ../../home/x11
