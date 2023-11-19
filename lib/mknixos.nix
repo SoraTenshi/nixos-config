@@ -62,7 +62,8 @@ lib.nixosSystem {
     ../modules/boot
     ../modules/x11
     ../modules/wayland
-    ../modules/sddm
+    # ../modules/sddm
+    ../modules/greetd
     ../modules/sound
   # End the scope, and add an additional list of the extra modules
   ] else []) ++ extraModules ++ [

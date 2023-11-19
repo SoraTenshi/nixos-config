@@ -7,7 +7,7 @@
   services.greetd = {
     enable = true;
     settings.default_session = {
-      command = "${pkgs.greetd.tuigreet} --cmd Hyprland";
+      command = "${pkgs.greetd.tuigreet} --cmd Hyprland --time --asterisks";
     };
     vt = 7;
   };

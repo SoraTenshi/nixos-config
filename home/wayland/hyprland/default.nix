@@ -32,7 +32,9 @@ in
         #### Execute apps ####
         "SUPERSHIFT, RETURN, exec, ${terminal}"
         "SUPER, RETURN, exec, ${other-terminal}"
-        "SUPER, P, exec, fuzzel"
+        "SUPER, P, exec, anyrun"
+        # "SUPER, P, exec, dmenu_run -l 15 -fn 'Lilex Nerd Font-16' -nb '#24283b' -nf '#a9b1d6' -sb '#414868' -sf '#7aa2f7' -p '-> '"
+        # "SUPER, N, exec, networkmanager_dmenu -l 15 -fn 'Lilex Nerd Font-16' -nb '#24283b' -nf '#a9b1d6' -sb '#414868' -sf '#7aa2f7'"
 
         #### Controls ####
         "SUPERSHIFT, Q, killactive"

@@ -12,14 +12,14 @@ in
         rink
         shell
         stdin
-        symbols
         translate
       ];
       x = { fraction = 0.5; };
       y = { fraction = 0.025; };
-      height = { fraction = 0.05; };
+      height = { fraction = 0.04; };
       width = { fraction = 1.0; };
       layer = "overlay";
+      hideIcons = true;
       hidePluginInfo = true;
       maxEntries = 15;
     };
