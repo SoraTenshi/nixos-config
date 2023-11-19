@@ -10,6 +10,12 @@
     stylix.url = "github:danth/stylix";
     nur.url = "github:nix-community/NUR";
 
+    ags.url = "github:Aylur/ags";
+    ags-env = {
+      url = "github:SoraTenshi/ags-env";
+      flake = false;
+    };
+
     darwin = {
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -74,6 +80,8 @@
     , darwin
     , stylix
     , anyrun
+    , ags
+    , ags-env
     }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
@@ -86,7 +94,7 @@
     {
       nixosConfigurations = {
         plutonium = mkNixOS "plutonium" {
-          inherit self home-manager helix-master neovim-nightly overlays zls-master nur;
+          inherit self home-manager helix-master neovim-nightly overlays zls-master nur ags-env;
           nixpkgs = nixpkgs-nixos;
           isHardwareMachine = false;
           system = "x86_64-linux";
@@ -94,6 +102,9 @@
           extraModules = [
             ./modules/distcc
             nixos-wsl.nixosModules.wsl
+          ];
+          extraHomeModules = [
+            ags.homeManagerModules.default
           ];
         };
 
@@ -108,6 +119,7 @@
             stylix.nixosModules.stylix
           ];
           extraHomeModules = [
+            ags.homeManagerModules.default
             anyrun.homeManagerModules.default
           ];
         };
@@ -123,6 +135,7 @@
             stylix.nixosModules.stylix
           ];
           extraHomeModules = [
+            ags.homeManagerModules.default
             anyrun.homeManagerModules.default
           ];
         };
@@ -149,6 +162,7 @@
             stylix.nixosModules.stylix
           ];
           extraHomeModules = [
+            ags.homeManagerModules.default
             anyrun.homeManagerModules.default
           ];
         };

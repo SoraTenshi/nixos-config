@@ -4,6 +4,7 @@ _:
   xdg.enable = true;
 
   imports = [
+    ../../home/ags
     # General purpose
     ../../home/editors/helix
 

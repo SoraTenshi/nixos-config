@@ -12,10 +12,11 @@ hostname:
 , picom-ibhagwan ? null
 , sddm-theme ? null
 , grub2-theme ? null
+, ags-env ? null
 , isHardwareMachine ? true
 , isVM ? false
 , extraModules ? [] # default to an empty list if not provided
-, extraHomePackages ? []
+, extraHomeModules ? []
 }:
 
 let 
@@ -51,7 +52,7 @@ lib.nixosSystem {
     ({ config, ... }:{
       home-manager.sharedModules = [
         config.nur.repos.rycee.hmModules.emacs-init
-      ] ++ extraHomePackages;
+      ] ++ extraHomeModules;
     })
 
     # only for hardware
@@ -74,10 +75,10 @@ lib.nixosSystem {
         useUserPackages = true;
         extraSpecialArgs = if isHardwareMachine then {
           inherit
-            self neovim-nightly picom-ibhagwan username;
+            self neovim-nightly picom-ibhagwan username ags-env;
         } else {
           inherit
-            self neovim-nightly username;
+            self neovim-nightly username ags-env;
         };
         users.${username} = {
           imports = [ ../profiles/${username} ];
