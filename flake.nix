@@ -121,6 +121,7 @@
           username = "dreamer";
           extraModules = [
             ./modules/nvidia
+            ./modules/greetd
             stylix.nixosModules.stylix
           ];
           extraHomeModules = [
@@ -135,6 +136,7 @@
           system = "x86_64-linux";
           username = "dreamer";
           extraModules = [
+            ./modules/greetd
             nixos-hardware.nixosModules.lenovo-thinkpad-t470s
             stylix.nixosModules.stylix
           ];
@@ -160,6 +162,7 @@
           system = "x86_64-linux";
           username = "dev";
           extraModules = [
+            ./modules/sddm
             nixos-hardware.nixosModules.lenovo-thinkpad-l14-amd
             stylix.nixosModules.stylix
           ];
