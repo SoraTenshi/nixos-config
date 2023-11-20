@@ -8,5 +8,8 @@
     qmk vial
 
     firefox
+    mumble
+    zathura
+    keepassxc
   ];
 }
