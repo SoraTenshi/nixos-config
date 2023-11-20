@@ -42,6 +42,7 @@ in
         "SUPER, RETURN, exec, ${other-terminal}"
         "SUPER, P, exec, anyrun"
         "CONTROL, PRINT, exec, grim -g \"$(slurp)\" - | wl-copy"
+        "SUPERSHIFTCONTROL, Q, exit"
         # "SUPER, P, exec, dmenu_run -l 15 -fn 'Lilex Nerd Font-16' -nb '#24283b' -nf '#a9b1d6' -sb '#414868' -sf '#7aa2f7' -p '-> '"
         # "SUPER, N, exec, networkmanager_dmenu -l 15 -fn 'Lilex Nerd Font-16' -nb '#24283b' -nf '#a9b1d6' -sb '#414868' -sf '#7aa2f7'"
 
@@ -59,8 +60,8 @@ in
         "SUPERSHIFT, J, resizeactive, 0 -100"
 
         #### Multi Monitor stuff ####
-        "SUPERSHIFT, bracketleft, focusmonitor, l"
-        "SUPERSHIFT, bracketright, focusmonitor, r"
+        "SUPER, bracketleft, focusmonitor, l"
+        "SUPER, bracketright, focusmonitor, r"
       ] ++ 
       #### Change workspace ####
       (zipWith workspaceChange keys keys)
@@ -103,6 +104,7 @@ in
       general = {
         gaps_in = 5;
         gaps_out = 5;
+        no_cursor_warps = true;
       };
 
       decoration = {
