@@ -14,6 +14,7 @@ hostname:
 , grub2-theme ? null
 , anyrun ? null
 , ags-env ? null
+, hypr-contrib ? null
 , isHardwareMachine ? true
 , isVM ? false
 , extraModules ? [] # default to an empty list if not provided
@@ -77,7 +78,7 @@ lib.nixosSystem {
         useUserPackages = true;
         extraSpecialArgs = if isHardwareMachine then {
           inherit
-            self neovim-nightly picom-ibhagwan username ags-env anyrun;
+            self neovim-nightly picom-ibhagwan username ags-env anyrun hypr-contrib;
         } else {
           inherit
             self neovim-nightly username ags-env;

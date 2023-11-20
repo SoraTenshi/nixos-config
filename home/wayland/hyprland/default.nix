@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, hypr-contrib, pkgs, ... }:
 
 let 
   cursor = config.home.pointerCursor;
@@ -11,7 +11,7 @@ let
     else [ (f (builtins.head xs) (builtins.head ys)) ] ++ zipWith f (builtins.tail xs) (builtins.tail ys);
 
   workspaces = ws: "workspace = ${ws}, persistent:true, default:true"; 
-  workspaceChange = ws: nr: "SUPER, ${nr}, workspace, name:${ws}";
+  workspaceChange = ws: nr: "SUPER, ${nr}, exec, try_swap_workspace ${ws}";
   workspaceMove = ws: nr: "SUPERSHIFT, ${nr}, movetoworkspacesilent, name:${ws}";
 in
 {
@@ -19,6 +19,7 @@ in
     pkgs.wdisplays
     pkgs.grim
     pkgs.slurp
+    hypr-contrib.packages.${pkgs.system}.try_swap_workspace
   ];
   
   wayland.windowManager.hyprland = {
