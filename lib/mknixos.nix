@@ -19,6 +19,7 @@ hostname:
 , isVM ? false
 , extraModules ? [] # default to an empty list if not provided
 , extraHomeModules ? []
+, monitors ? []
 }:
 
 let 
@@ -76,7 +77,7 @@ lib.nixosSystem {
         useUserPackages = true;
         extraSpecialArgs = if isHardwareMachine then {
           inherit
-            self neovim-nightly picom-ibhagwan username ags-env anyrun hypr-contrib;
+            self neovim-nightly picom-ibhagwan username ags-env anyrun hypr-contrib monitors;
         } else {
           inherit
             self neovim-nightly username ags-env;

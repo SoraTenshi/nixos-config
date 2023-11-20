@@ -1,4 +1,4 @@
-{ config, hypr-contrib, pkgs, ... }:
+{ config, hypr-contrib, monitors, pkgs, ... }:
 
 let 
   cursor = config.home.pointerCursor;
@@ -10,6 +10,7 @@ let
     if xs == [] || ys == [] then []
     else [ (f (builtins.head xs) (builtins.head ys)) ] ++ zipWith f (builtins.tail xs) (builtins.tail ys);
 
+  as-monitor = s: "monitor=${s},1";
   workspaces = ws: "workspace = ${ws}, persistent:true, default:true"; 
   workspaceChange = ws: nr: "SUPER, ${nr}, exec, try_swap_workspace ${ws}";
   workspaceMove = ws: nr: "SUPERSHIFT, ${nr}, movetoworkspacesilent, name:${ws}";
@@ -129,6 +130,7 @@ in
     };
     extraConfig = ''
       ${builtins.concatStringsSep "\n" (builtins.map workspaces keys)}
+      ${builtins.concatStringsSep "\n" (builtins.map as-monitor monitors)}
     '';
   };
 }
