@@ -10,13 +10,15 @@ let
     if xs == [] || ys == [] then []
     else [ (f (builtins.head xs) (builtins.head ys)) ] ++ zipWith f (builtins.tail xs) (builtins.tail ys);
 
-  workspaces = ws: nr: "workspace = ${ws}, persistent:true"; 
+  workspaces = ws: "workspace = ${ws}, persistent:true, default:true"; 
   workspaceChange = ws: nr: "SUPER, ${nr}, workspace, name:${ws}";
   workspaceMove = ws: nr: "SUPERSHIFT, ${nr}, movetoworkspacesilent, name:${ws}";
 in
 {
   home.packages = [
     pkgs.wdisplays
+    pkgs.grim
+    pkgs.slurp
   ];
   
   wayland.windowManager.hyprland = {
@@ -34,9 +36,11 @@ in
 
       bind = [
         #### Execute apps ####
+        "SUPERSHIFT, D, exec, discordcanary --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "SUPERSHIFT, RETURN, exec, ${terminal}"
         "SUPER, RETURN, exec, ${other-terminal}"
         "SUPER, P, exec, anyrun"
+        "CONTROL, PRINT, exec, grim -g \"$(slurp)\" - | wl-copy"
         # "SUPER, P, exec, dmenu_run -l 15 -fn 'Lilex Nerd Font-16' -nb '#24283b' -nf '#a9b1d6' -sb '#414868' -sf '#7aa2f7' -p '-> '"
         # "SUPER, N, exec, networkmanager_dmenu -l 15 -fn 'Lilex Nerd Font-16' -nb '#24283b' -nf '#a9b1d6' -sb '#414868' -sf '#7aa2f7'"
 
@@ -120,6 +124,8 @@ in
         force_zero_scaling = true;
       };
     };
-    workspace = zipWith workspaces keys;
+    extraConfig = ''
+      ${builtins.concatStringsSep "\n" (builtins.map workspaces keys)}
+    '';
   };
 }

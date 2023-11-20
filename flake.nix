@@ -114,7 +114,6 @@
           system = "x86_64-linux";
           username = "dreamer";
           extraModules = [
-            ./modules/sddm
             ./modules/nvidia
             stylix.nixosModules.stylix
           ];
@@ -130,7 +129,6 @@
           system = "x86_64-linux";
           username = "dreamer";
           extraModules = [
-            ./modules/sddm
             nixos-hardware.nixosModules.lenovo-thinkpad-t470s
             stylix.nixosModules.stylix
           ];
@@ -147,7 +145,6 @@
           username = "spectre";
           isVM = true;
           extraModules = [
-            ./modules/sddm
           ];
         };
 
@@ -157,7 +154,6 @@
           system = "x86_64-linux";
           username = "dev";
           extraModules = [
-            ./modules/sddm
             nixos-hardware.nixosModules.lenovo-thinkpad-l14-amd
             stylix.nixosModules.stylix
           ];

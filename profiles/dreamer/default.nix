@@ -7,7 +7,7 @@ _:
     ../../home/stylix
 
     # Wayland ?
-    ../../home/wayland/river
+    # ../../home/wayland/river
     ../../home/wayland/hyprland
     ../../home/anyrun
     ../../home/ags
