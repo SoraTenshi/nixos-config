@@ -15,6 +15,7 @@ hostname:
 , anyrun ? null
 , ags-env ? null
 , hypr-contrib ? null
+, grab-workspace ? null
 , isHardwareMachine ? true
 , isVM ? false
 , extraModules ? [] # default to an empty list if not provided
@@ -66,6 +67,7 @@ lib.nixosSystem {
     ../modules/x11
     ../modules/wayland
     ../modules/sound
+
   # End the scope, and add an additional list of the extra modules
   ] else []) ++ extraModules ++ [
     ../machines/${hostname}
@@ -77,7 +79,7 @@ lib.nixosSystem {
         useUserPackages = true;
         extraSpecialArgs = if isHardwareMachine then {
           inherit
-            self neovim-nightly picom-ibhagwan username ags-env anyrun hypr-contrib monitors;
+            self neovim-nightly picom-ibhagwan username ags-env anyrun hypr-contrib monitors grab-workspace;
         } else {
           inherit
             self neovim-nightly username ags-env;

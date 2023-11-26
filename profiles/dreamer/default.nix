@@ -1,6 +1,6 @@
 _:
 {
-  home.stateVersion = "23.05";
+  home.stateVersion = "23.11";
   xdg.enable = true;
 
   imports = [

@@ -1,4 +1,4 @@
-{ config, hypr-contrib, monitors, pkgs, ... }:
+{ config, hypr-contrib, monitors, grab-workspace, pkgs, ... }:
 
 let 
   cursor = config.home.pointerCursor;
@@ -12,11 +12,14 @@ let
 
   as-monitor = s: "monitor=${s},1";
   workspaces = ws: "workspace = ${ws}, persistent:true, default:true"; 
-  workspaceChange = ws: nr: "SUPER, ${nr}, exec, try_swap_workspace ${ws}";
+  workspaceChange = ws: nr: "SUPER, ${nr}, grab-workspace, ${ws}";
   workspaceMove = ws: nr: "SUPERSHIFT, ${nr}, movetoworkspacesilent, name:${ws}";
 in
 {
+  programs.swaylock.enable = true;
+
   home.packages = [
+    pkgs.swww
     pkgs.wdisplays
     pkgs.grim
     pkgs.slurp
@@ -28,6 +31,10 @@ in
     enableNvidiaPatches = true;
     systemd.enable = true;
     xwayland.enable = true;
+
+    plugins = [
+      "${grab-workspace.packages."x86_64-linux".default}/lib/libgrab-workspace.so"
+    ];
     settings = {
       "$pavucontrol" = "class:^(pavucontrol)$";
 

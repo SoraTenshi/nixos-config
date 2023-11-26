@@ -10,7 +10,11 @@
     stylix.url = "github:danth/stylix";
     nur.url = "github:nix-community/NUR";
 
-    ags.url = "github:Aylur/ags";
+    ags = {
+      url = "github:SoraTenshi/ags/fetch-util";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     ags-env = {
       url = "github:SoraTenshi/ags-env";
       flake = false;
@@ -18,6 +22,11 @@
 
     hypr-contrib = {
       url = "github:SoraTenshi/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    grab-workspace = {
+      url = "github:SoraTenshi/grab-workspace";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -88,6 +97,7 @@
     , ags
     , ags-env
     , hypr-contrib
+    , grab-workspace
     }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
@@ -115,7 +125,7 @@
         };
 
         battlestation = mkNixOS "battlestation" {
-          inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme nur anyrun hypr-contrib;
+          inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme nur anyrun hypr-contrib grab-workspace;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dreamer";
