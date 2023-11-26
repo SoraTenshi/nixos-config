@@ -80,6 +80,7 @@ in
       exec-once = [
         "hyprctl setcursor ${cursor.name} ${toString cursor.size}"
         "ags"
+        "fcitx5"
       ];
 
       misc = {
