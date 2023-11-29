@@ -62,6 +62,7 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking = {
     hostName = "battlestation";
+    networkmanager.enable = true;
     useDHCP = false;
     interfaces.enp4s0.useDHCP = true;
   };

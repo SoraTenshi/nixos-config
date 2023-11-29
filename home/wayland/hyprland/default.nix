@@ -10,6 +10,7 @@ let
     if xs == [] || ys == [] then []
     else [ (f (builtins.head xs) (builtins.head ys)) ] ++ zipWith f (builtins.tail xs) (builtins.tail ys);
 
+  each-bar = i: "layerrule=blur,bar-${builtins.toString i}\nlayerrule=ignorezero,bar-${builtins.toString i}\nlayerrule=xray[1], ${builtins.toString i}";
   as-monitor = s: "monitor=${s},1";
   workspaces = ws: "workspace = ${ws}, persistent:true, default:true"; 
   workspaceChange = ws: nr: "SUPER, ${nr}, grab-workspace, ${ws}";
@@ -35,9 +36,8 @@ in
     plugins = [
       "${grab-workspace.packages."x86_64-linux".default}/lib/libgrab-workspace.so"
     ];
-    settings = {
-      "$pavucontrol" = "class:^(pavucontrol)$";
 
+    settings = {
       bindm = [
         "SUPER, mouse:272, movewindow"
         "SUPER, mouse:273, resizewindow"
@@ -45,7 +45,7 @@ in
 
       bind = [
         #### Execute apps ####
-        "SUPERSHIFT, D, exec, discordcanary --enable-features=UseOzonePlatform --ozone-platform=wayland"
+        "SUPERSHIFT, D, exec, discordcanary --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime"
         "SUPERSHIFT, RETURN, exec, ${terminal}"
         "SUPER, RETURN, exec, ${other-terminal}"
         "SUPER, P, exec, anyrun"
@@ -81,11 +81,12 @@ in
         "hyprctl setcursor ${cursor.name} ${toString cursor.size}"
         "ags"
         "fcitx5"
+        "swww init"
       ];
 
       misc = {
         disable_autoreload = false;
-        disable_hyprland_logo = false;
+        disable_hyprland_logo = true;
         disable_splash_rendering = true;
         animate_mouse_windowdragging = false;
       };
@@ -139,6 +140,11 @@ in
     extraConfig = ''
       ${builtins.concatStringsSep "\n" (builtins.map workspaces keys)}
       ${builtins.concatStringsSep "\n" (builtins.map as-monitor monitors)}
+      ${builtins.concatStringsSep "\n" (
+        builtins.map 
+          each-bar 
+          (builtins.genList (i: i) (builtins.length monitors))
+      )}
     '';
   };
 }
