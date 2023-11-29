@@ -11,5 +11,6 @@
     mumble
     zathura
     keepassxc
+    dino
   ];
 }
