@@ -9,7 +9,7 @@ _:
     # Wayland ?
     # ../../home/wayland/river
     ../../home/wayland/hyprland
-    ../../home/anyrun
+    # ../../home/anyrun # now that ags works, maybe i don't need this anymore.
     ../../home/ags
 
     # x11 aka. xmonad in my case

@@ -48,7 +48,8 @@ in
         "SUPERSHIFT, D, exec, discordcanary --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime"
         "SUPERSHIFT, RETURN, exec, ${terminal}"
         "SUPER, RETURN, exec, ${other-terminal}"
-        "SUPER, P, exec, anyrun"
+        # "SUPER, P, exec, anyrun"
+        "SUPER, P, exec, ags -r \"BarState.value = 'app-launcher $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';\""
         "CONTROL, PRINT, exec, grim -g \"$(slurp)\" - | wl-copy"
         "SUPERSHIFTCONTROL, Q, exit"
         # "SUPER, P, exec, dmenu_run -l 15 -fn 'Lilex Nerd Font-16' -nb '#24283b' -nf '#a9b1d6' -sb '#414868' -sf '#7aa2f7' -p '-> '"
@@ -105,6 +106,8 @@ in
         accel_profile = "flat";
         scroll_method = "2fg";
         natural_scroll = false;
+        scroll_button = 274;
+        scroll_button_lock = true;
         touchpad = {
           scroll_factor = 0.3;
           natural_scroll = true;
