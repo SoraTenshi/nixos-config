@@ -125,7 +125,7 @@
         };
 
         battlestation = mkNixOS "battlestation" {
-          inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme nur anyrun hypr-contrib grab-workspace;
+          inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme nur anyrun grab-workspace;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dreamer";
@@ -172,18 +172,22 @@
         };
 
         loqius = mkNixOS "loqius" {
-          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme nur anyrun hypr-contrib;
+          inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme nur anyrun grab-workspace;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dev";
           extraModules = [
-            ./modules/sddm
+            ./modules/greetd
             nixos-hardware.nixosModules.lenovo-thinkpad-l14-amd
             stylix.nixosModules.stylix
           ];
           extraHomeModules = [
             ags.homeManagerModules.default
-            anyrun.homeManagerModules.default
+          ];
+          monitors = [
+            "eDP-1,1920x1080@60,0x0"
+            "HDMI-A-1,1920x1080@120,1920x0"
+            "DP-1,1920x1080@75,3840x0"
           ];
         };
       };

@@ -5,6 +5,10 @@ _:
 
   imports = [
     ../../home/stylix
+
+    ../../home/ags
+    ../../home/wayland/hyprland
+
     ../../home/x11
 
     ../../home/kitty

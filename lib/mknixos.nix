@@ -79,7 +79,7 @@ lib.nixosSystem {
         useUserPackages = true;
         extraSpecialArgs = if isHardwareMachine then {
           inherit
-            self neovim-nightly picom-ibhagwan username ags-env anyrun hypr-contrib monitors grab-workspace;
+            self neovim-nightly picom-ibhagwan username ags-env anyrun monitors grab-workspace;
         } else {
           inherit
             self neovim-nightly username ags-env;

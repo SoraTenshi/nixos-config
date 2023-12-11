@@ -1,9 +1,9 @@
-{ config, hypr-contrib, monitors, grab-workspace, pkgs, ... }:
+{ config, monitors, grab-workspace, pkgs, username, ... }:
 
 let 
   cursor = config.home.pointerCursor;
   terminal = "kitty";
-  other-terminal = "/home/dreamer/.local/bin/ghostty";
+  other-terminal = "/home/${username}/.local/bin/ghostty";
   keys = ["1" "2" "3" "4" "5" "6" "7" "8" "9"];
 
   zipWith = f: xs: ys:
@@ -24,12 +24,10 @@ in
     pkgs.wdisplays
     pkgs.grim
     pkgs.slurp
-    hypr-contrib.packages.${pkgs.system}.try_swap_workspace
   ];
   
   wayland.windowManager.hyprland = {
     enable = true;
-    enableNvidiaPatches = true;
     systemd.enable = true;
     xwayland.enable = true;
 
