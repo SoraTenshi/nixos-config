@@ -12,5 +12,6 @@
     zathura
     keepassxc
     dino
+    spacedrive
   ];
 }
