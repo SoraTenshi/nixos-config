@@ -24,6 +24,7 @@ in
     pkgs.wdisplays
     pkgs.grim
     pkgs.slurp
+    pkgs.xdg-desktop-portal-hyprland
   ];
   
   wayland.windowManager.hyprland = {
@@ -139,6 +140,10 @@ in
       };
     };
     extraConfig = ''
+      windowrulev2 = opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$
+      windowrulev2 = noanim,class:^(xwaylandvideobridge)$
+      windowrulev2 = nofocus,class:^(xwaylandvideobridge)$
+      windowrulev2 = noinitialfocus,class:^(xwaylandvideobridge)$
       ${builtins.concatStringsSep "\n" (builtins.map workspaces keys)}
       ${builtins.concatStringsSep "\n" (builtins.map as-monitor monitors)}
       ${builtins.concatStringsSep "\n" (
