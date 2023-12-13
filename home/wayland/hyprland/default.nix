@@ -24,7 +24,9 @@ in
     pkgs.wdisplays
     pkgs.grim
     pkgs.slurp
-    pkgs.xdg-desktop-portal-hyprland
+    pkgs.xdg-desktop-portal-hyprland pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal
+    pkgs.xwaylandvideobridge
+    pkgs.qt6.qtwayland pkgs.libsForQt5.qt5.qtwayland
   ];
   
   wayland.windowManager.hyprland = {
@@ -47,7 +49,8 @@ in
         "SUPERSHIFT, D, exec, discordcanary --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime"
         "SUPERSHIFT, RETURN, exec, ${terminal}"
         "SUPER, RETURN, exec, ${other-terminal}"
-        # "SUPER, P, exec, anyrun"
+        "SUPERSHIFT, P, exec, ags -r \"BarState.value = 'shutdown $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';\""
+        "SUPER, X, exec, ags -r \"BarState.value = 'executor $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';\""
         "SUPER, P, exec, ags -r \"BarState.value = 'app-launcher $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';\""
         "CONTROL, PRINT, exec, grim -g \"$(slurp)\" - | wl-copy"
         "SUPERSHIFTCONTROL, Q, exit"
