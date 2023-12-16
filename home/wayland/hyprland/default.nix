@@ -10,9 +10,13 @@ let
     if xs == [] || ys == [] then []
     else [ (f (builtins.head xs) (builtins.head ys)) ] ++ zipWith f (builtins.tail xs) (builtins.tail ys);
 
-  each-bar = i: "layerrule=blur,bar-${builtins.toString i}\nlayerrule=ignorezero,bar-${builtins.toString i}\nlayerrule=xray[1], ${builtins.toString i}";
-  as-monitor = s: "monitor=${s},1";
-  workspaces = ws: "workspace = ${ws}, persistent:true, default:true"; 
+  each-bar = i: [
+    "blur, bar-${builtins.toString i}"
+    "ignorezero, bar-${builtins.toString i}"
+    "xray 1, ${builtins.toString i}"
+  ];
+  as-monitor = s: ["${s},1"];
+  workspaces = ws: ["${ws}, persistent:true, default:true"]; 
   workspaceChange = ws: nr: "SUPER, ${nr}, grab-workspace, ${ws}";
   workspaceMove = ws: nr: "SUPERSHIFT, ${nr}, movetoworkspacesilent, name:${ws}";
 in
@@ -141,19 +145,20 @@ in
       xwayland = {
         force_zero_scaling = true;
       };
+
+      windowrulev2 = [
+        "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
+        "noanim,class:^(xwaylandvideobridge)$"
+        "nofocus,class:^(xwaylandvideobridge)$"
+        "noinitialfocus,class:^(xwaylandvideobridge)$"
+        "float, title:^(Picture-in-Picture)$"
+        "pin, title:^(Picture-in-Picture)$"
+        "rounding 0, xwayland:1"
+      ];
+
+      workspace = (builtins.concatMap workspaces keys);
+      monitor = (builtins.concatMap as-monitor monitors);
+      layerrule = (builtins.concatMap each-bar (builtins.genList (i: i) (builtins.length monitors)));
     };
-    extraConfig = ''
-      windowrulev2 = opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$
-      windowrulev2 = noanim,class:^(xwaylandvideobridge)$
-      windowrulev2 = nofocus,class:^(xwaylandvideobridge)$
-      windowrulev2 = noinitialfocus,class:^(xwaylandvideobridge)$
-      ${builtins.concatStringsSep "\n" (builtins.map workspaces keys)}
-      ${builtins.concatStringsSep "\n" (builtins.map as-monitor monitors)}
-      ${builtins.concatStringsSep "\n" (
-        builtins.map 
-          each-bar 
-          (builtins.genList (i: i) (builtins.length monitors))
-      )}
-    '';
   };
 }

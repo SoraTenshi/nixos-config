@@ -15,20 +15,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ags-env = {
-      url = "github:SoraTenshi/ags-env";
-      flake = false;
-    };
-
-    hypr-contrib = {
-      url = "github:SoraTenshi/contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    grab-workspace = {
-      url = "github:SoraTenshi/grab-workspace";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixos-wsl.url = "github:nix-community/NixOS-WSL";
+    zig-overlay.url = "github:mitchellh/zig-overlay";
+    grub2-theme.url = "github:vinceliuice/grub2-themes";
+    grab-workspace.url = "github:SoraTenshi/grab-workspace";
 
     darwin = {
       url = "github:lnl7/nix-darwin/master";
@@ -55,16 +45,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    anyrun = {
-      url = "github:Kirottu/anyrun";
-      inputs.nixpkgs.follows = "nixpkgs";
+    ags-env = {
+      url = "github:SoraTenshi/ags-env";
+      flake = false;
     };
 
-    nixos-wsl.url = "github:nix-community/NixOS-WSL";
-    zig-overlay.url = "github:mitchellh/zig-overlay";
-    grub2-theme.url = "github:vinceliuice/grub2-themes";
-
-    # Non-flakes
     picom-ibhagwan = {
       url = "github:ibhagwan/picom";
       flake = false;
@@ -93,10 +78,8 @@
     , nixos-wsl
     , darwin
     , stylix
-    , anyrun
     , ags
     , ags-env
-    , hypr-contrib
     , grab-workspace
     }:
     let
@@ -125,7 +108,7 @@
         };
 
         battlestation = mkNixOS "battlestation" {
-          inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme nur anyrun grab-workspace;
+          inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme nur grab-workspace;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dreamer";
@@ -136,7 +119,6 @@
           ];
           extraHomeModules = [
             ags.homeManagerModules.default
-            anyrun.homeManagerModules.default
           ];
           monitors = [
             "DP-3,1920x1080@165,0x1080"
@@ -146,7 +128,7 @@
         };
 
         serotonine = mkNixOS "serotonine" {
-          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme nur anyrun hypr-contrib;
+          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme nur;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dreamer";
@@ -157,7 +139,6 @@
           ];
           extraHomeModules = [
             ags.homeManagerModules.default
-            anyrun.homeManagerModules.default
           ];
         };
 
@@ -172,7 +153,7 @@
         };
 
         loqius = mkNixOS "loqius" {
-          inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme nur anyrun grab-workspace;
+          inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme nur grab-workspace;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dev";

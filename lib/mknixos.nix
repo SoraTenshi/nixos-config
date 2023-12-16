@@ -12,9 +12,7 @@ hostname:
 , picom-ibhagwan ? null
 , sddm-theme ? null
 , grub2-theme ? null
-, anyrun ? null
 , ags-env ? null
-, hypr-contrib ? null
 , grab-workspace ? null
 , isHardwareMachine ? true
 , isVM ? false
@@ -79,7 +77,7 @@ lib.nixosSystem {
         useUserPackages = true;
         extraSpecialArgs = if isHardwareMachine then {
           inherit
-            self neovim-nightly picom-ibhagwan username ags-env anyrun monitors grab-workspace;
+            self neovim-nightly picom-ibhagwan username ags-env monitors grab-workspace;
         } else {
           inherit
             self neovim-nightly username ags-env;
