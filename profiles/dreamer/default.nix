@@ -20,7 +20,7 @@ _:
     ../../home/shells/zsh
 
     ../../home/editors/helix
-    ../../home/editors/neovim
+    # ../../home/editors/neovim
 
     ../../home/cli-tools
     ../../home/lazygit

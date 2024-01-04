@@ -11,14 +11,18 @@
     nur.url = "github:nix-community/NUR";
 
     ags = {
-      url = "github:SoraTenshi/ags/fetch-util";
+      url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     zig-overlay.url = "github:mitchellh/zig-overlay";
     grub2-theme.url = "github:vinceliuice/grub2-themes";
-    grab-workspace.url = "github:SoraTenshi/grab-workspace";
+
+    grab-workspace = {
+      url = "github:SoraTenshi/grab-workspace";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     darwin = {
       url = "github:lnl7/nix-darwin/master";

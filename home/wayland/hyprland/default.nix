@@ -147,10 +147,6 @@ in
       };
 
       windowrulev2 = [
-        "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
-        "noanim,class:^(xwaylandvideobridge)$"
-        "nofocus,class:^(xwaylandvideobridge)$"
-        "noinitialfocus,class:^(xwaylandvideobridge)$"
         "float, title:^(Picture-in-Picture)$"
         "pin, title:^(Picture-in-Picture)$"
         "rounding 0, xwayland:1"
