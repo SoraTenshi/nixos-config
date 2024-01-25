@@ -29,5 +29,7 @@
 
     # cmake
     cmake gnumake
+
+    roswell
   ];
 }
