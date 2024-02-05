@@ -9,13 +9,16 @@ _:
     ../../home/ags
     ../../home/wayland/hyprland
 
-    ../../home/x11
+    # ../../home/x11
 
     ../../home/kitty
 
     ../../home/shells/zsh
 
     ../../home/editors/helix
+    # ../../home/editors/emacs
+
+    ../../home/gtk-theme
 
     ../../home/cli-tools
     ../../home/lazygit
