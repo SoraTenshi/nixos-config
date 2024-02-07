@@ -11,8 +11,10 @@
 
   services.xserver = {
     enable = true;
-    layout = "eu";
-    xkbOptions = "compose:ralt";
+    xkb = {
+      layout = "eu";
+      options = "compose:ralt";
+    };
   };
 
   i18n = {

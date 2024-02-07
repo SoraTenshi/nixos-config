@@ -13,7 +13,7 @@ _:
     ../../home/ags
 
     # x11 aka. xmonad in my case
-    ../../home/x11
+    # ../../home/x11
 
     ../../home/kitty
 

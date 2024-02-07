@@ -2,7 +2,6 @@
 {
   services.xserver = {
     enable = true;
-    layout = "eu";
     displayManager.defaultSession = "none+xmonad";
     desktopManager.runXdgAutostartIfNone = true;
     windowManager.xmonad = {
