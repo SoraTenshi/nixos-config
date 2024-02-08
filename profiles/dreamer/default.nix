@@ -10,6 +10,7 @@ _:
     # ../../home/wayland/river
     ../../home/wayland/hyprland
     # ../../home/anyrun # now that ags works, maybe i don't need this anymore.
+    ../../home/gtk-theme
     ../../home/ags
 
     # x11 aka. xmonad in my case
