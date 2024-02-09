@@ -33,8 +33,6 @@
     __GLX_VENDOR_LIBRARY_NAME           = "nvidia";
     LIBVA_DRIVER_NAME                   = "nvidia";
     GBM_BACKEND                         = "nvidia-drm";
-    GTK_IM_MODULE                       = "fcitx";
-    QT_IM_MODULE                        = "fcitx";
     XMODIFIERS                          = "@im=fcitx";
     # XDG_SESSION_TYPE                    = "wayland";
 
