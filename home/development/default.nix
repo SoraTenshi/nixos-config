@@ -30,6 +30,6 @@
     # cmake
     cmake gnumake
 
-    chez
+    chez roswell
   ];
 }

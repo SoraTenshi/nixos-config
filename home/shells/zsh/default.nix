@@ -42,7 +42,7 @@ in
       initExtra = ''
         eval "$(zoxide init zsh)"
         eval "$(oh-my-posh init zsh --config '~/.config/oh-my-posh/tokyonight_ascii.opm.json')"
-        export PATH=$PATH:~/.cargo/bin:~/.local/bin
+        export PATH=$PATH:~/.cargo/bin:~/.local/bin:~/.roswell/bin
 
         # Define autocomplete for devshell init
         devshell() {
