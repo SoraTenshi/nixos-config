@@ -17,6 +17,7 @@
     zls # Zig
     ols # Odin
     elixir_ls # Elixir
+    clojure-lsp # Clojure
     # sourcekit-lsp # Swift & Obj-C
 
     ocamlPackages.ocaml-lsp # OCaml
