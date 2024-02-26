@@ -4,6 +4,9 @@
     # debugger
     gdb
 
+    # git
+    tig
+
     # compiler
     zigpkgs.master
     odin
