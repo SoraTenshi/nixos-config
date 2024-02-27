@@ -1,4 +1,4 @@
-{ config, monitors, grab-workspace, pkgs, username, ... }:
+{ self, config, monitors, grab-workspace, pkgs, username, ... }:
 
 let 
   cursor = config.home.pointerCursor;
@@ -22,7 +22,7 @@ let
 in
 {
   home.packages = [
-    pkgs.swww
+    # pkgs.swww
     pkgs.wdisplays
     pkgs.grim
     pkgs.slurp
@@ -30,6 +30,16 @@ in
     pkgs.xwaylandvideobridge
     pkgs.qt6.qtwayland pkgs.libsForQt5.qt5.qtwayland
   ];
+
+  programs.wpaperd = {
+    enable = true;
+    settings = {
+      default = {
+        path = "${self}/images";
+        duration = "10m";
+      };
+    };
+  };
   
   wayland.windowManager.hyprland = {
     enable = true;
@@ -89,7 +99,7 @@ in
         "fcitx5-remote -r"
         "fcitx5 -d --replace"
         "fcitx5-remote -r"
-        "swww init"
+        "wpaperd"
       ];
 
       misc = {
