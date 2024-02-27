@@ -16,6 +16,12 @@
     ];
   };
 
+  security.pam.services = {
+    waylock = {
+      unixAuth = true;
+    };
+  };
+
   services.gvfs.enable = true;
   environment.systemPackages = with pkgs; [
     libva
@@ -26,6 +32,8 @@
     wayland-utils
 
     xwayland
+
+    waylock
   ];
 
   # Holy shit wlroots, are you serious ?!

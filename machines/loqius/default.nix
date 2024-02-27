@@ -24,6 +24,8 @@
     pkcs11.enable = true;
   };
 
+  services.upower.enable = true;
+
   networking = {
     hostName = "loqius";
     networkmanager.enable = true;

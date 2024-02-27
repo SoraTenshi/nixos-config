@@ -21,8 +21,6 @@ let
   workspaceMove = ws: nr: "SUPERSHIFT, ${nr}, movetoworkspacesilent, name:${ws}";
 in
 {
-  programs.swaylock.enable = true;
-
   home.packages = [
     pkgs.swww
     pkgs.wdisplays
@@ -57,6 +55,7 @@ in
         "SUPER, X, exec, ags -r \"BarState.value = 'executor $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';\""
         "SUPER, P, exec, ags -r \"BarState.value = 'app-launcher $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';\""
         "CONTROL, PRINT, exec, grim -g \"$(slurp)\" - | wl-copy"
+        "SUPERSHIFTCONTROL, L, exec, waylock -init-color 0x24283b -input-color 0xbb9af7 -fail-color 0xf7768e"
         "SUPERSHIFTCONTROL, Q, exit"
         # "SUPER, P, exec, dmenu_run -l 15 -fn 'Lilex Nerd Font-16' -nb '#24283b' -nf '#a9b1d6' -sb '#414868' -sf '#7aa2f7' -p '-> '"
         # "SUPER, N, exec, networkmanager_dmenu -l 15 -fn 'Lilex Nerd Font-16' -nb '#24283b' -nf '#a9b1d6' -sb '#414868' -sf '#7aa2f7'"
