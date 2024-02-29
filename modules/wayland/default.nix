@@ -46,7 +46,7 @@
 
     CLUTTER_BACKEND                     = "wayland";
     SDL_VIDEODRIVER                     = "wayland";
-    # QT_QPA_PLATFORM                     = "wayland"; # SDDM says no to this
+    QT_QPA_PLATFORM                     = "wayland";
 
     __GL_GSYNC_ALLOWED                  = "0";
     __GL_VRR_ALLOWED                    = "0";
@@ -56,8 +56,8 @@
     NO_AT_BRIDGE                        = "1";
     MOZ_ENABLE_WAYLAND                  = "1";
     MOZ_WEBRENDER                       = "1";
-    GLFW_IM_MODULE                      = "1";
-    SDL_IM_MODULE                       = "1";
+    # GLFW_IM_MODULE                      = "1";
+    # SDL_IM_MODULE                       = "1";
     WLR_NO_HARDWARE_CURSORS             = "1";
     KITTY_ENABLE_WAYLAND                = "1";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";

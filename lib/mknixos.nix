@@ -62,7 +62,7 @@ lib.nixosSystem {
   ] ++ (if isHardwareMachine then [
     ../modules/stylix
     ../modules/boot
-    ../modules/x11
+    # ../modules/x11
     ../modules/wayland
     ../modules/sound
 

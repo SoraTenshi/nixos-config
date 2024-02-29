@@ -34,25 +34,25 @@ in
     interval = "1h";
   };
 
-  home = {
-    packages = with pkgs; [
-      # App starter
-      rofi
-      rofi-power-menu
-      rofi-pulse-select
-      rofi-file-browser
+  # home = {
+  #   packages = with pkgs; [
+  #     # App starter
+  #     rofi
+  #     rofi-power-menu
+  #     rofi-pulse-select
+  #     rofi-file-browser
 
-      dmenu
-      networkmanager_dmenu
+  #     dmenu
+  #     networkmanager_dmenu
 
-      flameshot
-    ];
-    file.".xsession" = {
-      text = ''
-        GTK_IM_MODULE=fcitx
-        QT_IM_MODULE=fcitx
-        XMODIFIERS=@im=fcitx
-      '';
-    };
-  };
+  #     flameshot
+  #   ];
+  #   file.".xsession" = {
+  #     text = ''
+  #       GTK_IM_MODULE=fcitx
+  #       QT_IM_MODULE=fcitx
+  #       XMODIFIERS=@im=fcitx
+  #     '';
+  #   };
+  # };
 }
