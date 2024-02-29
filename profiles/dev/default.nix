@@ -18,6 +18,8 @@ _:
     ../../home/editors/helix
     # ../../home/editors/emacs
 
+    ../../home/guix
+
     ../../home/gtk-theme
 
     ../../home/cli-tools

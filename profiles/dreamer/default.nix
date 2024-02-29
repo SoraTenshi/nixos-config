@@ -23,6 +23,8 @@ _:
     ../../home/editors/helix
     # ../../home/editors/neovim
 
+    ../../home/guix
+
     ../../home/cli-tools
     ../../home/lazygit
     ../../home/newsboat
