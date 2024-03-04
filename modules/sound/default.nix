@@ -9,20 +9,19 @@
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
+    extraConfig.pipewire."99-latency.tuning" = {
+      "context.properties" = {
+        "link.max-buffers" = 16;
+        "log.level" = 2;
+        "default.clock.rate" = 48000;
+        "default.clock.allowed-rates" = [ 44100 48000 ];
+        "default.clock.quantum" = 2048;
+        "api.alsa.headroom" = 1024;
+        "default.clock.min-quantum" = 48;
+        "default.clock.max-quantum" = 8192;
+      };
+    };
   };
-
-  environment.etc."pipewire/pipewire.conf.d/99-latency.tuning.conf".text = ''
-    context.properties = {
-      link.max-buffers = 16
-      log.level = 2
-      default.clock.rate = 48000
-      default.clock.allowed-rates = [ 44100, 48000 ]
-      default.clock.quantum = 2048
-      api.alsa.headroom = 1024
-      default.clock.min-quantum = 48
-      default.clock.max-quantum = 8192
-    }
-  '';
 
   # allow realtime priority for audio group
   security = {

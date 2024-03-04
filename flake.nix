@@ -19,11 +19,6 @@
     zig-overlay.url = "github:mitchellh/zig-overlay";
     grub2-theme.url = "github:vinceliuice/grub2-themes";
 
-    grab-workspace = {
-      url = "github:SoraTenshi/grab-workspace";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     darwin = {
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -84,7 +79,6 @@
     , stylix
     , ags
     , ags-env
-    , grab-workspace
     }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
@@ -112,7 +106,7 @@
         };
 
         battlestation = mkNixOS "battlestation" {
-          inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme nur grab-workspace;
+          inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme nur;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dreamer";
@@ -157,7 +151,7 @@
         };
 
         loqius = mkNixOS "loqius" {
-          inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme nur grab-workspace;
+          inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme nur;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dev";

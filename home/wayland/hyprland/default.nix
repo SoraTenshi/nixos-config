@@ -1,4 +1,4 @@
-{ self, config, monitors, grab-workspace, pkgs, username, ... }:
+{ self, config, monitors, pkgs, username, ... }:
 
 let 
   cursor = config.home.pointerCursor;
@@ -17,7 +17,7 @@ let
   ];
   as-monitor = s: ["${s},1"];
   workspaces = ws: ["${ws}, persistent:true, default:true"]; 
-  workspaceChange = ws: nr: "SUPER, ${nr}, grab-workspace, ${ws}";
+  workspaceChange = ws: nr: "SUPER, ${nr}, focusworkspaceoncurrentmonitor, ${ws}";
   workspaceMove = ws: nr: "SUPERSHIFT, ${nr}, movetoworkspacesilent, name:${ws}";
 in
 {
@@ -45,10 +45,6 @@ in
     enable = true;
     systemd.enable = true;
     xwayland.enable = true;
-
-    plugins = [
-      "${grab-workspace.packages."x86_64-linux".default}/lib/libgrab-workspace.so"
-    ];
 
     settings = {
       bindm = [
