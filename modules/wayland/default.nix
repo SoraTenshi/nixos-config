@@ -24,7 +24,7 @@
 
   services.gvfs.enable = true;
   environment.systemPackages = with pkgs; [
-    libva
+    libva nvidia-vaapi-driver
 
     wl-clipboard
 
