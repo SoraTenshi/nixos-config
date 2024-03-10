@@ -10,7 +10,7 @@ _:
 
     ../../home/cli-tools
 
-    ../../home/nyxt
+    # ../../home/nyxt
 
     ../../home/development
     ../../home/lazygit

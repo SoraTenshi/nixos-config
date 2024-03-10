@@ -34,5 +34,6 @@
     cmake gnumake
 
     roswell babashka
+    gerbil
   ];
 }
