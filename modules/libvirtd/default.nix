@@ -7,7 +7,8 @@
     libvirtd = {
       onBoot = "ignore";
       onShutdown = "shutdown";
-
+      qemu.ovmf.enable = true;
+      qemu.runAsRoot = true;
       deviceACL = [
         "/dev/vfio/vfio"
         "/dev/kvm"
@@ -23,8 +24,6 @@
         "10de:2216" # rtx 3080
         "10de:1aef" # audio controller (nvidia)
       ];
-      # disableEFIfb = true;
-      # ignoreMSRs = true;
     };
 
     kvmfr = {
