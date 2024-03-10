@@ -1,5 +1,7 @@
 { pkgs, username, ... }:
 {
+  users.groups.qemu-libvirtd = {};
+  users.users.qemu-libvirtd.group = "qemu-libvirtd";
   users.users.${username} = {
     home = "${
       if pkgs.stdenvNoCC.isDarwin
@@ -11,6 +13,6 @@
     isNormalUser = true;
     group = "users";
     password = "12345";
-    extraGroups = [ "wheel" "networkmanager" "audio" "docker" "libvirtd" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "docker" "qemu-libvirtd" ];
   };
 }

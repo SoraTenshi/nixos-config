@@ -30,7 +30,7 @@ _:
     ../../home/newsboat
     ../../home/dunst
     
-    ../../home/nyxt
+    # ../../home/nyxt
     ../../home/spotify
     ../../home/user-apps
 

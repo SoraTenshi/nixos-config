@@ -1,8 +1,8 @@
-_:
+{ pkgs, ... }:
 {
-  programs = {
-    virt-manager.enable = true;
-    partition-manager.enable = true;
-    mtr.enable = true;
-  };
+  home.packages = [
+    pkgs.virt-manager
+    pkgs.mtr
+    pkgs.partition-manager
+  ];
 }
