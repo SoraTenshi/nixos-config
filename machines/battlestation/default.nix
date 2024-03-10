@@ -1,5 +1,4 @@
 { config, lib, pkgs, modulesPath, ... }:
-
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -8,12 +7,14 @@
 
   boot = {
     initrd = {
-      availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "vfio-pci" ];
-      kernelModules = [ ];
+      availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+      #kernelModules = [ "vfio_pci" "vfio" "vfio_iommu_type1" "vfio_virqfd" "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+      kernelModules = [];
     };
-    kernelModules = [ "kvm-amd" "vfio-pci" "kvmfr" ];
-    extraModulePackages = [ ];
-    kernelParams = [ "amd_iommu=on" "iommu=pt" ];
+    kernelModules = [ "kvm-amd" ];
+    extraModulePackages = [];
+    # kernelParams = [ "amd_iommu=on" "vfio-pci.ids=${builtins.concatStringsSep "," ids}" ];
+    kernelParams = [];
   };
 
   security.tpm2 = {
@@ -68,6 +69,7 @@
     interfaces.enp4s0.useDHCP = true;
   };
 
+  hardware.opengl.enable = true;
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   system.stateVersion = "unstable";

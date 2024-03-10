@@ -49,6 +49,7 @@ lib.nixosSystem {
     ../modules/variables
     ../modules/ssh
     ../modules/experimental/guix.nix
+    ../modules/libvirtd
 
     nur.nixosModules.nur
     ({ config, ... }:{
