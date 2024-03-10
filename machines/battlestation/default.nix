@@ -8,11 +8,12 @@
 
   boot = {
     initrd = {
-      availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+      availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "vfio-pci" ];
       kernelModules = [ ];
     };
-    kernelModules = [ "kvm-amd" ];
+    kernelModules = [ "kvm-amd" "vfio-pci" "kvmfr" ];
     extraModulePackages = [ ];
+    kernelParams = [ "amd_iommu=on" "iommu=pt" ];
   };
 
   security.tpm2 = {

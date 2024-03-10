@@ -44,6 +44,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    vfio = {
+      url = "github:j-brn/nixos-vfio";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     ags-env = {
       url = "github:SoraTenshi/ags-env";
       flake = false;
@@ -79,6 +84,7 @@
     , stylix
     , ags
     , ags-env
+    , vfio
     }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
@@ -113,6 +119,7 @@
           extraModules = [
             ./modules/nvidia
             ./modules/greetd
+            vfio.nixosModules.vfio
             stylix.nixosModules.stylix
           ];
           extraHomeModules = [

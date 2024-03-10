@@ -11,6 +11,6 @@
     isNormalUser = true;
     group = "users";
     password = "12345";
-    extraGroups = [ "wheel" "networkmanager" "audio" "docker"];
+    extraGroups = [ "wheel" "networkmanager" "audio" "docker" "libvirtd" ];
   };
 }

@@ -35,5 +35,9 @@ _:
     ../../home/user-apps
 
     ../../home/development
+
+    # Virtualisation attempts
+    # --- single gpu pass through (nvidia rtx 3080)
+    ../../home/virtual
   ];
 }
