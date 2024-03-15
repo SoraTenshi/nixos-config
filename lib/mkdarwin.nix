@@ -11,7 +11,6 @@ hostname:
 , zls-master
 , darwin
 , extraModules ? [] # extra modules
-, nix-colors
 }:
 
 let 
@@ -56,7 +55,7 @@ darwin.lib.darwinSystem {
         useUserPackages = true;
         extraSpecialArgs = {
           inherit
-            self neovim-nightly username nix-colors;
+            self neovim-nightly username;
         };
         users.${username} = {
           imports = [ ../profiles/${username} ];
