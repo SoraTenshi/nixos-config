@@ -3,6 +3,9 @@
   environment.systemPackages = [ pkgs.swtpm ];
   systemd.services.libvirtd.path = [ pkgs.swtpm ];
 
+  users.groups.qemu-libvirtd = {};
+  users.users.qemu-libvirtd.group = "qemu-libvirtd";
+
   virtualisation = {
     libvirtd = {
       onBoot = "ignore";

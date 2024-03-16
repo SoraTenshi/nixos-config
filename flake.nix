@@ -119,6 +119,7 @@
           extraModules = [
             ./modules/nvidia
             ./modules/greetd
+            ./modules/libvirtd
             vfio.nixosModules.vfio
             stylix.nixosModules.stylix
           ];

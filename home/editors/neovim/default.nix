@@ -40,7 +40,7 @@
       copilot-vim
       
       # tree sitter
-      (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars)) nvim-ts-rainbow
+      (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars)) rainbow-delimiters-nvim
     ];
   };
 

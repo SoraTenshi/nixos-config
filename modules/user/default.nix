@@ -1,7 +1,5 @@
 { pkgs, username, ... }:
 {
-  users.groups.qemu-libvirtd = {};
-  users.users.qemu-libvirtd.group = "qemu-libvirtd";
   users.users.${username} = {
     home = "${
       if pkgs.stdenvNoCC.isDarwin
