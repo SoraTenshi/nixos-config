@@ -1,6 +1,15 @@
 { pkgs, username, ... }:
 {
-  environment.systemPackages = [ pkgs.swtpm ];
+  environment.systemPackages = with pkgs; [
+    swtpm
+    spice
+    spice-gtk
+    spice-protocol
+    win-virtio
+    win-spice
+
+    gnome.adwaita-icon-theme
+  ];
   systemd.services.libvirtd.path = [ pkgs.swtpm ];
 
   users.groups.qemu-libvirtd = {};
@@ -23,10 +32,11 @@
     vfio = {
       enable = true;
       IOMMUType = "amd";
-      devices = [
-        "10de:2216" # rtx 3080
-        "10de:1aef" # audio controller (nvidia)
-      ];
+      ignoreMSRs = true;
+      # devices = [
+      #   "10de:2216" # rtx 3080
+      #   "10de:1aef" # audio controller (nvidia)
+      # ];
     };
 
     kvmfr = {
