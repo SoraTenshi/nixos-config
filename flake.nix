@@ -18,6 +18,7 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     zig-overlay.url = "github:mitchellh/zig-overlay";
     grub2-theme.url = "github:vinceliuice/grub2-themes";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.1.0";
 
     darwin = {
       url = "github:lnl7/nix-darwin/master";
@@ -85,6 +86,7 @@
     , ags
     , ags-env
     , vfio
+    , nix-flatpak
     }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
@@ -125,6 +127,7 @@
           ];
           extraHomeModules = [
             ags.homeManagerModules.default
+            nix-flatpak.homeManagerModules.nix-flatpak
           ];
           monitors = [
             "DP-3,1920x1080@165,0x1080"
@@ -145,6 +148,7 @@
           ];
           extraHomeModules = [
             ags.homeManagerModules.default
+            nix-flatpak.homeManagerModules.nix-flatpak
           ];
         };
 

@@ -23,14 +23,20 @@ in
 {
   home.packages = [
     # pkgs.swww
+    pkgs.swappy
     pkgs.wdisplays
     pkgs.grim
     pkgs.slurp
-    pkgs.xdg-desktop-portal-hyprland pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal
     pkgs.xwaylandvideobridge
     pkgs.qt6.qtwayland pkgs.libsForQt5.qt5.qtwayland
   ];
 
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    configPackages = [ pkgs.xdg-desktop-portal-hyprland pkgs.xdg-desktop-portal ];
+  };
   programs.wpaperd = {
     enable = true;
     settings = {
@@ -54,13 +60,14 @@ in
 
       bind = [
         #### Execute apps ####
-        "SUPERSHIFT, D, exec, discordcanary --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime"
+        "SUPERSHIFT, D, exec, discord --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime"
         "SUPERSHIFT, RETURN, exec, ${terminal}"
         "SUPER, RETURN, exec, ${other-terminal}"
         "SUPERSHIFT, P, exec, ags -r \"BarState.value = 'shutdown $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';\""
         "SUPER, X, exec, ags -r \"BarState.value = 'executor $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';\""
         "SUPER, P, exec, ags -r \"BarState.value = 'app-launcher $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';\""
         "CONTROL, PRINT, exec, grim -g \"$(slurp)\" - | wl-copy"
+        "SHIFTCONTROL, PRINT, exec, grim -g \"$(slurp)\" - | swappy -f - "
         "SUPERSHIFTCONTROL, L, exec, waylock -init-color 0x24283b -input-color 0xbb9af7 -fail-color 0xf7768e"
         "SUPERSHIFTCONTROL, Q, exit"
         # "SUPER, P, exec, dmenu_run -l 15 -fn 'Lilex Nerd Font-16' -nb '#24283b' -nf '#a9b1d6' -sb '#414868' -sf '#7aa2f7' -p '-> '"

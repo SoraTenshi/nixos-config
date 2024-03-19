@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     steam
 
-    discord-canary
+    discord
 
     qmk vial
 

@@ -3,6 +3,7 @@
 #   material-symbols = pkgs.callPackage ../../derivations/material-symbols {};
 # in
 {
+  environment.systemPackages = [ pkgs.gnome.adwaita-icon-theme ];
   fonts.fontDir.enable = true;
   fonts.packages = [
     # material-symbols

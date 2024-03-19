@@ -1,43 +1,47 @@
 _:
+let
+  asPath = paths: map (path: ../../home + "/${path}") paths;
+in
 {
   home.stateVersion = "23.11";
   xdg.enable = true;
 
-  imports = [
-    ../../home/stylix
+  imports = (asPath [
+    "stylix"
 
     # Wayland ?
-    # ../../home/wayland/river
-    ../../home/wayland/hyprland
-    # ../../home/anyrun # now that ags works, maybe i don't need this anymore.
-    ../../home/gtk-theme
-    ../../home/ags
+    # "wayland/river"
+    "wayland/hyprland"
+    # "anyrun"
+    "gtk-theme"
+    "ags"
 
     # x11 aka. xmonad in my case
-    # ../../home/x11
+    # "x11"
 
-    ../../home/kitty
+    "kitty"
+    # "flatpak"
 
-    ../../home/shells/zsh
+    "shells/zsh"
 
-    ../../home/editors/helix
-    # ../../home/editors/neovim
+    "editors/helix"
+    # "editors/neovim"
 
-    ../../home/guix
+    "guix"
 
-    ../../home/cli-tools
-    ../../home/lazygit
-    ../../home/newsboat
-    ../../home/dunst
+    "cli-tools"
+    "lazygit"
+    "newsboat"
+    "dunst"
     
-    # ../../home/nyxt
-    ../../home/spotify
-    ../../home/user-apps
+    # "nyxt"
+    "spotify"
+    "user-apps"
 
-    ../../home/development
+    "development"
 
     # Virtualisation attempts
     # --- single gpu pass through (nvidia rtx 3080)
-    ../../home/virtual
-  ];
+    "virtual"
+  ]);
 }

@@ -11,6 +11,6 @@
     isNormalUser = true;
     group = "users";
     password = "12345";
-    extraGroups = [ "wheel" "networkmanager" "audio" "docker" "qemu-libvirtd" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "docker" "qemu-libvirtd" "libvirtd" "kvm" ];
   };
 }

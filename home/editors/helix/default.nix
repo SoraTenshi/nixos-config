@@ -29,7 +29,7 @@
         popup-border = "all";
         soft-wrap.enable = true;
         completion-replace = true;
-        cursor-word = true;
+        # cursor-word = true;
 
         sticky-context = {
           enable = true;
