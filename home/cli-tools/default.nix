@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     ani-cli
-    btop
+    btop bottom
     gomuks
     ncdu
     neofetch

@@ -4,7 +4,7 @@
     enable = true;
     style = {
       name = "Tokyonight-Storm-BL";
-      package = pkgs.tokyonight-gtk-theme-variants.themes.storm-bl;
+      package = pkgs.tokyo-night-gtk;
     };
   };
 
@@ -12,7 +12,7 @@
     enable = true;
     theme = {
       name = "Tokyonight-Storm-BL";
-      package = pkgs.tokyonight-gtk-theme-variants.themes.storm-bl;
+      package = pkgs.tokyo-night-gtk;
     };
   };
 }
