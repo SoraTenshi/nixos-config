@@ -5,7 +5,7 @@
     gdb
 
     # git
-    tig
+    tig gitu
 
     # compiler
     zigpkgs.master

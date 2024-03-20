@@ -4,6 +4,8 @@
     gnumake
     lazydocker
 
+    gitu
+
     # some commonly used compiler stuff
     zigpkgs.master
     guile
