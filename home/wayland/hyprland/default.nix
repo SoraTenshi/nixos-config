@@ -29,13 +29,14 @@ in
     pkgs.slurp
     pkgs.xwaylandvideobridge
     pkgs.qt6.qtwayland pkgs.libsForQt5.qt5.qtwayland
+    pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal pkgs.xdg-desktop-portal-hyprland 
   ];
 
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    configPackages = [ pkgs.xdg-desktop-portal-hyprland pkgs.xdg-desktop-portal ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal ];
+    configPackages = [ pkgs.xdg-desktop-portal-hyprland ];
   };
   programs.wpaperd = {
     enable = true;
