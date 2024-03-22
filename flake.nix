@@ -20,6 +20,11 @@
     grub2-theme.url = "github:vinceliuice/grub2-themes";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.1.0";
 
+    nix-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     darwin = {
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -87,6 +92,7 @@
     , ags-env
     , vfio
     , nix-flatpak
+    , nix-cosmic
     }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
@@ -122,6 +128,7 @@
             ./modules/nvidia
             ./modules/greetd
             ./modules/libvirtd
+            nix-cosmic.nixosModules.default
             vfio.nixosModules.vfio
             stylix.nixosModules.stylix
           ];
