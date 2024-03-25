@@ -26,6 +26,10 @@
 
   services.upower.enable = true;
 
+  hardware.bluetooth = {
+    enable = true;
+  };
+
   networking = {
     hostName = "loqius";
     networkmanager.enable = true;
