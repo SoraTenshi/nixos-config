@@ -9,12 +9,13 @@ let
     termbin  = "nc termbin.com 9999"; 
     grep     = "rg ";
     lg       = "TERM=xterm-256color lazygit"; # ugly hotfix
+    dgr      = "TERM=xterm-256color lazydocker"; # ugly hotfix
   };
 in
 {
   home.packages = with pkgs; [
     # Shell utils
-    htop btop eza oh-my-posh ripgrep
+    htop bottom eza oh-my-posh ripgrep
     gh jq gh-dash
   ];
   

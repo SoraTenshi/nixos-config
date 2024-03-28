@@ -7,6 +7,9 @@
     # git
     tig gitu
 
+    # docker
+    lazydocker
+
     # compiler
     zigpkgs.master
     odin

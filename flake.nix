@@ -105,7 +105,7 @@
     {
       nixosConfigurations = {
         plutonium = mkNixOS "plutonium" {
-          inherit self home-manager helix-master neovim-nightly overlays zls-master nur ags-env;
+          inherit self home-manager helix-master neovim-nightly overlays zls-master nur;
           nixpkgs = nixpkgs-nixos;
           isHardwareMachine = false;
           system = "x86_64-linux";
@@ -114,9 +114,7 @@
             ./modules/distcc
             nixos-wsl.nixosModules.wsl
           ];
-          extraHomeModules = [
-            ags.homeManagerModules.default
-          ];
+          extraHomeModules = [ ];
         };
 
         battlestation = mkNixOS "battlestation" {

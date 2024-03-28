@@ -4,13 +4,10 @@ _:
   xdg.enable = true;
 
   imports = [
-    ../../home/ags
     # General purpose
     ../../home/editors/helix
 
     ../../home/cli-tools
-
-    # ../../home/nyxt
 
     ../../home/development
     ../../home/lazygit

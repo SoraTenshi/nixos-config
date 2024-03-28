@@ -80,7 +80,7 @@ lib.nixosSystem {
             self neovim-nightly picom-ibhagwan username ags-env monitors;
         } else {
           inherit
-            self neovim-nightly username ags-env;
+            self neovim-nightly username;
         };
         users.${username} = {
           imports = [ ../profiles/${username} ];
