@@ -22,6 +22,11 @@
     pkcs11.enable = true;
   };
 
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
   services.xserver = {
     # Sucks to be me, i have to adjust it every time i move cable / connections
     # Thank you x11...
