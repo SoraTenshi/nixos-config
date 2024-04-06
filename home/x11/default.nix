@@ -1,9 +1,11 @@
-{ self, pkgs, ... }:
-let
+{
+  self,
+  pkgs,
+  ...
+}: let
   cursorPackage = pkgs.catppuccin-cursors.macchiatoBlue;
   cursorName = "Catppuccin-Macchiato-Blue-Cursors";
-in
-{
+in {
   imports = [
     ./picom.nix
     ../eww

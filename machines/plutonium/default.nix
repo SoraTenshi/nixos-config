@@ -1,5 +1,4 @@
-{ username, ... }:
-{
+{username, ...}: {
   imports = [
     ../../configuration.nix
   ];
@@ -11,7 +10,7 @@
     nativeSystemd = true;
     interop.register = false;
   };
-  networking.hostName = "plutonium"; # because it glows... got it? 
+  networking.hostName = "plutonium"; # because it glows... got it?
 
   system.stateVersion = "unstable";
 }

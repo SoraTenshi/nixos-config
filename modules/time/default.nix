@@ -1,7 +1,9 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    fcitx5-configtool openal harfbuzz libxkbcommon
+    fcitx5-configtool
+    openal
+    harfbuzz
+    libxkbcommon
   ];
 
   time = {

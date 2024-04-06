@@ -1,48 +1,57 @@
-{ self, pkgs, ... }:
-
-let 
-  aliases = {
-    cat      = "bat --style=plain ";
-    mv       = "mv -i ";
-    ls       = "eza --icons --grid";
-    cd       = "z ";
-    termbin  = "nc termbin.com 9999"; 
-    grep     = "rg ";
-    lg       = "TERM=xterm-256color lazygit"; # ugly hotfix
-    dgr      = "TERM=xterm-256color lazydocker"; # ugly hotfix
-  };
-in
 {
+  self,
+  pkgs,
+  ...
+}: let
+  aliases = {
+    cat = "bat --style=plain ";
+    mv = "mv -i ";
+    ls = "eza --icons --grid";
+    cd = "z ";
+    termbin = "nc termbin.com 9999";
+    grep = "rg ";
+    lg = "TERM=xterm-256color lazygit"; # ugly hotfix
+    dgr = "TERM=xterm-256color lazydocker"; # ugly hotfix
+  };
+in {
   home.packages = with pkgs; [
     # Shell utils
-    htop bottom eza oh-my-posh ripgrep
-    gh jq gh-dash
+    htop
+    bottom
+    eza
+    ripgrep
+    gh
+    jq
+    gh-dash
   ];
-  
+
   programs = {
     fzf.enable = true;
     zoxide.enable = true;
     bat = {
       enable = true;
     };
+    oh-my-posh = {
+      enable = true;
+      enableZshIntegration = true;
+      settings = builtins.fromJSON (builtins.unsafeDiscardStringContext (builtins.readFile "${self}/home/shells/zsh/oh-my-posh/tokyonight_ascii.opm.json"));
+    };
 
     git = {
       enable = true;
       includes = [
-        { path = "~/.config/git/userconfig.inc"; }
+        {path = "~/.config/git/userconfig.inc";}
       ];
     };
 
     # Shell
     zsh = {
-      enable                    = true;
-      enableCompletion          = true;
-      autosuggestion.enable     = true;
+      enable = true;
+      enableCompletion = true;
+      autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
 
       initExtra = ''
-        eval "$(zoxide init zsh)"
-        eval "$(oh-my-posh init zsh --config '~/.config/oh-my-posh/tokyonight_ascii.opm.json')"
         export PATH=$PATH:~/.cargo/bin:~/.local/bin:~/.roswell/bin
 
         # Define autocomplete for devshell init
@@ -70,9 +79,5 @@ in
 
       shellAliases = aliases;
     };
-  };
-  
-  xdg.configFile."oh-my-posh" = {
-    source = "${self}/home/shells/zsh/oh-my-posh";
   };
 }

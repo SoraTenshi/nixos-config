@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   sound.enable = true;
   environment.systemPackages = with pkgs; [
     pavucontrol
@@ -14,7 +13,7 @@
         "link.max-buffers" = 16;
         "log.level" = 2;
         "default.clock.rate" = 48000;
-        "default.clock.allowed-rates" = [ 44100 48000 ];
+        "default.clock.allowed-rates" = [44100 48000];
         "default.clock.quantum" = 2048;
         "api.alsa.headroom" = 1024;
         "default.clock.min-quantum" = 48;

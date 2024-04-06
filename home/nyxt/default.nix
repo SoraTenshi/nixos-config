@@ -1,6 +1,4 @@
-{ pkgs, ...}:
-
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     nyxt
   ];
@@ -53,7 +51,7 @@
                                  (nyxt::make-keymap
                                   :inherit (nyxt::scheme-mode-map
                                             nyxt::vi-normal-mode-map
-                                  
+
                                   "gn" 'buffer-next)))))))
       '';
     };

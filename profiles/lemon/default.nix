@@ -1,5 +1,4 @@
-_:
-{
+_: {
   home.stateVersion = "23.11";
   xdg.enable = true;
 

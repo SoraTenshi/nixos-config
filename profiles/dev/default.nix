@@ -1,5 +1,4 @@
-_:
-{
+_: {
   home.stateVersion = "24.05";
   xdg.enable = true;
 
@@ -28,7 +27,7 @@ _:
     ../../home/dunst
     ../../home/email
     ../../home/work-specific
-    
+
     ../../home/spotify
     ../../home/user-apps
 

@@ -71,132 +71,130 @@
     };
   };
 
-  outputs =
-    { self
-    , nixpkgs-nixos
-    , nixpkgs
-    , nur
-    , home-manager
-    , nixos-hardware
-    , sddm-theme
-    , neovim-nightly
-    , zig-overlay
-    , zls-master
-    , grub2-theme
-    , helix-master
-    , picom-ibhagwan
-    , nixos-wsl
-    , darwin
-    , stylix
-    , ags
-    , ags-env
-    , vfio
-    , nix-flatpak
-    , nix-cosmic
-    }:
-    let
-      mkDarwin = import ./lib/mkdarwin.nix;
-      mkNixOS = import ./lib/mknixos.nix;
+  outputs = {
+    self,
+    nixpkgs-nixos,
+    nixpkgs,
+    nur,
+    home-manager,
+    nixos-hardware,
+    sddm-theme,
+    neovim-nightly,
+    zig-overlay,
+    zls-master,
+    grub2-theme,
+    helix-master,
+    picom-ibhagwan,
+    nixos-wsl,
+    darwin,
+    stylix,
+    ags,
+    ags-env,
+    vfio,
+    nix-flatpak,
+    nix-cosmic,
+  }: let
+    mkDarwin = import ./lib/mkdarwin.nix;
+    mkNixOS = import ./lib/mknixos.nix;
 
-      overlays = [
-        zig-overlay.overlays.default
-      ];
-    in
-    {
-      nixosConfigurations = {
-        plutonium = mkNixOS "plutonium" {
-          inherit self home-manager helix-master neovim-nightly overlays zls-master nur;
-          nixpkgs = nixpkgs-nixos;
-          isHardwareMachine = false;
-          system = "x86_64-linux";
-          username = "nightmare";
-          extraModules = [
-            ./modules/distcc
-            nixos-wsl.nixosModules.wsl
-          ];
-          extraHomeModules = [ ];
-        };
-
-        battlestation = mkNixOS "battlestation" {
-          inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme nur;
-          nixpkgs = nixpkgs-nixos;
-          system = "x86_64-linux";
-          username = "dreamer";
-          extraModules = [
-            ./modules/nvidia
-            ./modules/greetd
-            ./modules/libvirtd
-            nix-cosmic.nixosModules.default
-            vfio.nixosModules.vfio
-            stylix.nixosModules.stylix
-          ];
-          extraHomeModules = [
-            ags.homeManagerModules.default
-            nix-flatpak.homeManagerModules.nix-flatpak
-          ];
-          monitors = [
-            "DP-3,1920x1080@165,0x1080"
-            "DP-1,1920x1080@75,1920x1080"
-            "HDMI-A-1,1920x1080@60,960x0"
-          ];
-        };
-
-        serotonine = mkNixOS "serotonine" {
-          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme nur;
-          nixpkgs = nixpkgs-nixos;
-          system = "x86_64-linux";
-          username = "dreamer";
-          extraModules = [
-            ./modules/greetd
-            nixos-hardware.nixosModules.lenovo-thinkpad-t470s
-            stylix.nixosModules.stylix
-          ];
-          extraHomeModules = [
-            ags.homeManagerModules.default
-            nix-flatpak.homeManagerModules.nix-flatpak
-          ];
-        };
-
-        radium = mkNixOS "radium" {
-          inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme nur;
-          nixpkgs = nixpkgs-nixos;
-          system = "aarch64-linux";
-          username = "spectre";
-          isVM = true;
-          extraModules = [
-          ];
-        };
-
-        loqius = mkNixOS "loqius" {
-          inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme nur;
-          nixpkgs = nixpkgs-nixos;
-          system = "x86_64-linux";
-          username = "dev";
-          extraModules = [
-            ./modules/greetd
-            nixos-hardware.nixosModules.lenovo-thinkpad-l14-amd
-            stylix.nixosModules.stylix
-          ];
-          extraHomeModules = [
-            ags.homeManagerModules.default
-          ];
-          monitors = [
-            "eDP-1,1920x1080@60,0x0"
-            "HDMI-A-1,1920x1080@120,1920x0"
-            "DP-1,1920x1080@75,3840x0"
-          ];
-        };
+    overlays = [
+      zig-overlay.overlays.default
+    ];
+  in {
+    nixosConfigurations = {
+      plutonium = mkNixOS "plutonium" {
+        inherit self home-manager helix-master neovim-nightly overlays zls-master nur;
+        nixpkgs = nixpkgs-nixos;
+        isHardwareMachine = false;
+        system = "x86_64-linux";
+        username = "nightmare";
+        extraModules = [
+          ./modules/distcc
+          nixos-wsl.nixosModules.wsl
+        ];
+        extraHomeModules = [];
       };
 
-      darwinConfigurations = {
-        combustible = mkDarwin "combustible" {
-          inherit self nixpkgs darwin home-manager helix-master neovim-nightly overlays zls-master nur;
-          system = "aarch64-darwin";
-          username = "lemon";
-          # extraModules = [
-          #   stylix.nixosModules.stylix
-          # ];
-        };
+      battlestation = mkNixOS "battlestation" {
+        inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme nur;
+        nixpkgs = nixpkgs-nixos;
+        system = "x86_64-linux";
+        username = "dreamer";
+        extraModules = [
+          ./modules/nvidia
+          ./modules/greetd
+          ./modules/libvirtd
+          nix-cosmic.nixosModules.default
+          vfio.nixosModules.vfio
+          stylix.nixosModules.stylix
+        ];
+        extraHomeModules = [
+          ags.homeManagerModules.default
+          nix-flatpak.homeManagerModules.nix-flatpak
+        ];
+        monitors = [
+          "DP-3,1920x1080@165,0x1080"
+          "DP-1,1920x1080@75,1920x1080"
+          "HDMI-A-1,1920x1080@60,960x0"
+        ];
+      };
+
+      serotonine = mkNixOS "serotonine" {
+        inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme nur;
+        nixpkgs = nixpkgs-nixos;
+        system = "x86_64-linux";
+        username = "dreamer";
+        extraModules = [
+          ./modules/greetd
+          nixos-hardware.nixosModules.lenovo-thinkpad-t470s
+          stylix.nixosModules.stylix
+        ];
+        extraHomeModules = [
+          ags.homeManagerModules.default
+          nix-flatpak.homeManagerModules.nix-flatpak
+        ];
+      };
+
+      radium = mkNixOS "radium" {
+        inherit self home-manager helix-master neovim-nightly picom-ibhagwan overlays zls-master sddm-theme grub2-theme nur;
+        nixpkgs = nixpkgs-nixos;
+        system = "aarch64-linux";
+        username = "spectre";
+        isVM = true;
+        extraModules = [
+        ];
+      };
+
+      loqius = mkNixOS "loqius" {
+        inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme nur;
+        nixpkgs = nixpkgs-nixos;
+        system = "x86_64-linux";
+        username = "dev";
+        extraModules = [
+          ./modules/greetd
+          nixos-hardware.nixosModules.lenovo-thinkpad-l14-amd
+          stylix.nixosModules.stylix
+        ];
+        extraHomeModules = [
+          ags.homeManagerModules.default
+        ];
+        monitors = [
+          "eDP-1,1920x1080@60,0x0"
+          "HDMI-A-1,1920x1080@120,1920x0"
+          "DP-1,1920x1080@75,3840x0"
+        ];
       };
     };
+
+    darwinConfigurations = {
+      combustible = mkDarwin "combustible" {
+        inherit self nixpkgs darwin home-manager helix-master neovim-nightly overlays zls-master nur;
+        system = "aarch64-darwin";
+        username = "lemon";
+        # extraModules = [
+        #   stylix.nixosModules.stylix
+        # ];
+      };
+    };
+  };
 }

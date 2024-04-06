@@ -1,5 +1,8 @@
-{ pkgs, username, ... }:
 {
+  pkgs,
+  username,
+  ...
+}: {
   users.users.${username} = {
     home = "${
       if pkgs.stdenvNoCC.isDarwin
@@ -11,6 +14,6 @@
     isNormalUser = true;
     group = "users";
     password = "12345";
-    extraGroups = [ "wheel" "networkmanager" "audio" "docker" "qemu-libvirtd" "libvirtd" "kvm" ];
+    extraGroups = ["wheel" "networkmanager" "audio" "docker" "qemu-libvirtd" "libvirtd" "kvm"];
   };
 }

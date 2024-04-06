@@ -1,5 +1,4 @@
-_:
-{
+_: {
   services.picom = {
     enable = true;
     fade = true;
@@ -26,7 +25,7 @@ _:
         background-fixed = false;
         kern = "5x5box";
       };
-      
+
       blur-background-exclude = [
         "class_g ?= 'eww'"
         "class_g ?= 'peek'"
@@ -34,4 +33,3 @@ _:
     };
   };
 }
-

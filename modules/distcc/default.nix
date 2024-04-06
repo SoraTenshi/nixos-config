@@ -1,5 +1,4 @@
-_:
-{
+_: {
   services.distccd = {
     enable = true;
     openFirewall = true;

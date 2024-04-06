@@ -1,11 +1,11 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # debugger
     gdb
 
     # git
-    tig gitu
+    tig
+    gitu
 
     # docker
     lazydocker
@@ -14,29 +14,41 @@
     zigpkgs.master
     odin
     clang
-    cargo rustc clippy rustfmt
+    cargo
+    rustc
+    clippy
+    rustfmt
     go
     nim
     julia-bin
-    ocaml opam dune-release
+    ocaml
+    opam
+    dune-release
 
-    elixir erlang 
+    elixir
+    erlang
     # swift swiftPackages.swiftpm
     python311 # i can't get around it and i'm tired of always using a nix shell
 
-    idris2 
+    idris2
 
     nasm
-
-    nodejs
 
     # practice
     exercism
 
     # cmake
-    cmake gnumake
+    cmake
 
-    roswell babashka
+    # LISP
+    roswell
+    babashka
     gerbil
+
+    # Qemu
+    qemu
+
+    # Wine
+    wine
   ];
 }

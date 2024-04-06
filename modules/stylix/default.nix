@@ -1,8 +1,9 @@
-{ pkgs, ... }:
-let 
-  font-size = if pkgs.stdenvNoCC.isDarwin then 24 else 18;
-in
-{
+{pkgs, ...}: let
+  font-size =
+    if pkgs.stdenvNoCC.isDarwin
+    then 24
+    else 18;
+in {
   stylix = {
     autoEnable = true;
     polarity = "dark";
@@ -24,17 +25,17 @@ in
 
     fonts = {
       serif = {
-        package = pkgs.nerdfonts.override { fonts = [ "Lilex" ]; };
+        package = pkgs.nerdfonts.override {fonts = ["Lilex"];};
         name = "Lilex Nerd Font";
       };
 
       sansSerif = {
-        package = pkgs.nerdfonts.override { fonts = [ "Lilex" ]; };
+        package = pkgs.nerdfonts.override {fonts = ["Lilex"];};
         name = "Lilex Nerd Font";
       };
 
       monospace = {
-        package = pkgs.nerdfonts.override { fonts = [ "Lilex" ]; };
+        package = pkgs.nerdfonts.override {fonts = ["Lilex"];};
         name = "Lilex Nerd Font Mono";
       };
 

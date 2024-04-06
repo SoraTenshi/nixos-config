@@ -1,16 +1,15 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # Formatting
     alejandra
-    
+
     # Debugging stuff
     lldb
 
     # Language servers
     clang-tools # C-Style
     cmake-language-server # Cmake, pray to never need to use it
-    gopls # Go 
+    gopls # Go
     nil # Nix
     rust-analyzer # Rust
     texlab # LaTeX

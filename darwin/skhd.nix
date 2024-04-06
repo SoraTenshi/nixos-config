@@ -1,5 +1,4 @@
-_:
-{
+_: {
   services.skhd = {
     enable = true;
     skhdConfig = ''
@@ -74,7 +73,7 @@ _:
         yabai -m query --windows --display | jq -re '.[] | select(.app=="Discord Canary") | "yabai -m window \(.id) --space 3"' | sh ; \
         yabai -m query --windows --display | jq -re '.[] | select(.app=="Mail") | "yabai -m window \(.id) --space 4"' | sh ; \
         yabai -m query --windows --display | jq -re '.[] | select(.app=="Spotify") | "yabai -m window \(.id) --space 5"' | sh
-  '';
+    '';
   };
 
   system.keyboard.enableKeyMapping = true;

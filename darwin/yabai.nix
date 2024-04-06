@@ -1,5 +1,4 @@
-_:
-{
+_: {
   services.yabai = {
     enable = true;
     config = {

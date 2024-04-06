@@ -1,5 +1,4 @@
-_:
-{
+_: {
   programs.newsboat = {
     enable = true;
     urls = [

@@ -1,5 +1,4 @@
-_:
-{
+_: {
   imports = [
     ./hyprland
     ./river

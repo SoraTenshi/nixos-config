@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     fuzzel
 
@@ -28,9 +26,9 @@
           "DP-3"
           "HDMI-A-1"
         ];
-        modules-left = [ "clock" ];
-        modules-center = [ "river/tags" ];
-        modules-right = [ "network" "cpu" "memory" "temperature" "battery" ];
+        modules-left = ["clock"];
+        modules-center = ["river/tags"];
+        modules-right = ["network" "cpu" "memory" "temperature" "battery"];
 
         clock = {
           format = "{:%a | 年%Y 月%m 日%d %T}";
@@ -48,7 +46,7 @@
           format-full = "";
           format-charging = " {capacity}%";
           format-plugged = " {capacity}%";
-          format-icons = [ "" "" "" "" "" ];
+          format-icons = ["" "" "" "" ""];
         };
 
         network = {
@@ -61,17 +59,17 @@
           format-alt = " {bandwidthUpBytes}   {bandwidthDownBytes}";
           tooltip = true;
         };
-      
+
         cpu = {
           format = "﬙{usage:2}%";
-          interval= 1;
-          states= {
+          interval = 1;
+          states = {
             warning = 50;
             critical = 90;
           };
           tooltip = false;
         };
-      
+
         memory = {
           format = " {}%";
           interval = 1;
@@ -81,7 +79,7 @@
           };
           tooltip = false;
         };
-      
+
         temperature = {
           format = " {temperatureC}°C";
           interval = 1;
@@ -108,7 +106,7 @@
         background-color: #24283b; /*base02*/
         border: 2px solid #8031ca; /*base1*/
       }
-      
+
       #tags button {
         color: #a9b1d6;
         border: 2px solid #24283b;
@@ -158,7 +156,7 @@
         color: #a9b1d6; /*base1*/
         border: 2px solid #8031ca; /*base1*/
       }
-      
+
       #network {
         padding: 8px;
         margin-left: 8px;
@@ -178,14 +176,14 @@
         background: #8031ca;
         color: #7dcfff;
       }
-      
+
       #clock {
         padding: 8px;
         margin-left: 0px;
         font-size: 1.3rem;
         margin-bottom: 4px;
       }
-      
+
       #cpu.warning,
       #memory.warning {
         border: 2px solid #b58900; /*yellow*/
@@ -227,7 +225,7 @@
         selection-text=7aa2f7ff
         selection-match=2ac3deff
         border=8031caff
-        
+
         [border]
         width=2
         radius=0

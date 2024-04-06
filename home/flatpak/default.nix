@@ -1,5 +1,4 @@
-_:
-{
+_: {
   services.flatpak = {
     enable = true;
     update.auto.enable = true;
@@ -11,7 +10,10 @@ _:
     ];
 
     packages = [
-      { appId = "com.discordapp.Discord"; origin = "flathub"; }
+      {
+        appId = "com.discordapp.Discord";
+        origin = "flathub";
+      }
     ];
   };
 }

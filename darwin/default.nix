@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   imports = [
     ./homebrew.nix
     ./yabai.nix

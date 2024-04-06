@@ -1,9 +1,9 @@
-{ pkgs, ... }: 
+{pkgs, ...}:
 # let
 #   material-symbols = pkgs.callPackage ../../derivations/material-symbols {};
 # in
 {
-  environment.systemPackages = [ pkgs.gnome.adwaita-icon-theme ];
+  environment.systemPackages = [pkgs.gnome.adwaita-icon-theme];
   fonts.fontDir.enable = true;
   fonts.packages = [
     # material-symbols
@@ -12,6 +12,6 @@
     pkgs.noto-fonts
     pkgs.noto-fonts-cjk
     pkgs.noto-fonts-emoji
-    (pkgs.nerdfonts.override { fonts = [ "Lilex" ]; })
+    (pkgs.nerdfonts.override {fonts = ["Lilex"];})
   ];
 }

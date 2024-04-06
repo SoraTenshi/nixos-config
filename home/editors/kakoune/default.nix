@@ -1,6 +1,9 @@
-{ self, config, pkgs, ... }:
-
 {
+  self,
+  config,
+  pkgs,
+  ...
+}: {
   programs.kakoune = {
     enable = true;
     config = {
@@ -13,7 +16,7 @@
         relative = true;
       };
       scrollOff.lines = 3;
-      
+
       wrapLines = {
         enable = true;
         indent = true;

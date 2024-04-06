@@ -1,8 +1,10 @@
-{ anyrun, config, ... }:
-let
-  col = sel: config.lib.stylix.colors.withHashtag.${sel};
-in
 {
+  anyrun,
+  config,
+  ...
+}: let
+  col = sel: config.lib.stylix.colors.withHashtag.${sel};
+in {
   programs.anyrun = {
     enable = true;
     config = {
@@ -14,10 +16,10 @@ in
         stdin
         translate
       ];
-      x = { fraction = 0.5; };
-      y = { fraction = 0.025; };
-      height = { fraction = 0.04; };
-      width = { fraction = 1.0; };
+      x = {fraction = 0.5;};
+      y = {fraction = 0.025;};
+      height = {fraction = 0.04;};
+      width = {fraction = 1.0;};
       layer = "overlay";
       hideIcons = true;
       hidePluginInfo = true;

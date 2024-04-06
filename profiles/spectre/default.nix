@@ -1,5 +1,4 @@
-_:
-{
+_: {
   home.stateVersion = "23.11";
   xdg.enable = true;
 
@@ -15,7 +14,7 @@ _:
 
     ../../home/cli-tools
     ../../home/lazygit
-    
+
     ../../home/development/darwin.nix
   ];
 }

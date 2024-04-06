@@ -1,10 +1,9 @@
-_:
-{
+_: {
   programs.wezterm = {
     enable = true;
     extraConfig = ''
       local wezterm = require "wezterm"
-      
+
       return {
         font = wezterm.font_with_fallback({ "Lilex Nerd Font Mono", }, {
           weight = "Regular",

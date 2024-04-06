@@ -1,6 +1,6 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.packages = [
-    pkgs.elvish pkgs.murex
+    pkgs.elvish
+    pkgs.murex
   ];
 }

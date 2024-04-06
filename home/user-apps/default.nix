@@ -1,12 +1,12 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.nheko.enable = true;
   home.packages = with pkgs; [
     steam
 
     discord
 
-    qmk vial
+    qmk
+    vial
 
     firefox
     mumble

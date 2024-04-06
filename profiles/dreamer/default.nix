@@ -1,12 +1,10 @@
-_:
-let
+_: let
   asPath = paths: map (path: ../../home + "/${path}") paths;
-in
-{
+in {
   home.stateVersion = "23.11";
   xdg.enable = true;
 
-  imports = (asPath [
+  imports = asPath [
     "stylix"
 
     # Wayland ?
@@ -33,7 +31,7 @@ in
     "lazygit"
     "newsboat"
     "dunst"
-    
+
     # "nyxt"
     "spotify"
     "user-apps"
@@ -43,5 +41,5 @@ in
     # Virtualisation attempts
     # --- single gpu pass through (nvidia rtx 3080)
     "virtual"
-  ]);
+  ];
 }

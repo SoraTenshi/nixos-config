@@ -1,14 +1,20 @@
-{ self, config, monitors, pkgs, username, ... }:
-
-let 
+{
+  self,
+  config,
+  monitors,
+  pkgs,
+  username,
+  ...
+}: let
   cursor = config.home.pointerCursor;
   terminal = "kitty";
   other-terminal = "/home/${username}/.local/bin/ghostty";
   keys = ["1" "2" "3" "4" "5" "6" "7" "8" "9"];
 
   zipWith = f: xs: ys:
-    if xs == [] || ys == [] then []
-    else [ (f (builtins.head xs) (builtins.head ys)) ] ++ zipWith f (builtins.tail xs) (builtins.tail ys);
+    if xs == [] || ys == []
+    then []
+    else [(f (builtins.head xs) (builtins.head ys))] ++ zipWith f (builtins.tail xs) (builtins.tail ys);
 
   each-bar = i: [
     "blur, bar-${builtins.toString i}"
@@ -16,11 +22,10 @@ let
     "xray 1, ${builtins.toString i}"
   ];
   as-monitor = s: ["${s},1"];
-  workspaces = ws: ["${ws}, persistent:true, default:true"]; 
+  workspaces = ws: ["${ws}, persistent:true, default:true"];
   workspaceChange = ws: nr: "SUPER, ${nr}, focusworkspaceoncurrentmonitor, ${ws}";
   workspaceMove = ws: nr: "SUPERSHIFT, ${nr}, movetoworkspacesilent, name:${ws}";
-in
-{
+in {
   home.packages = [
     # pkgs.swww
     pkgs.swappy
@@ -28,15 +33,18 @@ in
     pkgs.grim
     pkgs.slurp
     pkgs.xwaylandvideobridge
-    pkgs.qt6.qtwayland pkgs.libsForQt5.qt5.qtwayland
-    pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal pkgs.xdg-desktop-portal-hyprland 
+    pkgs.qt6.qtwayland
+    pkgs.libsForQt5.qt5.qtwayland
+    pkgs.xdg-desktop-portal-gtk
+    pkgs.xdg-desktop-portal
+    pkgs.xdg-desktop-portal-hyprland
   ];
 
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal ];
-    configPackages = [ pkgs.xdg-desktop-portal-hyprland ];
+    extraPortals = [pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal];
+    configPackages = [pkgs.xdg-desktop-portal-hyprland];
   };
   programs.wpaperd = {
     enable = true;
@@ -47,7 +55,7 @@ in
       };
     };
   };
-  
+
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
@@ -59,43 +67,45 @@ in
         "SUPER, mouse:273, resizewindow"
       ];
 
-      bind = [
-        #### Execute apps ####
-        "SUPERSHIFT, D, exec, discord --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime"
-        "SUPERSHIFT, RETURN, exec, ${terminal}"
-        "SUPER, RETURN, exec, ${other-terminal}"
-        "SUPERSHIFT, P, exec, ags -r \"BarState.value = 'shutdown $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';\""
-        "SUPER, X, exec, ags -r \"BarState.value = 'executor $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';\""
-        "SUPER, P, exec, ags -r \"BarState.value = 'app-launcher $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';\""
-        "CONTROL, PRINT, exec, grim -g \"$(slurp)\" - | wl-copy"
-        "SHIFTCONTROL, PRINT, exec, grim -g \"$(slurp)\" - | swappy -f - "
-        "SUPERSHIFTCONTROL, L, exec, waylock -init-color 0x24283b -input-color 0xbb9af7 -fail-color 0xf7768e"
-        "SUPERSHIFTCONTROL, Q, exit"
-        # "SUPER, P, exec, dmenu_run -l 15 -fn 'Lilex Nerd Font-16' -nb '#24283b' -nf '#a9b1d6' -sb '#414868' -sf '#7aa2f7' -p '-> '"
-        # "SUPER, N, exec, networkmanager_dmenu -l 15 -fn 'Lilex Nerd Font-16' -nb '#24283b' -nf '#a9b1d6' -sb '#414868' -sf '#7aa2f7'"
+      bind =
+        [
+          #### Execute apps ####
+          "SUPERSHIFT, D, exec, discord --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime"
+          "SUPERSHIFT, RETURN, exec, ${terminal}"
+          "SUPER, RETURN, exec, ${other-terminal}"
+          "SUPERSHIFT, P, exec, ags -r \"BarState.value = 'shutdown $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';\""
+          "SUPER, X, exec, ags -r \"BarState.value = 'executor $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';\""
+          "SUPER, P, exec, ags -r \"BarState.value = 'app-launcher $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';\""
+          "CONTROL, PRINT, exec, grim -g \"$(slurp)\" - | wl-copy"
+          "SHIFTCONTROL, PRINT, exec, grim -g \"$(slurp)\" - | swappy -f - "
+          "SUPERSHIFTCONTROL, L, exec, waylock -init-color 0x24283b -input-color 0xbb9af7 -fail-color 0xf7768e"
+          "SUPERSHIFTCONTROL, Q, exit"
+          # "SUPER, P, exec, dmenu_run -l 15 -fn 'Lilex Nerd Font-16' -nb '#24283b' -nf '#a9b1d6' -sb '#414868' -sf '#7aa2f7' -p '-> '"
+          # "SUPER, N, exec, networkmanager_dmenu -l 15 -fn 'Lilex Nerd Font-16' -nb '#24283b' -nf '#a9b1d6' -sb '#414868' -sf '#7aa2f7'"
 
-        #### Controls ####
-        "SUPERSHIFT, Q, killactive"
-        "SUPER, F, fullscreen"
-        "SUPER, T, togglefloating"
-        "SUPER, H, movefocus, l"
-        "SUPER, L, movefocus, r"
-        "SUPER, K, movefocus, u"
-        "SUPER, J, movefocus, d"
-        "SUPERSHIFT, H, resizeactive, -100 0"
-        "SUPERSHIFT, L, resizeactive, 100 0"
-        "SUPERSHIFT, K, resizeactive, 0 100"
-        "SUPERSHIFT, J, resizeactive, 0 -100"
+          #### Controls ####
+          "SUPERSHIFT, Q, killactive"
+          "SUPER, F, fullscreen"
+          "SUPER, T, togglefloating"
+          "SUPER, H, movefocus, l"
+          "SUPER, L, movefocus, r"
+          "SUPER, K, movefocus, u"
+          "SUPER, J, movefocus, d"
+          "SUPERSHIFT, H, resizeactive, -100 0"
+          "SUPERSHIFT, L, resizeactive, 100 0"
+          "SUPERSHIFT, K, resizeactive, 0 100"
+          "SUPERSHIFT, J, resizeactive, 0 -100"
 
-        #### Multi Monitor stuff ####
-        "SUPER, bracketleft, focusmonitor, l"
-        "SUPER, bracketright, focusmonitor, r"
-      ] ++ 
-      #### Change workspace ####
-      (zipWith workspaceChange keys keys)
-      ++
-      #### Move to workspace ####
-      (zipWith workspaceMove keys keys);
+          #### Multi Monitor stuff ####
+          "SUPER, bracketleft, focusmonitor, l"
+          "SUPER, bracketright, focusmonitor, r"
+        ]
+        ++
+        #### Change workspace ####
+        (zipWith workspaceChange keys keys)
+        ++
+        #### Move to workspace ####
+        (zipWith workspaceMove keys keys);
 
       exec-once = [
         "hyprctl setcursor ${cursor.name} ${toString cursor.size}"
@@ -132,7 +142,7 @@ in
           natural_scroll = true;
         };
       };
-    
+
       general = {
         gaps_in = 5;
         gaps_out = 5;
@@ -165,9 +175,9 @@ in
         "rounding 0, xwayland:1"
       ];
 
-      workspace = (builtins.concatMap workspaces keys);
-      monitor = (builtins.concatMap as-monitor monitors);
-      layerrule = (builtins.concatMap each-bar (builtins.genList (i: i) (builtins.length monitors)));
+      workspace = builtins.concatMap workspaces keys;
+      monitor = builtins.concatMap as-monitor monitors;
+      layerrule = builtins.concatMap each-bar (builtins.genList (i: i) (builtins.length monitors));
     };
   };
 }

@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   hardware.nvidia = {
     powerManagement.enable = true;
     modesetting.enable = true;
@@ -9,7 +8,7 @@
 
   services.xserver = {
     enable = true;
-    videoDrivers = [ "nvidia" ];
+    videoDrivers = ["nvidia"];
   };
 
   hardware.opengl = {

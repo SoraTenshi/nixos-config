@@ -1,5 +1,10 @@
-{ config, lib, pkgs, modulesPath, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  modulesPath,
+  ...
+}: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ../../configuration.nix
@@ -7,11 +12,11 @@
 
   boot = {
     initrd = {
-      availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+      availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
       #kernelModules = [ "vfio_pci" "vfio" "vfio_iommu_type1" "vfio_virqfd" "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
       kernelModules = [];
     };
-    kernelModules = [ "kvm-amd" ];
+    kernelModules = ["kvm-amd"];
     extraModulePackages = [];
     # kernelParams = [ "amd_iommu=on" "vfio-pci.ids=${builtins.concatStringsSep "," ids}" ];
     kernelParams = [];
@@ -49,19 +54,19 @@
     egl-wayland
   ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/c2d3c3eb-96e5-44ea-b36c-7b5679ba48a8";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/c2d3c3eb-96e5-44ea-b36c-7b5679ba48a8";
+    fsType = "ext4";
+  };
 
-  fileSystems."/boot/efi" =
-    { device = "/dev/disk/by-uuid/81D1-752B";
-      fsType = "vfat";
-    };
+  fileSystems."/boot/efi" = {
+    device = "/dev/disk/by-uuid/81D1-752B";
+    fsType = "vfat";
+  };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/d4761b59-4325-4677-894f-d473e45ab3ad"; }
-    ];
+  swapDevices = [
+    {device = "/dev/disk/by-uuid/d4761b59-4325-4677-894f-d473e45ab3ad";}
+  ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

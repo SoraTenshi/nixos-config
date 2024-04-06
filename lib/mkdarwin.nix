@@ -1,19 +1,17 @@
-hostname:
-{ self
-, nixpkgs
-, home-manager
-, nur
-, system
-, username
-, overlays
-, neovim-nightly
-, helix-master
-, zls-master
-, darwin
-, extraModules ? [] # extra modules
-}:
-
-let 
+hostname: {
+  self,
+  nixpkgs,
+  home-manager,
+  nur,
+  system,
+  username,
+  overlays,
+  neovim-nightly,
+  helix-master,
+  zls-master,
+  darwin,
+  extraModules ? [], # extra modules
+}: let
   systemSpecificOverlays = [
     (final: prev: {
       zls = zls-master.packages.${system}.default;
@@ -21,46 +19,51 @@ let
     })
   ];
 in
-darwin.lib.darwinSystem {
-  inherit system;
-  modules = [
-    {
-      nixpkgs.overlays = systemSpecificOverlays ++ overlays;
-      nixpkgs.config.allowUnfree = true;
-    }
+  darwin.lib.darwinSystem {
+    inherit system;
+    modules =
+      [
+        {
+          nixpkgs.overlays = systemSpecificOverlays ++ overlays;
+          nixpkgs.config.allowUnfree = true;
+        }
 
-    ../machines/${hostname}
-    ../darwin
-    ../modules/font
+        ../machines/${hostname}
+        ../darwin
+        ../modules/font
 
-    ({ pkgs, ... }: {
-      users.users.${username} = {
-        home = "/Users/${username}";
-        shell = pkgs.zsh;
-      };
-    })
+        ({pkgs, ...}: {
+          users.users.${username} = {
+            home = "/Users/${username}";
+            shell = pkgs.zsh;
+          };
+        })
+      ]
+      ++ extraModules
+      ++ [
+        nur.nixosModules.nur
+        ({config, ...}: {
+          home-manager.sharedModules = [
+            config.nur.repos.rycee.hmModules.emacs-init
+          ];
+        })
 
-  ] ++ extraModules ++ [
-    nur.nixosModules.nur
-    ({ config, ... }:{
-      home-manager.sharedModules = [
-        config.nur.repos.rycee.hmModules.emacs-init
+        home-manager.darwinModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            extraSpecialArgs = {
+              inherit
+                self
+                neovim-nightly
+                username
+                ;
+            };
+            users.${username} = {
+              imports = [../profiles/${username}];
+            };
+          };
+        }
       ];
-    })
-
-    home-manager.darwinModules.home-manager
-    {
-      home-manager = {
-        useGlobalPkgs = true;
-        useUserPackages = true;
-        extraSpecialArgs = {
-          inherit
-            self neovim-nightly username;
-        };
-        users.${username} = {
-          imports = [ ../profiles/${username} ];
-        };
-      };
-    }
-  ];
-}
+  }
