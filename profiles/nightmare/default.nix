@@ -1,16 +1,15 @@
-_: {
+_: let
+  asPath = paths: map (path: ../../home + "/${path}") paths;
+in {
   home.stateVersion = "23.11";
   xdg.enable = true;
 
-  imports = [
-    # General purpose
-    ../../home/editors/helix
+  imports = asPath [
+    "cli-tools"
+    "development"
+    "lazygit"
 
-    ../../home/cli-tools
-
-    ../../home/development
-    ../../home/lazygit
-
-    ../../home/shells/zsh
+    "editors/helix"
+    "shells/zsh"
   ];
 }

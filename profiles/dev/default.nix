@@ -1,36 +1,28 @@
-_: {
+_: let
+  asPath = paths: map (path: ../../home + "/${path}") paths;
+in
+{
   home.stateVersion = "24.05";
   xdg.enable = true;
 
-  imports = [
-    ../../home/stylix
+  imports = asPath [
+    "stylix"
 
-    ../../home/ags
-    ../../home/wayland/hyprland
+    "ags"
+    "cli-tools"
+    "development"
+    "dunst"
+    "email"
+    "gtk-theme"
+    "kitty"
+    "lazygit"
+    "newsboat"
+    "shells/zsh"
+    "spotify"
+    "user-apps"
+    "work-specific"
 
-    # ../../home/x11
-
-    ../../home/kitty
-
-    ../../home/shells/zsh
-
-    ../../home/editors/helix
-    # ../../home/editors/emacs
-
-    ../../home/guix
-
-    ../../home/gtk-theme
-
-    ../../home/cli-tools
-    ../../home/lazygit
-    ../../home/newsboat
-    ../../home/dunst
-    ../../home/email
-    ../../home/work-specific
-
-    ../../home/spotify
-    ../../home/user-apps
-
-    ../../home/development
+    "editors/helix"
+    "wayland/hyprland"
   ];
 }

@@ -7,39 +7,21 @@ in {
   imports = asPath [
     "stylix"
 
-    # Wayland ?
-    # "wayland/river"
-    "wayland/hyprland"
-    # "anyrun"
-    "gtk-theme"
     "ags"
-
-    # x11 aka. xmonad in my case
-    # "x11"
-
-    "kitty"
-    # "flatpak"
-
-    "shells/zsh"
-
-    "editors/helix"
-    # "editors/neovim"
-
-    "guix"
-
     "cli-tools"
+    "development"
+    "dunst"
+    "gtk-theme"
+    "guix"
+    "kitty"
     "lazygit"
     "newsboat"
-    "dunst"
-
-    # "nyxt"
     "spotify"
     "user-apps"
-
-    "development"
-
-    # Virtualisation attempts
-    # --- single gpu pass through (nvidia rtx 3080)
     "virtual"
+
+    "editors/helix"
+    "shells/zsh"
+    "wayland/hyprland"
   ];
 }
