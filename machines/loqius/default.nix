@@ -72,7 +72,6 @@
   programs.gnupg.agent = {
     enable = true;
     pinentryPackage = pkgs.pinentry-tty;
-    # enableSSHSupport = true;
   };
 
   system.stateVersion = "23.05";

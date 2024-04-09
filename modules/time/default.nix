@@ -11,13 +11,13 @@
     hardwareClockInLocalTime = true;
   };
 
-  services.xserver = {
-    enable = true;
-    xkb = {
-      layout = "eu";
-      options = "compose:ralt";
-    };
-  };
+  # services.xserver = {
+  #   enable = true;
+  #   xkb = {
+  #     layout = "eu";
+  #     options = "compose:ralt";
+  #   };
+  # };
 
   i18n = {
     defaultLocale = "en_US.utf8";
@@ -30,6 +30,8 @@
       fcitx5.addons = with pkgs; [
         fcitx5-mozc
         fcitx5-gtk
+        fcitx5-rose-pine
+        fcitx5-skk
       ];
     };
   };

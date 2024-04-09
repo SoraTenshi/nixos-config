@@ -4,12 +4,12 @@
   ...
 }: let
   aliases = {
-    cat = "bat --style=plain ";
-    mv = "mv -i ";
+    cat = "bat --style=plain --no-pager";
+    mv = "mv -i";
     ls = "eza --icons --grid";
-    cd = "z ";
+    cd = "z";
     termbin = "nc termbin.com 9999";
-    grep = "rg ";
+    grep = "rg";
     lg = "TERM=xterm-256color lazygit"; # ugly hotfix
     dgr = "TERM=xterm-256color lazydocker"; # ugly hotfix
   };
@@ -50,9 +50,17 @@ in {
       enableCompletion = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
+      plugins = [
+        {
+          name = "zsh-you-should-use";
+          src = pkgs.zsh-you-should-use;
+          file = "share/zsh/plugins/you-should-use/you-should-use.plugin.zsh";
+        }
+      ];
 
       initExtra = ''
         export PATH=$PATH:~/.cargo/bin:~/.local/bin:~/.roswell/bin
+        export YSU_HARDCORE=1
 
         # Define autocomplete for devshell init
         devshell() {
