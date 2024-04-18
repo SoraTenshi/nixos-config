@@ -49,7 +49,6 @@ in
         ../modules/common
         ../modules/variables
         ../modules/ssh
-        ../modules/experimental/guix.nix
 
         nur.nixosModules.nur
         ({config, ...}: {

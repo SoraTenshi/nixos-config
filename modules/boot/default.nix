@@ -9,14 +9,14 @@
       efiSysMountPoint =
         if isVM
         then "/boot"
-        else "/boot/efi";
+        else "/boot";
     };
 
     grub = {
       enable = true;
       efiSupport = true;
       copyKernels = true;
-      #enableCryptodisk = true;
+      enableCryptodisk = true;
       splashImage = "${sddm-theme}/Backgrounds/nixos.png";
       splashMode = "stretch";
       device = "nodev";

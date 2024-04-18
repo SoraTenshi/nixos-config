@@ -1,6 +1,7 @@
 {
   self,
   pkgs,
+  username,
   ...
 }: let
   aliases = {

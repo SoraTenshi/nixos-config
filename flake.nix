@@ -172,7 +172,6 @@
         username = "dev";
         extraModules = [
           ./modules/greetd
-          nixos-hardware.nixosModules.lenovo-thinkpad-l14-amd
           stylix.nixosModules.stylix
         ];
         extraHomeModules = [
