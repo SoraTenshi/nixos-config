@@ -17,6 +17,7 @@ hostname: {
   isVM ? false,
   extraModules ? [], # default to an empty list if not provided
   extraHomeModules ? [],
+  efiSysMountPoint ? "/boot",
   monitors ? [],
 }: let
   systemSpecificOverlays = [
@@ -33,8 +34,8 @@ in
     inherit system;
     specialArgs =
       if isHardwareMachine
-      then {inherit sddm-theme grub2-theme isVM username;}
-      else {inherit username isVM;};
+      then {inherit sddm-theme grub2-theme isVM username efiSysMountPoint;}
+      else {inherit username isVM efiSysMountPoint;};
     modules =
       [
         {

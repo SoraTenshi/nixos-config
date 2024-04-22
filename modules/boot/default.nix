@@ -1,15 +1,12 @@
 {
   sddm-theme,
-  isVM,
+  efiSysMountPoint,
   ...
 }: {
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
-      efiSysMountPoint =
-        if isVM
-        then "/boot"
-        else "/boot";
+      efiSysMountPoint = efiSysMountPoint;
     };
 
     grub = {
