@@ -134,7 +134,7 @@
           nix-flatpak.homeManagerModules.nix-flatpak
         ];
         monitors = [
-          "DP-3,1920x1080@165,0x0"
+          "DP-3,1920x1080@165,0x1080"
           "DP-1,1920x1080@75,1920x1080"
           "HDMI-A-1,1920x1080@60,960x0"
         ];
