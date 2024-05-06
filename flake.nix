@@ -46,7 +46,7 @@
     };
 
     zls-master = {
-      url = "github:zigtools/zls/master";
+      url = "github:zigtools/zls";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -116,7 +116,7 @@
       };
 
       battlestation = mkNixOS "battlestation" {
-        inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme nur;
+        inherit self home-manager helix-master neovim-nightly overlays zls-master picom-ibhagwan sddm-theme grub2-theme nur ags-env;
         nixpkgs = nixpkgs-nixos;
         system = "x86_64-linux";
         username = "dreamer";
@@ -125,7 +125,7 @@
           ./modules/nvidia
           ./modules/greetd
           # ./modules/libvirtd
-          nix-cosmic.nixosModules.default
+          # nix-cosmic.nixosModules.default
           # vfio.nixosModules.vfio
           stylix.nixosModules.stylix
         ];
@@ -135,7 +135,7 @@
         ];
         monitors = [
           "DP-3,1920x1080@165,0x1080"
-          "DP-1,1920x1080@75,1920x1080"
+          "DP-2,1920x1080@75,1920x1080"
           "HDMI-A-1,1920x1080@60,960x0"
         ];
       };
@@ -152,7 +152,7 @@
         ];
         extraHomeModules = [
           ags.homeManagerModules.default
-          nix-flatpak.homeManagerModules.nix-flatpak
+          # nix-flatpak.homeManagerModules.nix-flatpak
         ];
       };
 
