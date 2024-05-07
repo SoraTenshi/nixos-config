@@ -11,8 +11,6 @@
     firefox
     mumble
     zathura
-    keepassxc
-    dino
     spacedrive
   ];
 }
