@@ -6,7 +6,6 @@ hostname: {
   system,
   username,
   overlays,
-  neovim-nightly,
   helix-master,
   zls-master,
   darwin,
@@ -44,7 +43,7 @@ in
         nur.nixosModules.nur
         ({config, ...}: {
           home-manager.sharedModules = [
-            config.nur.repos.rycee.hmModules.emacs-init
+            # config.nur.repos.rycee.hmModules.emacs-init
           ];
         })
 
@@ -56,7 +55,6 @@ in
             extraSpecialArgs = {
               inherit
                 self
-                neovim-nightly
                 username
                 ;
             };

@@ -188,12 +188,9 @@
 
     darwinConfigurations = {
       combustible = mkDarwin "combustible" {
-        inherit self nixpkgs darwin home-manager helix-master neovim-nightly overlays zls-master nur;
+        inherit self nixpkgs darwin home-manager helix-master overlays zls-master nur;
         system = "aarch64-darwin";
         username = "lemon";
-        # extraModules = [
-        #   stylix.nixosModules.stylix
-        # ];
       };
     };
   };
