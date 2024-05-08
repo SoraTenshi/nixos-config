@@ -1,9 +1,4 @@
-{
-  self,
-  config,
-  pkgs,
-  ...
-}: {
+{ self, config, pkgs, ... }: {
   programs.kakoune = {
     enable = true;
     config = {

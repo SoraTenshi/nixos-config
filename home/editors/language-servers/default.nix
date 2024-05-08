@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     # Formatting
     alejandra
@@ -31,7 +31,8 @@
   ];
 
   xdg.configFile."zls.json".text = builtins.toJSON {
-    "$schema" = "https://raw.githubusercontent.com/zigtools/zls/master/schema.json";
+    "$schema" =
+      "https://raw.githubusercontent.com/zigtools/zls/master/schema.json";
     enable_ast_check_diagnostics = true;
     enable_autofix = true;
     enable_import_embedfile_argument_completions = true;

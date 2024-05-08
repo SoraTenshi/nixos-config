@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   xdg.portal = {
     enable = true;
     wlr.enable = true;
@@ -14,11 +14,7 @@
     ];
   };
 
-  security.pam.services = {
-    waylock = {
-      unixAuth = true;
-    };
-  };
+  security.pam.services = { waylock = { unixAuth = true; }; };
 
   services.gvfs.enable = true;
   environment.systemPackages = with pkgs; [

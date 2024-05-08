@@ -1,7 +1,5 @@
-{pkgs, ...}: {
-  imports = [
-    ../../configuration.nix
-  ];
+{ pkgs, ... }: {
+  imports = [ ../../configuration.nix ];
 
   services.nix-daemon.enable = true;
   nix.useDaemon = true;
@@ -30,7 +28,7 @@
     NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
   };
 
-  environment.shells = [pkgs.bashInteractive pkgs.zsh];
+  environment.shells = [ pkgs.bashInteractive pkgs.zsh ];
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog

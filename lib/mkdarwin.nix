@@ -1,67 +1,48 @@
-hostname: {
-  self,
-  nixpkgs,
-  home-manager,
-  nur,
-  system,
-  username,
-  overlays,
-  helix-master,
-  zls-master,
-  darwin,
-  extraModules ? [], # extra modules
-}: let
+hostname:
+{ self, nixpkgs, home-manager, nur, system, username, overlays, helix-master
+, zls-master, darwin, extraModules ? [ ], # extra modules
+}:
+let
   systemSpecificOverlays = [
     (final: prev: {
       zls = zls-master.packages.${system}.default;
       helix = helix-master.packages.${system}.default;
     })
   ];
-in
-  darwin.lib.darwinSystem {
-    inherit system;
-    modules =
-      [
-        {
-          nixpkgs.overlays = systemSpecificOverlays ++ overlays;
-          nixpkgs.config.allowUnfree = true;
-        }
+in darwin.lib.darwinSystem {
+  inherit system;
+  modules = [
+    {
+      nixpkgs.overlays = systemSpecificOverlays ++ overlays;
+      nixpkgs.config.allowUnfree = true;
+    }
 
-        ../machines/${hostname}
-        ../darwin
-        ../modules/font
+    ../machines/${hostname}
+    ../darwin
+    ../modules/font
 
-        ({pkgs, ...}: {
-          users.users.${username} = {
-            home = "/Users/${username}";
-            shell = pkgs.zsh;
-          };
-        })
-      ]
-      ++ extraModules
-      ++ [
-        nur.nixosModules.nur
-        ({config, ...}: {
-          home-manager.sharedModules = [
-            # config.nur.repos.rycee.hmModules.emacs-init
-          ];
-        })
-
-        home-manager.darwinModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            extraSpecialArgs = {
-              inherit
-                self
-                username
-                ;
-            };
-            users.${username} = {
-              imports = [../profiles/${username}];
-            };
-          };
-        }
+    ({ pkgs, ... }: {
+      users.users.${username} = {
+        home = "/Users/${username}";
+        shell = pkgs.zsh;
+      };
+    })
+  ] ++ extraModules ++ [
+    nur.nixosModules.nur
+    ({ config, ... }: {
+      home-manager.sharedModules = [
+        # config.nur.repos.rycee.hmModules.emacs-init
       ];
-  }
+    })
+
+    home-manager.darwinModules.home-manager
+    {
+      home-manager = {
+        useGlobalPkgs = true;
+        useUserPackages = true;
+        extraSpecialArgs = { inherit self username; };
+        users.${username} = { imports = [ ../profiles/${username} ]; };
+      };
+    }
+  ];
+}

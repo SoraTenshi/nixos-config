@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   services.xserver = {
     enable = true;
     displayManager.defaultSession = "none+xmonad";
@@ -6,9 +6,7 @@
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
-      extraPackages = haskellPackages: [
-        pkgs.xmonad-log
-      ];
+      extraPackages = haskellPackages: [ pkgs.xmonad-log ];
       config = ./xmonad.hs;
     };
   };

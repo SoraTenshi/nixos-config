@@ -31,9 +31,7 @@ _: {
         startup_notification = true;
       };
 
-      urgency_normal = {
-        timeout = 3;
-      };
+      urgency_normal = { timeout = 3; };
     };
   };
 }

@@ -1,7 +1,6 @@
-_: let
-  asPath = paths: map (path: ../../home + "/${path}") paths;
-in
-{
+_:
+let asPath = paths: map (path: ../../home + "/${path}") paths;
+in {
   home.stateVersion = "24.05";
   xdg.enable = true;
 

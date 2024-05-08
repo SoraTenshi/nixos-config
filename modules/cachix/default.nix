@@ -2,7 +2,7 @@ _: {
   programs.dconf.enable = true;
   nix.settings = {
     # auto-optimise-store = true;
-    experimental-features = ["nix-command" "flakes"];
+    experimental-features = [ "nix-command" "flakes" ];
 
     substituters = [
       "https://nix-community.cachix.org"
@@ -18,6 +18,6 @@ _: {
       "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
     ];
 
-    trusted-users = ["root" "@wheel"];
+    trusted-users = [ "root" "@wheel" ];
   };
 }

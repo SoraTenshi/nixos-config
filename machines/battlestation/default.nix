@@ -1,10 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  modulesPath,
-  ...
-}: {
+{ config, lib, pkgs, modulesPath, ... }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ../../configuration.nix
@@ -12,14 +6,15 @@
 
   boot = {
     initrd = {
-      availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
+      availableKernelModules =
+        [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
       #kernelModules = [ "vfio_pci" "vfio" "vfio_iommu_type1" "vfio_virqfd" "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
-      kernelModules = [];
+      kernelModules = [ ];
     };
-    kernelModules = ["kvm-amd"];
-    extraModulePackages = [];
+    kernelModules = [ "kvm-amd" ];
+    extraModulePackages = [ ];
     # kernelParams = [ "amd_iommu=on" "vfio-pci.ids=${builtins.concatStringsSep "," ids}" ];
-    kernelParams = [];
+    kernelParams = [ ];
   };
 
   security.tpm2 = {
@@ -50,9 +45,7 @@
     '';
   };
 
-  environment.systemPackages = with pkgs; [
-    egl-wayland
-  ];
+  environment.systemPackages = with pkgs; [ egl-wayland ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/c2d3c3eb-96e5-44ea-b36c-7b5679ba48a8";
@@ -64,9 +57,8 @@
     fsType = "vfat";
   };
 
-  swapDevices = [
-    {device = "/dev/disk/by-uuid/d4761b59-4325-4677-894f-d473e45ab3ad";}
-  ];
+  swapDevices =
+    [{ device = "/dev/disk/by-uuid/d4761b59-4325-4677-894f-d473e45ab3ad"; }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -80,7 +72,8 @@
   };
 
   hardware.opengl.enable = true;
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.amd.updateMicrocode =
+    lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   system.stateVersion = "unstable";
 }

@@ -1,12 +1,4 @@
-{
-  stdenv,
-  glib,
-  libglvnd,
-  xlibs,
-  fontconfig,
-  dbus,
-  autoPatchelfHook,
-}:
+{ stdenv, glib, libglvnd, xlibs, fontconfig, dbus, autoPatchelfHook, }:
 stdenv.mkDerivation {
   name = "binary-ninja";
 
@@ -17,7 +9,7 @@ stdenv.mkDerivation {
     cp -r * $out/share/binary-ninja
   '';
 
-  nativeBuildInputs = [autoPatchelfHook];
+  nativeBuildInputs = [ autoPatchelfHook ];
   buildInputs = [
     stdenv.cc.cc
     glib

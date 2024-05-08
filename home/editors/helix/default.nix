@@ -1,7 +1,5 @@
-{...}: {
-  imports = [
-    ../language-servers
-  ];
+{ ... }: {
+  imports = [ ../language-servers ];
 
   programs.helix = {
     enable = true;
@@ -24,7 +22,7 @@
         true-color = true;
         rainbow-brackets = true;
         bufferline = "always";
-        rulers = [100];
+        rulers = [ 100 ];
         popup-border = "all";
         soft-wrap.enable = true;
         completion-replace = true;
@@ -48,12 +46,26 @@
           newline = "⤶";
         };
 
-        gutters = ["diagnostics" "line-numbers" "spacer" "diff"];
+        gutters = [ "diagnostics" "line-numbers" "spacer" "diff" ];
         statusline = {
           separator = "of";
-          left = ["mode" "selections" "file-type" "register" "spinner" "diagnostics"];
-          center = ["file-name"];
-          right = ["file-encoding" "file-line-ending" "position-percentage" "spacer" "separator" "total-line-numbers"];
+          left = [
+            "mode"
+            "selections"
+            "file-type"
+            "register"
+            "spinner"
+            "diagnostics"
+          ];
+          center = [ "file-name" ];
+          right = [
+            "file-encoding"
+            "file-line-ending"
+            "position-percentage"
+            "spacer"
+            "separator"
+            "total-line-numbers"
+          ];
           mode = {
             normal = "NORMAL";
             insert = "INSERT";
@@ -69,13 +81,11 @@
       keys.normal = {
         "X" = "extend_line_above";
         "C-q" = ":bc";
-        "C-d" = ["half_page_down" "align_view_center"];
-        "C-u" = ["half_page_up" "align_view_center"];
+        "C-d" = [ "half_page_down" "align_view_center" ];
+        "C-u" = [ "half_page_up" "align_view_center" ];
       };
 
-      keys.normal."\\" = {
-        "t" = [":vs ~/todo.md"];
-      };
+      keys.normal."\\" = { "t" = [ ":vs ~/todo.md" ]; };
     };
   };
 }

@@ -1,15 +1,9 @@
-{
-  self,
-  pkgs,
-  ...
-}: let
+{ self, pkgs, ... }:
+let
   cursorPackage = pkgs.catppuccin-cursors.macchiatoBlue;
   cursorName = "Catppuccin-Macchiato-Blue-Cursors";
 in {
-  imports = [
-    ./picom.nix
-    ../eww
-  ];
+  imports = [ ./picom.nix ../eww ];
 
   gtk = {
     enable = true;

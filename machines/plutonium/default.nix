@@ -1,7 +1,5 @@
-{username, ...}: {
-  imports = [
-    ../../configuration.nix
-  ];
+{ username, ... }: {
+  imports = [ ../../configuration.nix ];
 
   wsl = {
     enable = true;

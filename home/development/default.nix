@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     # debugger
     gdb
@@ -50,5 +50,8 @@
 
     # Wine
     wine
+
+    # Nixfmt
+    nixfmt-classic
   ];
 }

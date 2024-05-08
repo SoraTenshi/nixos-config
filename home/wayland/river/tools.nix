@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     fuzzel
 
@@ -26,9 +26,9 @@
           "DP-3"
           "HDMI-A-1"
         ];
-        modules-left = ["clock"];
-        modules-center = ["river/tags"];
-        modules-right = ["network" "cpu" "memory" "temperature" "battery"];
+        modules-left = [ "clock" ];
+        modules-center = [ "river/tags" ];
+        modules-right = [ "network" "cpu" "memory" "temperature" "battery" ];
 
         clock = {
           format = "{:%a | 年%Y 月%m 日%d %T}";
@@ -46,7 +46,7 @@
           format-full = "";
           format-charging = " {capacity}%";
           format-plugged = " {capacity}%";
-          format-icons = ["" "" "" "" ""];
+          format-icons = [ "" "" "" "" "" ];
         };
 
         network = {

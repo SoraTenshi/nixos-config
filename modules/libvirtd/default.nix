@@ -1,9 +1,5 @@
-{
-  pkgs,
-  username,
-  ...
-}: {
-  users.groups.qemu-libvirtd = {};
+{ pkgs, username, ... }: {
+  users.groups.qemu-libvirtd = { };
   users.users.qemu-libvirtd.group = "qemu-libvirtd";
   programs.virt-manager.enable = true;
 
@@ -17,19 +13,14 @@
 
       qemu.package = pkgs.qemu_kvm;
       qemu.runAsRoot = true;
-      deviceACL = [
-        "/dev/vfio/vfio"
-        "/dev/kvm"
-        "/dev/kvmfr0"
-        "/dev/null"
-      ];
+      deviceACL = [ "/dev/vfio/vfio" "/dev/kvm" "/dev/kvmfr0" "/dev/null" ];
 
       scopedHooks.qemu = {
         "10-rewire-gpu" = {
           enable = true;
           scope = {
-            objects = ["win11"];
-            operations = ["prepare"];
+            objects = [ "win11" ];
+            operations = [ "prepare" ];
           };
           script = ''
             echo efi-framebuffer.0 > /sys/bus/platform/drivers/efi-framebuffer/unbind
@@ -47,8 +38,8 @@
         "10-undo-rewire-gpu" = {
           enable = true;
           scope = {
-            objects = ["win11"];
-            operations = ["release"];
+            objects = [ "win11" ];
+            operations = [ "release" ];
           };
           script = ''
             virsh nodedev-reattach pci_0000_08_00_1
@@ -77,21 +68,19 @@
 
     kvmfr = {
       enable = true;
-      devices = [
-        {
-          resolution = {
-            width = 1920;
-            height = 1080;
-            pixelFormat = "rgba32";
-          };
+      devices = [{
+        resolution = {
+          width = 1920;
+          height = 1080;
+          pixelFormat = "rgba32";
+        };
 
-          permissions = {
-            user = username;
-            group = "qemu-libvirtd";
-            mode = "0660";
-          };
-        }
-      ];
+        permissions = {
+          user = username;
+          group = "qemu-libvirtd";
+          mode = "0660";
+        };
+      }];
     };
 
     spiceUSBRedirection.enable = true;

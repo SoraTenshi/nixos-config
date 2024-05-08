@@ -1,3 +1,1 @@
-{pkgs, ...}: {
-  home.packages = [pkgs.thunderbird];
-}
+{ pkgs, ... }: { home.packages = [ pkgs.thunderbird ]; }

@@ -1,12 +1,9 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.kitty = {
     enable = true;
     font = {
       name = "Lilex Nerd Font Mono Regular";
-      size =
-        if pkgs.stdenvNoCC.isDarwin
-        then 24
-        else 18;
+      size = if pkgs.stdenvNoCC.isDarwin then 24 else 18;
     };
     keybindings = {
       "ctrl+shift+c" = "copy_to_clipboard";

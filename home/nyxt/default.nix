@@ -1,7 +1,5 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    nyxt
-  ];
+{ pkgs, ... }: {
+  home.packages = with pkgs; [ nyxt ];
 
   # God, there should be a flake :prayge:
   xdg.configFile = {

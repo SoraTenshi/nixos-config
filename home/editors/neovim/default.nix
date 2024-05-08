@@ -1,16 +1,7 @@
-{
-  self,
-  pkgs,
-  neovim-nightly,
-  ...
-}: {
-  imports = [
-    ../language-servers
-  ];
+{ self, pkgs, neovim-nightly, ... }: {
+  imports = [ ../language-servers ];
 
-  home.packages = [
-    pkgs.lua54Packages.fennel
-  ];
+  home.packages = [ pkgs.lua54Packages.fennel ];
 
   nixpkgs.overlays = neovim-nightly;
   programs.neovim = {

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   nix = {
     package = pkgs.nixFlakes;
     settings.auto-optimise-store = true;
@@ -8,7 +8,7 @@
   };
 
   programs.zsh.enable = true;
-  environment.shells = [pkgs.bashInteractive pkgs.zsh];
+  environment.shells = [ pkgs.bashInteractive pkgs.zsh ];
 
-  environment.pathsToLink = ["/share/zsh"];
+  environment.pathsToLink = [ "/share/zsh" ];
 }

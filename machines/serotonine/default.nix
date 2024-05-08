@@ -1,13 +1,14 @@
-{modulesPath, ...}: {
+{ modulesPath, ... }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ../../configuration.nix
   ];
 
   boot = {
-    initrd.availableKernelModules = ["xhci_pci" "nvme" "usb_storage" "sd_mod"];
-    kernelModules = ["kvm-intel"];
-    extraModulePackages = [];
+    initrd.availableKernelModules =
+      [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
+    kernelModules = [ "kvm-intel" ];
+    extraModulePackages = [ ];
   };
 
   security.tpm2 = {
@@ -38,9 +39,8 @@
     fsType = "vfat";
   };
 
-  swapDevices = [
-    {device = "/dev/disk/by-uuid/b28aea64-8b57-405d-a64f-d17f425cf472";}
-  ];
+  swapDevices =
+    [{ device = "/dev/disk/by-uuid/b28aea64-8b57-405d-a64f-d17f425cf472"; }];
 
   system.stateVersion = "unstable";
 }

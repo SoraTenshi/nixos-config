@@ -1,9 +1,5 @@
-{
-  self,
-  pkgs,
-  username,
-  ...
-}: let
+{ self, pkgs, username, ... }:
+let
   aliases = {
     cat = "bat --style=plain --no-pager";
     mv = "mv -i";
@@ -29,20 +25,18 @@ in {
   programs = {
     fzf.enable = true;
     zoxide.enable = true;
-    bat = {
-      enable = true;
-    };
+    bat = { enable = true; };
     oh-my-posh = {
       enable = true;
       enableZshIntegration = true;
-      settings = builtins.fromJSON (builtins.unsafeDiscardStringContext (builtins.readFile "${self}/home/shells/zsh/oh-my-posh/tokyonight_ascii.opm.json"));
+      settings = builtins.fromJSON (builtins.unsafeDiscardStringContext
+        (builtins.readFile
+          "${self}/home/shells/zsh/oh-my-posh/tokyonight_ascii.opm.json"));
     };
 
     git = {
       enable = true;
-      includes = [
-        {path = "~/.config/git/userconfig.inc";}
-      ];
+      includes = [{ path = "~/.config/git/userconfig.inc"; }];
     };
 
     # Shell
@@ -51,13 +45,11 @@ in {
       enableCompletion = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
-      plugins = [
-        {
-          name = "zsh-you-should-use";
-          src = pkgs.zsh-you-should-use;
-          file = "share/zsh/plugins/you-should-use/you-should-use.plugin.zsh";
-        }
-      ];
+      plugins = [{
+        name = "zsh-you-should-use";
+        src = pkgs.zsh-you-should-use;
+        file = "share/zsh/plugins/you-should-use/you-should-use.plugin.zsh";
+      }];
 
       initExtra = ''
         export PATH=$PATH:~/.cargo/bin:~/.local/bin:~/.roswell/bin

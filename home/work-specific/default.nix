@@ -1,7 +1,5 @@
-{pkgs, ...}: {
-  imports = [
-    ../obs
-  ];
+{ pkgs, ... }: {
+  imports = [ ../obs ];
 
   home.packages = [
     pkgs.thunderbird

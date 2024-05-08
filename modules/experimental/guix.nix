@@ -1,5 +1,1 @@
-_: {
-  services.guix = {
-    enable = true;
-  };
-}
+_: { services.guix = { enable = true; }; }

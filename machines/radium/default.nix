@@ -1,14 +1,13 @@
-{modulesPath, ...}: {
-  imports = [
-    (modulesPath + "/profiles/qemu-guest.nix")
-    ../../configuration.nix
-  ];
+{ modulesPath, ... }: {
+  imports =
+    [ (modulesPath + "/profiles/qemu-guest.nix") ../../configuration.nix ];
 
   boot = {
-    initrd.availableKernelModules = ["xhci_pci" "virtio_pci" "usbhid" "nvme" "usb_storage" "sr_mod"];
-    kernelModules = [];
-    extraModulePackages = [];
-    binfmt.emulatedSystems = ["x86_64-linux"];
+    initrd.availableKernelModules =
+      [ "xhci_pci" "virtio_pci" "usbhid" "nvme" "usb_storage" "sr_mod" ];
+    kernelModules = [ ];
+    extraModulePackages = [ ];
+    binfmt.emulatedSystems = [ "x86_64-linux" ];
   };
 
   networking = {
@@ -28,7 +27,7 @@
     fsType = "vfat";
   };
 
-  swapDevices = [];
+  swapDevices = [ ];
 
   environment.variables.LIBGL_ALWAYS_SOFTWARE = "1";
 

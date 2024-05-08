@@ -1,8 +1,4 @@
-{
-  sddm-theme,
-  efiSysMountPoint,
-  ...
-}: {
+{ sddm-theme, efiSysMountPoint, ... }: {
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;

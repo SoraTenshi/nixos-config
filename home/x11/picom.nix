@@ -7,14 +7,10 @@ _: {
 
     vSync = false;
 
-    opacityRules = [
-      "100:class_g = 'eww'"
-    ];
+    opacityRules = [ "100:class_g = 'eww'" ];
 
     settings = {
-      rounded-corners-exclude = [
-        "window_type = 'dock'"
-      ];
+      rounded-corners-exclude = [ "window_type = 'dock'" ];
 
       blur-kern = "5x5box";
       blur = {
@@ -26,10 +22,7 @@ _: {
         kern = "5x5box";
       };
 
-      blur-background-exclude = [
-        "class_g ?= 'eww'"
-        "class_g ?= 'peek'"
-      ];
+      blur-background-exclude = [ "class_g ?= 'eww'" "class_g ?= 'peek'" ];
     };
   };
 }

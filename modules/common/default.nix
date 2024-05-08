@@ -1,11 +1,13 @@
-{pkgs, username, ...}: {
+{ pkgs, username, ... }: {
 
   environment.sessionVariables = {
     FLAKE = "/home/${username}/dev/nixos-config";
   };
 
   environment.systemPackages = with pkgs; [
-    nh nvd nix-output-monitor
+    nh
+    nvd
+    nix-output-monitor
     eza
     zoxide
     bat
