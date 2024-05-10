@@ -1,7 +1,6 @@
 { pkgs, config, ... }:
 let
   fontList = [
-    pkgs.material-symbols
     pkgs.rictydiminished-with-firacode
     pkgs.noto-fonts
     pkgs.noto-fonts-cjk
@@ -9,7 +8,7 @@ let
     (pkgs.nerdfonts.override { fonts = [ "Lilex" ]; })
   ];
   setupFonts = system:
-    if system == "aarch64-darwin" then {
+    if system != "aarch64-darwin" then {
       fonts = { packages = fontList; };
     } else {
       fonts = { fonts = fontList; };
