@@ -1,6 +1,5 @@
 { pkgs, ... }:
-let font-size = if pkgs.stdenvNoCC.isDarwin then 24 else 18;
-in {
+{
   stylix = {
     autoEnable = true;
     polarity = "dark";
@@ -17,29 +16,5 @@ in {
     };
 
     targets = { grub.enable = false; };
-
-    fonts = {
-      serif = {
-        package = pkgs.nerdfonts.override { fonts = [ "Lilex" ]; };
-        name = "Lilex Nerd Font";
-      };
-
-      sansSerif = {
-        package = pkgs.nerdfonts.override { fonts = [ "Lilex" ]; };
-        name = "Lilex Nerd Font";
-      };
-
-      monospace = {
-        package = pkgs.nerdfonts.override { fonts = [ "Lilex" ]; };
-        name = "Lilex Nerd Font Mono";
-      };
-
-      emoji = {
-        package = pkgs.noto-fonts-emoji;
-        name = "Noto Color Emoji";
-      };
-
-      sizes.terminal = font-size;
-    };
   };
 }
