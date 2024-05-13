@@ -2,6 +2,7 @@
 
   environment.sessionVariables = {
     FLAKE = "/home/${username}/dev/nixos-config";
+    STEEL_HOME = "/home/${username}/.config/steel";
   };
 
   environment.systemPackages = with pkgs; [

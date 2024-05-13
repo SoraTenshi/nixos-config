@@ -37,9 +37,7 @@
     cmake
 
     # LISP
-    roswell
-    babashka
-    gerbil
+    babashka racket
 
     # Qemu
     qemu
