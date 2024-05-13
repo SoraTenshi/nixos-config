@@ -4,8 +4,7 @@
     gdb
 
     # git
-    tig
-    gitu
+    tig gitu
 
     # docker
     lazydocker
@@ -14,19 +13,16 @@
     zigpkgs.master
     odin
     clang
-    cargo
-    rustc
-    clippy
-    rustfmt
     go
     nim
-    julia-bin
-    ocaml
-    opam
-    dune-release
 
-    elixir
-    erlang
+    # Rust
+    cargo rustc clippy rustfmt
+
+    # Ocaml
+    ocaml opam dune-release
+
+    elixir erlang
     # swift swiftPackages.swiftpm
     python311 # i can't get around it and i'm tired of always using a nix shell
 
