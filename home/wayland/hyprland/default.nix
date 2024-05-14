@@ -25,7 +25,6 @@ let
     "SUPERSHIFT, ${nr}, movetoworkspacesilent, name:${ws}";
 in {
   home.packages = [
-    # pkgs.swww
     pkgs.swappy
     pkgs.wdisplays
     pkgs.grim
@@ -33,9 +32,8 @@ in {
     pkgs.xwaylandvideobridge
     pkgs.qt6.qtwayland
     pkgs.libsForQt5.qt5.qtwayland
-    pkgs.xdg-desktop-portal-gtk
-    pkgs.xdg-desktop-portal
     pkgs.xdg-desktop-portal-hyprland
+    pkgs.xdg-desktop-portal-gtk
   ];
 
   xdg.portal = {
@@ -108,6 +106,7 @@ in {
         "ags"
         "fcitx5 -d --replace"
         "wpaperd"
+        "xwaylandvideobridge"
       ];
 
       misc = {

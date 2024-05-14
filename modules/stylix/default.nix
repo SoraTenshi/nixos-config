@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   stylix = {
     autoEnable = true;
     polarity = "dark";
