@@ -28,6 +28,8 @@
     nodePackages.yaml-language-server # YAML / JSON
 
     luajitPackages.lua-lsp # Lua
+
+    helix-gpt # Copilot
   ];
 
   xdg.configFile."zls.json".text = builtins.toJSON {

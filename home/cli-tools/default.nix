@@ -1,9 +1,9 @@
 { pkgs, ... }: {
+  imports = [ ./rice.nix ];
   home.packages = with pkgs; [
     ani-cli
     gomuks
     ncdu
-    neofetch
     tiny
     tldr
     tmate

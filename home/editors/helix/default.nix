@@ -1,5 +1,7 @@
-{ ... }: {
+{ pkgs, ... }: {
   imports = [ ../language-servers ];
+
+  home.packages = [ pkgs.bun ];
 
   programs.helix = {
     enable = true;
