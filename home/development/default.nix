@@ -37,7 +37,7 @@
     cmake
 
     # LISP
-    babashka racket chez
+    babashka racket gauche chez
 
     # Qemu
     qemu

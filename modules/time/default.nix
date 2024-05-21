@@ -41,7 +41,7 @@
         fcitx5-mozc
         fcitx5-gtk
         fcitx5-rose-pine
-        fcitx5-skk
+        # fcitx5-skk
       ];
     };
   };
