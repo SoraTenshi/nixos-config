@@ -7,8 +7,8 @@ let
     cd = "z";
     termbin = "nc termbin.com 9999";
     grep = "rg";
-    lg = "TERM=xterm-256color lazygit"; # ugly hotfix
-    dgr = "TERM=xterm-256color lazydocker"; # ugly hotfix
+    lg = "lazygit";
+    dgr = "lazydocker";
   };
 in {
   home.packages = with pkgs; [
