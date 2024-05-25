@@ -108,7 +108,7 @@ in {
         "fcitx5 -d --replace"
         "fcitx5-remote -r"
         "wpaperd"
-        "xwaylandvideobridge"
+        # "xwaylandvideobridge"
       ];
 
       misc = {

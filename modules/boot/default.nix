@@ -1,5 +1,10 @@
-{ sddm-theme, efiSysMountPoint, ... }: {
-  boot.loader = {
+{ pkgs, efiSysMountPoint, ... }: {
+  boot = {
+  initrd.systemd = {
+    enable = true;
+    enableTpm2 = true;
+  };
+  loader = {
     efi = {
       canTouchEfiVariables = true;
       efiSysMountPoint = efiSysMountPoint;
@@ -10,11 +15,10 @@
       efiSupport = true;
       copyKernels = true;
       enableCryptodisk = true;
-      splashImage = "${sddm-theme}/Backgrounds/nixos.png";
-      splashMode = "stretch";
+      theme = "${pkgs.libsForQt5.breeze-grub}/grub/themes/breeze";
       device = "nodev";
       useOSProber = true;
-      fontSize = 128;
+      fontSize = 256;
       extraEntries = ''
         menuentry "Reboot" {
           reboot
@@ -25,4 +29,5 @@
       '';
     };
   };
+};
 }
