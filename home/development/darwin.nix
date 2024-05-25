@@ -13,6 +13,9 @@
     elixir
     python311 # i can't get around it and i'm tired of always using a nix shell
 
-    racket babashka gauche chez
+    racket
+    babashka
+    gauche
+    chez
   ];
 }

@@ -1,5 +1,4 @@
-{pkgs, ...}:
-{
+{ pkgs, ... }: {
   home.packages = [
     # Write custom derivation for that.
     pkgs.patchelf

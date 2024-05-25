@@ -1,6 +1,1 @@
-_:
-{
-  programs.fastfetch = {
-    enable = true;
-  };
-}
+_: { programs.fastfetch = { enable = true; }; }

@@ -4,7 +4,8 @@
     gdb
 
     # git
-    tig gitu
+    tig
+    gitu
 
     # docker
     lazydocker
@@ -17,12 +18,18 @@
     nim
 
     # Rust
-    cargo rustc clippy rustfmt
+    cargo
+    rustc
+    clippy
+    rustfmt
 
     # Ocaml
-    ocaml opam dune-release
+    ocaml
+    opam
+    dune-release
 
-    elixir erlang
+    elixir
+    erlang
     # swift swiftPackages.swiftpm
     python311 # i can't get around it and i'm tired of always using a nix shell
 
@@ -37,7 +44,10 @@
     cmake
 
     # LISP
-    babashka racket gauche chez
+    babashka
+    racket
+    gauche
+    chez
 
     # Qemu
     qemu
