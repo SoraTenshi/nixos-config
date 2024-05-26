@@ -14,6 +14,9 @@
       package = pkgs.catppuccin-cursors.macchiatoBlue;
     };
 
-    targets = { grub.enable = false; };
+    targets = {
+      plymouth.enable = false;
+      grub.enable = false;
+    };
   };
 }

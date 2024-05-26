@@ -69,12 +69,17 @@
       url = "github:SoraTenshi/tokyo-night-sddm";
       flake = false;
     };
+
+    coplandos = {
+      url = "github:ioresolution/copland-plymouth-theme";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs-nixos, nixpkgs, nur, home-manager, nixos-hardware
     , sddm-theme, neovim-nightly, zig-overlay, zls-master, grub2-theme
     , helix-master, picom-ibhagwan, nixos-wsl, darwin, stylix, ags, ags-env
-    , vfio, nix-flatpak, nix-cosmic, }:
+    , vfio, nix-flatpak, nix-cosmic, coplandos, }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
       mkNixOS = import ./lib/mknixos.nix;
@@ -95,7 +100,8 @@
 
         battlestation = mkNixOS "battlestation" {
           inherit self home-manager helix-master neovim-nightly overlays
-            zls-master picom-ibhagwan sddm-theme grub2-theme nur ags-env;
+            zls-master picom-ibhagwan sddm-theme grub2-theme nur ags-env
+            coplandos;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dreamer";

@@ -2,16 +2,14 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
+    xdgOpenUsePortal = true;
 
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-hyprland
-      xdg-desktop-portal-gtk
-    ];
+    config = {
+      common.default = [ "gtk" ];
+      hyprland.default = [ "gtk" "hyprland" ];
+    };
 
-    configPackages = with pkgs; [
-      xdg-desktop-portal-hyprland
-      xdg-desktop-portal-gtk
-    ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   security.pam.services = { waylock = { unixAuth = true; }; };
@@ -32,12 +30,13 @@
   ];
 
   # Holy shit wlroots, are you serious ?!
+  programs.hyprland.enable = true;
   environment.sessionVariables = {
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     LIBVA_DRIVER_NAME = "nvidia";
     GBM_BACKEND = "nvidia-drm";
     XMODIFIERS = "@im=fcitx";
-    # XDG_SESSION_TYPE                    = "wayland";
+    NIXOS_OZONE_WL = "1";
 
     CLUTTER_BACKEND = "wayland";
     SDL_VIDEODRIVER = "wayland";
@@ -51,13 +50,11 @@
     NO_AT_BRIDGE = "1";
     MOZ_ENABLE_WAYLAND = "1";
     MOZ_WEBRENDER = "1";
-    # GLFW_IM_MODULE                      = "1";
-    # SDL_IM_MODULE                       = "1";
-    WLR_NO_HARDWARE_CURSORS = "1";
+    # WLR_NO_HARDWARE_CURSORS = "1";
     KITTY_ENABLE_WAYLAND = "1";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
 
-    # WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
-    # WLR_BACKEND                         = "eglstream";
+    WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
+    WLR_BACKEND = "eglstream";
   };
 }

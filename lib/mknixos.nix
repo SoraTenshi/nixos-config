@@ -3,7 +3,8 @@ hostname:
 , helix-master, zls-master, picom-ibhagwan ? null, sddm-theme ? null
 , grub2-theme ? null, ags-env ? null, isHardwareMachine ? true, isVM ? false
 , extraModules ? [ ], # default to an empty list if not provided
-extraHomeModules ? [ ], efiSysMountPoint ? "/boot", monitors ? [ ], }:
+extraHomeModules ? [ ], efiSysMountPoint ? "/boot", monitors ? [ ]
+, coplandos ? null, }:
 let
   systemSpecificOverlays = [
     (final: prev: {
@@ -17,7 +18,7 @@ let
 in lib.nixosSystem {
   inherit system;
   specialArgs = if isHardwareMachine then {
-    inherit sddm-theme grub2-theme isVM username efiSysMountPoint;
+    inherit sddm-theme grub2-theme isVM username efiSysMountPoint coplandos;
   } else {
     inherit username isVM efiSysMountPoint;
   };

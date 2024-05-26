@@ -1,0 +1,61 @@
+{ username, ... }: 
+let
+  terminal = "kitty";
+  other-terminal = "/home/${username}/.local/bin/ghostty";
+  zipWith = f: xs: ys:
+    if xs == [ ] || ys == [ ] then
+      [ ]
+    else
+      [ (f (builtins.head xs) (builtins.head ys)) ]
+      ++ zipWith f (builtins.tail xs) (builtins.tail ys);
+
+  keys = [ "1" "2" "3" "4" "5" "6" "7" "8" "9" ];
+  workspaceChange = ws: nr:
+    "SUPER, ${nr}, focusworkspaceoncurrentmonitor, ${ws}";
+  workspaceMove = ws: nr:
+    "SUPERSHIFT, ${nr}, movetoworkspacesilent, name:${ws}";
+in
+{
+  wayland.windowManager.hyprland.settings = {
+      bindm =
+        [ "SUPER, mouse:272, movewindow" "SUPER, mouse:273, resizewindow" ];
+
+      bind = [
+        #### Execute apps ####
+        "SUPERSHIFT, D, exec, discord --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime"
+        "SUPERSHIFT, RETURN, exec, ${terminal}"
+        "SUPER, RETURN, exec, ${other-terminal}"
+        ''
+          SUPERSHIFT, P, exec, ags -r "BarState.value = 'shutdown $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';"''
+        ''
+          SUPER, X, exec, ags -r "BarState.value = 'executor $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';"''
+        ''
+          SUPER, P, exec, ags -r "BarState.value = 'app-launcher $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';"''
+        ''CONTROL, PRINT, exec, grim -g "$(slurp)" - | wl-copy''
+        ''SHIFTCONTROL, PRINT, exec, grim -g "$(slurp)" - | swappy -f - ''
+        "SUPERSHIFTCONTROL, L, exec, waylock -init-color 0x24283b -input-color 0xbb9af7 -fail-color 0xf7768e"
+        "SUPERSHIFTCONTROL, Q, exit"
+
+        #### Controls ####
+        "SUPERSHIFT, Q, killactive"
+        "SUPER, F, fullscreen"
+        "SUPER, T, togglefloating"
+        "SUPER, H, movefocus, l"
+        "SUPER, L, movefocus, r"
+        "SUPER, K, movefocus, u"
+        "SUPER, J, movefocus, d"
+        "SUPERSHIFT, H, resizeactive, -100 0"
+        "SUPERSHIFT, L, resizeactive, 100 0"
+        "SUPERSHIFT, K, resizeactive, 0 100"
+        "SUPERSHIFT, J, resizeactive, 0 -100"
+
+        #### Multi Monitor stuff ####
+        "SUPER, bracketleft, focusmonitor, l"
+        "SUPER, bracketright, focusmonitor, r"
+      ] ++
+        #### Change workspace ####
+        (zipWith workspaceChange keys keys) ++
+        #### Move to workspace ####
+        (zipWith workspaceMove keys keys);
+  };
+}
