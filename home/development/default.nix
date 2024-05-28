@@ -4,7 +4,6 @@
     gdb
 
     # git
-    tig
     gitu
 
     # docker
@@ -15,45 +14,24 @@
     odin
     clang
     go
-    nim
 
     # Rust
-    cargo
-    rustc
-    clippy
-    rustfmt
+    cargo rustc clippy rustfmt
 
-    # Ocaml
-    ocaml
-    opam
-    dune-release
+    # BEAM VM
+    elixir erlang
 
-    elixir
-    erlang
-    # swift swiftPackages.swiftpm
+    # Python, :(
     python311 # i can't get around it and i'm tired of always using a nix shell
-
-    idris2
-
-    nasm
-
-    # practice
-    exercism
 
     # cmake
     cmake
 
     # LISP
-    babashka
-    racket
-    gauche
-    chez
+    babashka racket gauche chez
 
     # Qemu
     qemu
-
-    # Wine
-    wine
 
     # Nixfmt
     nixfmt-classic

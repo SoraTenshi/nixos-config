@@ -1,20 +1,10 @@
-{ pkgs, ... }: {
+_: {
   imports = [ ../language-servers ];
-
-  home.packages = [ pkgs.bun ];
 
   programs.helix = {
     enable = true;
-    # languages = {
-    #   language-server = {
-    #     rust-analyzer.config = {
-    #       check.command = "clippy";
-    #     };
-    #   };
-    # };
     settings = {
       theme = "tokyonight_storm";
-      # icons = "nerdfonts";
       editor = {
         line-number = "relative";
         cursorline = true;
@@ -28,7 +18,6 @@
         popup-border = "all";
         soft-wrap.enable = true;
         completion-replace = true;
-        # cursor-word = true;
 
         sticky-context = {
           enable = true;
