@@ -8,6 +8,6 @@
     mumble
     zathura
     spacedrive
-    nheko
+    cinny-desktop
   ];
 }
