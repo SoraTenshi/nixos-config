@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, system, ... }: {
   home.packages = with pkgs; [
     # Formatting
     alejandra
@@ -14,7 +14,6 @@
     rust-analyzer # Rust
     texlab # LaTeX
     zls # Zig
-    ols # Odin
     elixir_ls # Elixir
     clojure-lsp # Clojure
 
@@ -27,7 +26,7 @@
     luajitPackages.lua-lsp # Lua
 
     helix-gpt # Copilot
-  ];
+  ] ++ (if system == "x86_64-linux" then [ols] else []); # Odin!
 
   xdg.configFile."zls.json".text = builtins.toJSON {
     "$schema" =

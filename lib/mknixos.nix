@@ -4,7 +4,7 @@ hostname:
 , grub2-theme ? null, ags-env ? null, isHardwareMachine ? true, isVM ? false
 , extraModules ? [ ], # default to an empty list if not provided
 extraHomeModules ? [ ], efiSysMountPoint ? "/boot", monitors ? [ ]
-, coplandos ? null, }:
+, coplandos ? null, useStylix ? true, }:
 let
   systemSpecificOverlays = [
     (final: prev: {
@@ -45,7 +45,7 @@ in lib.nixosSystem {
     # only for hardware
     # no WSL as an example
   ] ++ (if isHardwareMachine then [
-    ../modules/stylix
+    (if useStylix then ../modules/stylix else {})
     ../modules/boot
     # ../modules/x11
     ../modules/wayland
@@ -63,9 +63,9 @@ in lib.nixosSystem {
           useUserPackages = true;
           extraSpecialArgs = if isHardwareMachine then {
             inherit self neovim-nightly picom-ibhagwan username ags-env
-              monitors;
+              monitors system;
           } else {
-            inherit self neovim-nightly username;
+            inherit self neovim-nightly username system;
           };
           users.${username} = { imports = [ ../profiles/${username} ]; };
         };

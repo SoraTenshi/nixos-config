@@ -1,11 +1,7 @@
 { self, config, pkgs, ... }:
-let
-  cursor = config.home.pointerCursor;
+let cursor = config.home.pointerCursor;
 in {
-  imports = [
-    ./settings.nix
-    ./binds.nix
-  ];
+  imports = [ ./settings.nix ./binds.nix ];
 
   home.packages = [
     pkgs.swappy

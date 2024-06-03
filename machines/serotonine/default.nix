@@ -27,7 +27,7 @@
   };
 
   # touchpad support!
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/6939f3c9-d0e8-42cf-ab2f-cc2b184f637d";

@@ -16,10 +16,14 @@
     go
 
     # Rust
-    cargo rustc clippy rustfmt
+    cargo
+    rustc
+    clippy
+    rustfmt
 
     # BEAM VM
-    elixir erlang
+    elixir
+    erlang
 
     # Python, :(
     python311 # i can't get around it and i'm tired of always using a nix shell
@@ -28,7 +32,10 @@
     cmake
 
     # LISP
-    babashka racket gauche chez
+    babashka
+    racket
+    gauche
+    chez
 
     # Qemu
     qemu

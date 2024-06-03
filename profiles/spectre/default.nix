@@ -8,7 +8,6 @@ in {
     "cli-tools"
     "kitty"
     "lazygit"
-    "stylix"
     "x11"
 
     "development/darwin.nix"

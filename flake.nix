@@ -149,7 +149,8 @@
           system = "aarch64-linux";
           username = "spectre";
           isVM = true;
-          extraModules = [ ];
+          useStylix = false;
+          extraModules = [ ./modules/greetd ];
         };
 
         loqius = mkNixOS "loqius" {
