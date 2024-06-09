@@ -8,6 +8,7 @@ in {
     "cli-tools"
     "development"
     "lazygit"
+    "pwn"
 
     "editors/helix"
     "shells/zsh"

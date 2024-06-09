@@ -1,4 +1,4 @@
-{ self, pkgs, username, ... }:
+{ self, pkgs, ... }:
 let
   aliases = {
     cat = "bat --style=plain --no-pager";
