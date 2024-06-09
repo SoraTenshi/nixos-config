@@ -52,10 +52,11 @@
   services.xserver = {
     enable = true;
     videoDrivers = [ "modesetting" ]; # ["displaylink" "modesetting"];
-    libinput = {
-      enable = true;
-      touchpad.naturalScrolling = true;
-    };
+  };
+
+  services.libinput = {
+    enable = true;
+    touchpad.naturalScrolling = true;
   };
 
   fileSystems."/" = {
