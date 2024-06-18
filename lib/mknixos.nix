@@ -4,7 +4,7 @@ hostname:
 , grub2-theme ? null, ags-env ? null, isHardwareMachine ? true, isVM ? false
 , extraModules ? [ ], # default to an empty list if not provided
 extraHomeModules ? [ ], efiSysMountPoint ? "/boot", monitors ? [ ]
-, coplandos ? null, useStylix ? true, }:
+, coplandos ? null, useStylix ? true, hyprland ? null }:
 let
   systemSpecificOverlays = [
     (final: prev: {
@@ -63,7 +63,7 @@ in lib.nixosSystem {
           useUserPackages = true;
           extraSpecialArgs = if isHardwareMachine then {
             inherit self neovim-nightly picom-ibhagwan username ags-env
-              monitors system;
+              monitors system hyprland;
           } else {
             inherit self neovim-nightly username system;
           };

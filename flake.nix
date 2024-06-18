@@ -50,6 +50,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland = {
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    };
+
     vfio = {
       url = "github:j-brn/nixos-vfio";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -79,7 +83,7 @@
   outputs = { self, nixpkgs-nixos, nixpkgs, nur, home-manager, nixos-hardware
     , sddm-theme, neovim-nightly, zig-overlay, zls-master, grub2-theme
     , helix-master, picom-ibhagwan, nixos-wsl, darwin, stylix, ags, ags-env
-    , vfio, nix-flatpak, nix-cosmic, coplandos, }:
+    , vfio, nix-flatpak, nix-cosmic, coplandos, hyprland, }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
       mkNixOS = import ./lib/mknixos.nix;
@@ -101,7 +105,7 @@
         battlestation = mkNixOS "battlestation" {
           inherit self home-manager helix-master neovim-nightly overlays
             zls-master picom-ibhagwan sddm-theme grub2-theme nur ags-env
-            coplandos;
+            coplandos hyprland;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dreamer";
@@ -155,7 +159,7 @@
 
         loqius = mkNixOS "loqius" {
           inherit self home-manager helix-master neovim-nightly overlays
-            zls-master picom-ibhagwan sddm-theme grub2-theme nur;
+            zls-master picom-ibhagwan sddm-theme grub2-theme nur hyprland;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dev";

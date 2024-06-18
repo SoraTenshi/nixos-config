@@ -1,4 +1,4 @@
-{ self, config, pkgs, ... }:
+{ self, config, pkgs, hyprland, ... }:
 let cursor = config.home.pointerCursor;
 in {
   imports = [ ./settings.nix ./binds.nix ];
@@ -40,7 +40,7 @@ in {
 
   wayland.windowManager.hyprland = {
     enable = true;
-    # package = hyprland.packages.${pkgs.system}.hyprland;
+    package = hyprland.packages.${pkgs.system}.hyprland;
     systemd = {
       enable = true;
       variables = [ "--all" ];
