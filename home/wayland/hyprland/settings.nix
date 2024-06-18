@@ -59,6 +59,11 @@ in {
       };
     };
 
+    cursor = {
+      enable_hyprcursor = true;
+      hide_on_touch = true;
+    };
+
     animations = { enabled = true; };
     debug = { disable_logs = false; };
     xwayland = { force_zero_scaling = true; };

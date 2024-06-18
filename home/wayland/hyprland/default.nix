@@ -1,4 +1,4 @@
-{ self, config, pkgs, ... }:
+{ self, config, pkgs, hyprland, ... }:
 let cursor = config.home.pointerCursor;
 in {
   imports = [ ./settings.nix ./binds.nix ];
@@ -13,6 +13,8 @@ in {
     pkgs.libsForQt5.qt5.qtwayland
     pkgs.xdg-desktop-portal-hyprland
     pkgs.xdg-desktop-portal-gtk
+
+    pkgs.hyprcursor
   ];
 
   xdg.portal = {
@@ -38,6 +40,7 @@ in {
 
   wayland.windowManager.hyprland = {
     enable = true;
+    # package = hyprland.packages.${pkgs.system}.hyprland;
     systemd = {
       enable = true;
       variables = [ "--all" ];
@@ -52,9 +55,9 @@ in {
       exec-once = [
         "hyprctl setcursor ${cursor.name} ${toString cursor.size}"
         "ags"
-        "fcitx5-remote -r"
-        "fcitx5 -d --replace"
-        "fcitx5-remote -r"
+        # "fcitx5-remote -r"
+        # "fcitx5 -d --replace"
+        # "fcitx5-remote -r"
         "wpaperd"
         # "xwaylandvideobridge"
       ];
