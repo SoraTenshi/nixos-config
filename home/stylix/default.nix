@@ -1,5 +1,6 @@
 _: {
   stylix = {
+    enable = true;
     autoEnable = true;
     targets = {
       fzf.enable = false;

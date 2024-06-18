@@ -1,4 +1,4 @@
-{ self, config, pkgs, hyprland, ... }:
+{ self, config, pkgs, ... }:
 let cursor = config.home.pointerCursor;
 in {
   imports = [ ./settings.nix ./binds.nix ];
