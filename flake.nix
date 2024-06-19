@@ -131,7 +131,7 @@
 
         serotonine = mkNixOS "serotonine" {
           inherit self home-manager helix-master neovim-nightly picom-ibhagwan
-            overlays zls-master sddm-theme grub2-theme nur;
+            overlays zls-master sddm-theme grub2-theme nur hyprland;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dreamer";
@@ -148,7 +148,7 @@
 
         radium = mkNixOS "radium" {
           inherit self home-manager helix-master neovim-nightly picom-ibhagwan
-            overlays zls-master sddm-theme grub2-theme nur;
+            overlays zls-master sddm-theme grub2-theme nur hyprland;
           nixpkgs = nixpkgs-nixos;
           system = "aarch64-linux";
           username = "spectre";
