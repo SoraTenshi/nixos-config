@@ -31,7 +31,7 @@ in {
         SUPER, P, exec, ags -r "BarState.value = 'app-launcher $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';"''
       ''CONTROL, PRINT, exec, grim -g "$(slurp)" - | wl-copy''
       ''SHIFTCONTROL, PRINT, exec, grim -g "$(slurp)" - | swappy -f - ''
-      "SUPERSHIFTCONTROL, L, exec, waylock -init-color 0x24283b -input-color 0xbb9af7 -fail-color 0xf7768e"
+      "SUPERSHIFTCONTROL, L, exec, hyprlock"
       "SUPERSHIFTCONTROL, Q, exit"
 
       #### Controls ####

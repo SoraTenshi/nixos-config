@@ -166,7 +166,7 @@
           extraModules = [ ./modules/greetd stylix.nixosModules.stylix ];
           extraHomeModules = [ ags.homeManagerModules.default ];
           monitors = [
-            "eDP-1,1920x1080@60,0x0"
+            "eDP-1,1920x1200@60,0x0"
             "HDMI-A-1,1920x1080@120,1920x0"
             "DP-1,1920x1080@75,3840x0"
           ];

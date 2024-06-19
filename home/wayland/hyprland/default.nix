@@ -28,6 +28,21 @@ in {
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
+  programs.hyprlock = {
+    enable = true;
+    settings = {
+      background = {
+        monitor = "";
+        path = "screenshot";
+        color = "rgba(0,0,0,0.0)";
+        blur_passes = 2;
+        blur_size = 10;
+        noise = "0.0117";
+        brightness = "0.8172";
+      };
+    };
+  };
+
   programs.wpaperd = {
     enable = true;
     settings = {
