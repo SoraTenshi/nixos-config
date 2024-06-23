@@ -9,6 +9,9 @@ let
     grep = "rg";
     lg = "lazygit";
     dgr = "lazydocker";
+    du = "du --human-readable";
+    readsym = "readlink -f";
+    mksym = "ln -sf";
   };
 in {
   home.packages = with pkgs; [
