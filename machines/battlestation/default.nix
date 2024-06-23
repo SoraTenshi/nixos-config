@@ -72,7 +72,6 @@
     interfaces.enp4s0.useDHCP = true;
   };
 
-  hardware.opengl.enable = true;
   hardware.cpu.amd.updateMicrocode =
     lib.mkDefault config.hardware.enableRedistributableFirmware;
 
