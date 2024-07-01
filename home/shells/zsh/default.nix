@@ -1,4 +1,4 @@
-{ self, pkgs, ... }:
+{ inputs, pkgs, ... }:
 let
   aliases = {
     cat = "bat --style=plain --no-pager";
@@ -34,7 +34,7 @@ in {
       enableZshIntegration = true;
       settings = builtins.fromJSON (builtins.unsafeDiscardStringContext
         (builtins.readFile
-          "${self}/home/shells/zsh/oh-my-posh/tokyonight_ascii.opm.json"));
+          "${inputs.self}/home/shells/zsh/oh-my-posh/tokyonight_ascii.opm.json"));
     };
 
     git = {

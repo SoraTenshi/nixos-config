@@ -59,6 +59,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    jerry = {
+      url = "github:soratenshi/jerry/fix-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     ags-env = {
       url = "github:SoraTenshi/ags-env";
       flake = false;
@@ -80,10 +85,10 @@
     };
   };
 
-  outputs = { self, nixpkgs-nixos, nixpkgs, nur, home-manager, nixos-hardware
+  outputs = inputs @ { self, nixpkgs-nixos, nixpkgs, nur, home-manager, nixos-hardware
     , sddm-theme, neovim-nightly, zig-overlay, zls-master, grub2-theme
     , helix-master, picom-ibhagwan, nixos-wsl, darwin, stylix, ags, ags-env
-    , vfio, nix-flatpak, nix-cosmic, coplandos, hyprland, }:
+    , vfio, nix-flatpak, nix-cosmic, coplandos, hyprland, jerry, }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
       mkNixOS = import ./lib/mknixos.nix;
@@ -92,20 +97,17 @@
     in {
       nixosConfigurations = {
         plutonium = mkNixOS "plutonium" {
-          inherit self home-manager helix-master neovim-nightly overlays
-            zls-master nur;
+          inherit inputs overlays;
           nixpkgs = nixpkgs-nixos;
           isHardwareMachine = false;
           system = "x86_64-linux";
           username = "nightmare";
           extraModules = [ ./modules/distcc nixos-wsl.nixosModules.wsl ];
-          extraHomeModules = [ ];
+          extraHomeModules = [ jerry.homeManagerModules.default ];
         };
 
         battlestation = mkNixOS "battlestation" {
-          inherit self home-manager helix-master neovim-nightly overlays
-            zls-master picom-ibhagwan sddm-theme grub2-theme nur ags-env
-            coplandos hyprland;
+          inherit inputs overlays;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dreamer";
@@ -130,8 +132,7 @@
         };
 
         serotonine = mkNixOS "serotonine" {
-          inherit self home-manager helix-master neovim-nightly picom-ibhagwan
-            overlays zls-master sddm-theme grub2-theme nur hyprland;
+          inherit inputs overlays;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dreamer";
@@ -147,8 +148,7 @@
         };
 
         radium = mkNixOS "radium" {
-          inherit self home-manager helix-master neovim-nightly picom-ibhagwan
-            overlays zls-master sddm-theme grub2-theme nur hyprland;
+          inherit inputs overlays;
           nixpkgs = nixpkgs-nixos;
           system = "aarch64-linux";
           username = "spectre";
@@ -158,8 +158,7 @@
         };
 
         loqius = mkNixOS "loqius" {
-          inherit self home-manager helix-master neovim-nightly overlays
-            zls-master picom-ibhagwan sddm-theme grub2-theme nur hyprland;
+          inherit inputs overlays;
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dev";
@@ -175,8 +174,7 @@
 
       darwinConfigurations = {
         combustible = mkDarwin "combustible" {
-          inherit self nixpkgs darwin home-manager helix-master overlays
-            zls-master nur;
+          inherit inputs overlays;
           system = "aarch64-darwin";
           username = "lemon";
         };

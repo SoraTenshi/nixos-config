@@ -1,4 +1,4 @@
-{ pkgs, sddm-theme, ... }: {
+{ pkgs, inputs, ... }: {
   qt = {
     enable = true;
     platformTheme = "gtk2";
@@ -10,7 +10,7 @@
   services.xserver.displayManager = {
     sddm = {
       enable = true;
-      theme = "${sddm-theme}";
+      theme = "${inputs.sddm-theme}";
     };
   };
 }

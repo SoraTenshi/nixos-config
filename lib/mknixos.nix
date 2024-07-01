@@ -1,16 +1,15 @@
 hostname:
-{ self, nixpkgs, home-manager, nur, system, username, overlays, neovim-nightly
-, helix-master, zls-master, picom-ibhagwan ? null, sddm-theme ? null
-, grub2-theme ? null, ags-env ? null, isHardwareMachine ? true, isVM ? false
-, extraModules ? [ ], # default to an empty list if not provided
-extraHomeModules ? [ ], efiSysMountPoint ? "/boot", monitors ? [ ]
-, coplandos ? null, useStylix ? true, hyprland ? null }:
+{ inputs, nixpkgs, system, username, overlays
+, isHardwareMachine ? true, isVM ? false
+, extraModules ? [ ] # default to an empty list if not provided
+, extraHomeModules ? [ ], efiSysMountPoint ? "/boot", monitors ? [ ]
+, useStylix ? true, }:
 let
   systemSpecificOverlays = [
     (final: prev: {
-      zls = zls-master.packages.${system}.default;
-      helix = helix-master.packages.${system}.default;
-      picom = prev.picom.overrideAttrs (c: { src = picom-ibhagwan; });
+      zls = inputs.zls-master.packages.${system}.default;
+      helix = inputs.helix-master.packages.${system}.default;
+      picom = prev.picom.overrideAttrs (c: { src = inputs.picom-ibhagwan; });
       material-symbols = prev.callPackage ../derivations/material-symbols { };
     })
   ];
@@ -18,7 +17,7 @@ let
 in lib.nixosSystem {
   inherit system;
   specialArgs = if isHardwareMachine then {
-    inherit sddm-theme grub2-theme isVM username efiSysMountPoint coplandos;
+    inherit inputs isVM username efiSysMountPoint;
   } else {
     inherit username isVM efiSysMountPoint;
   };
@@ -36,7 +35,7 @@ in lib.nixosSystem {
     ../modules/variables
     ../modules/ssh
 
-    nur.nixosModules.nur
+    inputs.nur.nixosModules.nur
     ({ config, ... }: {
       home-manager.sharedModules =
         [ config.nur.repos.rycee.hmModules.emacs-init ] ++ extraHomeModules;
@@ -56,16 +55,15 @@ in lib.nixosSystem {
     [ ]) ++ extraModules ++ [
       ../machines/${hostname}
 
-      home-manager.nixosModules.home-manager
+      inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
           extraSpecialArgs = if isHardwareMachine then {
-            inherit self neovim-nightly picom-ibhagwan username ags-env
-              monitors system hyprland;
+            inherit inputs username monitors system;
           } else {
-            inherit self neovim-nightly username system;
+            inherit inputs username system;
           };
           users.${username} = { imports = [ ../profiles/${username} ]; };
         };

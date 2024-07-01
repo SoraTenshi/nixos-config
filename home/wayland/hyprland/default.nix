@@ -1,4 +1,4 @@
-{ self, config, pkgs, hyprland, ... }:
+{ inputs, config, pkgs, ... }:
 let cursor = config.home.pointerCursor;
 in {
   imports = [ ./settings.nix ./binds.nix ];
@@ -47,7 +47,7 @@ in {
     enable = true;
     settings = {
       default = {
-        path = "${self}/images";
+        path = "${inputs.self}/images";
         duration = "10m";
       };
     };
@@ -55,7 +55,7 @@ in {
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = hyprland.packages.${pkgs.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     systemd = {
       enable = true;
       variables = [ "--all" ];

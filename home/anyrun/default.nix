@@ -1,10 +1,10 @@
-{ anyrun, config, ... }:
+{ inputs, config, ... }:
 let col = sel: config.lib.stylix.colors.withHashtag.${sel};
 in {
   programs.anyrun = {
     enable = true;
     config = {
-      plugins = with anyrun.packages."x86_64-linux"; [
+      plugins = with inputs.anyrun.packages."x86_64-linux"; [
         applications
         randr
         rink

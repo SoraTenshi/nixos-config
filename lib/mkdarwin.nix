@@ -1,15 +1,15 @@
 hostname:
-{ self, nixpkgs, home-manager, nur, system, username, overlays, helix-master
-, zls-master, darwin, extraModules ? [ ], # extra modules
+{ inputs, nixpkgs, home-manager, nur, system, username, overlays
+, extraModules ? [ ], # extra modules
 }:
 let
   systemSpecificOverlays = [
     (final: prev: {
-      zls = zls-master.packages.${system}.default;
-      helix = helix-master.packages.${system}.default;
+      zls = inputs.zls-master.packages.${system}.default;
+      helix = inputs.helix-master.packages.${system}.default;
     })
   ];
-in darwin.lib.darwinSystem {
+in inputs.darwin.lib.darwinSystem {
   inherit system;
   modules = [
     {
@@ -40,7 +40,7 @@ in darwin.lib.darwinSystem {
       home-manager = {
         useGlobalPkgs = true;
         useUserPackages = true;
-        extraSpecialArgs = { inherit self username; };
+        extraSpecialArgs = { inherit inputs username; };
         users.${username} = { imports = [ ../profiles/${username} ]; };
       };
     }

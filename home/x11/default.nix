@@ -1,4 +1,4 @@
-{ self, pkgs, ... }:
+{ inputs, pkgs, ... }:
 let
   cursorPackage = pkgs.catppuccin-cursors.macchiatoBlue;
   cursorName = "Catppuccin-Macchiato-Blue-Cursors";
@@ -25,7 +25,7 @@ in {
 
   services.random-background = {
     enable = true;
-    imageDirectory = "${self}/images";
+    imageDirectory = "${inputs.self}/images";
     display = "fill";
     interval = "1h";
   };

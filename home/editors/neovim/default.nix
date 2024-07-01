@@ -1,9 +1,9 @@
-{ self, pkgs, neovim-nightly, ... }: {
+{ inputs, pkgs, ... }: {
   imports = [ ../language-servers ];
 
   home.packages = [ pkgs.lua54Packages.fennel ];
 
-  nixpkgs.overlays = neovim-nightly;
+  nixpkgs.overlays = inputs.neovim-nightly;
   programs.neovim = {
     enable = true;
     vimAlias = true;
@@ -56,7 +56,7 @@
   };
 
   xdg.configFile."nvim" = {
-    source = "${self}/home/editors/neovim/nvim";
+    source = "${inputs.self}/home/editors/neovim/nvim";
     recursive = true;
   };
 }

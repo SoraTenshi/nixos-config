@@ -1,4 +1,4 @@
-{ self, ... }: {
+{ inputs, ... }: {
   # Necessary plugins:
   # - zig-mode
   # - rainbow indentation guides (need to be figured out)
@@ -28,7 +28,7 @@
 
         meow = {
           enable = true;
-          config = builtins.readFile "${self}/home/editors/emacs/emacs/meow.el";
+          config = builtins.readFile "${inputs.self}/home/editors/emacs/emacs/meow.el";
           extraConfig = ''
             (meow-setup)
             (meow-global-mode 1)
@@ -38,7 +38,7 @@
         doom-themes = {
           enable = true;
           config =
-            builtins.readFile "${self}/home/editors/emacs/emacs/tokyonight.el";
+            builtins.readFile "${inputs.self}/home/editors/emacs/emacs/tokyonight.el";
           extraConfig = ''
             (doom-tokyonight-storm)
             (load-theme 'doom-tokyo-night t)
