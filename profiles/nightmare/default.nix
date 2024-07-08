@@ -9,7 +9,6 @@ in {
     "development"
     "lazygit"
     "pwn"
-    "jerry"
 
     "editors/helix"
     "shells/zsh"

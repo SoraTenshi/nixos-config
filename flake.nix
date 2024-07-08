@@ -59,11 +59,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    jerry = {
-      url = "github:soratenshi/jerry/fix-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     ags-env = {
       url = "github:SoraTenshi/ags-env";
       flake = false;
@@ -88,7 +83,7 @@
   outputs = inputs @ { self, nixpkgs-nixos, nixpkgs, nur, home-manager, nixos-hardware
     , sddm-theme, neovim-nightly, zig-overlay, zls-master, grub2-theme
     , helix-master, picom-ibhagwan, nixos-wsl, darwin, stylix, ags, ags-env
-    , vfio, nix-flatpak, nix-cosmic, coplandos, hyprland, jerry, }:
+    , vfio, nix-flatpak, nix-cosmic, coplandos, hyprland, }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
       mkNixOS = import ./lib/mknixos.nix;
@@ -103,7 +98,7 @@
           system = "x86_64-linux";
           username = "nightmare";
           extraModules = [ ./modules/distcc nixos-wsl.nixosModules.wsl ];
-          extraHomeModules = [ jerry.homeManagerModules.default ];
+          extraHomeModules = [ ];
         };
 
         battlestation = mkNixOS "battlestation" {
