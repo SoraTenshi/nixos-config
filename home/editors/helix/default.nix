@@ -29,6 +29,11 @@ _: {
           display-inlay-hints = true;
         };
 
+        inline-diagnostics = {
+          cursor-line = "hint";
+          other-lines = "error";
+        };
+
         whitespace.render = "all";
         whitespace.characters = {
           space = "·";
