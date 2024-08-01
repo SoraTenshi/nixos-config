@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }: 
+{
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
@@ -16,7 +17,6 @@
   services.gvfs.enable = true;
   environment.systemPackages = with pkgs; [
     libva
-    nvidia-vaapi-driver
 
     wl-clipboard
 
@@ -27,14 +27,9 @@
 
     waylock
   ];
-
-  # Holy shit wlroots, are you serious ?!
+  
   programs.hyprland.enable = true;
   environment.sessionVariables = {
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    LIBVA_DRIVER_NAME = "nvidia";
-    GBM_BACKEND = "nvidia-drm";
-    XMODIFIERS = "@im=fcitx";
     NIXOS_OZONE_WL = "1";
 
     CLUTTER_BACKEND = "wayland";
@@ -49,9 +44,7 @@
     NO_AT_BRIDGE = "1";
     MOZ_ENABLE_WAYLAND = "1";
     MOZ_WEBRENDER = "1";
-    WLR_NO_HARDWARE_CURSORS = "1";
     KITTY_ENABLE_WAYLAND = "1";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-    WLR_BACKEND = "eglstream";
   };
 }

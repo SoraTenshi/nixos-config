@@ -5,7 +5,9 @@
   ];
 
   boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
     initrd = {
+      # kernelModules = [ "i915" ];
       availableKernelModules =
         [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
 
@@ -21,13 +23,23 @@
   };
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-  hardware.cpu.intel.updateMicrocode =
-    lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.intel.updateMicrocode = true;
+  hardware.intel-gpu-tools.enable = true;
 
   security.tpm2 = {
     enable = true;
     pkcs11.enable = true;
   };
+
+  environment.systemPackages = [
+    pkgs.mesa.drivers
+    pkgs.intel-ocl
+    pkgs.intel-vaapi-driver
+    pkgs.vaapiIntel
+    pkgs.vaapiVdpau
+    pkgs.libvdpau-va-gl
+    pkgs.egl-wayland
+  ];
 
   services.upower.enable = true;
 
@@ -38,17 +50,6 @@
     interfaces = {
       eno1.useDHCP = true;
     };
-  };
-
-  # touchpad support!
-  services.xserver = {
-    enable = true;
-    videoDrivers = [ "modesetting" ]; # ["displaylink" "modesetting"];
-  };
-
-  services.libinput = {
-    enable = true;
-    touchpad.naturalScrolling = true;
   };
 
   fileSystems."/" = {

@@ -60,7 +60,8 @@ in {
     };
 
     cursor = {
-      enable_hyprcursor = true;
+      no_hardware_cursors = true;
+      enable_hyprcursor = false;
       hide_on_touch = true;
     };
 

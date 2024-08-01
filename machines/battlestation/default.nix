@@ -46,7 +46,7 @@
     '';
   };
 
-  environment.systemPackages = with pkgs; [ egl-wayland ];
+  environment.systemPackages = [ pkgs.egl-wayland pkgs.nvidia-vaapi-driver ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/c2d3c3eb-96e5-44ea-b36c-7b5679ba48a8";

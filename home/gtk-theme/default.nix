@@ -2,7 +2,7 @@
   qt = {
     enable = true;
     style = {
-      name = "Tokyonight-Storm-BL";
+      name = "Tokyonight-Dark";
       package = pkgs.tokyo-night-gtk;
     };
   };
@@ -10,7 +10,7 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Tokyonight-Storm-BL";
+      name = "Tokyonight-Dark";
       package = pkgs.tokyo-night-gtk;
     };
   };

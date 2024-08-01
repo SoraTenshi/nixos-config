@@ -165,6 +165,19 @@
             "DP-1,1920x1080@75,3840x0"
           ];
         };
+
+        vocatius = mkNixOS "vocatius" {
+          inherit inputs overlays;
+          nixpkgs = nixpkgs-nixos;
+          system = "x86_64-linux";
+          username = "dev";
+          extraModules = [ ./modules/greetd stylix.nixosModules.stylix ];
+          extraHomeModules = [ ags.homeManagerModules.default ];
+          monitors = [
+            "HDMI-A-7,1920x1080@120,0x0"
+            # "DP-1,1920x1080@75,1920x0"
+          ];
+        };
       };
 
       darwinConfigurations = {
