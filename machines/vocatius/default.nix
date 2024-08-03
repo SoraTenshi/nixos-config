@@ -25,6 +25,11 @@
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = true;
   hardware.intel-gpu-tools.enable = true;
+  hardware.opengl = {
+    package = pkgs.mesa.drivers;
+    driSupport32Bit = true;
+    package32 = pkgs.pkgsi686Linux.mesa.drivers;
+  };
 
   security.tpm2 = {
     enable = true;
@@ -32,7 +37,6 @@
   };
 
   environment.systemPackages = [
-    pkgs.mesa.drivers
     pkgs.intel-ocl
     pkgs.intel-vaapi-driver
     pkgs.vaapiIntel
