@@ -174,8 +174,8 @@
           extraModules = [ ./modules/greetd stylix.nixosModules.stylix ];
           extraHomeModules = [ ags.homeManagerModules.default ];
           monitors = [
-            "HDMI-A-7,1920x1080@120,0x0"
-            # "DP-1,1920x1080@75,1920x0"
+            "HDMI-A-7,1920x1080@60,960x0"
+            "DP-4,1920x1080@165,0x1080"
           ];
         };
       };
