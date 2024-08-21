@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ inputs, pkgs, system, ... }:  {
   home.packages = with pkgs; [
     steam
 
@@ -9,5 +9,6 @@
     zathura
     spacedrive
     nheko
+    inputs.zen-browser.packages."${system}".default
   ];
 }

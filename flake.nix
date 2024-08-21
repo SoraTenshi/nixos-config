@@ -59,6 +59,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    zen-browser = {
+      url = "github:MarceColl/zen-browser-flake";
+    };
+
     ags-env = {
       url = "github:SoraTenshi/ags-env";
       flake = false;
@@ -83,7 +87,7 @@
   outputs = inputs @ { self, nixpkgs-nixos, nixpkgs, nur, home-manager, nixos-hardware
     , sddm-theme, neovim-nightly, zig-overlay, zls-master, grub2-theme
     , helix-master, picom-ibhagwan, nixos-wsl, darwin, stylix, ags, ags-env
-    , vfio, nix-flatpak, nix-cosmic, coplandos, hyprland, }:
+    , vfio, nix-flatpak, nix-cosmic, coplandos, hyprland,zen-browser, }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
       mkNixOS = import ./lib/mknixos.nix;
@@ -176,6 +180,7 @@
           monitors = [
             "HDMI-A-7,1920x1080@60,960x0"
             "DP-4,1920x1080@165,0x1080"
+            "DP-5,1920x1080@60,1920x1080"
           ];
         };
       };
