@@ -30,6 +30,10 @@
     driSupport32Bit = true;
     package32 = pkgs.pkgsi686Linux.mesa.drivers;
   };
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
 
   security.tpm2 = {
     enable = true;
