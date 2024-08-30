@@ -3,6 +3,21 @@ _: {
 
   programs.helix = {
     enable = true;
+    languages = {
+      language-server.superhtml-lsp = {
+        command = "superhtml";
+        args = ["lsp"];
+      };
+      language = [
+        {
+          name = "html";
+          scope = "source.html";
+          roots = [];
+          file-types = [ "html" "shtml" ];
+          language-servers = [ "superhtml-lsp" ];
+        }
+      ];
+    };
     settings = {
       theme = "tokyonight_storm";
       editor = {

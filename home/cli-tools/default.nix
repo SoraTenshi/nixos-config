@@ -1,4 +1,4 @@
 { pkgs, ... }: {
   imports = [ ./rice.nix ];
-  home.packages = with pkgs; [ ani-cli gomuks ncdu tiny tldr tmate unzip ];
+  home.packages = with pkgs; [ ani-cli ncdu tiny tldr tmate unzip ];
 }
