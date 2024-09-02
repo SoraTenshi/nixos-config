@@ -62,6 +62,10 @@
       url = "github:MarceColl/zen-browser-flake";
     };
 
+    binary-ninja = {
+      url = "github:jchv/nix-binary-ninja";
+    };
+
     ags-env = {
       url = "github:SoraTenshi/ags-env";
       flake = false;
@@ -86,7 +90,7 @@
   outputs = inputs @ { self, nixpkgs-nixos, nixpkgs, nur, home-manager, nixos-hardware
     , sddm-theme, neovim-nightly, zig-overlay, zls-master, grub2-theme
     , helix-master, picom-ibhagwan, nixos-wsl, darwin, stylix, ags, ags-env
-    , vfio, nix-flatpak, nix-cosmic, coplandos, hyprland,zen-browser, }:
+    , vfio, nix-flatpak, nix-cosmic, coplandos, hyprland, zen-browser, binary-ninja, }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
       mkNixOS = import ./lib/mknixos.nix;

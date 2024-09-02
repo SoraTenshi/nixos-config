@@ -8,6 +8,7 @@ in {
     "stylix"
 
     "ags"
+    "binary-ninja"
     "cli-tools"
     "development"
     "dunst"
