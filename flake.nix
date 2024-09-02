@@ -47,7 +47,6 @@
 
     zls-master = {
       url = "github:zigtools/zls";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     hyprland = {

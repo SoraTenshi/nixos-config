@@ -10,5 +10,6 @@
   };
   networking.hostName = "plutonium"; # because it glows... got it?
 
+  services.tailscale.enable = true;
   system.stateVersion = "unstable";
 }

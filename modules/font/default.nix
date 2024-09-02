@@ -17,5 +17,5 @@ let
 in {
   fonts = (setupFonts config.system).fonts // { fontDir.enable = true; };
 
-  environment.systemPackages = [ pkgs.gnome.adwaita-icon-theme ];
+  environment.systemPackages = [ pkgs.adwaita-icon-theme ];
 }
