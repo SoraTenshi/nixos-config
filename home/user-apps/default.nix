@@ -10,5 +10,7 @@
     spacedrive
     nheko
     inputs.zen-browser.packages."${system}".default
+
+    bitwarden-desktop
   ];
 }
