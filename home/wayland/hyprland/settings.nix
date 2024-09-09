@@ -73,6 +73,14 @@ in {
       "float, title:^(Picture-in-Picture)$"
       "pin, title:^(Picture-in-Picture)$"
       "rounding 0, xwayland:1"
+
+      # Work related settings
+      "workspace,2,class:^(firefox)$"
+      "workspace,3,class:^(nheko)$"
+      "workspace,4,class:^(thunderbird)$"
+      "workspace,5,class:^(spotify)$"
+      "workspace,5,class:^(mumble)$"
+      "workspace,9,class:^(keepassxc)$"
     ];
 
     workspace = builtins.concatMap workspaces keys;
