@@ -70,11 +70,9 @@ in {
       exec-once = [
         "hyprctl setcursor ${cursor.name} ${toString cursor.size}"
         "ags"
-        # "fcitx5-remote -r"
-        # "fcitx5 -d --replace"
-        # "fcitx5-remote -r"
+        "fcitx5-remote -r"
+        "fcitx5 -d --replace"
         "wpaperd"
-        # "xwaylandvideobridge"
       ];
     };
   };
