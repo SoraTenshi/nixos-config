@@ -10,8 +10,8 @@
     lazydocker
 
     # compiler
-    # zigpkgs.master
-    zigpkgs."0.13.0"
+    zigpkgs.master
+    # zigpkgs."0.13.0"
     odin
     clang
     go

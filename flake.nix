@@ -66,6 +66,10 @@
       url = "github:jchv/nix-binary-ninja";
     };
 
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.1";
+    };
+
     ags-env = {
       url = "github:SoraTenshi/ags-env";
       flake = false;
@@ -90,7 +94,7 @@
   outputs = inputs @ { self, nixpkgs-nixos, nixpkgs, nur, home-manager, nixos-hardware
     , sddm-theme, neovim-nightly, zig-overlay, zls-master, grub2-theme
     , helix-master, picom-ibhagwan, nixos-wsl, darwin, stylix, ags, ags-env
-    , vfio, nix-flatpak, nix-cosmic, coplandos, hyprland, zen-browser, binary-ninja, }:
+    , vfio, nix-flatpak, nix-cosmic, coplandos, hyprland, zen-browser, binary-ninja, lanzaboote, }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
       mkNixOS = import ./lib/mknixos.nix;
@@ -113,6 +117,7 @@
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dreamer";
+          useSecureBoot = false;
           efiSysMountPoint = "/boot/efi";
           extraModules = [
             ./modules/nvidia
@@ -120,6 +125,7 @@
             # ./modules/libvirtd
             # nix-cosmic.nixosModules.default
             # vfio.nixosModules.vfio
+            lanzaboote.nixosModules.lanzaboote
             stylix.nixosModules.stylix
           ];
           extraHomeModules = [

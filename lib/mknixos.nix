@@ -3,7 +3,7 @@ hostname:
 , isHardwareMachine ? true, isVM ? false
 , extraModules ? [ ] # default to an empty list if not provided
 , extraHomeModules ? [ ], efiSysMountPoint ? "/boot", monitors ? [ ]
-, useStylix ? true, }:
+, useStylix ? true, useSecureBoot ? false }:
 let
   systemSpecificOverlays = [
     (final: prev: {
@@ -45,7 +45,7 @@ in lib.nixosSystem {
     # no WSL as an example
   ] ++ (if isHardwareMachine then [
     (if useStylix then ../modules/stylix else {})
-    ../modules/boot
+    (if useSecureBoot then ../modules/lanzaboote else ../modules/boot)
     # ../modules/x11
     ../modules/wayland
     ../modules/sound

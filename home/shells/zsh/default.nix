@@ -40,6 +40,7 @@ in {
     git = {
       enable = true;
       includes = [{ path = "~/.config/git/userconfig.inc"; }];
+      lfs.enable = true;
     };
 
     # Shell
