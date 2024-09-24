@@ -34,9 +34,8 @@
 
     # LISP
     babashka
-    racket
+    janet
     gauche
-    chez
 
     # Qemu
     qemu
