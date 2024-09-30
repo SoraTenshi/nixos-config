@@ -34,7 +34,7 @@
 
     # LISP
     babashka
-    janet
+    janet jpm
     gauche
 
     # Qemu
