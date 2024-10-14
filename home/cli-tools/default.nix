@@ -4,6 +4,7 @@
     ani-cli
     bitwarden-cli
     bws
+    magic-wormhole
     ncdu
     tiny
     tldr
