@@ -53,7 +53,10 @@
 
   networking = {
     hostName = "vocatius";
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      wifi.backend = "iwd";
+    };
     useDHCP = false;
     interfaces = {
       eno1.useDHCP = true;

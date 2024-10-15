@@ -1,5 +1,10 @@
 { pkgs, username, ... }: {
 
+  system.switch = {
+    enable = false;
+    enableNg = true;
+  };
+
   environment.sessionVariables = {
     FLAKE = "/home/${username}/dev/nixos-config";
     STEEL_HOME = "/home/${username}/.config/steel";

@@ -22,7 +22,7 @@ in {
       #### Execute apps ####
       "SUPERSHIFT, D, exec, discord --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime"
       "SUPERSHIFT, RETURN, exec, ${terminal}"
-      "SUPER, RETURN, exec, ${other-terminal}"
+      "SUPER, RETURN, exec, GDK_DEBUG=gl-disable-gles ${other-terminal}"
       ''
         SUPERSHIFT, P, exec, ags -r "BarState.value = 'shutdown $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';"''
       ''

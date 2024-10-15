@@ -31,6 +31,7 @@
   programs.hyprland.enable = true;
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+    GDK_DEBUG = "gl-disable-gles";
 
     CLUTTER_BACKEND = "wayland";
     SDL_VIDEODRIVER = "wayland";

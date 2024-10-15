@@ -6,7 +6,6 @@
     pkgs.mumble
     pkgs.zathura
     pkgs.keepassxc
-    pkgs.keepassxc
     pkgs.dino
   ];
 }

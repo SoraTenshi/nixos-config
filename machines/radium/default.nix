@@ -12,7 +12,10 @@
 
   networking = {
     hostName = "radium";
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      wifi.backend = "iwd";
+    };
     useDHCP = false;
     interfaces.ens160.useDHCP = true;
   };

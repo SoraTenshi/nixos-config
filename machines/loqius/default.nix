@@ -38,7 +38,10 @@
 
   networking = {
     hostName = "loqius";
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      wifi.backend = "iwd";
+    };
     useDHCP = false;
     interfaces = {
       enp0s13f0u1u4c2.useDHCP = true;

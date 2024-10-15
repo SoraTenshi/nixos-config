@@ -18,7 +18,10 @@
 
   networking = {
     hostName = "serotonine";
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      wifi.backend = "iwd";
+    };
     useDHCP = false;
     interfaces = {
       enp0s31f6.useDHCP = true;
