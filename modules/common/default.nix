@@ -20,5 +20,6 @@
     fzf
     ripgrep
     uutils-coreutils
+    linuxKernel.packages.linux_6_11.perf
   ];
 }
