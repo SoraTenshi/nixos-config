@@ -36,6 +36,7 @@
     babashka
     janet jpm
     gauche
+    joker
 
     # Qemu
     qemu
