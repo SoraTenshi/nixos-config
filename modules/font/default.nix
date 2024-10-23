@@ -3,8 +3,8 @@ let
   fontList = [
     pkgs.rictydiminished-with-firacode
     pkgs.noto-fonts
-    pkgs.noto-fonts-cjk
-    pkgs.noto-fonts-emoji
+    pkgs.noto-fonts-cjk-sans
+    pkgs.noto-fonts-emoji-blob-bin
     (pkgs.nerdfonts.override { fonts = [ "Lilex" ]; })
   ];
   setupFonts = system:
