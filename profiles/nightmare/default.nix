@@ -7,7 +7,8 @@ in {
   imports = asPath [
     "cli-tools"
     "development"
-    "lazygit"
+    # "lazygit"
+    "jj"
     "pwn"
 
     "editors/helix"
