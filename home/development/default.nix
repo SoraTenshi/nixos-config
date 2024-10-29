@@ -33,9 +33,8 @@
     cmake gnumake
 
     # LISP
-    babashka
-    janet jpm
-    gauche
+    sbcl
+    # Clojure like (for shell scripts)
     joker
 
     # Qemu

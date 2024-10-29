@@ -9,6 +9,7 @@ _: {
       ui = {
         editor = "hx";
         paginate = "never";
+        merge-editor = ":builtin";
       };
       signing = {
         sign-all = true;
