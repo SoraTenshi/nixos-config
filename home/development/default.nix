@@ -33,8 +33,8 @@
     # cmake
     cmake gnumake
 
-    # LISP
-    sbcl asdf
+    # LISP pkg manager
+    asdf
 
     # Clojure like (for shell scripts)
     joker
