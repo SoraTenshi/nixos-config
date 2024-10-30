@@ -1,9 +1,20 @@
 { pkgs, ... }: {
-  home.packages = with pkgs.sbclPackages; [
-    # CLI Parser
-    clingon
+  home.packages = [
+    (pkgs.symlinkJoin {
+    name = "sbcl-env";
+    paths = with pkgs.sbclPackages; [
+      # CLI Parser
+      clingon
 
-    # Coloured output!
-    cl-ansi-term
+      # CLI stuff
+      trivial-shell
+
+      # Coloured output!
+      cl-ansi-term
+
+      # Strings
+      str
+      ];
+    })
   ];
 }

@@ -24,8 +24,6 @@
     nodePackages.yaml-language-server # YAML / JSON
 
     luajitPackages.lua-lsp # Lua
-
-    helix-gpt # Copilot
   ] ++ (if system == "x86_64-linux" then [ols] else []); # Odin!
 
   # xdg.configFile."zls.json".text = builtins.toJSON {

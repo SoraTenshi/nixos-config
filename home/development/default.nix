@@ -1,4 +1,5 @@
 { pkgs, ... }: {
+  imports = [ ./common-lisp.nix ];
   home.packages = with pkgs; [
     # debugger
     gdb
