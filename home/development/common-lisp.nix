@@ -16,6 +16,8 @@ let
 in
 {
   home.packages = [
+    pkgs.roswell pkgs.asdf
+
     sbcl'
   ];
 }
