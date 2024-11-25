@@ -1,4 +1,4 @@
-{ monitors, ... }:
+{ monitors, lib, ... }:
 let
   keys = [ "1" "2" "3" "4" "5" "6" "7" "8" "9" ];
 
@@ -50,6 +50,7 @@ in {
     decoration = {
       rounding = 0;
       drop_shadow = false;
+      shadow = lib.mkForce {};
       blur = {
         enabled = true;
         size = 10;

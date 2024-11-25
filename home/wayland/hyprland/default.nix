@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }:
+{ inputs, config, pkgs, lib, ... }:
 let cursor = config.home.pointerCursor;
 in {
   imports = [ ./settings.nix ./binds.nix ];
@@ -33,7 +33,7 @@ in {
     settings = {
       background = {
         monitor = "";
-        path = "screenshot";
+        path = lib.mkForce "screenshot";
         color = "rgba(0,0,0,0.0)";
         blur_passes = 2;
         blur_size = 10;
