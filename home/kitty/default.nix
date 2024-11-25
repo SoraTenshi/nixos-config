@@ -13,7 +13,7 @@
       mode = "no-cursor";
       enableZshIntegration = true;
     };
-    theme = "Tokyo Night Storm";
+    themeFile = "tokyo_night_storm";
     settings = {
       scrollback_lines = 10000;
       enable_audio_bell = false;

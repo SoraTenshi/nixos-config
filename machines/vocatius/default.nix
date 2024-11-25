@@ -25,9 +25,9 @@
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = true;
   hardware.intel-gpu-tools.enable = true;
-  hardware.opengl = {
+  hardware.graphics= {
     package = pkgs.mesa.drivers;
-    driSupport32Bit = true;
+    enable32Bit = true;
     package32 = pkgs.pkgsi686Linux.mesa.drivers;
   };
   hardware.bluetooth = {
