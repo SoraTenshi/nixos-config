@@ -13,6 +13,7 @@ in {
     "dunst"
     "email"
     "gtk-theme"
+    "jj"
     "kitty"
     "lazygit"
     "newsboat"
