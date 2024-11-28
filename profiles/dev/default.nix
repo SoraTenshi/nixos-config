@@ -19,6 +19,7 @@ in {
     "newsboat"
     "shells/zsh"
     "spotify"
+    "spotify-player"
     "user-apps"
     "work-specific"
 

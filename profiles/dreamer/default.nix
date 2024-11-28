@@ -18,6 +18,7 @@ in {
     "lazygit"
     "newsboat"
     "spotify"
+    "spotify-player"
     "user-apps"
     "virtual"
 
