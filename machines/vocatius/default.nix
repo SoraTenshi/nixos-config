@@ -7,7 +7,7 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     initrd = {
-      # kernelModules = [ "i915" ];
+      kernelModules = [ "i915" ];
       availableKernelModules =
         [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
 
@@ -23,16 +23,19 @@
   };
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-  hardware.cpu.intel.updateMicrocode = true;
-  hardware.intel-gpu-tools.enable = true;
-  hardware.graphics= {
-    package = pkgs.mesa.drivers;
-    enable32Bit = true;
-    package32 = pkgs.pkgsi686Linux.mesa.drivers;
-  };
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
+  hardware = {
+    enableRedistributableFirmware = true;
+    cpu.intel.updateMicrocode = true;
+    intel-gpu-tools.enable = true;
+    graphics= {
+      package = pkgs.mesa.drivers;
+      enable32Bit = true;
+      package32 = pkgs.pkgsi686Linux.mesa.drivers;
+    };
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
   };
 
   security.tpm2 = {

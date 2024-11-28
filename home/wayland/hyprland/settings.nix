@@ -49,7 +49,6 @@ in {
 
     decoration = {
       rounding = 0;
-      drop_shadow = false;
       shadow = lib.mkForce {};
       blur = {
         enabled = true;
@@ -66,7 +65,7 @@ in {
       hide_on_touch = true;
     };
 
-    animations = { enabled = true; };
+    animations = { enabled = false; };
     debug = { disable_logs = false; };
     xwayland = { force_zero_scaling = true; };
 
@@ -82,9 +81,20 @@ in {
       "workspace,5,class:^(spotify)$"
       "workspace,5,class:^(mumble)$"
       "workspace,9,class:^(keepassxc)$"
+
+      # Smart Gaps
+      "bordersize:0,floating:0,onworkspace:w[tv1]"
+      "rounding:0,floating:0,onworkspace:w[tv1]"
+      "bordersize:0,floating:0,onworkspace:f[1]"
+      "rounding:0,floating:0,onworkspace:f[1]"
     ];
 
-    workspace = builtins.concatMap workspaces keys;
+    workspace = (builtins.concatMap workspaces keys) ++ [
+      # Smart gaps
+      "w[tv1],gapsout:0,gapsin:0"
+      "f[1],gapsout:0,gapsin:0"
+    ];
+
     monitor = builtins.concatMap as-monitor monitors;
     layerrule = builtins.concatMap each-bar
       (builtins.genList (i: i) (builtins.length monitors));
