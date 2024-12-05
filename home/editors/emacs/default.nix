@@ -87,9 +87,23 @@ _: {
           enable = true;
         };
 
+        fancy-compilation = {
+          enable = true;
+          config = ''
+            (fancy-compilation-mode)
+          '';
+        };
+
         elcord = {
           enable = true;
           hook = [ "(prog-mode . elcord-mode)" ];
+        };
+
+        smudge = {
+          enable = true;
+          config = ''
+            (setq smudge-transport 'connect)
+          '';
         };
 
         centaur-tabs = {
