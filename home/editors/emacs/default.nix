@@ -103,8 +103,8 @@ _: {
                 centaur-tabs-cycle-scope 'tabs
                 centaur-tabs-icon-type 'all-the-icons
                 centaur-tabs-close-button "x"
-        	x-underline-at-descent-line t
-        	centaur-tabs-left-edge-margin nil)
+              	x-underline-at-descent-line t
+              	centaur-tabs-left-edge-margin nil)
           (centaur-tabs-change-fonts (face-attribute 'default :font) 110)
           (centaur-tabs-headline-match)
           (centaur-tabs-mode t)
