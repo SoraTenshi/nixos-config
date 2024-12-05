@@ -11,6 +11,7 @@ in {
     "cli-tools"
     "development"
     "dunst"
+    "editors/emacs"
     "email"
     "gtk-theme"
     "jj"
