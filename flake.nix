@@ -188,7 +188,11 @@
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dev";
-          extraModules = [ ./modules/greetd stylix.nixosModules.stylix ];
+          extraModules = [
+            # ./modules/greetd
+            ./modules/ly
+            stylix.nixosModules.stylix
+          ];
           extraHomeModules = [ ags.homeManagerModules.default ];
           monitors = [
             "HDMI-A-7,1920x1080@60,960x0"
