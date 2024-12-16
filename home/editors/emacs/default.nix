@@ -155,6 +155,11 @@ _: {
           enable = true;
           hook = [ "(nix-mode . subword-mode)" ];
         };
+
+        treesit-auto = {
+          enable = true;
+          config = "(treesit-auto-add-to-auto-mode-alist 'all)";
+        };
       };
     };
   };
