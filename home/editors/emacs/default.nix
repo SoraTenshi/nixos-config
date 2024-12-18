@@ -160,6 +160,42 @@ _: {
           enable = true;
           config = "(treesit-auto-add-to-auto-mode-alist 'all)";
         };
+
+        lsp-mode = {
+          enable = true;
+          config = ''
+            (add-hook 'prog-mode-hook #'lsp-deferred)
+            (add-hook 'zig-mode #'lsp-deferred)
+            (add-hook 'cc-mode #'lsp-deferred)
+            (add-hook 'rust-mode #'lsp-deferred)
+            (add-hook 'nix-mode #'lsp-deferred)
+            (setq lsp-completion-provider :capf)
+          '';
+        };
+
+        company = {
+          enable = true;
+          config = ''
+            (global-company-mode)
+            (setq company-idle-delay 0.1
+                  company-minimum-prefix-length 2)
+          '';
+        };
+
+        company-box = {
+          enable = true;
+          hook = [ "(company-mode . company-box-mode)" ];
+        };
+
+        lsp-ui = {
+          enable = true;
+          config = ''
+            (setq lsp-ui-sideline-enable t
+                  lsp-ui-sideline-show-hover t
+                  lsp-ui-sideline-show-code-actions t
+                  lsp-ui-doc-enable t)
+          '';
+        };
       };
     };
   };
