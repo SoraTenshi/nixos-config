@@ -20,6 +20,9 @@
     grub2-theme.url = "github:vinceliuice/grub2-themes";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.1.0";
 
+    ghostty-package.url = "github:ghostty-org/ghostty";
+    ghostty.url = "github:clo4/ghostty-hm-module";
+
     nix-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -94,7 +97,8 @@
   outputs = inputs @ { self, nixpkgs-nixos, nixpkgs, nur, home-manager, nixos-hardware
     , sddm-theme, neovim-nightly, zig-overlay, zls-master, grub2-theme
     , helix-master, picom-ibhagwan, nixos-wsl, darwin, stylix, ags, ags-env
-    , vfio, nix-flatpak, nix-cosmic, coplandos, hyprland, zen-browser, binary-ninja, lanzaboote, }:
+    , vfio, nix-flatpak, nix-cosmic, coplandos, hyprland, zen-browser, binary-ninja, lanzaboote
+    , ghostty, ghostty-package, }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
       mkNixOS = import ./lib/mknixos.nix;
@@ -130,6 +134,7 @@
           ];
           extraHomeModules = [
             ags.homeManagerModules.default
+            ghostty.homeModules.default
             nix-flatpak.homeManagerModules.nix-flatpak
           ];
           monitors = [
@@ -151,6 +156,7 @@
           ];
           extraHomeModules = [
             ags.homeManagerModules.default
+            ghostty.homeModules.default
             # nix-flatpak.homeManagerModules.nix-flatpak
           ];
         };
@@ -175,7 +181,10 @@
             ./modules/ly
             stylix.nixosModules.stylix
           ];
-          extraHomeModules = [ ags.homeManagerModules.default ];
+          extraHomeModules = [
+            ags.homeManagerModules.default
+            ghostty.homeModules.default
+          ];
           monitors = [
             "eDP-1,1920x1200@60,0x0"
             "HDMI-A-1,1920x1080@120,1920x0"
@@ -193,7 +202,10 @@
             ./modules/ly
             stylix.nixosModules.stylix
           ];
-          extraHomeModules = [ ags.homeManagerModules.default ];
+          extraHomeModules = [
+            ags.homeManagerModules.default
+            ghostty.homeModules.default
+          ];
           monitors = [
             "HDMI-A-7,1920x1080@60,960x0"
             "DP-4,1920x1080@165,0x1080"

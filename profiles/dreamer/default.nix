@@ -12,6 +12,7 @@ in {
     "cli-tools"
     "development"
     "dunst"
+    "ghostty"
     "gtk-theme"
     "guix"
     "kitty"

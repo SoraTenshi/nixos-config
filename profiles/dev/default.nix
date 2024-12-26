@@ -13,6 +13,7 @@ in {
     "dunst"
     "editors/emacs"
     "email"
+    "ghostty"
     "gtk-theme"
     "jj"
     "kitty"

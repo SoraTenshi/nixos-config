@@ -6,6 +6,7 @@ in {
 
   imports = asPath [
     "cli-tools"
+    "ghostty"
     "development"
     # "lazygit"
     "spotify-player"
