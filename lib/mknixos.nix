@@ -35,10 +35,10 @@ in lib.nixosSystem {
     ../modules/variables
     ../modules/ssh
 
-    inputs.nur.nixosModules.nur
-    ({ config, ... }: {
+    inputs.nur.modules.nixos.default
+    ({ pkgs, ... }: {
       home-manager.sharedModules =
-        [ config.nur.repos.rycee.hmModules.emacs-init ] ++ extraHomeModules;
+        [ pkgs.nur.repos.rycee.hmModules.emacs-init ] ++ extraHomeModules;
     })
 
     # only for hardware

@@ -5,7 +5,8 @@ let
     pkgs.noto-fonts
     pkgs.noto-fonts-cjk-sans
     pkgs.noto-fonts-emoji-blob-bin
-    (pkgs.nerdfonts.override { fonts = [ "Lilex" ]; })
+    pkgs.lilex
+    pkgs.nerd-fonts.lilex
   ];
   setupFonts = system:
     if system != "aarch64-darwin" then {

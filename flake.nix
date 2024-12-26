@@ -112,8 +112,13 @@
           isHardwareMachine = false;
           system = "x86_64-linux";
           username = "nightmare";
-          extraModules = [ ./modules/distcc nixos-wsl.nixosModules.wsl ];
-          extraHomeModules = [ ];
+          extraModules = [
+            ./modules/distcc
+            nixos-wsl.nixosModules.wsl
+          ];
+          extraHomeModules = [
+            ghostty.homeModules.default
+          ];
         };
 
         battlestation = mkNixOS "battlestation" {

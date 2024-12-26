@@ -2,7 +2,7 @@
 {
   programs.ghostty = {
     enable = true;
-    package = inputs.ghostty-package.${system}.default;
+    package = inputs.ghostty-package.packages.${system}.default;
     shellIntegration = {
       enable = true;
       enableZshIntegration = true;
@@ -14,8 +14,8 @@
 
       font-family = "Lilex Nerd Font Mono"; 
       font-variation = "wght=100";
-      font-size = "24";
-      font-features = [ "cv08" "cv09" "cv10" ];
+      font-size = "18";
+      font-feature = [ "cv08" "cv09" "cv10" ];
       font-thicken = false;
 
       cursor-color = "c0caf5";
