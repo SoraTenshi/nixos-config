@@ -1,6 +1,6 @@
 hostname:
-{ inputs, nixpkgs, home-manager, nur, system, username, overlays
-, extraModules ? [ ], # extra modules
+{ inputs, nixpkgs, system, username, overlays
+, extraModules ? [ ], extraHomeModules ? [ ] # extra modules
 }:
 let
   systemSpecificOverlays = [
@@ -28,19 +28,12 @@ in inputs.darwin.lib.darwinSystem {
       };
     })
   ] ++ extraModules ++ [
-    nur.nixosModules.nur
-    ({ config, ... }: {
-      home-manager.sharedModules = [
-        # config.nur.repos.rycee.hmModules.emacs-init
-      ];
-    })
-
-    home-manager.darwinModules.home-manager
+    inputs.home-manager.darwinModules.home-manager
     {
       home-manager = {
         useGlobalPkgs = true;
         useUserPackages = true;
-        extraSpecialArgs = { inherit inputs username; };
+        extraSpecialArgs = { inherit inputs username system; };
         users.${username} = { imports = [ ../profiles/${username} ]; };
       };
     }

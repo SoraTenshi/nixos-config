@@ -2,11 +2,8 @@
 {
   programs.ghostty = {
     enable = true;
-    package = inputs.ghostty-package.packages.${system}.default;
-    shellIntegration = {
-      enable = true;
-      enableZshIntegration = true;
-    };
+    package = inputs.ghostty.packages."${system}".default;
+    enableZshIntegration = true;
 
     settings = {
       background-opacity = 0.8;

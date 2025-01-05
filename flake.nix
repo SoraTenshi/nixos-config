@@ -20,8 +20,7 @@
     grub2-theme.url = "github:vinceliuice/grub2-themes";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.1.0";
 
-    ghostty-package.url = "github:ghostty-org/ghostty";
-    ghostty.url = "github:clo4/ghostty-hm-module";
+    ghostty.url = "github:ghostty-org/ghostty";
 
     nix-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
@@ -98,7 +97,7 @@
     , sddm-theme, neovim-nightly, zig-overlay, zls-master, grub2-theme
     , helix-master, picom-ibhagwan, nixos-wsl, darwin, stylix, ags, ags-env
     , vfio, nix-flatpak, nix-cosmic, coplandos, hyprland, zen-browser, binary-ninja, lanzaboote
-    , ghostty, ghostty-package, }:
+    , ghostty, }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
       mkNixOS = import ./lib/mknixos.nix;
@@ -221,7 +220,7 @@
 
       darwinConfigurations = {
         combustible = mkDarwin "combustible" {
-          inherit inputs overlays;
+          inherit inputs overlays nixpkgs;
           system = "aarch64-darwin";
           username = "lemon";
         };

@@ -16,7 +16,7 @@ let
     };
 
 in {
-  fonts = (setupFonts config.system).fonts // { fontDir.enable = true; };
+  fonts = (setupFonts config.system).fonts;
 
   environment.systemPackages = [ pkgs.adwaita-icon-theme ];
 }

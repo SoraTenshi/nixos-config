@@ -2,7 +2,6 @@
   imports = [ ./rice.nix ];
   home.packages = with pkgs; [
     ani-cli
-    bitwarden-cli
     bws
     cachix
     magic-wormhole
@@ -11,5 +10,7 @@
     tldr
     tmate
     unzip
-  ];
+  ] ++ (if system == "x86_64-linux" then with pkgs; [
+      bitwarden-cli
+  ] else []);
 }

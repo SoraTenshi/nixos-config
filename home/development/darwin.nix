@@ -1,4 +1,5 @@
 { pkgs, ... }: {
+  imports = [ ./common-lisp.nix ];
   home.packages = with pkgs; [
     lazydocker
 
@@ -12,10 +13,5 @@
     go
     elixir
     python311 # i can't get around it and i'm tired of always using a nix shell
-
-    racket
-    babashka
-    gauche
-    chez
   ];
 }
