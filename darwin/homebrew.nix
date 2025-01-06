@@ -4,7 +4,7 @@ _: {
     onActivation.cleanup = "zap";
 
     casks = [
-      "datweatherdoe"
+      "bitwarden"
       "docker"
       "keycastr"
       "linearmouse"
