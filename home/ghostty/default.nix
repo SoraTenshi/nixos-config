@@ -1,13 +1,15 @@
-{ inputs, system, ... }:
+_:
 {
   programs.ghostty = {
     enable = true;
-    package = inputs.ghostty.packages."${system}".default;
     enableZshIntegration = true;
 
     settings = {
       background-opacity = 0.8;
       background-blur-radius = 29;
+
+      # because fuck blinking bars. they are obnoxious
+      shell-integration-features = "no-cursor";
 
       font-family = "Lilex Nerd Font Mono"; 
       font-variation = "wght=100";
@@ -26,7 +28,6 @@
 
       window-theme = "dark";
       window-decoration = false;
-      
     };
   };
 }

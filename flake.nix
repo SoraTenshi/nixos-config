@@ -116,7 +116,6 @@
             nixos-wsl.nixosModules.wsl
           ];
           extraHomeModules = [
-            ghostty.homeModules.default
           ];
         };
 
@@ -138,7 +137,6 @@
           ];
           extraHomeModules = [
             ags.homeManagerModules.default
-            ghostty.homeModules.default
             nix-flatpak.homeManagerModules.nix-flatpak
           ];
           monitors = [
@@ -160,7 +158,6 @@
           ];
           extraHomeModules = [
             ags.homeManagerModules.default
-            ghostty.homeModules.default
             # nix-flatpak.homeManagerModules.nix-flatpak
           ];
         };
@@ -187,7 +184,6 @@
           ];
           extraHomeModules = [
             ags.homeManagerModules.default
-            ghostty.homeModules.default
           ];
           monitors = [
             "eDP-1,1920x1200@60,0x0"
@@ -208,7 +204,6 @@
           ];
           extraHomeModules = [
             ags.homeManagerModules.default
-            ghostty.homeModules.default
           ];
           monitors = [
             "HDMI-A-7,1920x1080@60,960x0"

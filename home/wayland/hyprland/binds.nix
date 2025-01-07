@@ -1,7 +1,7 @@
-{ username, ... }:
+_:
 let
   terminal = "kitty";
-  other-terminal = "/home/${username}/.local/bin/ghostty";
+  other-terminal = "ghostty";
   zipWith = f: xs: ys:
     if xs == [ ] || ys == [ ] then
       [ ]

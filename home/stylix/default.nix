@@ -19,6 +19,7 @@ in
       vim.enable = false;
       kitty.enable = false;
       k9s.enable = false;
+      ghostty.enable = false;
     };
   };
 }
