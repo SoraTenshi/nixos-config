@@ -13,7 +13,6 @@ in {
     pkgs.libsForQt5.qt5.qtwayland
     pkgs.xdg-desktop-portal-hyprland
     pkgs.xdg-desktop-portal-gtk
-    pkgs.kdePackages.spectacle
 
     pkgs.hyprcursor
   ];
