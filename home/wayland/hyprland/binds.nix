@@ -29,9 +29,8 @@ in {
         SUPER, X, exec, ags -r "BarState.value = 'executor $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';"''
       ''
         SUPER, P, exec, ags -r "BarState.value = 'app-launcher $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';"''
-      # ''CONTROL, PRINT, exec, grim -g "$(slurp)" - | wl-copy''
-      # ''SHIFTCONTROL, PRINT, exec, grim -g "$(slurp)" - | swappy -f - ''
-      "CONTROL, PRINT, exec, spectacle --region --background --copy-image --no-shadow"
+      ''CONTROL, PRINT, exec, grim -g "$(slurp)" - | wl-copy''
+      ''SHIFTCONTROL, PRINT, exec, grim -g "$(slurp)" - | swappy -f - ''
       "SUPERSHIFTCONTROL, L, exec, hyprlock"
       "SUPERSHIFTCONTROL, Q, exit"
 
