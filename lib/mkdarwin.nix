@@ -21,7 +21,10 @@ in inputs.darwin.lib.darwinSystem {
     ../darwin
     ../modules/font
 
+    inputs.nur.modules.nixos.default
     ({ pkgs, ... }: {
+      home-manager.sharedModules =
+        [ pkgs.nur.repos.rycee.hmModules.emacs-init ] ++ extraHomeModules;
       users.users.${username} = {
         home = "/Users/${username}";
         shell = pkgs.zsh;
