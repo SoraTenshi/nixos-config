@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     steam
 
-    discord
+    discord-canary
 
     firefox
     mumble

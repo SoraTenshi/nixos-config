@@ -197,6 +197,7 @@
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dev";
+          useWireguard = true;
           extraModules = [
             # ./modules/greetd
             ./modules/ly
