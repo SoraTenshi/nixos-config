@@ -47,6 +47,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    seto = {
+      url = "github:unixpariah/Seto";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     zls-master = {
       url = "github:zigtools/zls";
     };
@@ -97,7 +102,7 @@
     , sddm-theme, neovim-nightly, zig-overlay, zls-master, grub2-theme
     , helix-master, picom-ibhagwan, nixos-wsl, darwin, stylix, ags, ags-env
     , vfio, nix-flatpak, nix-cosmic, coplandos, hyprland, zen-browser, binary-ninja, lanzaboote
-    , ghostty, }:
+    , ghostty, seto, }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
       mkNixOS = import ./lib/mknixos.nix;
@@ -138,6 +143,8 @@
           extraHomeModules = [
             ags.homeManagerModules.default
             nix-flatpak.homeManagerModules.nix-flatpak
+            seto.homeManagerModules.default
+            seto.homeManagerModules.stylix
           ];
           monitors = [
             "DP-3,1920x1080@165,0x1080"
@@ -158,6 +165,8 @@
           ];
           extraHomeModules = [
             ags.homeManagerModules.default
+            seto.homeManagerModules.default
+            seto.homeManagerModules.stylix
             # nix-flatpak.homeManagerModules.nix-flatpak
           ];
         };
@@ -184,6 +193,8 @@
           ];
           extraHomeModules = [
             ags.homeManagerModules.default
+            seto.homeManagerModules.default
+            seto.homeManagerModules.stylix
           ];
           monitors = [
             "eDP-1,1920x1200@60,0x0"
@@ -197,7 +208,7 @@
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dev";
-          useWireguard = true;
+          useArcan = true;
           extraModules = [
             # ./modules/greetd
             ./modules/ly
@@ -205,6 +216,8 @@
           ];
           extraHomeModules = [
             ags.homeManagerModules.default
+            seto.homeManagerModules.default
+            seto.homeManagerModules.stylix
           ];
           monitors = [
             "HDMI-A-7,1920x1080@60,960x0"

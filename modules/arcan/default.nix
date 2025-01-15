@@ -1,7 +1,8 @@
 { pkgs, ... }: {
   environment.systemPackages = [
     # Arcan
-    pkgs.arcan pkgs.xarcan
+    pkgs.arcan #pkgs.xarcan
+    pkgs.arcan-all-wrapped
 
     # Arcan WM
     pkgs.durden

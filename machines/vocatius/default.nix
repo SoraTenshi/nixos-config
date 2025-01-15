@@ -18,7 +18,7 @@
           "/dev/disk/by-uuid/bc52c8db-7acd-4e9f-81c4-13f442041b24";
       };
     };
-    kernelModules = [ "v4l2loopback" "kvm-intel" ];
+    kernelModules = [ "v4l2loopback" "kvm-intel" "wireguard" ];
     extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
   };
 
@@ -63,6 +63,19 @@
     useDHCP = false;
     interfaces = {
       eno1.useDHCP = true;
+    };
+    wireguard.enable = true;
+    firewall = {
+      allowedUDPPorts = [ 5182 ];
+      logReversePathDrops = true;
+      extraCommands = ''
+        ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --sport 5182 -j RETURN
+        ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --dport 5182 -j RETURN
+      '';
+      extraStopCommands = ''
+        ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --sport 5182 -j RETURN || true
+        ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --dport 5182 -j RETURN || true
+      '';
     };
   };
 

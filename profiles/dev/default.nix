@@ -19,6 +19,7 @@ in {
     "kitty"
     "lazygit"
     "newsboat"
+    "seto"
     "shells/zsh"
     "spotify"
     "spotify-player"

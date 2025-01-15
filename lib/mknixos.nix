@@ -3,7 +3,7 @@ hostname:
 , isHardwareMachine ? true, isVM ? false
 , extraModules ? [ ] # default to an empty list if not provided
 , extraHomeModules ? [ ], efiSysMountPoint ? "/boot", monitors ? [ ]
-, useStylix ? true, useSecureBoot ? false, useWireguard ? false }:
+, useStylix ? true, useSecureBoot ? false, useWireguard ? false, useArcan ? false }:
 let
   systemSpecificOverlays = [
     (final: prev: {
@@ -34,7 +34,7 @@ in lib.nixosSystem {
     ../modules/common
     ../modules/variables
     ../modules/ssh
-
+    (if useArcan then ../modules/arcan else {})
     (if useWireguard then ../modules/wireguard else {})
 
     inputs.nur.modules.nixos.default
