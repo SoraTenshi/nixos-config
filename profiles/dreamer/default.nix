@@ -8,6 +8,7 @@ in {
     "stylix"
 
     "ags"
+    "anki"
     "binary-ninja"
     "cli-tools"
     "development"

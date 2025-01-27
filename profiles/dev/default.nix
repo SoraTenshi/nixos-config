@@ -8,6 +8,7 @@ in {
     "stylix"
 
     "ags"
+    "anki"
     "cli-tools"
     "development"
     "dunst"

@@ -5,6 +5,7 @@ in {
   xdg.enable = true;
 
   imports = asPath [
+    "anki"
     "cli-tools"
     # "ghostty" # currently broken on macos
     "kitty"
