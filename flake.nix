@@ -116,6 +116,7 @@
           isHardwareMachine = false;
           system = "x86_64-linux";
           username = "nightmare";
+          useAndroidEmulation = true;
           extraModules = [
             ./modules/distcc
             nixos-wsl.nixosModules.wsl
