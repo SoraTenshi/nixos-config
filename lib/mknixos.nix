@@ -3,7 +3,8 @@ hostname:
 , isHardwareMachine ? true, isVM ? false
 , extraModules ? [ ] # default to an empty list if not provided
 , extraHomeModules ? [ ], efiSysMountPoint ? "/boot", monitors ? [ ]
-, useStylix ? true, useSecureBoot ? false, useWireguard ? false, useArcan ? false }:
+, useStylix ? true, useSecureBoot ? false, useWireguard ? false, useArcan ? false
+, useAndroidEmulation ? false, }:
 let
   systemSpecificOverlays = [
     (final: prev: {
@@ -34,6 +35,7 @@ in lib.nixosSystem {
     ../modules/common
     ../modules/variables
     ../modules/ssh
+    (if useAndroidEmulation then ../modules/waydroid else {})
     (if useArcan then ../modules/arcan else {})
     (if useWireguard then ../modules/wireguard else {})
 

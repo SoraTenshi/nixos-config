@@ -130,6 +130,7 @@
           system = "x86_64-linux";
           username = "dreamer";
           useSecureBoot = false;
+          useAndroidEmulation = true;
           efiSysMountPoint = "/boot/efi";
           extraModules = [
             ./modules/nvidia
@@ -186,6 +187,7 @@
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dev";
+          useAndroidEmulation = true;
           extraModules = [
             # ./modules/greetd
             ./modules/ly
@@ -209,6 +211,7 @@
           system = "x86_64-linux";
           username = "dev";
           useArcan = true;
+          useAndroidEmulation = true;
           extraModules = [
             # ./modules/greetd
             ./modules/ly
