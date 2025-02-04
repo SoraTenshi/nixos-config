@@ -10,6 +10,7 @@ _: {
         editor = "hx";
         paginate = "never";
         merge-editor = ":builtin";
+        default-command = ["log" "--reversed"];
       };
       signing = {
         sign-all = true;
