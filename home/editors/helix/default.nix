@@ -16,6 +16,16 @@ _: {
           file-types = [ "html" "shtml" ];
           language-servers = [ "superhtml-lsp" ];
         }
+        {
+          name = "common-lisp";
+          scope = "source.lisp";
+          file-types = ["lisp" "asd" "cl" "l" "lsp" "ny" "podsl" "sexp" "ros"];
+          shebangs = ["lisp" "sbcl" "ccl" "clisp" "ecl"];
+          comment-token = ";";
+          indent = { tab-width = 2; unit = "  "; };
+          language-servers = [ "cl-lsp" ];
+          grammar = "scheme";
+        }
       ];
     };
     settings = {

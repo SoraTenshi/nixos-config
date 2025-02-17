@@ -49,11 +49,17 @@ in {
       enableCompletion = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
-      plugins = [{
+      plugins = [
+      {
         name = "zsh-you-should-use";
         src = pkgs.zsh-you-should-use;
         file = "share/zsh/plugins/you-should-use/you-should-use.plugin.zsh";
-      }];
+      }
+      {
+        name = "zig-shell-completions";
+        src = pkgs.zig-shell-completions;
+      }
+      ];
 
       initExtra = ''
         export PATH=$PATH:~/.cargo/bin:~/.local/bin:~/.roswell/bin

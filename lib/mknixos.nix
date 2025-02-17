@@ -2,8 +2,8 @@ hostname:
 { inputs, nixpkgs, system, username, overlays
 , isHardwareMachine ? true, isVM ? false
 , extraModules ? [ ] # default to an empty list if not provided
-, extraHomeModules ? [ ], efiSysMountPoint ? "/boot", monitors ? [ ]
-, useStylix ? true, useSecureBoot ? false, useWireguard ? false, useArcan ? false
+, extraHomeModules ? [ ], monitors ? [ ] , useStylix ? true
+, useSecureBoot ? false, useWireguard ? false, useArcan ? false
 , useAndroidEmulation ? false, }:
 let
   systemSpecificOverlays = [
@@ -18,9 +18,9 @@ let
 in lib.nixosSystem {
   inherit system;
   specialArgs = if isHardwareMachine then {
-    inherit inputs isVM username efiSysMountPoint;
+    inherit inputs isVM username;
   } else {
-    inherit username isVM efiSysMountPoint;
+    inherit username isVM;
   };
   modules = [
     {

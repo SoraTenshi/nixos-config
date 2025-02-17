@@ -12,7 +12,7 @@
 
     # compiler
     zigpkgs.master
-    # zigpkgs."0.13.0"
+    # zigpkgs."0.14.0"
     odin
     clang
     go
@@ -39,5 +39,8 @@
 
     # Nixfmt
     nixfmt-classic
+
+    # R stuff (graphing)
+    pkgs.R
   ];
 }

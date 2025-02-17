@@ -131,11 +131,11 @@
           system = "x86_64-linux";
           username = "dreamer";
           useSecureBoot = false;
+          useArcan = true;
           useAndroidEmulation = true;
-          efiSysMountPoint = "/boot/efi";
           extraModules = [
             ./modules/nvidia
-            ./modules/greetd
+            ./modules/ly
             # ./modules/libvirtd
             # nix-cosmic.nixosModules.default
             # vfio.nixosModules.vfio

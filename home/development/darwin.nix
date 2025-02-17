@@ -6,7 +6,7 @@
     gitu
 
     # some commonly used compiler stuff
-    zigpkgs.master
+    zigpkgs."0.14.0"
     guile
     cargo
     rustc

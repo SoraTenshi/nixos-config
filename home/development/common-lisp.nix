@@ -12,6 +12,10 @@ let
 
     # Strings & dependencies
     str
+
+    # required for cl-lsp
+    qlot
+    qlot-cli
   ]);
 in
 {
