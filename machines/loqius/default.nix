@@ -44,9 +44,8 @@
     };
     useDHCP = false;
     interfaces = {
-      enp0s13f0u1u4c2.useDHCP = true;
       enp0s31f6.useDHCP = true;
-      wlp0s20f3.useDHCP = true;
+      wlan0.useDHCP = true;
     };
   };
 

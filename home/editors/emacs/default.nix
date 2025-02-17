@@ -1,9 +1,10 @@
-_: {
+{ pkgs, ... }: {
   # Necessary plugins:
   # - zig-mode
   # - rainbow indentation guides (need to be figured out)
   programs.emacs = {
     enable = true;
+    package = pkgs.emacs30;
 
     init = {
       enable = true;

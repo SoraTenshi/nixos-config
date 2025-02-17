@@ -8,7 +8,6 @@ in {
     pkgs.wdisplays
     pkgs.grim
     pkgs.slurp
-    pkgs.xwaylandvideobridge
     pkgs.qt6.qtwayland
     pkgs.libsForQt5.qt5.qtwayland
     pkgs.xdg-desktop-portal-hyprland
@@ -34,7 +33,7 @@ in {
       background = {
         monitor = "";
         path = lib.mkForce "screenshot";
-        color = "rgba(0,0,0,0.0)";
+        color = lib.mkForce "rgb(24283b)";
         blur_passes = 2;
         blur_size = 10;
         noise = "0.0117";
