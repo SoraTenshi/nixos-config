@@ -16,6 +16,7 @@ in {
     "email"
     "ghostty"
     "gtk-theme"
+    "guix"
     "jj"
     "kitty"
     "lazygit"

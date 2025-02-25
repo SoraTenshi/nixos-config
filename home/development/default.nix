@@ -29,12 +29,10 @@
 
     # Python, :(
     python311 # i can't get around it and i'm tired of always using a nix shell
+    hy
 
     # cmake
     cmake gnumake
-
-    # Clojure like (for shell scripts)
-    joker
 
     # Qemu
     qemu

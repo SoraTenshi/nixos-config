@@ -1,1 +1,3 @@
-{ pkgs, ... }: { home.packages = [ pkgs.guix ]; }
+{ pkgs, ... }: {
+  home.packages = [ pkgs.guix ];
+}
