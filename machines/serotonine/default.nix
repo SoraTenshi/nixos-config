@@ -45,5 +45,5 @@
   swapDevices =
     [{ device = "/dev/disk/by-uuid/b28aea64-8b57-405d-a64f-d17f425cf472"; }];
 
-  system.stateVersion = "unstable";
+  system.stateVersion = "24.11";
 }

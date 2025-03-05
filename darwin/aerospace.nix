@@ -61,6 +61,11 @@ _: {
         alt-equal = "balance-sizes";
       };
 
+      mode.service.binding = {
+        esc = ["reload-config" "mode main"];
+        space = ["layout floating tiling" "mode main"];
+      };
+
       on-window-detected = [
         {
           "if".app-name-regex-substring = "notes|finder|messages|system settings";

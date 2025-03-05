@@ -78,5 +78,5 @@
   hardware.cpu.amd.updateMicrocode =
     lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-  system.stateVersion = "unstable";
+  system.stateVersion = "24.11";
 }
