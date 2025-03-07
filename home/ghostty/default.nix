@@ -13,7 +13,7 @@ _:
 
       font-family = "Lilex Nerd Font Mono"; 
       font-variation = "wght=100";
-      font-size = "18";
+      font-size = "16";
       font-feature = [ "cv08" "cv09" "cv10" ];
       font-thicken = false;
 

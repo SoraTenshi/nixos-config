@@ -4,6 +4,8 @@ let
     pkgs.rictydiminished-with-firacode
     pkgs.noto-fonts
     pkgs.noto-fonts-cjk-sans
+    pkgs.noto-fonts-cjk-serif
+    pkgs.wqy_zenhei
     pkgs.noto-fonts-emoji-blob-bin
     pkgs.lilex
     pkgs.nerd-fonts.lilex

@@ -1,7 +1,5 @@
 { inputs, pkgs, system, ... }:  {
   home.packages = with pkgs; [
-    steam
-
     discord-canary
 
     firefox

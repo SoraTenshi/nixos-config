@@ -135,6 +135,7 @@
           extraModules = [
             ./modules/nvidia
             ./modules/ly
+            ./modules/steam
             # ./modules/libvirtd
             # nix-cosmic.nixosModules.default
             # vfio.nixosModules.vfio
