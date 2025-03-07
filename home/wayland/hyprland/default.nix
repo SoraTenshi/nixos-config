@@ -34,7 +34,6 @@ in {
         monitor = "";
         path = lib.mkForce "screenshot";
         color = lib.mkForce "rgb(24283b)";
-        color = "rgba(0,0,0,0.0)";
         blur_passes = 2;
         blur_size = 10;
         noise = "0.0117";

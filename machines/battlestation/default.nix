@@ -28,38 +28,20 @@
     powerOnBoot = true;
   };
 
-  services.xserver = {
-    # Sucks to be me, i have to adjust it every time i move cable / connections
-    # Thank you x11...
-    # Well also under wayland this won't work as intented.....
-
-    # Linux desktop truly is a mess.
-    displayManager.sessionCommands = ''
-      xrandr \
-        --output DP-4 --mode 1920x1080 --rate 165 --pos 0x1080 \
-        --output HDMI-0 --mode 1920x1080 --rate 60 --pos 990x0 \
-        --output DP-0 --mode 1920x1080 --rate 75 --pos 1920x1080 \
-        --output DP-1 --off \
-        --output DP-2 --off \
-        --output DP-3 --off \
-        --output DP-5 --off
-    '';
-  };
-
   environment.systemPackages = [ pkgs.egl-wayland pkgs.nvidia-vaapi-driver ];
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/c2d3c3eb-96e5-44ea-b36c-7b5679ba48a8";
-    fsType = "ext4";
-  };
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/b20bc060-36e0-4197-9038-4b3113064540";
+      fsType = "ext4";
+    };
 
-  fileSystems."/boot/efi" = {
-    device = "/dev/disk/by-uuid/81D1-752B";
-    fsType = "vfat";
-  };
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/BFC1-4BB5";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
 
-  swapDevices =
-    [{ device = "/dev/disk/by-uuid/d4761b59-4325-4677-894f-d473e45ab3ad"; }];
+  swapDevices = [{ device = "/dev/disk/by-uuid/460f529b-50b8-47e3-aaa8-1b06c28151a5"; }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

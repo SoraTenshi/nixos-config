@@ -66,7 +66,8 @@
     };
 
     zen-browser = {
-      url = "github:MarceColl/zen-browser-flake";
+      url = "github:maximoffua/zen-browser.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     binary-ninja = {
