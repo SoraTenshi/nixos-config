@@ -13,7 +13,7 @@ _: {
         default-command = ["log" "--reversed"];
       };
       signing = {
-        sign-all = true;
+        behavior = "own";
         backend = "ssh";
         key = "~/.ssh/id_ed25519.pub";
       };
