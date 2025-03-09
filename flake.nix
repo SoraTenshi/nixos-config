@@ -172,16 +172,6 @@
           ];
         };
 
-        radium = mkNixOS "radium" {
-          inherit inputs overlays;
-          nixpkgs = nixpkgs-nixos;
-          system = "aarch64-linux";
-          username = "spectre";
-          isVM = true;
-          useStylix = false;
-          extraModules = [ ./modules/greetd ];
-        };
-
         loqius = mkNixOS "loqius" {
           inherit inputs overlays;
           nixpkgs = nixpkgs-nixos;
