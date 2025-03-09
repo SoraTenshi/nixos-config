@@ -16,7 +16,6 @@
     };
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
-    zig-overlay.url = "github:mitchellh/zig-overlay";
     grub2-theme.url = "github:vinceliuice/grub2-themes";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.1.0";
 
@@ -100,7 +99,7 @@
   };
 
   outputs = inputs @ { self, nixpkgs-nixos, nixpkgs, nur, home-manager, nixos-hardware
-    , sddm-theme, neovim-nightly, zig-overlay, zls-master, grub2-theme
+    , sddm-theme, neovim-nightly, zls-master, grub2-theme
     , helix-master, picom-ibhagwan, nixos-wsl, darwin, stylix, ags, ags-env
     , vfio, nix-flatpak, nix-cosmic, coplandos, hyprland, zen-browser, binary-ninja, lanzaboote
     , ghostty, seto, }:
@@ -108,7 +107,7 @@
       mkDarwin = import ./lib/mkdarwin.nix;
       mkNixOS = import ./lib/mknixos.nix;
 
-      overlays = [ zig-overlay.overlays.default ];
+      overlays = [ ];
     in {
       nixosConfigurations = {
         plutonium = mkNixOS "plutonium" {
@@ -119,7 +118,6 @@
           username = "nightmare";
           useAndroidEmulation = true;
           extraModules = [
-            ./modules/distcc
             nixos-wsl.nixosModules.wsl
           ];
           extraHomeModules = [
