@@ -1,11 +1,12 @@
-_:
+{ lib, ... }:
 let asPath = paths: map (path: ../../home + "/${path}") paths;
 in {
   home.stateVersion = "24.11";
+  home.homeDirectory = lib.mkForce "/Users/lemon";
   xdg.enable = true;
 
   imports = asPath [
-    "anki"
+    # "anki"
     "cli-tools"
     # "ghostty" # currently broken on macos
     "kitty"

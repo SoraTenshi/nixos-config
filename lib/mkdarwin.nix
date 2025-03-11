@@ -20,16 +20,6 @@ in inputs.darwin.lib.darwinSystem {
     ../machines/${hostname}
     ../darwin
     ../modules/font
-
-    inputs.nur.modules.nixos.default
-    ({ pkgs, ... }: {
-      home-manager.sharedModules =
-        [ pkgs.nur.repos.rycee.hmModules.emacs-init ] ++ extraHomeModules;
-      users.users.${username} = {
-        home = "/Users/${username}";
-        shell = pkgs.zsh;
-      };
-    })
   ] ++ extraModules ++ [
     inputs.home-manager.darwinModules.home-manager
     {

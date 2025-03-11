@@ -1,10 +1,6 @@
 { pkgs, ... }: {
   imports = [ ../../configuration.nix ];
 
-  services.nix-daemon.enable = true;
-  nix.useDaemon = true;
-  nix.configureBuildUsers = true;
-
   programs.zsh.enable = true;
   programs.zsh.shellInit = ''
     if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
