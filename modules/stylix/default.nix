@@ -10,11 +10,6 @@
       popups = 0.8;
     };
 
-    cursor = {
-      name = "Catppuccin-Macchiato-Blue-Cursors";
-      package = pkgs.catppuccin-cursors.macchiatoBlue;
-    };
-
     targets = {
       plymouth.enable = false;
       grub.enable = false;

@@ -1,16 +1,7 @@
-{ pkgs, ... }: 
-let
-  cursorPackage = pkgs.catppuccin-cursors.macchiatoBlue;
-  cursorName = "Catppuccin-Macchiato-Blue-Cursors";
-in
-{
+_: {
   stylix = {
     enable = true;
     autoEnable = true;
-    cursor = {
-      package = cursorPackage;
-      name = cursorName;
-    };
     targets = {
       fzf.enable = false;
       bat.enable = true;

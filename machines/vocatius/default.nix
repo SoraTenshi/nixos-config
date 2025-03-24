@@ -28,9 +28,9 @@
     cpu.intel.updateMicrocode = true;
     intel-gpu-tools.enable = true;
     graphics= {
-      package = pkgs.mesa.drivers;
+      package = pkgs.mesa;
       enable32Bit = true;
-      package32 = pkgs.pkgsi686Linux.mesa.drivers;
+      package32 = pkgs.pkgsi686Linux.mesa;
     };
     bluetooth = {
       enable = true;

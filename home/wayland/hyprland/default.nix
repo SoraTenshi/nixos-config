@@ -1,6 +1,4 @@
-{ inputs, config, pkgs, lib, ... }:
-let cursor = config.home.pointerCursor;
-in {
+{ inputs, pkgs, lib, ... }: {
   imports = [ ./settings.nix ./binds.nix ];
 
   home.packages = [
@@ -42,7 +40,7 @@ in {
     };
   };
 
-  programs.wpaperd = {
+  services.wpaperd = {
     enable = true;
     settings = {
       default = {
@@ -67,7 +65,6 @@ in {
 
     settings = {
       exec-once = [
-        "hyprctl setcursor ${cursor.name} ${toString cursor.size}"
         "ags"
         "fcitx5-remote -r"
         "fcitx5 -d --replace"
