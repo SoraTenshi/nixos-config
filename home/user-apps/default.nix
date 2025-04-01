@@ -7,6 +7,7 @@
     zathura
     spacedrive
     nheko
+    mpv
     inputs.zen-browser.packages."${system}".default
 
     bitwarden-desktop
