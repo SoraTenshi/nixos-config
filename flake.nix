@@ -227,7 +227,7 @@
           system = "aarch64-darwin";
           username = "lemon";
           extraModules = [
-            ./modules/mullvad
+            # ./modules/mullvad
           ];
         };
       };
