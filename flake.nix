@@ -226,6 +226,9 @@
           inherit inputs overlays nixpkgs;
           system = "aarch64-darwin";
           username = "lemon";
+          extraModules = [
+            ./modules/mullvad
+          ];
         };
       };
     };
