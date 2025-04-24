@@ -132,6 +132,7 @@
           useSecureBoot = false;
           useArcan = true;
           useAndroidEmulation = true;
+          useChromium = true;
           extraModules = [
             ./modules/nvidia
             ./modules/ly
