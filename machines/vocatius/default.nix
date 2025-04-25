@@ -27,10 +27,11 @@
     enableRedistributableFirmware = true;
     cpu.intel.updateMicrocode = true;
     intel-gpu-tools.enable = true;
-    graphics= {
+    graphics = {
       package = pkgs.mesa;
       enable32Bit = true;
       package32 = pkgs.pkgsi686Linux.mesa;
+      extraPackages = [ pkgs.intel-media-driver ];
     };
     bluetooth = {
       enable = true;
@@ -46,11 +47,15 @@
   environment.systemPackages = [
     pkgs.intel-ocl
     pkgs.intel-vaapi-driver
-    pkgs.vaapiIntel
     pkgs.vaapiVdpau
     pkgs.libvdpau-va-gl
     pkgs.egl-wayland
+    pkgs.libva-utils
   ];
+
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
+  };
 
   services.upower.enable = true;
 
