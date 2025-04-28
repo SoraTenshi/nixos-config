@@ -1,7 +1,6 @@
 { inputs, pkgs, system, useChromium, ... }:  {
   home.packages = with pkgs; [
     discord-canary
-    mullvad
 
     firefox
     mumble

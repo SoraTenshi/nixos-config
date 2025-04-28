@@ -53,6 +53,7 @@ in lib.nixosSystem {
     # ../modules/x11
     ../modules/wayland
     ../modules/sound
+    ../modules/mullvad
 
     # End the scope, and add an additional list of the extra modules
   ] else

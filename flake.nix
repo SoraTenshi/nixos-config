@@ -203,6 +203,7 @@
           system = "x86_64-linux";
           username = "dev";
           useArcan = true;
+          useChromium = true;
           useAndroidEmulation = true;
           extraModules = [
             # ./modules/greetd
