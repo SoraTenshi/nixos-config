@@ -61,7 +61,7 @@ in {
 
     cursor = {
       no_hardware_cursors = true;
-      enable_hyprcursor = false;
+      enable_hyprcursor = true;
       hide_on_touch = true;
     };
 

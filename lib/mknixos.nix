@@ -41,8 +41,9 @@ in lib.nixosSystem {
 
     inputs.nur.modules.nixos.default
     ({ pkgs, ... }: {
-      home-manager.sharedModules =
-        [ pkgs.nur.repos.rycee.hmModules.emacs-init ] ++ extraHomeModules;
+      home-manager.sharedModules = [
+          pkgs.nur.repos.rycee.hmModules.emacs-init
+      ] ++ extraHomeModules;
     })
 
     # only for hardware
