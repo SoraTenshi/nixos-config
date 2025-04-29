@@ -28,7 +28,9 @@
     powerOnBoot = true;
   };
 
-  environment.systemPackages = [ pkgs.egl-wayland pkgs.nvidia-vaapi-driver ];
+  environment.systemPackages = [
+    pkgs.egl-wayland
+  ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/b20bc060-36e0-4197-9038-4b3113064540";
