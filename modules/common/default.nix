@@ -6,7 +6,7 @@
   };
 
   environment.sessionVariables = {
-    FLAKE = "/home/${username}/dev/nixos-config";
+    NH_FLAKE = "/home/${username}/dev/nixos-config";
     STEEL_HOME = "/home/${username}/.config/steel";
   };
 

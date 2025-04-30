@@ -1,18 +1,10 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 let
   cursorPackage = pkgs.catppuccin-cursors.macchiatoLavender;
   cursorName = "catppuccin-macchiato-lavender-cursors";
   cursorSize = 32;
 in
 {
-  qt = {
-    enable = true;
-    style = {
-      name = lib.mkForce "Tokyonight-Dark-Storm";
-      package = pkgs.tokyo-night-gtk;
-    };
-  };
-
   gtk = {
     enable = true;
     theme = {

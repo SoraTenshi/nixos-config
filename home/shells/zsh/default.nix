@@ -61,7 +61,7 @@ in {
       }
       ];
 
-      initExtra = ''
+      initContent = ''
         export PATH=$PATH:~/.cargo/bin:~/.local/bin:~/.roswell/bin
         export YSU_HARDCORE=1
 
