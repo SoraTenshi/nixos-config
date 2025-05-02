@@ -15,5 +15,6 @@ in {
 
     "editors/helix"
     "shells/zsh"
+    "shells/schemesh"
   ];
 }
