@@ -13,6 +13,7 @@ in {
     "jj"
     "pwn"
 
+    "editors/helix-steel"
     "editors/helix"
     "shells/zsh"
     "shells/schemesh"
