@@ -20,8 +20,8 @@
   # };
 
   i18n = {
-    defaultLocale = "en_US.utf8";
-    supportedLocales = [ "en_US.UTF-8/UTF-8" "ja_JP.UTF-8/UTF-8" ];
+    defaultLocale = "en_US.UTF-8";
+    extraLocales = [ "en_US.UTF-8" "ja_JP.UTF-8" ];
     extraLocaleSettings = {
       LANGUAGE = "en_US.UTF-8";
       LC_ALL = "en_US.UTF-8";
@@ -42,6 +42,7 @@
         fcitx5-mozc
         fcitx5-gtk
         fcitx5-rose-pine
+        fcitx5-configtool
         # fcitx5-skk
       ];
     };
