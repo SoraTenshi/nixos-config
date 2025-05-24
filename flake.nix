@@ -108,6 +108,8 @@
     , helix-master, picom-ibhagwan, nixos-wsl, darwin, stylix, ags, ags-env
     , vfio, nix-flatpak, coplandos, hyprland, zen-browser, binary-ninja, lanzaboote
     , ghostty, seto, spicetify }:
+    , vfio, nix-flatpak, nix-cosmic, coplandos, hyprland, zen-browser, binary-ninja, lanzaboote
+    , ghostty, seto, }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
       mkNixOS = import ./lib/mknixos.nix;

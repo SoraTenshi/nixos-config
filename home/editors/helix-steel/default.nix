@@ -1,7 +1,9 @@
-{ inputs, system, ... }:
-let
-  hxs = inputs.helix-steel.packages.${system}.default;
-in
+{ inputs, system, pkgs, username, ... }:
 {
-  home.packages = [ hxs ];
+  home.sessionVariables = {
+    HELIX_STEEL_CONFIG = "/home/${username}/.config/hxs/";
+    # STEEL_LSP_HOME = "/home/${username}/.config/hxs/steel-lsp";
+  };
+
+  home.packages = [ pkgs.steel ];
 }
