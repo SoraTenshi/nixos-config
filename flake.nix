@@ -36,6 +36,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    spicetify = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     neovim-nightly = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -102,7 +107,7 @@
     , sddm-theme, neovim-nightly, zls-master, grub2-theme
     , helix-master, picom-ibhagwan, nixos-wsl, darwin, stylix, ags, ags-env
     , vfio, nix-flatpak, nix-cosmic, coplandos, hyprland, zen-browser, binary-ninja, lanzaboote
-    , ghostty, seto, }:
+    , ghostty, seto, spicetify }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
       mkNixOS = import ./lib/mknixos.nix;
@@ -148,6 +153,7 @@
             nix-flatpak.homeManagerModules.nix-flatpak
             seto.homeManagerModules.default
             seto.homeManagerModules.stylix
+            spicetify.homeManagerModules.default
           ];
           monitors = [
             "DP-3,1920x1080@165,0x1080"
@@ -189,6 +195,7 @@
             ags.homeManagerModules.default
             seto.homeManagerModules.default
             seto.homeManagerModules.stylix
+            spicetify.homeManagerModules.default
           ];
           monitors = [
             "eDP-1,1920x1200@60,0x0"
@@ -214,6 +221,7 @@
             ags.homeManagerModules.default
             seto.homeManagerModules.default
             seto.homeManagerModules.stylix
+            spicetify.homeManagerModules.default
           ];
           monitors = [
             "HDMI-A-7,1920x1080@60,960x0"
