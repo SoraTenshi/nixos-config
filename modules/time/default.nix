@@ -21,7 +21,7 @@
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
-    extraLocales = [ "en_US.UTF-8" "ja_JP.UTF-8" ];
+    extraLocales = [ "en_US.UTF-8/UTF-8" "ja_JP.UTF-8/UTF-8" ];
     extraLocaleSettings = {
       LANGUAGE = "en_US.UTF-8";
       LC_ALL = "en_US.UTF-8";
