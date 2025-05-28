@@ -9,6 +9,7 @@ let
     pkgs.noto-fonts-emoji-blob-bin
     pkgs.lilex
     pkgs.nerd-fonts.lilex
+    pkgs.weather-icons
   ];
   setupFonts = system:
     if system != "aarch64-darwin" then {

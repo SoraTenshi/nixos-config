@@ -11,7 +11,7 @@
     cmake-language-server # Cmake, pray to never need to use it
     gopls # Go
     nil # Nix
-    rust-analyzer # Rust
+    # rust-analyzer # Rust
     texlab # LaTeX
     zls # Zig
     elixir_ls # Elixir

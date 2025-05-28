@@ -17,10 +17,11 @@
     go
 
     # Rust
-    cargo
-    rustc
-    clippy
-    rustfmt
+    # cargo
+    # rustc
+    rustup
+    # clippy
+    # rustfmt
 
     # BEAM VM
     elixir

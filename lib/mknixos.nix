@@ -4,7 +4,7 @@ hostname:
 , extraModules ? [ ] # default to an empty list if not provided
 , extraHomeModules ? [ ], monitors ? [ ] , useStylix ? true
 , useSecureBoot ? false, useWireguard ? false, useArcan ? false
-, useAndroidEmulation ? false, useChromium ? false }:
+, useAndroidEmulation ? false, useChromium ? false, autostart ? [ ] }:
 let
   systemSpecificOverlays = [
     (final: prev: {
@@ -67,7 +67,7 @@ in lib.nixosSystem {
           useGlobalPkgs = true;
           useUserPackages = true;
           extraSpecialArgs = if isHardwareMachine then {
-            inherit inputs username monitors system useChromium;
+            inherit inputs username monitors system useChromium autostart;
           } else {
             inherit inputs username system;
           };

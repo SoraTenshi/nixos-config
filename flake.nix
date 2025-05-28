@@ -21,11 +21,6 @@
 
     ghostty.url = "github:ghostty-org/ghostty";
 
-    nix-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     darwin = {
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -106,7 +101,7 @@
   outputs = inputs @ { self, nixpkgs-nixos, nixpkgs, nur, home-manager, nixos-hardware
     , sddm-theme, neovim-nightly, zls-master, grub2-theme
     , helix-master, picom-ibhagwan, nixos-wsl, darwin, stylix, ags, ags-env
-    , vfio, nix-flatpak, nix-cosmic, coplandos, hyprland, zen-browser, binary-ninja, lanzaboote
+    , vfio, nix-flatpak, coplandos, hyprland, zen-browser, binary-ninja, lanzaboote
     , ghostty, seto, spicetify }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
@@ -143,7 +138,6 @@
             ./modules/ly
             ./modules/steam
             # ./modules/libvirtd
-            # nix-cosmic.nixosModules.default
             # vfio.nixosModules.vfio
             lanzaboote.nixosModules.lanzaboote
             stylix.nixosModules.stylix
@@ -159,6 +153,11 @@
             "DP-3,1920x1080@165,0x1080"
             "DP-2,1920x1080@75,1920x1080"
             "HDMI-A-1,1920x1080@60,960x0"
+          ];
+          autostart = [
+            "[workspace 1 silent] ghostty"
+            "[workspace 2 silent] zen"
+            "[workspace 8 silent] discordcanary"
           ];
         };
 
@@ -202,6 +201,14 @@
             "HDMI-A-1,1920x1080@120,1920x0"
             "DP-1,1920x1080@75,3840x0"
           ];
+          autostart = [
+            "[workspace 1 silent] ghostty"
+            "[workspace 2 silent] firefox"
+            "[workspace 9 silent] keepassxc"
+            "[workspace 4 silent] thunderbird"
+            "[workspace 5 silent] mumble"
+            "[workspace 6 silent] zen"
+          ];
         };
 
         vocatius = mkNixOS "vocatius" {
@@ -227,6 +234,14 @@
             "HDMI-A-7,1920x1080@60,960x0"
             "DP-4,1920x1080@165,0x1080"
             "DP-5,1920x1080@60,1920x1080"
+          ];
+          autostart = [
+            "[workspace 1 silent] ghostty"
+            "[workspace 2 silent] firefox"
+            "[workspace 9 silent] keepassxc"
+            "[workspace 4 silent] thunderbird"
+            "[workspace 5 silent] mumble"
+            "[workspace 6 silent] zen"
           ];
         };
       };

@@ -1,4 +1,4 @@
-{ monitors, lib, ... }:
+{ monitors, lib, autostart, ... }:
 let
   keys = [ "1" "2" "3" "4" "5" "6" "7" "8" "9" ];
 
@@ -88,6 +88,8 @@ in {
       "bordersize 1,floating:0,onworkspace:f[1]"
       "rounding 0,floating:0,onworkspace:f[1]"
     ];
+
+    exec-once = autostart;
 
     workspace = (builtins.concatMap workspaces keys) ++ [
       # Smart gaps
