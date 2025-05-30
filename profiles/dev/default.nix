@@ -14,6 +14,7 @@ in {
     "dunst"
     "editors/emacs"
     "email"
+    "fuzzel"
     "ghostty"
     "gtk-theme"
     "guix"

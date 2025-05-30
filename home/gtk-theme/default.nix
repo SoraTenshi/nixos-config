@@ -1,10 +1,4 @@
-{ pkgs, ... }:
-let
-  cursorPackage = pkgs.catppuccin-cursors.macchiatoLavender;
-  cursorName = "catppuccin-macchiato-lavender-cursors";
-  cursorSize = 32;
-in
-{
+{ pkgs, ... }: {
   gtk = {
     enable = true;
     theme = {
@@ -14,16 +8,5 @@ in
         tweakVariants = [ "storm" ];
       };
     };
-  };
-
-  home.pointerCursor = {
-    enable = true;
-    name = cursorName;
-    size = cursorSize;
-    package = cursorPackage;
-    gtk.enable = true;
-    hyprcursor.enable = true;
-    hyprcursor.size = cursorSize;
-    x11.enable = true;
   };
 }
