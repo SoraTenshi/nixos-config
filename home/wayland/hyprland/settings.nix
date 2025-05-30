@@ -82,6 +82,8 @@ in {
       "workspace,5,class:^(mumble)$"
       "workspace,9,class:^(keepassxc)$"
 
+      "opacity 1.0 override,tag:fuzzel"
+
       # Smart Gaps
       "bordersize 1,floating:0,onworkspace:w[tv1]"
       "rounding 0,floating:0,onworkspace:w[tv1]"
