@@ -1,4 +1,8 @@
 { pkgs, ... }: {
+  home.packages = [
+    pkgs.shutdown-script-ros
+  ];
+
   programs.fuzzel = {
     enable = true;
     settings = {

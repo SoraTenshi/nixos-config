@@ -1,0 +1,52 @@
+#!/usr/bin/env sh
+#|-*- mode:lisp -*-|#
+#|
+exec ros -Q -- $0 "$@"
+|#
+(progn ;;init forms
+  (ros:ensure-asdf)
+  #+quicklisp(ql:quickload '(uiop) :silent t)
+  )
+
+(defpackage :ros.script.shutdown
+  (:use :cl))
+(in-package :ros.script.shutdown)
+
+(defun show-power-menu ()
+  (let* ((menu-options '("Lock"
+                         "Hibernate"
+                         "Suspend"
+                         "Log Out"
+                         "Reboot"
+                         "Hard Reboot"
+                         "Shutdown"))
+         (menu (format nil "~{~A~^~%~}" menu-options))
+         (menu-stream (make-string-input-stream menu))
+         (selection (uiop:run-program
+                      (list "fuzzel"
+                            "--dmenu"
+                            "-f" "Lilex Nerd Font"
+                            "-l" (write-to-string (length menu-options))
+                            "--line-height=32"
+                            "-r" "0"
+                            "-w" "60"
+                            "--match-mode=fzf"
+                            "-p" "Power Menu: ")
+                     :input menu-stream
+                     :output :string
+                     :ignore-error-status t)))
+
+    (cond
+     ((search "Lock" selection) (uiop:run-program "hyprlock"))
+     ((search "Hibernate" selection) (uiop:run-program (list "systemctl" "hibernate")))
+     ((search "Suspend" selection) (uiop:run-program (list "systemctl" "suspend")))
+     ((search "Log Out" selection) (uiop:run-program (list "hyprctl" "dispatch" "exit")))
+     ((search "Reboot" selection) (uiop:run-program (list "systemctl" "reboot")))
+     ((search "Hard reboot" selection) (uiop:run-program (list "pkexec" "echo" "b" ">" "/proc/sysrq-trigger")))
+     ((search "Shutdown" selection) (uiop:run-program (list "systemctl" "poweroff"))))))
+
+(defun main (&rest argv)
+  (declare (ignorable argv))
+  (show-power-menu))
+
+;;; vim: set ft=lisp lisp:

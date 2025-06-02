@@ -23,14 +23,14 @@ in {
       "SUPERSHIFT, D, exec, discord --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime"
       "SUPERSHIFT, RETURN, exec, ${terminal}"
       "SUPER, RETURN, exec, GDK_DEBUG=gl-disable-gles ${other-terminal}"
-      ''
-        SUPERSHIFT, P, exec, ags -r "BarState.value = 'shutdown $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';"''
+      # ''
+      #   SUPERSHIFT, P, exec, ags -r "BarState.value = 'shutdown $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';"''
       # ''
       #   SUPER, X, exec, ags -r "BarState.value = 'executor $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';"''
       # ''
       #   SUPER, P, exec, ags -r "BarState.value = 'app-launcher $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';"
       # ''
-      
+      ''SUPERSHIFT, P, exec, shutdown-menu''
       ''SUPER, X, exec, fuzzel -T "xterm -e" -p "λ " --lines 0 --line-height=40 -x 20 -y 5 -f "Lilex Nerd Font 80" -r 0''
       ''SUPER, P, exec, fuzzel -f "Lilex Nerd Font" -l 10 --line-height=32 -r 0 -w 60 --match-mode=fzf -p ">_ "''
       ''CONTROL, PRINT, exec, grim -g "$(slurp)" - | wl-copy''

@@ -14,7 +14,6 @@ in {
     };
     targets = {
       fzf.enable = false;
-      bat.enable = true;
       gtk.enable = false;
       helix.enable = false;
       kitty.enable = false;
