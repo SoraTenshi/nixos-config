@@ -12,7 +12,6 @@ in {
     "cli-tools"
     "development"
     "dunst"
-    "editors/emacs"
     "email"
     "fuzzel"
     "ghostty"
@@ -23,14 +22,16 @@ in {
     "lazygit"
     "newsboat"
     "seto"
-    "shells/zsh"
     "spicetify"
     # "spotify"
     "spotify-player"
     "user-apps"
     "work-specific"
 
+    "editors/emacs"
     "editors/helix"
+    "shells/schemesh"
+    "shells/zsh"
     "wayland/hyprland"
   ];
 }

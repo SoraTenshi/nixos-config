@@ -29,6 +29,7 @@ in {
 
     "editors/emacs"
     "editors/helix"
+    "shells/schemesh"
     "shells/zsh"
     "wayland/hyprland"
   ];
