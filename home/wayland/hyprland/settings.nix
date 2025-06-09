@@ -52,9 +52,11 @@ in {
       shadow = lib.mkForce {};
       blur = {
         enabled = true;
-        size = 10;
+        ignore_opacity = false;
+        passes = 2;
+        size = 16;
         new_optimizations = true;
-        xray = true;
+        popups = true;
         vibrancy = 0.1;
       };
     };
@@ -100,7 +102,10 @@ in {
     ];
 
     monitor = builtins.concatMap as-monitor monitors;
-    layerrule = builtins.concatMap each-bar
-      (builtins.genList (i: i) (builtins.length monitors));
+    layerrule = (builtins.concatMap each-bar
+      (builtins.genList (i: i) (builtins.length monitors))) ++ [
+        "blur,gtk-layer-shell"
+        # "blurpopups,gtk-layer-shell"
+      ];
   };
 }
