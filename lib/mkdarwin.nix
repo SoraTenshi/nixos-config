@@ -22,13 +22,17 @@ in inputs.darwin.lib.darwinSystem {
     ../modules/font
   ] ++ extraModules ++ [
     inputs.home-manager.darwinModules.home-manager
-    {
-      home-manager = {
-        useGlobalPkgs = true;
-        useUserPackages = true;
-        extraSpecialArgs = { inherit inputs username system; };
-        users.${username} = { imports = [ ../profiles/${username} ]; };
-      };
-    }
+    (
+      _: {
+        system.primaryUser = username;
+
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          extraSpecialArgs = { inherit inputs username system; };
+          users.${username} = { imports = [ ../profiles/${username} ]; };
+        };
+      }
+    )
   ];
 }
