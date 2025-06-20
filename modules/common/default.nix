@@ -23,7 +23,6 @@
     nh
     nvd
     nix-output-monitor
-    eza
     zoxide
     bat
     fzf

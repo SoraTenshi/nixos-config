@@ -74,6 +74,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    lsr = {
+      url = "github:rockorager/lsr";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     binary-ninja = {
       url = "github:jchv/nix-binary-ninja";
     };
@@ -107,7 +112,7 @@
     , sddm-theme, neovim-nightly, zls-master, grub2-theme
     , helix-master, picom-ibhagwan, nixos-wsl, darwin, stylix, ags, ags-env
     , vfio, nix-flatpak, coplandos, hyprland, zen-browser, binary-ninja, lanzaboote
-    , ghostty, seto, spicetify, helix-steel }:
+    , ghostty, seto, spicetify, helix-steel, lsr }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
       mkNixOS = import ./lib/mknixos.nix;

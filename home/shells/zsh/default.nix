@@ -1,9 +1,9 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, system, ... }:
 let
   aliases = {
     cat = "bat --style=plain --no-pager";
     mv = "mv -i";
-    ls = "eza --icons --grid";
+    ls = "lsr -A";
     cd = "z";
     termbin = "nc termbin.com 9999";
     grep = "rg";
@@ -18,7 +18,7 @@ in {
     # Shell utils
     htop
     bottom
-    eza
+    inputs.lsr.packages.${system}.default
     ripgrep
     gh
     jq

@@ -18,7 +18,7 @@ in {
       helix.enable = false;
       kitty.enable = false;
       ghostty.enable = false;
-      spicetify.enable = false;
+      spicetify.enable = true;
     };
   };
 }
