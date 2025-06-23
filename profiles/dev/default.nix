@@ -13,6 +13,7 @@ in {
     "development"
     "dunst"
     "email"
+    "flatpak"
     "fuzzel"
     "ghostty"
     "gtk-theme"

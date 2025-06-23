@@ -29,13 +29,14 @@ in lib.nixosSystem {
       nixpkgs.config.allowUnfree = true;
     }
 
-    ../modules/user
-    ../modules/font
-    ../modules/time
     ../modules/cachix
     ../modules/common
-    ../modules/variables
+    ../modules/flatpak
+    ../modules/font
     ../modules/ssh
+    ../modules/time
+    ../modules/user
+    ../modules/variables
     (if useAndroidEmulation then ../modules/waydroid else {})
     (if useArcan then ../modules/arcan else {})
     (if useWireguard then ../modules/wireguard else {})

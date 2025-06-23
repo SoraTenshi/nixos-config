@@ -16,7 +16,6 @@
     };
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
-    grub2-theme.url = "github:vinceliuice/grub2-themes";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.1.0";
 
     ghostty.url = "github:ghostty-org/ghostty";
@@ -109,7 +108,7 @@
   };
 
   outputs = inputs @ { self, nixpkgs-nixos, nixpkgs, nur, home-manager, nixos-hardware
-    , sddm-theme, neovim-nightly, zls-master, grub2-theme
+    , sddm-theme, neovim-nightly, zls-master
     , helix-master, picom-ibhagwan, nixos-wsl, darwin, stylix, ags, ags-env
     , vfio, nix-flatpak, coplandos, hyprland, zen-browser, binary-ninja, lanzaboote
     , ghostty, seto, spicetify, helix-steel, lsr }:
