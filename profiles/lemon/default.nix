@@ -9,6 +9,7 @@ in {
     # "anki"
     "cli-tools"
     # "ghostty" # currently broken on macos
+    "discord"
     "kitty"
     "jj"
     "newsboat"

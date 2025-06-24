@@ -1,9 +1,8 @@
 { pkgs, username, ... }: {
 
-  system.switch = {
-    enable = false;
-    enableNg = true;
-  };
+  # system.switch = {
+  #   enable = false;
+  # };
 
   services.usbmuxd = {
     enable = true;

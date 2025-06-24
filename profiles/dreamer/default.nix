@@ -12,6 +12,7 @@ in {
     # "binary-ninja"
     "cli-tools"
     "development"
+    "discord"
     "dunst"
     "fuzzel"
     "ghostty"

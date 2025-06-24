@@ -1,7 +1,5 @@
 { inputs, pkgs, system, useChromium, ... }:  {
   home.packages = with pkgs; [
-    discord-canary
-
     cosmic-files
 
     firefox
