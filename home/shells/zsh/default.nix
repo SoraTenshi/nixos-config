@@ -1,4 +1,4 @@
-{ inputs, pkgs, system, ... }:
+{ inputs, pkgs, ... }:
 let
   aliases = {
     cat = "bat --style=plain --no-pager";
@@ -18,7 +18,7 @@ in {
     # Shell utils
     htop
     bottom
-    inputs.lsr.packages.${system}.default
+    lsr
     ripgrep
     gh
     jq

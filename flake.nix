@@ -35,11 +35,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    neovim-nightly = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     helix-master = {
       url = "github:SoraTenshi/helix/new-daily-driver";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -47,11 +42,6 @@
 
     helix-steel = {
       url = "github:mattwparas/helix/steel-event-system";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    seto = {
-      url = "github:unixpariah/Seto";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -63,18 +53,8 @@
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     };
 
-    vfio = {
-      url = "github:j-brn/nixos-vfio";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     zen-browser = {
       url = "github:maximoffua/zen-browser.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    lsr = {
-      url = "github:rockorager/lsr";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -82,36 +62,16 @@
       url = "github:jchv/nix-binary-ninja";
     };
 
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.1";
-    };
-
     ags-env = {
       url = "github:SoraTenshi/ags-env";
-      flake = false;
-    };
-
-    picom-ibhagwan = {
-      url = "github:ibhagwan/picom";
-      flake = false;
-    };
-
-    sddm-theme = {
-      url = "github:SoraTenshi/tokyo-night-sddm";
-      flake = false;
-    };
-
-    coplandos = {
-      url = "github:ioresolution/copland-plymouth-theme";
       flake = false;
     };
   };
 
   outputs = inputs @ { self, nixpkgs-nixos, nixpkgs, nur, home-manager, nixos-hardware
-    , sddm-theme, neovim-nightly, zls-master
-    , helix-master, picom-ibhagwan, nixos-wsl, darwin, stylix, ags, ags-env
-    , vfio, nix-flatpak, coplandos, hyprland, zen-browser, binary-ninja, lanzaboote
-    , ghostty, seto, spicetify, helix-steel, lsr }:
+    , zls-master , helix-master, nixos-wsl, darwin, stylix, ags, ags-env
+    , nix-flatpak, hyprland, zen-browser, binary-ninja
+    , ghostty, spicetify, helix-steel, }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
       mkNixOS = import ./lib/mknixos.nix;
@@ -148,14 +108,11 @@
             ./modules/steam
             # ./modules/libvirtd
             # vfio.nixosModules.vfio
-            lanzaboote.nixosModules.lanzaboote
             stylix.nixosModules.stylix
           ];
           extraHomeModules = [
             ags.homeManagerModules.default
             nix-flatpak.homeManagerModules.nix-flatpak
-            seto.homeManagerModules.default
-            seto.homeManagerModules.stylix
             spicetify.homeManagerModules.default
           ];
           monitors = [
@@ -182,8 +139,6 @@
           ];
           extraHomeModules = [
             ags.homeManagerModules.default
-            seto.homeManagerModules.default
-            seto.homeManagerModules.stylix
             # nix-flatpak.homeManagerModules.nix-flatpak
           ];
         };
@@ -201,8 +156,6 @@
           ];
           extraHomeModules = [
             ags.homeManagerModules.default
-            seto.homeManagerModules.default
-            seto.homeManagerModules.stylix
             spicetify.homeManagerModules.default
           ];
           monitors = [
@@ -235,8 +188,6 @@
           ];
           extraHomeModules = [
             ags.homeManagerModules.default
-            seto.homeManagerModules.default
-            seto.homeManagerModules.stylix
             spicetify.homeManagerModules.default
           ];
           monitors = [
