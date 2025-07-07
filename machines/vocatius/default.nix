@@ -1,4 +1,4 @@
-{ pkgs, config, modulesPath, lib, ... }: {
+{ pkgs, config, modulesPath, ... }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ../../configuration.nix
@@ -22,7 +22,6 @@
     extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
   };
 
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware = {
     enableRedistributableFirmware = true;
     cpu.intel.updateMicrocode = true;
@@ -58,6 +57,13 @@
   };
 
   services.upower.enable = true;
+  services.power-profiles-daemon.enable = false;
+  services.auto-cpufreq = {
+    enable = true;
+    settings = {
+      charger.governor = "powersave";
+    };
+  };
 
   networking = {
     hostName = "vocatius";
