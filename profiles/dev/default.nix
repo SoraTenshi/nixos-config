@@ -21,7 +21,6 @@ in {
     "kitty"
     "lazygit"
     "newsboat"
-    "seto"
     "spicetify"
     # "spotify"
     "spotify-player"

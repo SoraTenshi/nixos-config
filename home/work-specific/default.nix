@@ -7,5 +7,6 @@
     pkgs.zathura
     pkgs.keepassxc
     pkgs.dino
+    pkgs.openvpn
   ];
 }

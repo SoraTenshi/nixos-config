@@ -70,6 +70,7 @@
     networkmanager = {
       enable = true;
       wifi.backend = "iwd";
+      plugins = [ pkgs.networkmanager-openvpn ];
     };
     useDHCP = false;
     interfaces = {
@@ -102,6 +103,8 @@
 
   swapDevices =
     [{ device = "/dev/disk/by-uuid/ec3eb762-055f-4340-8230-58c0395e6edc"; }];
+
+  programs.openvpn3.enable = true;
 
   programs.gnupg.agent = {
     enable = true;
