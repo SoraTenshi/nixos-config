@@ -41,6 +41,9 @@
     nixfmt-classic
 
     # R stuff (graphing)
-    pkgs.R
+    R
+
+    # i am so sick of this dependency...
+    openssl pkg-config
   ];
 }

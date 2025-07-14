@@ -8,7 +8,6 @@ hostname:
 let
   systemSpecificOverlays = [
     (final: prev: {
-      zls = inputs.zls-master.packages.${system}.default;
       helix = inputs.helix-master.packages.${system}.default;
       picom = prev.picom.overrideAttrs (c: { src = inputs.picom-ibhagwan; });
       material-symbols = prev.callPackage ../derivations/material-symbols { };
