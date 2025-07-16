@@ -16,6 +16,7 @@ in {
       fzf.enable = false;
       gtk.enable = false;
       helix.enable = false;
+      emacs.enable = false;
       kitty.enable = false;
       ghostty.enable = false;
       spicetify.enable = true;
