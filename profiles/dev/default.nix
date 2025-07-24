@@ -20,6 +20,7 @@ in {
     "jj"
     "kitty"
     "lazygit"
+    "lem"
     "newsboat"
     "spicetify"
     # "spotify"

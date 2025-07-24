@@ -1,7 +1,7 @@
 _: {
   virtualisation = {
     lxd.enable = true;
-    waydroid.enable = true;
+    waydroid.enable = false;
   };
 
   # TODO: In future add the waydroid-helper script here

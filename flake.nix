@@ -66,12 +66,17 @@
       url = "github:SoraTenshi/ags-env";
       flake = false;
     };
+
+    lem = {
+      url = "github:lem-project/lem";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ { self, nixpkgs-nixos, nixpkgs, nur, home-manager, nixos-hardware
     , zls-master , helix-master, nixos-wsl, darwin, stylix, ags, ags-env
     , nix-flatpak, hyprland, zen-browser, binary-ninja
-    , ghostty, spicetify, helix-steel, }:
+    , ghostty, spicetify, helix-steel, lem, }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
       mkNixOS = import ./lib/mknixos.nix;

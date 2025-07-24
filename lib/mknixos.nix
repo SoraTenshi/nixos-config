@@ -12,6 +12,7 @@ let
       picom = prev.picom.overrideAttrs (c: { src = inputs.picom-ibhagwan; });
       material-symbols = prev.callPackage ../derivations/material-symbols { };
       shutdown-script-ros = prev.callPackage ../derivations/shutdown-script { };
+      lem-sdl2 = inputs.lem.packages.${system}.lem-sdl2;
     })
   ];
   inherit (nixpkgs) lib;
