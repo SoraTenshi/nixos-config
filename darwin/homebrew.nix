@@ -9,12 +9,16 @@ _: {
       "ghostty"
       "keycastr"
       "linearmouse"
-      "mullvad"
+      "mullvad-vpn"
       "raycast"
       "steam"
       "spotify"
       "ubersicht"
       "utm"
+      {
+        name = "Kegworks-App/kegworks/kegworks";
+        args = { no_quarantine = true; };
+      }
     ];
   };
 }
