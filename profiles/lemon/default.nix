@@ -10,6 +10,7 @@ in {
     "cli-tools"
     # "ghostty" # currently broken on macos
     "discord"
+    "input-leap"
     "kitty"
     "jj"
     # "newsboat"
