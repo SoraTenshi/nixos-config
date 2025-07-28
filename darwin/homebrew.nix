@@ -5,10 +5,13 @@ _: {
 
     casks = [
       "bitwarden"
-      "docker"
+      # "docker"
+      "ghostty"
       "keycastr"
       "linearmouse"
+      "mullvad"
       "raycast"
+      "steam"
       "spotify"
       "ubersicht"
       "utm"

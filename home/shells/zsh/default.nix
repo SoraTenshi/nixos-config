@@ -1,9 +1,12 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, system, ... }:
+let
+  isLinux = builtins.match ".*-linux" system != null;
+in
 let
   aliases = {
     cat = "bat --style=plain --no-pager";
     mv = "mv -i";
-    ls = "lsr -A";
+    ls = if isLinux then "lsr -A" else "eza --icons --grid";
     cd = "z";
     termbin = "nc termbin.com 9999";
     grep = "rg";
@@ -18,7 +21,7 @@ in {
     # Shell utils
     htop
     bottom
-    lsr
+    (if isLinux then pkgs.lsr else pkgs.eza)
     ripgrep
     gh
     jq

@@ -12,7 +12,7 @@ in {
     "discord"
     "kitty"
     "jj"
-    "newsboat"
+    # "newsboat"
 
     "development/darwin.nix"
     "editors/helix"
