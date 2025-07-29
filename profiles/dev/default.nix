@@ -17,6 +17,7 @@ in {
     "ghostty"
     "gtk-theme"
     "guix"
+    "input-leap"
     "jj"
     "kitty"
     "lazygit"
