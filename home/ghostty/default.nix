@@ -17,11 +17,12 @@ _:
       font-feature = [ "cv08" "cv09" "cv10" ];
       font-thicken = false;
 
-      cursor-color = "c0caf5";
+      cursor-invert-fg-bg = true;
       cursor-style = "block";
       cursor-style-blink = false;
 
-      theme = "tokyonight-storm";
+      # theme = "tokyonight-storm";
+      theme = "sapporo-night";
 
       macos-option-as-alt = true;
       macos-non-native-fullscreen = true;
