@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   gtk = {
     enable = true;
     theme = {
@@ -7,6 +7,13 @@
         colorVariants = [ "dark" ];
         tweakVariants = [ "storm" ];
       };
+    };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = {
+      name = lib.mkForce "gtk";
     };
   };
 }

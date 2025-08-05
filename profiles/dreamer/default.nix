@@ -27,6 +27,7 @@ in {
     "spotify-player"
     "user-apps"
     "virtual"
+    "weechat"
 
     "editors/emacs"
     "editors/helix"

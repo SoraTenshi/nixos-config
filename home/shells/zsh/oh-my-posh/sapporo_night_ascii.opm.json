@@ -4,17 +4,17 @@
     {
       "type": "prompt",
       "alignment": "left",
-      "filler": "<#565f89,transparent>\u2500</>",
+      "filler": "<#33325d,transparent>\u2500</>",
       "segments": [
         {
-          "foreground": "#565f89",
+          "foreground": "#33325d",
           "style": "plain",
           "template": "\u250c",
           "type": "text"
         },
         {
-          "background": "#565f89",
-          "foreground": "#9ab1fa",
+          "background": "#33325d",
+          "foreground": "#a0c0f0",
           "leading_diamond": "\u2500\u2500[ ",
           "style": "diamond",
           "template": "<,transparent>{{ .Icon }}</>",
@@ -22,8 +22,8 @@
           "type": "os"
         },
         {
-          "background": "#565f89",
-          "foreground": "#9ab1fa",
+          "background": "#33325d",
+          "foreground": "#a0c0f0",
           "leading_diamond": "\u2500\u2500[ ",
           "style": "diamond",
           "template": "<,transparent>{{ .Path }}</>",
@@ -34,8 +34,8 @@
           "type": "path"
         },
         {
-          "background": "#565f89",
-          "foreground": "#9ab1fa",
+          "background": "#33325d",
+          "foreground": "#a0c0f0",
           "leading_diamond": "\u2500\u2500[ ",
           "trailing_diamond": " ]",
           "style": "diamond",
@@ -44,7 +44,7 @@
             "fetch_upstream_icon": true,
             "fetch_worktree_count": true
           },
-          "template": "<,transparent>{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf040 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf067 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0}} \uf187 {{ .StashCount }}{{ end }}{{ if gt .WorktreeCount 0}} \uf1bb {{ .WorktreeCount }}{{ end }}{{ if .UpstreamGone }}<#c678dd> \uf12a#{{ end }}",
+          "template": "<,transparent>{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf040 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf067 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0}} \uf187 {{ .StashCount }}{{ end }}{{ if gt .WorktreeCount 0}} \uf1bb {{ .WorktreeCount }}{{ end }}{{ if .UpstreamGone }}<#d870e8> \uf12a#{{ end }}",
           "type": "git"
         }
       ]
@@ -53,19 +53,19 @@
       "type": "prompt",
       "alignment": "right",
       "newline": false,
-      "filler": "<#565f89,transparent>\u2500</>",
+      "filler": "<#33325d,transparent>\u2500</>",
       "segments": [
         {
           "type": "battery",
           "leading_diamond": "[ ",
           "style": "diamond",
           "trailing_diamond": " ]\u2500\u2500",
-          "background": "#565f89",
-          "foreground": "#9ab1fa",
+          "background": "#33325d",
+          "foreground": "#a0c0f0",
           "foreground_templates": [
-            "{{if eq \"Charging\" .State.String}}#56d8f4{{end}}",
-            "{{if eq \"Discharging\" .State.String}}#c678dd{{end}}",
-            "{{if eq \"Full\" .State.String}}#9ab1fa{{end}}"
+            "{{if eq \"Charging\" .State.String}}#82c8ff{{end}}",
+            "{{if eq \"Discharging\" .State.String}}#d870e8{{end}}",
+            "{{if eq \"Full\" .State.String}}#a0c0f0{{end}}"
           ],
           "template": "<,transparent>{{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}\uf240</>",
           "properties": {
@@ -75,8 +75,8 @@
           }
         },
         {
-          "background": "#565f89",
-          "foreground": "#9ab1fa",
+          "background": "#33325d",
+          "foreground": "#a0c0f0",
           "leading_diamond": "[ ",
           "properties": {
             "time_format": "15:04:05"
@@ -94,24 +94,24 @@
       "newline": true,
       "segments": [
         {
-          "foreground": "#565f89",
+          "foreground": "#33325d",
           "style": "plain",
           "template": "\u2514",
           "type": "text"
         },
         {
-          "background": "#565f89",
-          "foreground": "#9ab1fa",
+          "background": "#33325d",
+          "foreground": "#a0c0f0",
           "leading_diamond": "\u2500\u2500[ ",
           "style": "diamond",
-          "template": "<,transparent>{{ .UserName }}</><#565f89,transparent>@</><,transparent>{{ .HostName }}</>",
+          "template": "<,transparent>{{ .UserName }}</><#33325d,transparent>@</><,transparent>{{ .HostName }}</>",
           "trailing_diamond": " ]",
           "type": "text"
         },
         {
-          "foreground": "#9ab1fa",
+          "foreground": "#a0c0f0",
           "style": "plain",
-          "template": "<#565f89>\u2500\u2500</>\u276f\u276f",
+          "template": "<#33325d>\u2500\u2500</>\u276f\u276f",
           "type": "text"
         }
       ]
@@ -122,9 +122,9 @@
   "transient_prompt": {
     "background": "transparent",
     "foreground_templates": [
-      "{{ne .Code 0}} #c678dd{{end}}"
+      "{{ne .Code 0}} #d870e8{{end}}"
     ],
-    "foreground": "#9ab1fa",
+    "foreground": "#a0c0f0",
     "template": "\u276f\u276f "
   }
 }

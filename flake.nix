@@ -10,10 +10,7 @@
     stylix.url = "github:danth/stylix";
     nur.url = "github:nix-community/NUR";
 
-    ags = {
-      url = "github:aylur/ags/v1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    ags.url = "github:aylur/ags/v1";
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.1.0";
@@ -187,6 +184,7 @@
           useArcan = true;
           useChromium = true;
           useAndroidEmulation = true;
+          tokyo-night = false;
           extraModules = [
             # ./modules/greetd
             ./modules/steam

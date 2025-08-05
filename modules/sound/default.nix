@@ -4,6 +4,8 @@
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
+    wireplumber.enable = true;
+    jack.enable = true;
     extraConfig.pipewire."99-latency.tuning" = {
       "context.properties" = {
         "link.max-buffers" = 16;
@@ -12,8 +14,8 @@
         "default.clock.allowed-rates" = [ 44100 48000 ];
         "default.clock.quantum" = 2048;
         "api.alsa.headroom" = 1024;
-        "default.clock.min-quantum" = 48;
-        "default.clock.max-quantum" = 8192;
+        "default.clock.min-quantum" = 256;
+        "default.clock.max-quantum" = 8196;
       };
     };
   };

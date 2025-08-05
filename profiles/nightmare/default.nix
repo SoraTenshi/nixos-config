@@ -12,6 +12,7 @@ in {
     "spotify-player"
     "jj"
     "pwn"
+    "weechat"
 
     "editors/helix-steel"
     "editors/helix"

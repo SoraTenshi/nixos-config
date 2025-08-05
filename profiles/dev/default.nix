@@ -27,6 +27,7 @@ in {
     # "spotify"
     "spotify-player"
     "user-apps"
+    "weechat"
     "work-specific"
 
     "editors/emacs"

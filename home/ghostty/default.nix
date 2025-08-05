@@ -17,7 +17,6 @@ _:
       font-feature = [ "cv08" "cv09" "cv10" ];
       font-thicken = false;
 
-      cursor-invert-fg-bg = true;
       cursor-style = "block";
       cursor-style-blink = false;
 
