@@ -152,6 +152,7 @@
           system = "x86_64-linux";
           username = "dev";
           useAndroidEmulation = true;
+          tokyo-night = false;
           extraModules = [
             # ./modules/greetd
             ./modules/ly

@@ -18,11 +18,6 @@ in {
       animate_mouse_windowdragging = false;
     };
 
-    gestures = {
-      workspace_swipe = true;
-      workspace_swipe_forever = true;
-    };
-
     input = {
       kb_layout = "eu";
       kb_options = "compose:ralt";

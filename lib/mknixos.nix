@@ -9,6 +9,7 @@ hostname:
 let
   systemSpecificOverlays = [
     (final: prev: {
+      zls = inputs.zls-master.packages.${system}.default;
       helix = inputs.helix-master.packages.${system}.default;
       picom = prev.picom.overrideAttrs (c: { src = inputs.picom-ibhagwan; });
       material-symbols = prev.callPackage ../derivations/material-symbols { };
@@ -59,6 +60,7 @@ in lib.nixosSystem {
     ../modules/sound
     ../modules/mullvad
     ../modules/qmk
+    ../modules/niri
 
     # End the scope, and add an additional list of the extra modules
   ] else
