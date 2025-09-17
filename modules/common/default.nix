@@ -29,6 +29,6 @@
     fzf
     ripgrep
     uutils-coreutils
-    linuxPackages_latest.perf
+    perf
   ];
 }
