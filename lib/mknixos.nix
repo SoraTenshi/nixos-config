@@ -21,9 +21,9 @@ let
 in lib.nixosSystem {
   inherit system;
   specialArgs = if isHardwareMachine then {
-    inherit inputs isVM username;
+    inherit inputs isVM username tokyo-night;
   } else {
-    inherit username isVM;
+    inherit username isVM tokyo-night;
   };
   modules = [
     {
@@ -60,7 +60,6 @@ in lib.nixosSystem {
     ../modules/sound
     ../modules/mullvad
     ../modules/qmk
-    ../modules/niri
 
     # End the scope, and add an additional list of the extra modules
   ] else

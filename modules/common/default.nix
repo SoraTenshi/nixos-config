@@ -10,16 +10,18 @@
   };
 
   environment.sessionVariables = {
-    NH_FLAKE = "/home/${username}/dev/nixos-config";
     STEEL_HOME = "/home/${username}/.config/steel";
+  };
+
+  programs.nh = {
+    enable = true;
+    flake = "/home/${username}/dev/nixos-config";
   };
 
   environment.systemPackages = with pkgs; [
     # phone
     libimobiledevice
     ifuse
-    # 
-    nh
     nvd
     nix-output-monitor
     zoxide
