@@ -1,49 +1,43 @@
-{ pkgs, ... }: {
+{ pkgs, system, ... }:
+let
+  defaultSet = [
+    pkgs.zig
+    pkgs.rustup
+    pkgs.go
+    pkgs.elixir
+
+    # Python, sadly i am too annoyed by
+    # creating a nix shell all the time
+    # i have to write something with python :(
+    pkgs.python3Minimal pkgs.hy
+  ];
+in
+{
   imports = [ ./common-lisp.nix ];
-  home.packages = with pkgs; [
+  home.packages = defaultSet ++ (if system == "x86_64-linux" then [
     # debugger
-    gdb
+    pkgs.gdb
 
     # git
-    gitu
+    pkgs.gitu
 
-    # docker
-    lazydocker
+    pkgs.odin
 
-    # compiler
-    zig
-    odin
-    clang
-    go
-
-    # Rust
-    # cargo
-    # rustc
-    rustup
-    # clippy
-    # rustfmt
-
-    # BEAM VM
-    elixir
-    erlang
-
-    # Python, :(
-    python311 # i can't get around it and i'm tired of always using a nix shell
-    hy
+    pkgs.clang
 
     # cmake
-    cmake gnumake
+    pkgs.cmake pkgs.gnumake
 
     # Qemu
-    qemu
+    pkgs.qemu
 
     # Nixfmt
-    nixfmt-classic
+    pkgs.nixfmt-classic
 
     # R stuff (graphing)
-    R
+    pkgs.R
 
     # i am so sick of this dependency...
-    openssl pkg-config
-  ];
+    pkgs.openssl pkgs.pkg-config
+  ] else []);
 }

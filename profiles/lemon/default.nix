@@ -9,15 +9,15 @@ in {
     # "anki"
     "cli-tools"
     # "ghostty" # currently broken on macos
+    "development"
     "discord"
+    "steam"
     "input-leap"
     "kitty"
     "jj"
     # "newsboat"
 
-    "development/darwin.nix"
     "editors/helix"
     "shells/zsh"
-    "user-apps/darwin.nix"
   ];
 }

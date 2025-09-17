@@ -1,4 +1,4 @@
-{ inputs, pkgs, system, useChromium, ... }:  {
+{ inputs, pkgs, system, useChromium, ... }: {
   home.packages = with pkgs; [
     cosmic-files
 

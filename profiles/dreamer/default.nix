@@ -22,6 +22,7 @@ in {
     # "lazygit"
     "jj"
     "newsboat"
+    "steam"
     "spicetify"
     # "spotify"
     "spotify-player"
