@@ -35,6 +35,10 @@ in {
       size = cursorSize;
     };
     targets = {
+      firefox = {
+        enable = true;
+        colorTheme.enable = true;
+      };
       gtk.enable = false;
       fzf.enable = (!tokyo-night);
       helix.enable = false;
