@@ -33,7 +33,6 @@ in
       terminal = 0.9;
       popups = 0.8;
     };
-
     targets = {
       plymouth.enable = false;
       grub.enable = false;

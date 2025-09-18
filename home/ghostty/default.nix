@@ -21,7 +21,7 @@ _:
       cursor-style-blink = false;
 
       # theme = "tokyonight-storm";
-      theme = "sapporo-night";
+      # theme = "sapporo-night";
 
       macos-option-as-alt = true;
       macos-non-native-fullscreen = true;
