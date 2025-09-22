@@ -1,6 +1,6 @@
 _: {
   virtualisation = {
-    lxd.enable = true;
+    # lxd.enable = true;
     waydroid.enable = false;
   };
 

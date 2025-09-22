@@ -1,7 +1,7 @@
 _:
 let
   terminal = "kitty";
-  other-terminal = "ghostty";
+  other-terminal = "ghostty +new-window";
   zipWith = f: xs: ys:
     if xs == [ ] || ys == [ ] then
       [ ]
@@ -23,6 +23,7 @@ in {
       "SUPERSHIFT, D, exec, discord --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime"
       "SUPERSHIFT, RETURN, exec, ${terminal}"
       "SUPER, RETURN, exec, GDK_DEBUG=gl-disable-gles ${other-terminal}"
+      "SUPERSHIFT, SEMICOLON, pass, class:^(com\.mitchellh\.ghostty)$"
       # ''
       #   SUPERSHIFT, P, exec, ags -r "BarState.value = 'shutdown $(($(hyprctl monitors | grep 'focused' | grep -n 'yes' | cut -c1)-1))';"''
       # ''

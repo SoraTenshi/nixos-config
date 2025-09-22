@@ -50,6 +50,11 @@
     pkgs.libvdpau-va-gl
     pkgs.egl-wayland
     pkgs.libva-utils
+
+    # vulkan
+    pkgs.vulkan-tools
+    pkgs.vulkan-loader
+    pkgs.vulkan-utility-libraries
   ];
 
   environment.sessionVariables = {

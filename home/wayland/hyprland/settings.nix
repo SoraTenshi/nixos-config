@@ -18,6 +18,11 @@ in {
       animate_mouse_windowdragging = false;
     };
 
+    ecosystem = {
+      no_update_news = true;
+      no_donation_nag = true;
+    };
+
     input = {
       kb_layout = "eu";
       kb_options = "compose:ralt";

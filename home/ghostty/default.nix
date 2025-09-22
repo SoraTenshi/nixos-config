@@ -6,7 +6,7 @@ _:
 
     settings = {
       background-opacity = 0.8;
-      background-blur-radius = 29;
+      background-blur = true;
 
       # because fuck blinking bars. they are obnoxious
       shell-integration-features = "no-cursor";
@@ -20,6 +20,12 @@ _:
       cursor-style = "block";
       cursor-style-blink = false;
 
+      quick-terminal-position = "top";
+      quick-terminal-screen = "mouse";
+      quick-terminal-autohide = true;
+      gtk-quick-terminal-layer = "overlay";
+      gtk-quick-terminal-namespace = "ghostty-quick";
+
       # theme = "tokyonight-storm";
       # theme = "sapporo-night";
 
@@ -28,6 +34,10 @@ _:
 
       window-theme = "dark";
       window-decoration = false;
+
+      keybind = [
+        "global:super+shift+;=toggle_quick_terminal"
+      ];
     };
   };
 }
