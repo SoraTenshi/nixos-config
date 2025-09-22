@@ -25,6 +25,8 @@ in
 
     pkgs.clang
 
+    pkgs.lazydocker
+
     # cmake
     pkgs.cmake pkgs.gnumake
 
