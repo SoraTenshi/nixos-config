@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  environment.systemPackages = with pkgs; [ pavucontrol ];
+  environment.systemPackages = with pkgs; [ pavucontrol easyeffects ];
   services.pipewire = {
     enable = true;
     alsa.enable = true;
