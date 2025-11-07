@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
-    fcitx5-configtool
+    qt6Packages.fcitx5-configtool
     openal
     harfbuzz
     libxkbcommon
@@ -42,7 +42,7 @@
         fcitx5-mozc
         fcitx5-gtk
         fcitx5-rose-pine
-        fcitx5-configtool
+        qt6Packages.fcitx5-configtool
         # fcitx5-skk
       ];
     };

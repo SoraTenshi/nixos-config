@@ -33,7 +33,7 @@
     };
 
     helix-master = {
-      url = "github:SoraTenshi/helix/new-daily-driver";
+      url = "github:SoraTenshi/helix/new-daily-driver-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -118,7 +118,7 @@
             nix-flatpak.homeManagerModules.nix-flatpak
             spicetify.homeManagerModules.default
           ];
-          monitors = [https://top.gg/bot/688202466315206661/vote
+          monitors = [
             "DP-3,1920x1080@165,0x1080"
             "DP-2,1920x1080@75,1920x1080"
             "HDMI-A-1,1920x1080@60,960x0"
@@ -182,7 +182,6 @@
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dev";
-          useArcan = true;
           useChromium = true;
           useAndroidEmulation = true;
           tokyo-night = false;

@@ -13,6 +13,5 @@
     tailspin
   ] ++ (if system == "x86_64-linux" then with pkgs; [
       bitwarden-cli
-      lash cat9 cat9-wrapped
   ] else []);
 }

@@ -3,7 +3,7 @@
     enable = true;
     theme = {
       name = "Tokyonight-Dark-Storm";
-      package = pkgs.tokyo-night-gtk.override {
+      package = pkgs.tokyonight-gtk-theme.override {
         colorVariants = [ "dark" ];
         tweakVariants = [ "storm" ];
       };

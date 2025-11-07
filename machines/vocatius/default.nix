@@ -46,7 +46,7 @@
   environment.systemPackages = [
     pkgs.intel-ocl
     pkgs.intel-vaapi-driver
-    pkgs.vaapiVdpau
+    pkgs.libva-vdpau-driver
     pkgs.libvdpau-va-gl
     pkgs.egl-wayland
     pkgs.libva-utils

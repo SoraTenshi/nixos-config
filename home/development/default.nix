@@ -5,6 +5,7 @@ let
     pkgs.rustup
     pkgs.go
     pkgs.elixir
+    pkgs.racket
 
     # Python, sadly i am too annoyed by
     # creating a nix shell all the time

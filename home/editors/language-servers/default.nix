@@ -14,7 +14,7 @@
     # rust-analyzer # Rust
     texlab # LaTeX
     zls # Zig
-    elixir_ls # Elixir
+    elixir-ls # Elixir
     clojure-lsp # Clojure
 
     haskellPackages.haskell-language-server # Haskell
