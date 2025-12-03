@@ -1,8 +1,6 @@
 { pkgs, username, ... }: {
 
-  # system.switch = {
-  #   enable = false;
-  # };
+  system.nixos-init.enable = false;
 
   services.usbmuxd = {
     enable = true;

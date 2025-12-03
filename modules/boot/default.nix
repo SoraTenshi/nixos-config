@@ -14,6 +14,10 @@ _: {
         memtest86.enable = true;
         configurationLimit = 10;
       };
+      # soon:tm:
+      # limine = {
+      #   enable = true;
+      # };
     };
   };
 }

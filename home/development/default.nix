@@ -42,5 +42,8 @@ in
 
     # i am so sick of this dependency...
     pkgs.openssl pkgs.pkg-config
+
+    # benching
+    pkgs.poop pkgs.hyperfine
   ] else []);
 }
