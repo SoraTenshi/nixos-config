@@ -58,7 +58,7 @@ in lib.nixosSystem {
     # ../modules/x11
     ../modules/wayland
     ../modules/sound
-    ../modules/mullvad
+    # ../modules/mullvad
     ../modules/qmk
 
     # End the scope, and add an additional list of the extra modules

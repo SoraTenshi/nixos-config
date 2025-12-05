@@ -1,7 +1,10 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [ opensc ];
 
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = false;
+  };
 
   services.openssh.enable = true;
   services.pcscd.enable = true;
