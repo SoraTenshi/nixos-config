@@ -18,8 +18,8 @@
           "/dev/disk/by-uuid/bc52c8db-7acd-4e9f-81c4-13f442041b24";
       };
     };
-    kernelModules = [ "v4l2loopback" "kvm-intel" "wireguard" ];
-    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+    kernelModules = [ "kvm-intel" "wireguard" ];
+    extraModulePackages = [ ];
   };
 
   hardware = {
@@ -55,6 +55,8 @@
     pkgs.vulkan-tools
     pkgs.vulkan-loader
     pkgs.vulkan-utility-libraries
+
+    pkgs.nftables
   ];
 
   environment.sessionVariables = {
@@ -70,13 +72,12 @@
     };
   };
 
-  networking.nftables.enable = true;
-
   services.firewalld = {
     enable = true;
   };
 
   networking = {
+    nftables.enable = true;
     hostName = "vocatius";
     networkmanager = {
       enable = true;
