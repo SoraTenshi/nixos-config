@@ -1,5 +1,9 @@
-_: {
+{ pkgs, useSecureBoot, ... }: {
   services.ratbagd.enable = true;
+
+  environment.systemPackages = [
+    pkgs.sbctl
+  ];
 
   boot = {
     initrd.systemd = {
@@ -9,15 +13,19 @@ _: {
 
     loader = {
       efi.canTouchEfiVariables = true;
-      systemd-boot = {
+      limine = {
         enable = true;
-        memtest86.enable = true;
-        configurationLimit = 10;
+        efiSupport = true;
+        maxGenerations = 15;
+        secureBoot.enable = useSecureBoot;
+
+        # Windows my beloved but now dying... :(
+        extraEntries = ''
+          /Windows
+            protocol: efi
+            path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
+        '';
       };
-      # soon:tm:
-      # limine = {
-      #   enable = true;
-      # };
     };
   };
 }

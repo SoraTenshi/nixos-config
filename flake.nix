@@ -101,16 +101,15 @@
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dreamer";
-          useSecureBoot = false;
+          useSecureBoot = true;
           useArcan = true;
           useAndroidEmulation = true;
           useChromium = true;
+          tokyo-night = false;
           extraModules = [
             ./modules/nvidia
             ./modules/ly
             ./modules/steam
-            # ./modules/libvirtd
-            # vfio.nixosModules.vfio
             stylix.nixosModules.stylix
           ];
           extraHomeModules = [
@@ -142,7 +141,6 @@
           ];
           extraHomeModules = [
             ags.homeManagerModules.default
-            # nix-flatpak.homeManagerModules.nix-flatpak
           ];
         };
 
@@ -154,7 +152,6 @@
           useAndroidEmulation = true;
           tokyo-night = false;
           extraModules = [
-            # ./modules/greetd
             ./modules/ly
             stylix.nixosModules.stylix
           ];
@@ -186,7 +183,6 @@
           useAndroidEmulation = true;
           tokyo-night = false;
           extraModules = [
-            # ./modules/greetd
             ./modules/steam
             ./modules/ly
             stylix.nixosModules.stylix
