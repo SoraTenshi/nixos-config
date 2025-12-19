@@ -1,4 +1,4 @@
-{ inputs, pkgs, system, tokyo-night, ... }:
+{ inputs, pkgs, system, useTokyoNight, ... }:
 let
   isLinux = builtins.match ".*-linux" system != null;
 in
@@ -37,7 +37,7 @@ in {
       enableZshIntegration = true;
       settings = builtins.fromJSON (builtins.unsafeDiscardStringContext
         (builtins.readFile
-          (if tokyo-night then
+          (if useTokyoNight then
             "${inputs.self}/home/shells/zsh/oh-my-posh/tokyonight_ascii.opm.json"
           else
             "${inputs.self}/home/shells/zsh/oh-my-posh/sapporo_night_ascii.opm.json")));

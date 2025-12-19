@@ -5,7 +5,7 @@ hostname:
 , extraHomeModules ? [ ], monitors ? [ ] , useStylix ? true
 , useSecureBoot ? false, useWireguard ? false, useArcan ? false
 , useAndroidEmulation ? false, useChromium ? false, autostart ? [ ]
-, tokyo-night ? true, }:
+, useTokyoNight ? true, }:
 let
   systemSpecificOverlays = [
     (final: prev: {
@@ -21,9 +21,9 @@ let
 in lib.nixosSystem {
   inherit system;
   specialArgs = if isHardwareMachine then {
-    inherit inputs isVM username tokyo-night useSecureBoot;
+    inherit inputs isVM username useTokyoNight useSecureBoot;
   } else {
-    inherit username isVM tokyo-night useSecureBoot;
+    inherit username isVM useTokyoNight useSecureBoot;
   };
   modules = [
     {
@@ -72,9 +72,9 @@ in lib.nixosSystem {
           useGlobalPkgs = true;
           useUserPackages = true;
           extraSpecialArgs = if isHardwareMachine then {
-            inherit inputs username monitors system useChromium autostart tokyo-night;
+            inherit inputs username monitors system useChromium autostart useTokyoNight;
           } else {
-            inherit inputs username system tokyo-night;
+            inherit inputs username system useTokyoNight;
           };
           users.${username} = { imports = [ ../profiles/${username} ]; };
         };

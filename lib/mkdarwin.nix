@@ -1,7 +1,7 @@
 hostname:
 { inputs, nixpkgs, system, username, overlays
 , extraModules ? [ ], extraHomeModules ? [ ] # extra modules
-, tokyo-night ? false,
+, useTokyoNight ? false,
 }:
 let
   systemSpecificOverlays = [
@@ -30,7 +30,7 @@ in inputs.darwin.lib.darwinSystem {
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
-          extraSpecialArgs = { inherit inputs username system tokyo-night; };
+          extraSpecialArgs = { inherit inputs username system useTokyoNight; };
           users.${username} = { imports = [ ../profiles/${username} ]; };
         };
       }

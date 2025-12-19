@@ -1,4 +1,4 @@
-{ pkgs, tokyo-night, ... }:
+{ pkgs, useTokyoNight, ... }:
 let
   sapporo-night = {
     base00 = "202037";
@@ -20,7 +20,7 @@ let
   };
 in
 let
-  stylix-color = (if tokyo-night then "${pkgs.base16-schemes}/share/themes/tokyo-night-storm.yaml" else sapporo-night);
+  stylix-color = (if useTokyoNight then "${pkgs.base16-schemes}/share/themes/tokyo-night-storm.yaml" else sapporo-night);
 in
 {
   stylix = {

@@ -87,7 +87,7 @@
           isHardwareMachine = false;
           system = "x86_64-linux";
           username = "nightmare";
-          tokyo-night = false;
+          useTokyoNight = false;
           useAndroidEmulation = true;
           extraModules = [
             nixos-wsl.nixosModules.wsl
@@ -105,7 +105,7 @@
           useArcan = true;
           useAndroidEmulation = true;
           useChromium = true;
-          tokyo-night = false;
+          useTokyoNight = false;
           extraModules = [
             ./modules/nvidia
             ./modules/ly
@@ -150,7 +150,7 @@
           system = "x86_64-linux";
           username = "dev";
           useAndroidEmulation = true;
-          tokyo-night = false;
+          useTokyoNight = false;
           extraModules = [
             ./modules/ly
             stylix.nixosModules.stylix
@@ -181,7 +181,7 @@
           username = "dev";
           useChromium = true;
           useAndroidEmulation = true;
-          tokyo-night = false;
+          useTokyoNight = false;
           extraModules = [
             ./modules/steam
             ./modules/ly
@@ -212,7 +212,7 @@
           inherit inputs overlays nixpkgs;
           system = "aarch64-darwin";
           username = "lemon";
-          tokyo-night = true;
+          useTokyoNight = true;
           extraModules = [
             # ./modules/mullvad
           ];

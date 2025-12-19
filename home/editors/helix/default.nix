@@ -1,4 +1,4 @@
-{ tokyo-night, ... }: {
+{ useTokyoNight, ... }: {
   imports = [ ../language-servers ];
 
   programs.helix = {
@@ -29,7 +29,7 @@
       ];
     };
     settings = {
-      theme = (if tokyo-night then "tokyonight_storm" else "sapporo-night");
+      theme = (if useTokyoNight then "tokyonight_storm" else "sapporo-night");
       editor = {
         line-number = "relative";
         cursorline = true;
