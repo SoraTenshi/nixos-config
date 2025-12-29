@@ -6,6 +6,7 @@
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
+    loader.grub.enable = false;
     initrd = {
       availableKernelModules =
         [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
@@ -14,8 +15,12 @@
     };
     kernelModules = [ "kvm-amd" ];
     extraModulePackages = [ ];
-    # kernelParams = [ "amd_iommu=on" "vfio-pci.ids=${builtins.concatStringsSep "," ids}" ];
-    kernelParams = [ ];
+    kernelParams = [
+      "processor.max_cstate=1"
+      "idle=nomwait"
+      "amd_pstate=disable"
+      "pci=noaer"
+    ];
   };
 
   security.tpm2 = {

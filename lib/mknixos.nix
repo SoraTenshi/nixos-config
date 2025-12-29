@@ -54,7 +54,6 @@ in lib.nixosSystem {
     # no WSL as an example
   ] ++ (if isHardwareMachine then [
     (if useStylix then ../modules/stylix else {})
-    (if useSecureBoot then ../modules/lanzaboote else ../modules/boot)
     # ../modules/x11
     ../modules/wayland
     ../modules/sound
