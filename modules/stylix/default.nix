@@ -24,7 +24,7 @@ let
 in
 {
   stylix = {
-    enable = true;
+    enable = false;
     autoEnable = true;
     polarity = "dark";
     base16Scheme = stylix-color;

@@ -29,9 +29,32 @@ in {
   ];
 
   programs = {
-    fzf.enable = true;
+    fzf = {
+      enable = true;
+      colors = {
+        fg = "#a0b7eb";
+        bg = "-1";
+        hl = "#9ab1fa";
+        "fg+" = "#a0b7eb";
+        "bg+" = "#33325d";
+        "hl+" = "#bb9af7";
+        info = "#87a3d4";
+        prompt = "#ab8bf7";
+        pointer = "#bb9af7";
+        marker = "#56d8f4";
+        spinner = "#9dc8f8";
+        header = "#8bbaf3";
+        border = "#404070";
+        label = "#8bbaf3";
+      };
+      defaultOptions = [
+        "--layout=default"
+      ];
+    };
     zoxide.enable = true;
-    bat = { enable = true; };
+    bat = {
+      enable = true;
+    };
     oh-my-posh = {
       enable = true;
       enableZshIntegration = true;

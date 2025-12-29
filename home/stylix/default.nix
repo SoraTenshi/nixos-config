@@ -32,8 +32,8 @@ in {
         package = pkgs.nerd-fonts.lilex;
       };
     };
-    enable = true;
-    autoEnable = true;
+    enable = false;
+    autoEnable = false;
     base16Scheme = stylix-color;
     cursor = {
       name = cursorName;
