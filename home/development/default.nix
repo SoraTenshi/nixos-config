@@ -5,7 +5,6 @@ let
     pkgs.rustup
     pkgs.go
     pkgs.elixir
-    pkgs.racket
 
     # Python, sadly i am too annoyed by
     # creating a nix shell all the time
@@ -39,6 +38,7 @@ in
 
     # R stuff (graphing)
     pkgs.R
+    pkgs.racket
 
     # i am so sick of this dependency...
     pkgs.openssl pkgs.pkg-config

@@ -1,4 +1,4 @@
-{ inputs, pkgs, system, useTokyoNight, ... }:
+{ inputs, pkgs, system, useTokyoNight, config, ... }:
 let
   isLinux = builtins.match ".*-linux" system != null;
 in
@@ -55,6 +55,7 @@ in {
       enableCompletion = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
+      dotDir = "${config.xdg.configHome}/zsh";
       plugins = [
       {
         name = "zsh-you-should-use";

@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 let
   fontList = [
-    pkgs.rictydiminished-with-firacode
+    # pkgs.rictydiminished-with-firacode
     pkgs.noto-fonts
     pkgs.noto-fonts-cjk-sans
     pkgs.noto-fonts-cjk-serif

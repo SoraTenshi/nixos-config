@@ -18,7 +18,7 @@
     ghostty.url = "github:ghostty-org/ghostty";
 
     darwin = {
-      url = "github:lnl7/nix-darwin/master";
+      url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -212,7 +212,7 @@
           inherit inputs overlays nixpkgs;
           system = "aarch64-darwin";
           username = "lemon";
-          useTokyoNight = true;
+          useTokyoNight = false;
           extraModules = [
             # ./modules/mullvad
           ];

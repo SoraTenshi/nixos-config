@@ -1,7 +1,7 @@
 { lib, ... }:
 let asPath = paths: map (path: ../../home + "/${path}") paths;
 in {
-  home.stateVersion = "24.11";
+  home.stateVersion = "26.05";
   home.homeDirectory = lib.mkForce "/Users/lemon";
   xdg.enable = true;
 
@@ -11,7 +11,8 @@ in {
     # "ghostty" # currently broken on macos
     "development"
     "discord"
-    "steam"
+    "darwin"
+    # "steam"
     "input-leap"
     "kitty"
     "jj"
