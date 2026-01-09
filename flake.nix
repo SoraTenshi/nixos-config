@@ -104,6 +104,7 @@
           useSecureBoot = true;
           useArcan = true;
           useAndroidEmulation = true;
+          useDualBoot = true;
           useChromium = true;
           useTokyoNight = false;
           extraModules = [
@@ -134,13 +135,19 @@
           nixpkgs = nixpkgs-nixos;
           system = "x86_64-linux";
           username = "dreamer";
+          useAndroidEmulation = true;
+          useArcan = true;
+          useChromium = true;
+          useTokyoNight = false;
           extraModules = [
-            ./modules/greetd
+            ./modules/ly
+            ./modules/steam
             nixos-hardware.nixosModules.lenovo-thinkpad-t470s
             stylix.nixosModules.stylix
           ];
           extraHomeModules = [
             ags.homeManagerModules.default
+            spicetify.homeManagerModules.default
           ];
         };
 

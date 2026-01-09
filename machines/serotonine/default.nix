@@ -5,8 +5,17 @@
   ];
 
   boot = {
-    initrd.availableKernelModules =
+    loader.grub.enable = false;
+    initrd = {
+      availableKernelModules =
       [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
+      luks.devices = {
+        "luks-e01d32cc-69b9-47c1-a516-98b90b43a4b6".device =
+          "/dev/disk/by-uuid/e01d32cc-69b9-47c1-a516-98b90b43a4b6";
+        "luks-6738eef5-76f2-466b-8444-018b59f06883".device =
+          "/dev/disk/by-uuid/6738eef5-76f2-466b-8444-018b59f06883";
+      };
+    };
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
   };
@@ -33,17 +42,20 @@
   services.libinput.enable = true;
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/6939f3c9-d0e8-42cf-ab2f-cc2b184f637d";
+    device = "/dev/mapper/luks-e01d32cc-69b9-47c1-a516-98b90b43a4b6";
     fsType = "ext4";
   };
 
-  fileSystems."/boot/efi" = {
-    device = "/dev/disk/by-uuid/B1B4-DF6F";
-    fsType = "vfat";
-  };
+  fileSystems."/boot/efi" =
+    { device = "/dev/disk/by-uuid/BC4B-4DFB";
+      fsType = "vfat";
+      options = [ "fmask=0077" "dmask=0077" ];
+    };
 
   swapDevices =
-    [{ device = "/dev/disk/by-uuid/b28aea64-8b57-405d-a64f-d17f425cf472"; }];
+    [ { device = "/dev/mapper/luks-6738eef5-76f2-466b-8444-018b59f06883"; }
+    ];
 
-  system.stateVersion = "24.11";
+
+  system.stateVersion = "25.11";
 }

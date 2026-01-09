@@ -5,7 +5,7 @@ in {
   xdg.enable = true;
 
   imports = asPath [
-    "stylix"
+    # "stylix"
 
     "ags"
     "anki"

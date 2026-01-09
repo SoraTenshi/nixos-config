@@ -5,7 +5,7 @@ hostname:
 , extraHomeModules ? [ ], monitors ? [ ] , useStylix ? true
 , useSecureBoot ? false, useWireguard ? false, useArcan ? false
 , useAndroidEmulation ? false, useChromium ? false, autostart ? [ ]
-, useTokyoNight ? true, }:
+, useTokyoNight ? true, useDualBoot ? false }:
 let
   systemSpecificOverlays = [
     (final: prev: {
@@ -21,9 +21,9 @@ let
 in lib.nixosSystem {
   inherit system;
   specialArgs = if isHardwareMachine then {
-    inherit inputs isVM username useTokyoNight useSecureBoot;
+    inherit inputs isVM username useTokyoNight useSecureBoot useDualBoot;
   } else {
-    inherit username isVM useTokyoNight useSecureBoot;
+    inherit username isVM useTokyoNight;
   };
   modules = [
     {
@@ -31,6 +31,7 @@ in lib.nixosSystem {
       nixpkgs.config.allowUnfree = true;
     }
 
+    ../modules/boot
     ../modules/cachix
     ../modules/common
     ../modules/flatpak

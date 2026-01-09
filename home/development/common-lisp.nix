@@ -20,7 +20,8 @@ let
 in
 {
   home.packages = [
-    pkgs.roswell pkgs.asdf
+    # pkgs.roswell
+    pkgs.asdf
 
     sbcl'
   ];

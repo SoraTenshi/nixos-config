@@ -1,4 +1,4 @@
-{ pkgs, useSecureBoot, ... }: {
+{ pkgs, useSecureBoot, useDualBoot, ... }: {
   services.ratbagd.enable = true;
 
   environment.systemPackages = [
@@ -22,11 +22,11 @@
         secureBoot.enable = useSecureBoot;
 
         # Windows my beloved but now dying... :(
-        extraEntries = ''
+        extraEntries = (if useDualBoot then ''
           /Windows
             protocol: efi
             path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
-        '';
+        '' else "");
       };
     };
   };
