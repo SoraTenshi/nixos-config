@@ -34,7 +34,6 @@ in lib.nixosSystem {
     ../modules/boot
     ../modules/cachix
     ../modules/common
-    ../modules/flatpak
     ../modules/font
     ../modules/ssh
     ../modules/time

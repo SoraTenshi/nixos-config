@@ -13,7 +13,7 @@
     ags.url = "github:aylur/ags/v1";
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.1.0";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
 
     ghostty.url = "github:ghostty-org/ghostty";
 
@@ -93,6 +93,7 @@
             nixos-wsl.nixosModules.wsl
           ];
           extraHomeModules = [
+            nix-flatpak.homeManagerModules.nix-flatpak
           ];
         };
 
@@ -148,6 +149,7 @@
           extraHomeModules = [
             ags.homeManagerModules.default
             spicetify.homeManagerModules.default
+            nix-flatpak.homeManagerModules.nix-flatpak
           ];
         };
 
@@ -165,6 +167,7 @@
           extraHomeModules = [
             ags.homeManagerModules.default
             spicetify.homeManagerModules.default
+            nix-flatpak.homeManagerModules.nix-flatpak
           ];
           monitors = [
             "eDP-1,1920x1200@60,0x0"
@@ -197,6 +200,7 @@
           extraHomeModules = [
             ags.homeManagerModules.default
             spicetify.homeManagerModules.default
+            nix-flatpak.homeManagerModules.nix-flatpak
           ];
           monitors = [
             "HDMI-A-7,1920x1080@60,960x0"
