@@ -91,9 +91,9 @@
           useAndroidEmulation = true;
           extraModules = [
             nixos-wsl.nixosModules.wsl
+            nix-flatpak.nixosModules.nix-flatpak
           ];
           extraHomeModules = [
-            nix-flatpak.homeManagerModules.nix-flatpak
           ];
         };
 
@@ -113,10 +113,10 @@
             ./modules/ly
             ./modules/steam
             stylix.nixosModules.stylix
+            nix-flatpak.nixosModules.nix-flatpak
           ];
           extraHomeModules = [
             ags.homeManagerModules.default
-            nix-flatpak.homeManagerModules.nix-flatpak
             spicetify.homeManagerModules.default
           ];
           monitors = [
@@ -149,7 +149,6 @@
           extraHomeModules = [
             ags.homeManagerModules.default
             spicetify.homeManagerModules.default
-            nix-flatpak.homeManagerModules.nix-flatpak
           ];
         };
 
@@ -167,7 +166,6 @@
           extraHomeModules = [
             ags.homeManagerModules.default
             spicetify.homeManagerModules.default
-            nix-flatpak.homeManagerModules.nix-flatpak
           ];
           monitors = [
             "eDP-1,1920x1200@60,0x0"
@@ -200,7 +198,6 @@
           extraHomeModules = [
             ags.homeManagerModules.default
             spicetify.homeManagerModules.default
-            nix-flatpak.homeManagerModules.nix-flatpak
           ];
           monitors = [
             "HDMI-A-7,1920x1080@60,960x0"

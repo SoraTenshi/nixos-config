@@ -14,7 +14,6 @@ in {
     "development"
     "discord"
     "dunst"
-    "flatpak"
     "fuzzel"
     "ghostty"
     "gtk-theme"

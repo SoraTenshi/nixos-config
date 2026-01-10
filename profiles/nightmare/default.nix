@@ -8,7 +8,6 @@ in {
     "cli-tools"
     "ghostty"
     "development"
-    "flatpak"
     # "lazygit"
     "spotify-player"
     "jj"

@@ -1,4 +1,8 @@
-_: {
+{ pkgs, username, ... }: {
+  # flatpak stuff
+  xdg.systemDirs.data = [ "/home/${username}/.local/share/flatpak/exports/share" ];
+
+  home.packages = [ pkgs.flatpak ];
   services.flatpak = {
     enable = true;
     remotes = [
@@ -11,6 +15,10 @@ _: {
         location = "https://flathub.org/beta-repo/flathub-beta.flatpakrepo";
       }
     ];
+    update = {
+      auto.enable = true;
+      onActivation = true;
+    };
     packages = [
       "app.zen_browser.zen"
     ];

@@ -1,4 +1,4 @@
-_: {
+{ username, ... }: {
   imports = [ ./hyprland ./river ];
 
   environment.variables = { WEBKIT_DISABLE_COMPOSITING_MODE = 1; };

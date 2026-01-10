@@ -31,9 +31,9 @@ in lib.nixosSystem {
       nixpkgs.config.allowUnfree = true;
     }
 
-    ../modules/boot
     ../modules/cachix
     ../modules/common
+    ../modules/flatpak
     ../modules/font
     ../modules/ssh
     ../modules/time
@@ -53,12 +53,13 @@ in lib.nixosSystem {
     # only for hardware
     # no WSL as an example
   ] ++ (if isHardwareMachine then [
-    (if useStylix then ../modules/stylix else {})
+    ../modules/boot
     # ../modules/x11
     ../modules/wayland
     ../modules/sound
     # ../modules/mullvad
     ../modules/qmk
+    (if useStylix then ../modules/stylix else {})
 
     # End the scope, and add an additional list of the extra modules
   ] else
