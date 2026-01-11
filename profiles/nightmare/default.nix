@@ -5,6 +5,8 @@ in {
   xdg.enable = true;
 
   imports = asPath [
+    "stylix"
+
     "cli-tools"
     "ghostty"
     "development"

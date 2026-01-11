@@ -1,6 +1,6 @@
 { pkgs, isHardwareMachine, ... }:
 let
-  portal = (if isHardwareMachine then pkgs.xdg-desktop-portal-hyprland else pkgs.xdg-desktop-portal-xapp);
+  portal = (if isHardwareMachine then pkgs.xdg-desktop-portal-hyprland else pkgs.xdg-desktop-portal);
 in
 {
   xdg.portal = {

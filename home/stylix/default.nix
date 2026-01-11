@@ -4,7 +4,7 @@ let
     base00 = "202037";
     base01 = "2a2947";
     base02 = "33325d";
-    base03 = "4a5073";
+    base03 = "545d8a";
     base04 = "565f89";
     base05 = "a0b7eb";
     base06 = "8bbaf3";
@@ -32,8 +32,8 @@ in {
         package = pkgs.nerd-fonts.lilex;
       };
     };
-    enable = false;
-    autoEnable = false;
+    enable = true;
+    autoEnable = true;
     base16Scheme = stylix-color;
     cursor = {
       name = cursorName;
@@ -46,7 +46,7 @@ in {
         colorTheme.enable = true;
       };
       gtk.enable = false;
-      fzf.enable = (!useTokyoNight);
+      fzf.enable = false;
       helix.enable = false;
       emacs.enable = false;
       kitty.enable = false;

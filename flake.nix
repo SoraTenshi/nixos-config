@@ -94,6 +94,7 @@
             nix-flatpak.nixosModules.nix-flatpak
           ];
           extraHomeModules = [
+            stylix.homeModules.default
           ];
         };
 
@@ -118,6 +119,7 @@
           extraHomeModules = [
             ags.homeManagerModules.default
             spicetify.homeManagerModules.default
+            stylix.homeModules.default
           ];
           monitors = [
             "DP-3,1920x1080@165,0x1080"
@@ -149,6 +151,7 @@
           extraHomeModules = [
             ags.homeManagerModules.default
             spicetify.homeManagerModules.default
+            stylix.homeModules.default
           ];
         };
 
@@ -166,6 +169,7 @@
           extraHomeModules = [
             ags.homeManagerModules.default
             spicetify.homeManagerModules.default
+            stylix.homeModules.default
           ];
           monitors = [
             "eDP-1,1920x1200@60,0x0"
@@ -198,6 +202,7 @@
           extraHomeModules = [
             ags.homeManagerModules.default
             spicetify.homeManagerModules.default
+            stylix.homeModules.default
           ];
           monitors = [
             "HDMI-A-7,1920x1080@60,960x0"
