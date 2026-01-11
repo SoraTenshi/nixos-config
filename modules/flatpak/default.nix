@@ -1,8 +1,13 @@
-{ pkgs, username, ... }: {
-  # flatpak stuff
-  xdg.systemDirs.data = [ "/home/${username}/.local/share/flatpak/exports/share" ];
-
-  home.packages = [ pkgs.flatpak ];
+{ pkgs, isHardwareMachine, ... }:
+let
+  portal = (if isHardwareMachine then pkgs.xdg-desktop-portal-hyprland else pkgs.xdg-desktop-portal-xapp);
+in
+{
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ portal ];
+  };
+  environment.systemPackages = [ pkgs.flatpak ];
   services.flatpak = {
     enable = true;
     remotes = [

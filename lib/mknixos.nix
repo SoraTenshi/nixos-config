@@ -21,9 +21,9 @@ let
 in lib.nixosSystem {
   inherit system;
   specialArgs = if isHardwareMachine then {
-    inherit inputs isVM username useTokyoNight useSecureBoot useDualBoot;
+    inherit inputs isVM username useTokyoNight useSecureBoot useDualBoot isHardwareMachine;
   } else {
-    inherit username isVM useTokyoNight;
+    inherit username isVM useTokyoNight isHardwareMachine;
   };
   modules = [
     {
