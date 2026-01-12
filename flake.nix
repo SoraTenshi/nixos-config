@@ -147,6 +147,7 @@
             ./modules/steam
             nixos-hardware.nixosModules.lenovo-thinkpad-t470s
             stylix.nixosModules.stylix
+            nix-flatpak.nixosModules.nix-flatpak
           ];
           extraHomeModules = [
             ags.homeManagerModules.default
@@ -165,6 +166,7 @@
           extraModules = [
             ./modules/ly
             stylix.nixosModules.stylix
+            nix-flatpak.nixosModules.nix-flatpak
           ];
           extraHomeModules = [
             ags.homeManagerModules.default
@@ -198,6 +200,7 @@
             ./modules/steam
             ./modules/ly
             stylix.nixosModules.stylix
+            nix-flatpak.nixosModules.nix-flatpak
           ];
           extraHomeModules = [
             ags.homeManagerModules.default
