@@ -14,8 +14,8 @@ let
     str
 
     # required for cl-lsp
-    qlot
-    qlot-cli
+    # qlot
+    # qlot-cli
   ]);
 in
 {

@@ -16,7 +16,7 @@ in {
     "fuzzel"
     "ghostty"
     "gtk-theme"
-    "guix"
+    # "guix"
     "input-leap"
     "jj"
     "kitty"

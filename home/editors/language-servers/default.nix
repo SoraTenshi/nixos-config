@@ -24,7 +24,9 @@
     nodePackages.yaml-language-server # YAML / JSON
 
     luajitPackages.lua-lsp # Lua
-  ] ++ (if system == "x86_64-linux" then [ols] else []); # Odin!
+  ] ++ (if system == "x86_64-linux" then [
+    #ols
+  ] else []); # Odin!
 
   # xdg.configFile."zls.json".text = builtins.toJSON {
   #   "$schema" =

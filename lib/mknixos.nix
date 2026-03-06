@@ -15,6 +15,15 @@ let
       material-symbols = prev.callPackage ../derivations/material-symbols { };
       shutdown-script-ros = prev.callPackage ../derivations/shutdown-script { };
       lem-sdl2 = inputs.lem.packages.${system}.lem-sdl2;
+      roswell = prev.roswell.overrideAttrs (old: {
+        version = "26.02.116";
+        src = prev.fetchFromGitHub {
+          owner = "roswell";
+          repo = "roswell";
+          rev = "v26.02.116";
+          hash = "sha256-saKCLr1Nmzl+zcPbYSXt7o82hh6vYhACCfUUzEs/31E=";
+        };
+      });
     })
   ];
   inherit (nixpkgs) lib;
