@@ -34,7 +34,7 @@ in
     pkgs.qemu
 
     # Nixfmt
-    pkgs.nixfmt-classic
+    pkgs.nixfmt
 
     # R stuff (graphing)
     pkgs.R

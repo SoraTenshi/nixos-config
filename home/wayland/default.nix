@@ -1,7 +1,21 @@
-{ username, ... }: {
+{ pkgs, ... }: {
   imports = [ ./hyprland ./river ];
 
-  environment.variables = { WEBKIT_DISABLE_COMPOSITING_MODE = 1; };
+  home.packages = [
+    pkgs.xdg-desktop-portal-cosmic
+    pkgs.xdg-desktop-portal-hyprland
+  ];
+
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    config = {
+      cosmic.default = [ "cosmic" "gtk" "*" ];
+      common.default = [ "gtk" ];
+      hyprland.default = [ "gtk" "hyprland" ];
+    };
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-cosmic ];
+  };
 
   xdg.mimeApps = {
     enable = true;

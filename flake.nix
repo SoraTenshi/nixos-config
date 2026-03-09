@@ -205,7 +205,6 @@
           extraHomeModules = [
             ags.homeManagerModules.default
             spicetify.homeManagerModules.default
-            stylix.homeModules.default
           ];
           monitors = [
             "HDMI-A-7,1920x1080@60,960x0"

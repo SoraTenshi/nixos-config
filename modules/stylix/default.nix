@@ -4,7 +4,7 @@ let
     base00 = "202037";
     base01 = "2a2947";
     base02 = "33325d";
-    base03 = "4a5073";
+    base03 = "545d8a";
     base04 = "565f89";
     base05 = "a0b7eb";
     base06 = "8bbaf3";
@@ -24,7 +24,7 @@ let
 in
 {
   stylix = {
-    enable = false;
+    enable = true;
     autoEnable = true;
     polarity = "dark";
     base16Scheme = stylix-color;
@@ -32,10 +32,6 @@ in
     opacity = {
       terminal = 0.9;
       popups = 0.8;
-    };
-    targets = {
-      plymouth.enable = false;
-      grub.enable = false;
     };
   };
 }

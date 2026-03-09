@@ -1,15 +1,16 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 {
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
 
     config = {
-      common.default = [ "gtk" ];
+      cosmic.default = [ "cosmic" "gtk" "*" ];
+      common.default = [ "cosmic" "gtk" "*" ];
       hyprland.default = [ "gtk" "hyprland" ];
     };
 
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [ pkgs.xdg-desktop-portal-cosmic pkgs.xdg-desktop-portal-gtk ];
   };
 
   security.pam.services = { waylock = { unixAuth = true; }; };
@@ -26,9 +27,15 @@
     xwayland
 
     waylock
+    xdg-desktop-portal-cosmic
   ];
 
-  # lol?
+  environment.cosmic.excludePackages = [
+      pkgs.cosmic-term
+      pkgs.cosmic-edit
+      pkgs.cosmic-player
+  ];
+
   services.desktopManager.cosmic = {
     enable = true;
     xwayland.enable = true;
