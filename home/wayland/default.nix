@@ -14,7 +14,7 @@
       common.default = [ "gtk" ];
       hyprland.default = [ "gtk" "hyprland" ];
     };
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-cosmic ];
+    extraPortals = [ pkgs.xdg-desktop-portal-cosmic pkgs.xdg-desktop-portal-gtk ];
   };
 
   xdg.mimeApps = {

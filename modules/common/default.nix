@@ -16,7 +16,16 @@
     flake = "/home/${username}/dev/nixos-config";
   };
 
+  documentation = {
+    man = {
+      man-db.enable = false;
+      mandoc.enable = true;
+    };
+    dev.enable = true;
+  };
+
   environment.systemPackages = with pkgs; [
+    man-pages man-pages-posix
     # phone
     libimobiledevice
     ifuse

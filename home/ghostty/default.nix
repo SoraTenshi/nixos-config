@@ -5,7 +5,7 @@ _:
     enableZshIntegration = true;
 
     settings = {
-      background-opacity = 0.8;
+      background-opacity = 0.98;
       background-blur = true;
 
       # because fuck blinking bars. they are obnoxious

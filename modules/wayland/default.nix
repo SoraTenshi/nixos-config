@@ -27,7 +27,6 @@
     xwayland
 
     waylock
-    xdg-desktop-portal-cosmic
   ];
 
   environment.cosmic.excludePackages = [

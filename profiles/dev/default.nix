@@ -27,6 +27,7 @@ in {
     # "spotify"
     "spotify-player"
     "user-apps"
+    "wayland"
     "weechat"
     "work-specific"
 
@@ -34,6 +35,5 @@ in {
     "editors/helix"
     "shells/schemesh"
     "shells/zsh"
-    "wayland/hyprland"
   ];
 }

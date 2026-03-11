@@ -14,17 +14,13 @@ let
 in
 {
   imports = [ ./common-lisp.nix ];
+
   home.packages = defaultSet ++ (if system == "x86_64-linux" then [
     # debugger
     pkgs.gdb
 
-    # git
-    pkgs.gitu
-
     pkgs.odin
-
     pkgs.clang
-
     pkgs.lazydocker
 
     # cmake
