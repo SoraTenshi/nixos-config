@@ -35,6 +35,7 @@
     bat
     fzf
     ripgrep
+    silver-searcher
     uutils-coreutils
     perf
   ];

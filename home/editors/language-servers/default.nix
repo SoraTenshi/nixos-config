@@ -13,17 +13,9 @@
     nil # Nix
     # rust-analyzer # Rust
     texlab # LaTeX
-    zls # Zig
+    # zls # Zig
     elixir-ls # Elixir
     clojure-lsp # Clojure
-
-    haskellPackages.haskell-language-server # Haskell
-
-    nodePackages.typescript-language-server # Typescript
-    nodePackages.vim-language-server # Vim
-    nodePackages.yaml-language-server # YAML / JSON
-
-    luajitPackages.lua-lsp # Lua
   ] ++ (if system == "x86_64-linux" then [
     #ols
   ] else []); # Odin!

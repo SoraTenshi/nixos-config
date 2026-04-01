@@ -11,6 +11,9 @@ let
     # i have to write something with python :(
     pkgs.python3Minimal pkgs.hy
   ];
+  vibeCodeShit = [
+    pkgs.codex
+  ];
 in
 {
   imports = [ ./common-lisp.nix ];
@@ -41,5 +44,5 @@ in
 
     # benching
     pkgs.poop pkgs.hyperfine
-  ] else []);
+  ] else []) ++ vibeCodeShit;
 }

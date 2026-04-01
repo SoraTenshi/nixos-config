@@ -20,6 +20,9 @@
     };
     kernelModules = [ "kvm-intel" "wireguard" ];
     extraModulePackages = [ ];
+    kernelParams = [
+      "usbcore.autosuspend=-1"
+    ];
   };
 
   hardware = {
