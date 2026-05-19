@@ -34,9 +34,7 @@
     zoxide
     bat
     fzf
-    ripgrep
-    silver-searcher
-    uutils-coreutils
+    ugrep
     perf
   ];
 }

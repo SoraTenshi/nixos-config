@@ -9,7 +9,7 @@ let
     ls = if isLinux then "lsr -A" else "eza --icons --grid";
     cd = "z";
     termbin = "nc termbin.com 9999";
-    grep = "rg";
+    grep = "ug";
     lg = "lazygit";
     dgr = "lazydocker";
     du = "du --human-readable";
@@ -22,7 +22,7 @@ in {
     htop
     bottom
     (if isLinux then pkgs.lsr else pkgs.eza)
-    ripgrep
+    ugrep
     gh
     jq
     gh-dash
