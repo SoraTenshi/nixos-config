@@ -9,7 +9,5 @@
     nheko
     mpv
     inputs.zen-browser.packages."${system}".default
-
-    bitwarden-desktop
   ] ++ (if useChromium then [brave] else []);
 }

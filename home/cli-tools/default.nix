@@ -11,7 +11,5 @@
     tmate
     unzip
     tailspin
-  ] ++ (if system == "x86_64-linux" then with pkgs; [
-      bitwarden-cli
-  ] else []);
+  ];
 }
