@@ -16,7 +16,6 @@ in {
     "pwn"
     "weechat"
 
-    "editors/helix-steel"
     "editors/helix"
     "shells/zsh"
     "shells/schemesh"

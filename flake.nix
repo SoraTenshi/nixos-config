@@ -10,8 +10,6 @@
     stylix.url = "github:danth/stylix";
     nur.url = "github:nix-community/NUR";
 
-    ags.url = "github:aylur/ags/v1";
-
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
 
@@ -32,20 +30,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    helix-master = {
-      url = "github:SoraTenshi/helix/new-daily-driver-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    helix-steel = {
-      url = "github:mattwparas/helix/steel-event-system";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    zls-master = {
-      url = "github:zigtools/zls";
-    };
-
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     };
@@ -58,22 +42,11 @@
     binary-ninja = {
       url = "github:jchv/nix-binary-ninja";
     };
-
-    ags-env = {
-      url = "github:SoraTenshi/ags-env";
-      flake = false;
-    };
-
-    lem = {
-      url = "github:lem-project/lem";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs @ { self, nixpkgs-nixos, nixpkgs, nur, home-manager, nixos-hardware
-    , zls-master , helix-master, nixos-wsl, darwin, stylix, ags, ags-env
-    , nix-flatpak, hyprland, zen-browser, binary-ninja
-    , ghostty, spicetify, helix-steel, lem, }:
+    , nixos-wsl, darwin, stylix, nix-flatpak
+    , hyprland, zen-browser, binary-ninja , ghostty, spicetify, }:
     let
       mkDarwin = import ./lib/mkdarwin.nix;
       mkNixOS = import ./lib/mknixos.nix;
@@ -117,7 +90,6 @@
             nix-flatpak.nixosModules.nix-flatpak
           ];
           extraHomeModules = [
-            ags.homeManagerModules.default
             spicetify.homeManagerModules.default
             stylix.homeModules.default
           ];
@@ -150,74 +122,8 @@
             nix-flatpak.nixosModules.nix-flatpak
           ];
           extraHomeModules = [
-            ags.homeManagerModules.default
             spicetify.homeManagerModules.default
             stylix.homeModules.default
-          ];
-        };
-
-        loqius = mkNixOS "loqius" {
-          inherit inputs overlays;
-          nixpkgs = nixpkgs-nixos;
-          system = "x86_64-linux";
-          username = "dev";
-          useAndroidEmulation = true;
-          useTokyoNight = false;
-          extraModules = [
-            ./modules/ly
-            stylix.nixosModules.stylix
-            nix-flatpak.nixosModules.nix-flatpak
-          ];
-          extraHomeModules = [
-            ags.homeManagerModules.default
-            spicetify.homeManagerModules.default
-            stylix.homeModules.default
-          ];
-          monitors = [
-            "eDP-1,1920x1200@60,0x0"
-            "HDMI-A-1,1920x1080@120,1920x0"
-            "DP-1,1920x1080@75,3840x0"
-          ];
-          autostart = [
-            "[workspace 1 silent] ghostty"
-            "[workspace 2 silent] firefox"
-            "[workspace 9 silent] keepassxc"
-            "[workspace 4 silent] thunderbird"
-            "[workspace 5 silent] mumble"
-            "[workspace 6 silent] zen"
-          ];
-        };
-
-        vocatius = mkNixOS "vocatius" {
-          inherit inputs overlays;
-          nixpkgs = nixpkgs-nixos;
-          system = "x86_64-linux";
-          username = "dev";
-          useChromium = true;
-          useAndroidEmulation = true;
-          useTokyoNight = false;
-          extraModules = [
-            ./modules/steam
-            ./modules/ly
-            stylix.nixosModules.stylix
-            nix-flatpak.nixosModules.nix-flatpak
-          ];
-          extraHomeModules = [
-            ags.homeManagerModules.default
-            spicetify.homeManagerModules.default
-          ];
-          monitors = [
-            "HDMI-A-7,1920x1080@60,960x0"
-            "DP-4,1920x1080@165,0x1080"
-            "DP-5,1920x1080@60,1920x1080"
-          ];
-          autostart = [
-            "[workspace 1 silent] ghostty"
-            "[workspace 2 silent] firefox"
-            "[workspace 9 silent] keepassxc"
-            "[workspace 4 silent] thunderbird"
-            "[workspace 5 silent] mumble"
-            "[workspace 6 silent] zen"
           ];
         };
       };

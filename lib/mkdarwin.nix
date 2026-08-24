@@ -7,7 +7,6 @@ let
   systemSpecificOverlays = [
     (final: prev: {
       zls = inputs.zls-master.packages.${system}.default;
-      helix = inputs.helix-master.packages.${system}.default;
     })
   ];
 in inputs.darwin.lib.darwinSystem {
