@@ -4,7 +4,7 @@ let
     pkgs.zig
     pkgs.rustup
     pkgs.go
-    pkgs.elixir
+    pkgs.beamPackages.elixir
 
     # Python, sadly i am too annoyed by
     # creating a nix shell all the time

@@ -6,6 +6,7 @@ in
   xdg.portal = {
     enable = true;
     extraPortals = [ portal ];
+    config.common.default = "*";
   };
   environment.systemPackages = [ pkgs.flatpak ];
   services.flatpak = {

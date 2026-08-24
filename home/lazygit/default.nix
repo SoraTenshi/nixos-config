@@ -6,7 +6,7 @@
         language =
           "en"; # i often use JP locale, but yeah, i am not yet fully able to read most kanji :')
         nerdFontsVersion = "3";
-        border = if pkgs.stdenvNoCC.isDarwin then "rounded" else "single";
+        border = if pkgs.stdenvNoCC.hostPlatform.isDarwin then "rounded" else "single";
         showBottomLine = false;
       };
     };

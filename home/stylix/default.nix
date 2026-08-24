@@ -26,6 +26,7 @@ let
   cursorSize = 32;
 in {
   stylix = {
+    overlays.enable = false;
     fonts = {
       monospace = {
         name = "Lilex Nerd Font Mono";
