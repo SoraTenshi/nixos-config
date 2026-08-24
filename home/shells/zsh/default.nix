@@ -17,7 +17,7 @@ let
     mksym = "ln -sf";
   };
 in {
-  home.packages = with pkgs; [
+  home.packages = with pkgs.pkgsStatic; [
     # Shell utils
     htop
     bottom
@@ -51,13 +51,18 @@ in {
         "--layout=default"
       ];
     };
-    zoxide.enable = true;
+    zoxide = {
+      enable = true;
+      package = pkgs.pkgsStatic.zoxide;
+    };
     bat = {
       enable = true;
+      package = pkgs.pkgsStatic.bat;
     };
     oh-my-posh = {
       enable = true;
       enableZshIntegration = true;
+      package = pkgs.pkgsStatic.oh-my-posh;
       settings = builtins.fromJSON (builtins.unsafeDiscardStringContext
         (builtins.readFile
           (if useTokyoNight then

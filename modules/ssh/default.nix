@@ -4,6 +4,7 @@
   virtualisation.docker = {
     enable = true;
     enableOnBoot = false;
+    package = pkgs.pkgsStatic.docker;
   };
 
   services.openssh.enable = true;

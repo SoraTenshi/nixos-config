@@ -43,6 +43,6 @@ in
     pkgs.openssl pkgs.pkg-config
 
     # benching
-    pkgs.poop pkgs.hyperfine
+    pkgs.pkgsStatic.poop pkgs.pkgsStatic.hyperfine
   ] else []) ++ vibeCodeShit;
 }
